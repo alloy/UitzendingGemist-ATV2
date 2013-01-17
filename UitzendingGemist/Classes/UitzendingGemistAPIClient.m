@@ -34,46 +34,51 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
     return self;
 }
 
-- (void)acceptCookies;
+- (void)getPath:(NSString *)path
+     parameters:(NSDictionary *)parameters
+        success:(UZGSuccessBlock)success
+        failure:(UZGFailureBlock)failure;
 {
-  NSLog(@"START ACCEPT COOKIES PROCESS!");
-  NSURL *URL = [NSURL URLWithString:kUitzendingGemistAPICookiesAcceptURLString];
-  NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-
-  UZGSuccessBlock success = ^(AFHTTPRequestOperation *acceptOperation, id data) {
-    NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-    for (NSHTTPCookie *cookie in cookies) {
-      NSLog(@"COOKIE: %@", cookie);
+  // Check if we need to go through a cookie acceptance flow. Stupid cookie law...
+  UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, id data) {
+    NSString *host = operation.response.URL.host;
+    if ([host isEqualToString:kUitzendingGemistAPICookiesHost]) {
+      [self acceptCookiesWithSuccess:success failure:failure];
+    } else {
+      success(operation, data);
     }
   };
+  [super getPath:path
+      parameters:parameters
+         success:successWrapper
+         failure:failure];
+}
 
-  UZGFailureBlock failure = ^(AFHTTPRequestOperation *_ , NSError *error) {
-    NSLog(@"ERROR: %@", error);
-  };
-
+- (void)acceptCookiesWithSuccess:(UZGSuccessBlock)success
+                         failure:(UZGFailureBlock)failure;
+{
+  NSLog(@"-------------------------------------------------------------------");
+  NSLog(@"[!] START ACCEPT COOKIES PROCESS!");
+  NSLog(@"-------------------------------------------------------------------");
+  NSURL *URL = [NSURL URLWithString:kUitzendingGemistAPICookiesAcceptURLString];
+  NSURLRequest *request = [NSURLRequest requestWithURL:URL];
   [self enqueueHTTPRequestOperation:[self HTTPRequestOperationWithRequest:request
                                                                   success:success
                                                                   failure:failure]];
 }
 
-- (void)episodesOfShowAtPath:(NSString *)showPath page:(NSUInteger)pageNumber;
+- (void)episodesOfShowAtPath:(NSString *)showPath
+                        page:(NSUInteger)pageNumber;
+                     //success:(UZGSuccessBlock)success
+                     //failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
   [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *html) {
-    // NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:html encoding:NSUTF8StringEncoding]);
-    //NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-    //for (NSHTTPCookie *cookie in cookies) {
-      //NSLog(@"COOKIE: %@", cookie);
-    //}
-
-    NSString *host = operation.response.URL.host;
-    NSLog(@"HOST: %@", host);
-    if ([host isEqualToString:kUitzendingGemistAPICookiesHost]) {
-      // Need to go through cookie acceptance flow. Stupid cookie law...
-      [self acceptCookies];
+    NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:html encoding:NSUTF8StringEncoding]);
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *cookie in cookies) {
+      NSLog(@"COOKIE: %@", cookie);
     }
-
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"ERROR: %@", error);
   }];
