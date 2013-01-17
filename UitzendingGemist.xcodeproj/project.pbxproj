@@ -1,298 +1,728 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		5108FBC216A87F140020589D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC116A87F140020589D /* UIKit.framework */; };
-		5108FBC416A87F140020589D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
-		5108FBC616A87F140020589D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
-		5108FBC916A87F140020589D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBC816A87F140020589D /* Podfile */; };
-		5108FBCF16A87F140020589D /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */; };
-		5108FBD316A87F140020589D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBD116A87F140020589D /* InfoPlist.strings */; };
-		5108FBD516A87F140020589D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBD416A87F140020589D /* main.m */; };
-		5108FBD816A87F140020589D /* UZGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBD716A87F140020589D /* UZGAppDelegate.m */; };
-		5108FBDA16A87F140020589D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBD916A87F140020589D /* Default.png */; };
-		5108FBDC16A87F140020589D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDB16A87F140020589D /* Default@2x.png */; };
-		5108FBDE16A87F140020589D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDD16A87F140020589D /* Default-568h@2x.png */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		5108FBBD16A87F140020589D /* UitzendingGemist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UitzendingGemist.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5108FBC116A87F140020589D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5108FBC316A87F140020589D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5108FBC816A87F140020589D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
-		5108FBCB16A87F140020589D /* UitzendingGemist-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UitzendingGemist-Prefix.pch"; sourceTree = "<group>"; };
-		5108FBCD16A87F140020589D /* UitzendingGemistAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UitzendingGemistAPIClient.h; path = Classes/UitzendingGemistAPIClient.h; sourceTree = "<group>"; };
-		5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UitzendingGemistAPIClient.m; path = Classes/UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
-		5108FBD016A87F140020589D /* UitzendingGemist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UitzendingGemist-Info.plist"; sourceTree = "<group>"; };
-		5108FBD216A87F140020589D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5108FBD416A87F140020589D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5108FBD616A87F140020589D /* UZGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZGAppDelegate.h; sourceTree = "<group>"; };
-		5108FBD716A87F140020589D /* UZGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZGAppDelegate.m; sourceTree = "<group>"; };
-		5108FBD916A87F140020589D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5108FBDB16A87F140020589D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5108FBDD16A87F140020589D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		5108FBBA16A87F140020589D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5108FBC216A87F140020589D /* UIKit.framework in Frameworks */,
-				5108FBC416A87F140020589D /* Foundation.framework in Frameworks */,
-				5108FBC616A87F140020589D /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		5108FBB216A87F140020589D = {
-			isa = PBXGroup;
-			children = (
-				5108FBC716A87F140020589D /* UitzendingGemist */,
-				5108FBC016A87F140020589D /* Frameworks */,
-				5108FBBE16A87F140020589D /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		5108FBBE16A87F140020589D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBBD16A87F140020589D /* UitzendingGemist.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5108FBC016A87F140020589D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBC116A87F140020589D /* UIKit.framework */,
-				5108FBC316A87F140020589D /* Foundation.framework */,
-				5108FBC516A87F140020589D /* CoreGraphics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5108FBC716A87F140020589D /* UitzendingGemist */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBC816A87F140020589D /* Podfile */,
-				5108FBD616A87F140020589D /* UZGAppDelegate.h */,
-				5108FBD716A87F140020589D /* UZGAppDelegate.m */,
-				5108FBCC16A87F140020589D /* Networking */,
-				5108FBCA16A87F140020589D /* Supporting Files */,
-			);
-			path = UitzendingGemist;
-			sourceTree = "<group>";
-		};
-		5108FBCA16A87F140020589D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBCB16A87F140020589D /* UitzendingGemist-Prefix.pch */,
-				5108FBD016A87F140020589D /* UitzendingGemist-Info.plist */,
-				5108FBD116A87F140020589D /* InfoPlist.strings */,
-				5108FBD416A87F140020589D /* main.m */,
-				5108FBD916A87F140020589D /* Default.png */,
-				5108FBDB16A87F140020589D /* Default@2x.png */,
-				5108FBDD16A87F140020589D /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5108FBCC16A87F140020589D /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBCD16A87F140020589D /* UitzendingGemistAPIClient.h */,
-				5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */,
-			);
-			name = Networking;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		5108FBBC16A87F140020589D /* UitzendingGemist */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist" */;
-			buildPhases = (
-				5108FBB916A87F140020589D /* Sources */,
-				5108FBBA16A87F140020589D /* Frameworks */,
-				5108FBBB16A87F140020589D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UitzendingGemist;
-			productName = UitzendingGemist;
-			productReference = 5108FBBD16A87F140020589D /* UitzendingGemist.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		5108FBB416A87F140020589D /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = UZG;
-				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = SuperAlloy;
-			};
-			buildConfigurationList = 5108FBB716A87F140020589D /* Build configuration list for PBXProject "UitzendingGemist" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 5108FBB216A87F140020589D;
-			productRefGroup = 5108FBBE16A87F140020589D /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				5108FBBC16A87F140020589D /* UitzendingGemist */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		5108FBBB16A87F140020589D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5108FBC916A87F140020589D /* Podfile in Resources */,
-				5108FBD316A87F140020589D /* InfoPlist.strings in Resources */,
-				5108FBDA16A87F140020589D /* Default.png in Resources */,
-				5108FBDC16A87F140020589D /* Default@2x.png in Resources */,
-				5108FBDE16A87F140020589D /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		5108FBB916A87F140020589D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5108FBCF16A87F140020589D /* UitzendingGemistAPIClient.m in Sources */,
-				5108FBD516A87F140020589D /* main.m in Sources */,
-				5108FBD816A87F140020589D /* UZGAppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		5108FBD116A87F140020589D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5108FBD216A87F140020589D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		5108FBDF16A87F140020589D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		5108FBE016A87F140020589D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5108FBE216A87F140020589D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
-				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		5108FBE316A87F140020589D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
-				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		5108FBB716A87F140020589D /* Build configuration list for PBXProject "UitzendingGemist" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5108FBDF16A87F140020589D /* Debug */,
-				5108FBE016A87F140020589D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5108FBE216A87F140020589D /* Debug */,
-				5108FBE316A87F140020589D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 5108FBB416A87F140020589D /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>35AD7A1621304CC5AED3E626</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4E5DF97B55E94BDB8D054A9A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>5108FBB216A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBC716A87F140020589D</string>
+				<string>5108FBC016A87F140020589D</string>
+				<string>5108FBBE16A87F140020589D</string>
+				<string>4E5DF97B55E94BDB8D054A9A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBB416A87F140020589D</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>UZG</string>
+				<key>LastUpgradeCheck</key>
+				<string>0450</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>SuperAlloy</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>5108FBB716A87F140020589D</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>5108FBB216A87F140020589D</string>
+			<key>productRefGroup</key>
+			<string>5108FBBE16A87F140020589D</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>5108FBBC16A87F140020589D</string>
+			</array>
+		</dict>
+		<key>5108FBB716A87F140020589D</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>5108FBDF16A87F140020589D</string>
+				<string>5108FBE016A87F140020589D</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>5108FBB916A87F140020589D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5108FBCF16A87F140020589D</string>
+				<string>5108FBD516A87F140020589D</string>
+				<string>5108FBD816A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5108FBBA16A87F140020589D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5108FBC216A87F140020589D</string>
+				<string>5108FBC416A87F140020589D</string>
+				<string>5108FBC616A87F140020589D</string>
+				<string>BB1EACA1B2FF4611A6C13156</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5108FBBB16A87F140020589D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5108FBC916A87F140020589D</string>
+				<string>5108FBD316A87F140020589D</string>
+				<string>5108FBDA16A87F140020589D</string>
+				<string>5108FBDC16A87F140020589D</string>
+				<string>5108FBDE16A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5108FBBC16A87F140020589D</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>5108FBE116A87F140020589D</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5108FBB916A87F140020589D</string>
+				<string>5108FBBA16A87F140020589D</string>
+				<string>5108FBBB16A87F140020589D</string>
+				<string>C8F2446619884222ACA1A4C7</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>UitzendingGemist</string>
+			<key>productName</key>
+			<string>UitzendingGemist</string>
+			<key>productReference</key>
+			<string>5108FBBD16A87F140020589D</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>5108FBBD16A87F140020589D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>UitzendingGemist.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>5108FBBE16A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBBD16A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBC016A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBC116A87F140020589D</string>
+				<string>5108FBC316A87F140020589D</string>
+				<string>5108FBC516A87F140020589D</string>
+				<string>35AD7A1621304CC5AED3E626</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBC116A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>5108FBC216A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBC116A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBC316A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>5108FBC416A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBC316A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBC516A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>5108FBC616A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBC516A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBC716A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBC816A87F140020589D</string>
+				<string>5108FBD616A87F140020589D</string>
+				<string>5108FBD716A87F140020589D</string>
+				<string>5108FBCC16A87F140020589D</string>
+				<string>5108FBCA16A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>UitzendingGemist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBC816A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBC916A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBC816A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBCA16A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBCB16A87F140020589D</string>
+				<string>5108FBD016A87F140020589D</string>
+				<string>5108FBD116A87F140020589D</string>
+				<string>5108FBD416A87F140020589D</string>
+				<string>5108FBD916A87F140020589D</string>
+				<string>5108FBDB16A87F140020589D</string>
+				<string>5108FBDD16A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBCB16A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UitzendingGemist-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBCC16A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBCD16A87F140020589D</string>
+				<string>5108FBCE16A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Networking</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBCD16A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>UitzendingGemistAPIClient.h</string>
+			<key>path</key>
+			<string>Classes/UitzendingGemistAPIClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBCE16A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UitzendingGemistAPIClient.m</string>
+			<key>path</key>
+			<string>Classes/UitzendingGemistAPIClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBCF16A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBCE16A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBD016A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>UitzendingGemist-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD116A87F140020589D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5108FBD216A87F140020589D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD216A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD316A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBD116A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBD416A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD516A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBD416A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBD616A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UZGAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD716A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UZGAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBD816A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBD716A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBD916A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBDA16A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBD916A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBDB16A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBDC16A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBDB16A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBDD16A87F140020589D</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default-568h@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5108FBDE16A87F140020589D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5108FBDD16A87F140020589D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5108FBDF16A87F140020589D</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>6.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>5108FBE016A87F140020589D</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>6.0</string>
+				<key>OTHER_CFLAGS</key>
+				<string>-DNS_BLOCK_ASSERTIONS=1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>5108FBE116A87F140020589D</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>5108FBE216A87F140020589D</string>
+				<string>5108FBE316A87F140020589D</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>5108FBE216A87F140020589D</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4E5DF97B55E94BDB8D054A9A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>UitzendingGemist/UitzendingGemist-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>UitzendingGemist/UitzendingGemist-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>5108FBE316A87F140020589D</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4E5DF97B55E94BDB8D054A9A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>UitzendingGemist/UitzendingGemist-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>UitzendingGemist/UitzendingGemist-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BB1EACA1B2FF4611A6C13156</key>
+		<dict>
+			<key>fileRef</key>
+			<string>35AD7A1621304CC5AED3E626</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict/>
+		</dict>
+		<key>C8F2446619884222ACA1A4C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>5108FBB416A87F140020589D</string>
+</dict>
+</plist>
