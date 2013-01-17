@@ -3,13 +3,16 @@ PODS:
 - AFHTTPRequestOperationLogger (0.10.0):
   - AFNetworking (>= 0.9.0)
 - AFNetworking (1.1.0)
+- Objective-C-HMTL-Parser (0.0.1)
 
 DEPENDENCIES:
 - AFHTTPRequestOperationLogger
 - AFNetworking
+- Objective-C-HMTL-Parser
 
 SPEC CHECKSUMS:
   AFHTTPRequestOperationLogger: 1d65fa5d905211c8981a11091eae8c98b410eb19
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  Objective-C-HMTL-Parser: 4fca85e186a829cfe8db8e316e9688571ea4dfed
 
 COCOAPODS: 0.16.1

@@ -1,13 +1,12 @@
 #import "UitzendingGemistAPIClient.h"
-#import "AFHTTPRequestOperation.h"
+#import "HTMLParser.h"
+
 
 static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl/";
 static NSString * const kUitzendingGemistAPICookiesHost = @"cookies.publiekeomroep.nl";
 static NSString * const kUitzendingGemistAPICookiesAcceptURLString = @"http://cookies.publiekeomroep.nl/accept/";
 static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25";
 
-typedef void (^UZGSuccessBlock)(AFHTTPRequestOperation *, id);
-typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
 
 @implementation UitzendingGemistAPIClient
 
@@ -34,6 +33,7 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
     return self;
 }
 
+// TODO check if cookie exists, if not start flow immediately.
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters
         success:(UZGSuccessBlock)success
@@ -68,20 +68,39 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
 }
 
 - (void)episodesOfShowAtPath:(NSString *)showPath
-                        page:(NSUInteger)pageNumber;
-                     //success:(UZGSuccessBlock)success
-                     //failure:(UZGFailureBlock)failure;
+                        page:(NSUInteger)pageNumber
+                     success:(UZGSuccessBlock)success
+                     failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
-  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *html) {
-    NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:html encoding:NSUTF8StringEncoding]);
-    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-    for (NSHTTPCookie *cookie in cookies) {
-      NSLog(@"COOKIE: %@", cookie);
+  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
+    //NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:html encoding:NSUTF8StringEncoding]);
+    //NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    //for (NSHTTPCookie *cookie in cookies) {
+      //NSLog(@"COOKIE: %@", cookie);
+    //}
+
+    NSError *parseError = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
+
+    if (parseError) {
+      failure(operation, parseError);
+    } else {
+      // TODO:
+      // * collect pagination info
+      // * collect thumbnail url
+      // * collect datetime metadata
+      HTMLNode *bodyNode = [parser body];
+      NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
+      NSMutableArray *episodes = [NSMutableArray new];
+      for (HTMLNode *epNode in epNodes) {
+        HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
+        [episodes addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
+      }
+      // NSLog(@"%@", episodes);
+      success(operation, episodes);
     }
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"ERROR: %@", error);
-  }];
+  } failure:failure];
 }
 
 @end

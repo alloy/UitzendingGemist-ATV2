@@ -30,7 +30,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 
-    [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:@"programmas/2237-wie-is-de-mol" page:1];
+    [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:@"programmas/2237-wie-is-de-mol"
+                                                              page:1
+                                                           success:^(id _, id episodes) {
+                                                                     NSLog(@"%@", episodes);
+                                                                   }
+                                                           failure:^(id _, NSError *error) {
+                                                                     NSLog(@"ERROR: %@", error);
+                                                                   }];
     
     UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
