@@ -7,8 +7,10 @@
 //
 
 #import "UZGAppDelegate.h"
+#import "UitzendingGemistAPIClient.h"
 
 #import "AFNetworkActivityIndicatorManager.h"
+#import "AFHTTPRequestOperationLogger.h"
 
 @implementation UZGAppDelegate
 
@@ -21,10 +23,14 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+
+    [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:@"programmas/2237-wie-is-de-mol" page:1];
     
     UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];

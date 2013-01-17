@@ -4,4 +4,6 @@
 
 + (UitzendingGemistAPIClient *)sharedClient;
 
+- (void)episodesOfShowAtPath:(NSString *)showPath page:(NSUInteger)pageNumber;
+
 @end
