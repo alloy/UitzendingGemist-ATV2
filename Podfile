@@ -1,6 +1,6 @@
 platform :ios, "5.1"
 
-link_with 'Gemist', 'Gemist-Sim'
+link_with ['Gemist', 'Gemist-Sim']
 
 pod "AFNetworking"
 pod "AFHTTPRequestOperationLogger"
