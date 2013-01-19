@@ -7,70 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5108FBC216A87F140020589D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC116A87F140020589D /* UIKit.framework */; };
-		5108FBC416A87F140020589D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
-		5108FBC616A87F140020589D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
-		5108FBC916A87F140020589D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBC816A87F140020589D /* Podfile */; };
-		5108FBCF16A87F140020589D /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */; };
-		5108FBD316A87F140020589D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBD116A87F140020589D /* InfoPlist.strings */; };
-		5108FBD516A87F140020589D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBD416A87F140020589D /* main.m */; };
-		5108FBD816A87F140020589D /* UZGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5108FBD716A87F140020589D /* UZGAppDelegate.m */; };
-		5108FBDA16A87F140020589D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBD916A87F140020589D /* Default.png */; };
-		5108FBDC16A87F140020589D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDB16A87F140020589D /* Default@2x.png */; };
-		5108FBDE16A87F140020589D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDD16A87F140020589D /* Default-568h@2x.png */; };
-		511901FD16AA225E006E7359 /* UZGAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511901FC16AA225E006E7359 /* UZGAppliance.m */; };
-		5119040016AAEC79006E7359 /* BRApplianceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903ED16AAEC79006E7359 /* BRApplianceCategory.m */; };
-		5119040116AAEC79006E7359 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
 		5167275416AB3B7D000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
 		5167275516AB3B7D000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
 		5167275716AB3B7D000C7E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167275616AB3B7D000C7E17 /* QuartzCore.framework */; };
-		5167275D16AB3B7D000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167275C16AB3B7D000C7E17 /* GemistAppliance.m */; };
-		BB1EACA1B2FF4611A6C13156 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD7A1621304CC5AED3E626 /* libPods.a */; };
+		5167277016AB3D03000C7E17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC116A87F140020589D /* UIKit.framework */; };
+		5167277116AB3D03000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
+		5167277216AB3D03000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
+		5167277816AB3D03000C7E17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5167277616AB3D03000C7E17 /* InfoPlist.strings */; };
+		5167277A16AB3D03000C7E17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167277916AB3D03000C7E17 /* main.m */; };
+		5167277E16AB3D03000C7E17 /* UZGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167277D16AB3D03000C7E17 /* UZGAppDelegate.m */; };
+		5167278016AB3D03000C7E17 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167277F16AB3D03000C7E17 /* Default.png */; };
+		5167278216AB3D03000C7E17 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167278116AB3D03000C7E17 /* Default@2x.png */; };
+		5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167278316AB3D03000C7E17 /* Default-568h@2x.png */; };
+		5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903ED16AAEC79006E7359 /* BRApplianceCategory.m */; };
+		5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
+		5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
+		5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35AD7A1621304CC5AED3E626 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5DF97B55E94BDB8D054A9A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		5108FBBD16A87F140020589D /* UitzendingGemist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = UitzendingGemist.app; path = "UitzendingGemist-Simulator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5108FBC116A87F140020589D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5108FBC316A87F140020589D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5108FBC816A87F140020589D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
-		5108FBCB16A87F140020589D /* UitzendingGemist-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UitzendingGemist-Prefix.pch"; sourceTree = "<group>"; };
-		5108FBCD16A87F140020589D /* UitzendingGemistAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UitzendingGemistAPIClient.h; path = Classes/UitzendingGemistAPIClient.h; sourceTree = "<group>"; };
-		5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UitzendingGemistAPIClient.m; path = Classes/UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
-		5108FBD016A87F140020589D /* UitzendingGemist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UitzendingGemist-Info.plist"; sourceTree = "<group>"; };
-		5108FBD216A87F140020589D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5108FBD416A87F140020589D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5108FBD616A87F140020589D /* UZGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZGAppDelegate.h; sourceTree = "<group>"; };
-		5108FBD716A87F140020589D /* UZGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZGAppDelegate.m; sourceTree = "<group>"; };
-		5108FBD916A87F140020589D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5108FBDB16A87F140020589D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5108FBDD16A87F140020589D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		511901FB16AA225E006E7359 /* UZGAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZGAppliance.h; path = Classes/UZGAppliance.h; sourceTree = "<group>"; };
-		511901FC16AA225E006E7359 /* UZGAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZGAppliance.m; path = Classes/UZGAppliance.m; sourceTree = "<group>"; };
 		511903ED16AAEC79006E7359 /* BRApplianceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRApplianceCategory.m; sourceTree = "<group>"; };
 		511903EE16AAEC79006E7359 /* BRBaseAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseAppliance.m; sourceTree = "<group>"; };
 		5167275316AB3B7D000C7E17 /* Gemist.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gemist.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		5167275616AB3B7D000C7E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5167275A16AB3B7D000C7E17 /* Gemist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gemist-Info.plist"; sourceTree = "<group>"; };
-		5167275B16AB3B7D000C7E17 /* GemistAppliance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GemistAppliance.h; sourceTree = "<group>"; };
-		5167275C16AB3B7D000C7E17 /* GemistAppliance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GemistAppliance.m; sourceTree = "<group>"; };
 		5167275E16AB3B7D000C7E17 /* Gemist-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gemist-Prefix.pch"; sourceTree = "<group>"; };
+		5167276E16AB3D02000C7E17 /* Gemist-Sim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gemist-Sim.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5167277516AB3D03000C7E17 /* Gemist-Sim-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gemist-Sim-Info.plist"; sourceTree = "<group>"; };
+		5167277716AB3D03000C7E17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5167277916AB3D03000C7E17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5167277B16AB3D03000C7E17 /* Gemist-Sim-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gemist-Sim-Prefix.pch"; sourceTree = "<group>"; };
+		5167277C16AB3D03000C7E17 /* UZGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UZGAppDelegate.h; sourceTree = "<group>"; };
+		5167277D16AB3D03000C7E17 /* UZGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UZGAppDelegate.m; sourceTree = "<group>"; };
+		5167277F16AB3D03000C7E17 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5167278116AB3D03000C7E17 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5167278316AB3D03000C7E17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5167278E16AB4064000C7E17 /* GemistAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAppliance.h; sourceTree = "<group>"; };
+		5167278F16AB4064000C7E17 /* GemistAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAppliance.m; sourceTree = "<group>"; };
+		5167279116AB4064000C7E17 /* GemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAPIClient.h; sourceTree = "<group>"; };
+		5167279216AB4064000C7E17 /* GemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5108FBBA16A87F140020589D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5108FBC216A87F140020589D /* UIKit.framework in Frameworks */,
-				5108FBC416A87F140020589D /* Foundation.framework in Frameworks */,
-				5108FBC616A87F140020589D /* CoreGraphics.framework in Frameworks */,
-				BB1EACA1B2FF4611A6C13156 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5167274F16AB3B7D000C7E17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +64,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5167276B16AB3D02000C7E17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5167277016AB3D03000C7E17 /* UIKit.framework in Frameworks */,
+				5167277116AB3D03000C7E17 /* Foundation.framework in Frameworks */,
+				5167277216AB3D03000C7E17 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				5119020416AAEC78006E7359 /* BackRow */,
-				5108FBC716A87F140020589D /* UitzendingGemist */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
+				5167277316AB3D03000C7E17 /* Gemist-Sim */,
 				5108FBC016A87F140020589D /* Frameworks */,
 				5108FBBE16A87F140020589D /* Products */,
 				4E5DF97B55E94BDB8D054A9A /* Pods.xcconfig */,
@@ -99,8 +92,8 @@
 		5108FBBE16A87F140020589D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5108FBBD16A87F140020589D /* UitzendingGemist.app */,
 				5167275316AB3B7D000C7E17 /* Gemist.frappliance */,
+				5167276E16AB3D02000C7E17 /* Gemist-Sim.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,43 +108,6 @@
 				5167275616AB3B7D000C7E17 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5108FBC716A87F140020589D /* UitzendingGemist */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBC816A87F140020589D /* Podfile */,
-				5108FBD616A87F140020589D /* UZGAppDelegate.h */,
-				5108FBD716A87F140020589D /* UZGAppDelegate.m */,
-				5108FBCC16A87F140020589D /* Networking */,
-				5108FBCA16A87F140020589D /* Supporting Files */,
-				511901FB16AA225E006E7359 /* UZGAppliance.h */,
-				511901FC16AA225E006E7359 /* UZGAppliance.m */,
-			);
-			path = UitzendingGemist;
-			sourceTree = "<group>";
-		};
-		5108FBCA16A87F140020589D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBCB16A87F140020589D /* UitzendingGemist-Prefix.pch */,
-				5108FBD016A87F140020589D /* UitzendingGemist-Info.plist */,
-				5108FBD116A87F140020589D /* InfoPlist.strings */,
-				5108FBD416A87F140020589D /* main.m */,
-				5108FBD916A87F140020589D /* Default.png */,
-				5108FBDB16A87F140020589D /* Default@2x.png */,
-				5108FBDD16A87F140020589D /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5108FBCC16A87F140020589D /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				5108FBCD16A87F140020589D /* UitzendingGemistAPIClient.h */,
-				5108FBCE16A87F140020589D /* UitzendingGemistAPIClient.m */,
-			);
-			name = Networking;
 			sourceTree = "<group>";
 		};
 		5119020416AAEC78006E7359 /* BackRow */ = {
@@ -182,8 +138,7 @@
 		5167275816AB3B7D000C7E17 /* Gemist */ = {
 			isa = PBXGroup;
 			children = (
-				5167275B16AB3B7D000C7E17 /* GemistAppliance.h */,
-				5167275C16AB3B7D000C7E17 /* GemistAppliance.m */,
+				5167278C16AB4064000C7E17 /* App */,
 				5167275916AB3B7D000C7E17 /* Supporting Files */,
 			);
 			path = Gemist;
@@ -198,27 +153,60 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5167277316AB3D03000C7E17 /* Gemist-Sim */ = {
+			isa = PBXGroup;
+			children = (
+				5167277C16AB3D03000C7E17 /* UZGAppDelegate.h */,
+				5167277D16AB3D03000C7E17 /* UZGAppDelegate.m */,
+				5167277416AB3D03000C7E17 /* Supporting Files */,
+			);
+			path = "Gemist-Sim";
+			sourceTree = "<group>";
+		};
+		5167277416AB3D03000C7E17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5167277516AB3D03000C7E17 /* Gemist-Sim-Info.plist */,
+				5167277616AB3D03000C7E17 /* InfoPlist.strings */,
+				5167277916AB3D03000C7E17 /* main.m */,
+				5167277B16AB3D03000C7E17 /* Gemist-Sim-Prefix.pch */,
+				5167277F16AB3D03000C7E17 /* Default.png */,
+				5167278116AB3D03000C7E17 /* Default@2x.png */,
+				5167278316AB3D03000C7E17 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5167278C16AB4064000C7E17 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5167278D16AB4064000C7E17 /* Controllers */,
+				5167279016AB4064000C7E17 /* Models */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5167278D16AB4064000C7E17 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5167278E16AB4064000C7E17 /* GemistAppliance.h */,
+				5167278F16AB4064000C7E17 /* GemistAppliance.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5167279016AB4064000C7E17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5167279116AB4064000C7E17 /* GemistAPIClient.h */,
+				5167279216AB4064000C7E17 /* GemistAPIClient.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5108FBBC16A87F140020589D /* UitzendingGemist-Simulator */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist-Simulator" */;
-			buildPhases = (
-				5108FBB916A87F140020589D /* Sources */,
-				5108FBBA16A87F140020589D /* Frameworks */,
-				5108FBBB16A87F140020589D /* Resources */,
-				C8F2446619884222ACA1A4C7 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "UitzendingGemist-Simulator";
-			productName = UitzendingGemist;
-			productReference = 5108FBBD16A87F140020589D /* UitzendingGemist.app */;
-			productType = "com.apple.product-type.application";
-		};
 		5167275216AB3B7D000C7E17 /* Gemist */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5167276116AB3B7D000C7E17 /* Build configuration list for PBXNativeTarget "Gemist" */;
@@ -236,6 +224,23 @@
 			productName = Gemist;
 			productReference = 5167275316AB3B7D000C7E17 /* Gemist.frappliance */;
 			productType = "com.apple.product-type.bundle";
+		};
+		5167276D16AB3D02000C7E17 /* Gemist-Sim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5167278716AB3D03000C7E17 /* Build configuration list for PBXNativeTarget "Gemist-Sim" */;
+			buildPhases = (
+				5167276A16AB3D02000C7E17 /* Sources */,
+				5167276B16AB3D02000C7E17 /* Frameworks */,
+				5167276C16AB3D02000C7E17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gemist-Sim";
+			productName = "Gemist-Sim";
+			productReference = 5167276E16AB3D02000C7E17 /* Gemist-Sim.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -259,29 +264,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5108FBBC16A87F140020589D /* UitzendingGemist-Simulator */,
 				5167275216AB3B7D000C7E17 /* Gemist */,
+				5167276D16AB3D02000C7E17 /* Gemist-Sim */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5108FBBB16A87F140020589D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5108FBC916A87F140020589D /* Podfile in Resources */,
-				5108FBD316A87F140020589D /* InfoPlist.strings in Resources */,
-				5108FBDA16A87F140020589D /* Default.png in Resources */,
-				5108FBDC16A87F140020589D /* Default@2x.png in Resources */,
-				5108FBDE16A87F140020589D /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5167275016AB3B7D000C7E17 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5167276C16AB3D02000C7E17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5167277816AB3D03000C7E17 /* InfoPlist.strings in Resources */,
+				5167278016AB3D03000C7E17 /* Default.png in Resources */,
+				5167278216AB3D03000C7E17 /* Default@2x.png in Resources */,
+				5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,51 +305,36 @@
 			shellPath = /bin/sh;
 			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\ntar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}\n\nmv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz\n\ncd ${PROJECT_DIR}\n\nscp ${EXECUTABLE_FOLDER_PATH}.tar.gz \"${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz\"\n\nssh ${ATV_SSH_USER}@${ATV_ADDRESS} \"cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV\"";
 		};
-		C8F2446619884222ACA1A4C7 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5108FBB916A87F140020589D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5119040016AAEC79006E7359 /* BRApplianceCategory.m in Sources */,
-				5119040116AAEC79006E7359 /* BRBaseAppliance.m in Sources */,
-				5108FBCF16A87F140020589D /* UitzendingGemistAPIClient.m in Sources */,
-				5108FBD516A87F140020589D /* main.m in Sources */,
-				5108FBD816A87F140020589D /* UZGAppDelegate.m in Sources */,
-				511901FD16AA225E006E7359 /* UZGAppliance.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5167274E16AB3B7D000C7E17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5167275D16AB3B7D000C7E17 /* GemistAppliance.m in Sources */,
+				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5167276A16AB3D02000C7E17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */,
+				5167277A16AB3D03000C7E17 /* main.m in Sources */,
+				5167277E16AB3D03000C7E17 /* UZGAppDelegate.m in Sources */,
+				5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */,
+				5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5108FBD116A87F140020589D /* InfoPlist.strings */ = {
+		5167277616AB3D03000C7E17 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5108FBD216A87F140020589D /* en */,
+				5167277716AB3D03000C7E17 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -398,38 +387,6 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5108FBE216A87F140020589D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E5DF97B55E94BDB8D054A9A /* Pods.xcconfig */;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/BackRow/Simulator/include\"",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		5108FBE316A87F140020589D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E5DF97B55E94BDB8D054A9A /* Pods.xcconfig */;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/BackRow/Simulator/include\"",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -507,6 +464,40 @@
 			};
 			name = Release;
 		};
+		5167278516AB3D03000C7E17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Gemist-Sim/Gemist-Sim-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gemist-Sim/Gemist-Sim-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5167278616AB3D03000C7E17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Gemist-Sim/Gemist-Sim-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gemist-Sim/Gemist-Sim-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,20 +510,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist-Simulator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5108FBE216A87F140020589D /* Debug */,
-				5108FBE316A87F140020589D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5167276116AB3B7D000C7E17 /* Build configuration list for PBXNativeTarget "Gemist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5167275F16AB3B7D000C7E17 /* Debug */,
 				5167276016AB3B7D000C7E17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5167278716AB3D03000C7E17 /* Build configuration list for PBXNativeTarget "Gemist-Sim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5167278516AB3D03000C7E17 /* Debug */,
+				5167278616AB3D03000C7E17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

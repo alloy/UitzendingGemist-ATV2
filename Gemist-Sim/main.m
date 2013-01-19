@@ -1,8 +1,8 @@
 //
 //  main.m
-//  UitzendingGemist
+//  Gemist-Sim
 //
-//  Created by Eloy Durán on 1/17/13.
+//  Created by Eloy Durán on 1/19/13.
 //  Copyright (c) 2013 SuperAlloy. All rights reserved.
 //
 
