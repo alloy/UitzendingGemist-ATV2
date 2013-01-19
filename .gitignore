@@ -1,4 +1,7 @@
+.*.sw?
 DerivedData
 xcuserdata
 Pods/Documentation
 .rbenv-version
+
+Gemist.frappliance.tar.gz

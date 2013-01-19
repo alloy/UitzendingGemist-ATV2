@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>nl.superalloy.AppleTV.FRAppliance</string>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This template builds an AppleTV 2 Application.</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.iPhoneBase</string>
+		<!--<string>com.kokoabim.iosopendev.debianPackage</string>-->
+	</array>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>ProductType</key>
+			<string>com.apple.product-type.bundle</string>
+			<key>SharedSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_32_BIT)</string>
+				<key>ATV_ADDRESS</key>
+				<string>apple-tv.local</string>
+				<key>ATV_APPLIANCE_INSTALL_PATH</key>
+				<string>/Applications/AppleTV.app/Appliances</string>
+				<key>ATV_SSH_USER</key>
+				<string>root</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_MODEL_TUNING</key>
+				<string></string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>___PACKAGENAME___/___PACKAGENAMEASIDENTIFIER___-Prefix.pch</string>
+				<key>GCC_WARN_ABOUT_MISSING_PROTOTYPES</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>HEADER_SEARCH_PATHS</key>
+				<string>"$(SRCROOT)/BackRow/Device/include"</string>
+				<key>INFOPLIST_FILE</key>
+				<string>___PACKAGENAME___/___PACKAGENAMEASIDENTIFIER___-Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>/Library/Bundles</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.1</string>
+				<key>LINK_WITH_STANDARD_LIBRARIES</key>
+				<string>NO</string>
+				<key>MACH_O_TYPE</key>
+				<string>mh_bundle</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-undefined dynamic_lookup</string>
+				<key>PREBINDING</key>
+				<string>YES</string>
+				<!--<key>PRIVATE_HEADERS_FOLDER_PATH</key>-->
+				<!--<string>"$(PRODUCT_NAME).frappliance/PrivateHeaders"</string>-->
+				<!--<key>PUBLIC_HEADERS_FOLDER_PATH</key>-->
+				<!--<string>"$(PRODUCT_NAME).frappliance/PrivateHeaders"</string>-->
+				<key>PRODUCT_NAME</key>
+				<string>___PACKAGENAME___</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SUPPORTED_PLATFORMS</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>frappliance</string>
+			</dict>
+			<key>Configurations</key>
+			<dict>
+				<key>Debug</key>
+				<dict>
+					<key>GCC_DYNAMIC_NO_PIC</key>
+					<string>NO</string>
+					<key>GCC_ENABLE_FIX_AND_CONTINUE</key>
+					<string>YES</string>
+					<key>GCC_OPTIMIZATION_LEVEL</key>
+					<string>0</string>
+					<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+					<string>5.1</string>
+				</dict>
+				<key>Release</key>
+				<dict>
+					<key>GCC_ENABLE_FIX_AND_CONTINUE</key>
+					<string>NO</string>
+					<key>DEBUG_INFORMATION_FORMAT</key>
+					<string>dwarf-with-dsym</string>
+					<key>ZERO_LINK</key>
+					<string>NO</string>
+					<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+					<string>5.1</string>
+				</dict>
+			</dict>
+			<key>BuildPhases</key>
+			<array>
+				<dict>
+					<key>Class</key>
+					<string>Sources</string>
+				</dict>
+				<dict>
+					<key>Class</key>
+					<string>Frameworks</string>
+				</dict>
+				<dict>
+					<key>Class</key>
+					<string>Resources</string>
+				</dict>
+				<dict>
+					<!--<key>Name</key>-->
+					<!--<string>Install AppleTV Appliance</string>-->
+					<key>ShellScript</key>
+					<string>cd ${CONFIGURATION_BUILD_DIR}
+tar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}
+
+mv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz
+
+cd ${PROJECT_DIR}
+
+scp ${EXECUTABLE_FOLDER_PATH}.tar.gz &quot;${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz&quot;
+
+ssh ${ATV_SSH_USER}@${ATV_ADDRESS} &quot;cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV&quot;</string>
+					<key>ShellPath</key>
+					<string>/bin/sh</string>
+					<key>RunOnlyForDeploymentPostprocessing</key>
+					<false/>
+					<key>Class</key>
+					<string>ShellScript</string>
+				</dict>
+			</array>
+			<key>Frameworks</key>
+			<array>
+				<string>Foundation</string>
+				<string>CoreGraphics</string>
+				<string>QuartzCore</string>
+			</array>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Product Name</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Description</key>
+			<string>Your new product&apos;s name.</string>
+			<key>EmptyReplacement</key>
+			<string>ProductName</string>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>bundleIdentifierPrefix</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Company Identifier</string>
+			<key>Description</key>
+			<string>Your company&apos;s bundle identifier prefix.</string>
+			<key>EmptyReplacement</key>
+			<string>com.yourcompany</string>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>bundleIdentifier</string>
+			<key>Name</key>
+			<string>Bundle Identifier</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Description</key>
+			<string>Your new product&apos;s bundle identifier.</string>
+			<key>Default</key>
+			<string>___VARIABLE_bundleIdentifierPrefix:bundleIdentifier___.___VARIABLE_productName:RFC1034Identifier___</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Nodes</key>
+	<array>
+		<string>___PACKAGENAMEASIDENTIFIER___-Info.plist</string>
+		<string>___PACKAGENAMEASIDENTIFIER___Appliance.h</string>
+		<string>___PACKAGENAMEASIDENTIFIER___Appliance.m</string>
+		<string>___PACKAGENAMEASIDENTIFIER___-Prefix.pch</string>
+		<!--<string>Package/DEBIAN/control:debianControl:section</string>-->
+		<!--<string>Package/DEBIAN/control:debianControl:depends</string>-->
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>___PACKAGENAMEASIDENTIFIER___-Info.plist</key>
+		<dict>
+			<key>Group</key>
+			<string>Supporting Files</string>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___-Info.plist</string>
+			<key>TargetIndices</key>
+			<array/>
+		</dict>
+		<key>___PACKAGENAMEASIDENTIFIER___-Prefix.pch</key>
+		<dict>
+			<key>Group</key>
+			<string>Supporting Files</string>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___-Prefix.pch</string>
+			<key>TargetIndices</key>
+			<array/>
+		</dict>
+		<key>___PACKAGENAMEASIDENTIFIER___Appliance.m</key>
+		<dict>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___Appliance.m</string>
+		</dict>
+		<key>___PACKAGENAMEASIDENTIFIER___Appliance.h</key>
+		<dict>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___Appliance.h</string>
+		</dict>
+		<!--<key>*:debianControl:section</key>-->
+		<!--<string>Section: Addons (Action Menu)</string>-->
+		<!--<key>*:debianControl:depends</key>-->
+		<!--<string>Depends: firmware (&gt;= 5.0),  actionmenu</string>-->
+	</dict>
+</dict>
+</plist>
