@@ -18,9 +18,9 @@
 		5108FBDA16A87F140020589D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBD916A87F140020589D /* Default.png */; };
 		5108FBDC16A87F140020589D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDB16A87F140020589D /* Default@2x.png */; };
 		5108FBDE16A87F140020589D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5108FBDD16A87F140020589D /* Default-568h@2x.png */; };
-		511901FA16AA1CC2006E7359 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511901F916AA1CC2006E7359 /* BRBaseAppliance.m */; };
 		511901FD16AA225E006E7359 /* UZGAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511901FC16AA225E006E7359 /* UZGAppliance.m */; };
-		5119020016AA2BC1006E7359 /* BRApplianceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 511901FF16AA2BC1006E7359 /* BRApplianceCategory.m */; };
+		5119040016AAEC79006E7359 /* BRApplianceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903ED16AAEC79006E7359 /* BRApplianceCategory.m */; };
+		5119040116AAEC79006E7359 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
 		BB1EACA1B2FF4611A6C13156 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD7A1621304CC5AED3E626 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,12 +43,10 @@
 		5108FBD916A87F140020589D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5108FBDB16A87F140020589D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5108FBDD16A87F140020589D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		511901F816AA1CC2006E7359 /* BRBaseAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseAppliance.h; sourceTree = "<group>"; };
-		511901F916AA1CC2006E7359 /* BRBaseAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseAppliance.m; sourceTree = "<group>"; };
 		511901FB16AA225E006E7359 /* UZGAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZGAppliance.h; path = Classes/UZGAppliance.h; sourceTree = "<group>"; };
 		511901FC16AA225E006E7359 /* UZGAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZGAppliance.m; path = Classes/UZGAppliance.m; sourceTree = "<group>"; };
-		511901FE16AA2BC1006E7359 /* BRApplianceCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRApplianceCategory.h; sourceTree = "<group>"; };
-		511901FF16AA2BC1006E7359 /* BRApplianceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRApplianceCategory.m; sourceTree = "<group>"; };
+		511903ED16AAEC79006E7359 /* BRApplianceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRApplianceCategory.m; sourceTree = "<group>"; };
+		511903EE16AAEC79006E7359 /* BRBaseAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseAppliance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,7 @@
 		5108FBB216A87F140020589D = {
 			isa = PBXGroup;
 			children = (
-				511901F316AA183B006E7359 /* BackRow */,
+				5119020416AAEC78006E7359 /* BackRow */,
 				5108FBC716A87F140020589D /* UitzendingGemist */,
 				5108FBC016A87F140020589D /* Frameworks */,
 				5108FBBE16A87F140020589D /* Products */,
@@ -133,15 +131,29 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		511901F316AA183B006E7359 /* BackRow */ = {
+		5119020416AAEC78006E7359 /* BackRow */ = {
 			isa = PBXGroup;
 			children = (
-				511901F816AA1CC2006E7359 /* BRBaseAppliance.h */,
-				511901F916AA1CC2006E7359 /* BRBaseAppliance.m */,
-				511901FE16AA2BC1006E7359 /* BRApplianceCategory.h */,
-				511901FF16AA2BC1006E7359 /* BRApplianceCategory.m */,
+				511903E816AAEC79006E7359 /* Simulator */,
 			);
 			path = BackRow;
+			sourceTree = "<group>";
+		};
+		511903E816AAEC79006E7359 /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				511903EC16AAEC79006E7359 /* src */,
+			);
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		511903EC16AAEC79006E7359 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				511903ED16AAEC79006E7359 /* BRApplianceCategory.m */,
+				511903EE16AAEC79006E7359 /* BRBaseAppliance.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,12 +241,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5119040016AAEC79006E7359 /* BRApplianceCategory.m in Sources */,
+				5119040116AAEC79006E7359 /* BRBaseAppliance.m in Sources */,
 				5108FBCF16A87F140020589D /* UitzendingGemistAPIClient.m in Sources */,
 				5108FBD516A87F140020589D /* main.m in Sources */,
 				5108FBD816A87F140020589D /* UZGAppDelegate.m in Sources */,
-				511901FA16AA1CC2006E7359 /* BRBaseAppliance.m in Sources */,
 				511901FD16AA225E006E7359 /* UZGAppliance.m in Sources */,
-				5119020016AA2BC1006E7359 /* BRApplianceCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +285,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -293,7 +305,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -306,6 +318,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -318,6 +334,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UitzendingGemist/UitzendingGemist-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "UitzendingGemist/UitzendingGemist-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
