@@ -1,0 +1,2 @@
+FRAppliance.xctemplate:
+* Add build setting to compile sources as Objective-C++ (for BackRowExtras.h)

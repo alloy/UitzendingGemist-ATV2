@@ -23,6 +23,15 @@
 		5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
 		5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
 		5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
+		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
+		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
+		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
+		5199A6DD16AB4F5C0057AA02 /* BRTopShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DB16AB4F5C0057AA02 /* BRTopShelfView.m */; };
+		5199A6E116AB52950057AA02 /* BRControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DE16AB52950057AA02 /* BRControl.m */; };
+		5199A6E316AB52950057AA02 /* BRImageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DF16AB52950057AA02 /* BRImageControl.m */; };
+		5199A6E616AB53660057AA02 /* BRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6E516AB53660057AA02 /* BRImage.m */; };
+		5199A6E916AB53810057AA02 /* BRThemeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6E816AB53810057AA02 /* BRThemeInfo.m */; };
+		5199A6EC16AB55360057AA02 /* BRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6EB16AB55350057AA02 /* BRAlertController.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -53,6 +62,15 @@
 		5167279116AB4064000C7E17 /* GemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAPIClient.h; sourceTree = "<group>"; };
 		5167279216AB4064000C7E17 /* GemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAPIClient.m; sourceTree = "<group>"; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
+		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
+		5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = "BRTopShelfView+ProductImage.m"; sourceTree = "<group>"; };
+		5199A6DB16AB4F5C0057AA02 /* BRTopShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTopShelfView.m; sourceTree = "<group>"; };
+		5199A6DE16AB52950057AA02 /* BRControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControl.m; sourceTree = "<group>"; };
+		5199A6DF16AB52950057AA02 /* BRImageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRImageControl.m; sourceTree = "<group>"; };
+		5199A6E516AB53660057AA02 /* BRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRImage.m; sourceTree = "<group>"; };
+		5199A6E816AB53810057AA02 /* BRThemeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRThemeInfo.m; sourceTree = "<group>"; };
+		5199A6EB16AB55350057AA02 /* BRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAlertController.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -119,6 +137,7 @@
 		5119020416AAEC78006E7359 /* BackRow */ = {
 			isa = PBXGroup;
 			children = (
+				5199A6D916AB4E000057AA02 /* Device */,
 				511903E816AAEC79006E7359 /* Simulator */,
 			);
 			path = BackRow;
@@ -137,6 +156,12 @@
 			children = (
 				511903ED16AAEC79006E7359 /* BRApplianceCategory.m */,
 				511903EE16AAEC79006E7359 /* BRBaseAppliance.m */,
+				5199A6DB16AB4F5C0057AA02 /* BRTopShelfView.m */,
+				5199A6DE16AB52950057AA02 /* BRControl.m */,
+				5199A6DF16AB52950057AA02 /* BRImageControl.m */,
+				5199A6E816AB53810057AA02 /* BRThemeInfo.m */,
+				5199A6E516AB53660057AA02 /* BRImage.m */,
+				5199A6EB16AB55350057AA02 /* BRAlertController.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -197,6 +222,8 @@
 			children = (
 				5167278E16AB4064000C7E17 /* GemistAppliance.h */,
 				5167278F16AB4064000C7E17 /* GemistAppliance.m */,
+				5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */,
+				5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +237,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5199A6D516AB4DEC0057AA02 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		5199A6D916AB4E000057AA02 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				5199A6D516AB4DEC0057AA02 /* src */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,8 +263,8 @@
 				5167274E16AB3B7D000C7E17 /* Sources */,
 				5167274F16AB3B7D000C7E17 /* Frameworks */,
 				5167275016AB3B7D000C7E17 /* Resources */,
-				5167275116AB3B7D000C7E17 /* ShellScript */,
 				A95187666B404D67A1813070 /* Copy Pods Resources */,
+				5167275116AB3B7D000C7E17 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -349,6 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
+				5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
+				5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,10 +402,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */,
+				5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
 				5167277A16AB3D03000C7E17 /* main.m in Sources */,
 				5167277E16AB3D03000C7E17 /* UZGAppDelegate.m in Sources */,
 				5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */,
 				5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */,
+				5199A6DD16AB4F5C0057AA02 /* BRTopShelfView.m in Sources */,
+				5199A6E116AB52950057AA02 /* BRControl.m in Sources */,
+				5199A6E316AB52950057AA02 /* BRImageControl.m in Sources */,
+				5199A6E616AB53660057AA02 /* BRImage.m in Sources */,
+				5199A6E916AB53810057AA02 /* BRThemeInfo.m in Sources */,
+				5199A6EC16AB55360057AA02 /* BRAlertController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +489,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -445,7 +498,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/BackRow/Device/include\"",
+					"$(SRCROOT)/BackRow/Device/include/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist/Gemist-Info.plist";
@@ -478,6 +531,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gemist/Gemist-Prefix.pch";
@@ -485,7 +539,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/BackRow/Device/include\"",
+					"$(SRCROOT)/BackRow/Device/include/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist/Gemist-Info.plist";

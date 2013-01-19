@@ -1,15 +1,10 @@
-//
-//  GemistAppliance.h
-//  Gemist
-//
-//  Created by Eloy Durán on 1/19/13.
-//  Copyright (c) 2013 SuperAlloy. All rights reserved.
-//
-
 #import "BackRow.h"
+
+@class UZGTopShelfController;
 
 @interface GemistAppliance : BRBaseAppliance <BRAppliance>
 
-@property (nonatomic, strong) NSArray *applianceCategories;
+@property (nonatomic, retain) UZGTopShelfController *topShelfController;
+@property (nonatomic, retain) NSArray *applianceCategories;
 
 @end
