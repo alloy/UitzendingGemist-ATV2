@@ -159,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5108FBBC16A87F140020589D /* UitzendingGemist */ = {
+		5108FBBC16A87F140020589D /* UitzendingGemist-Simulator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist" */;
+			buildConfigurationList = 5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist-Simulator" */;
 			buildPhases = (
 				5108FBB916A87F140020589D /* Sources */,
 				5108FBBA16A87F140020589D /* Frameworks */,
@@ -172,7 +172,7 @@
 			);
 			dependencies = (
 			);
-			name = UitzendingGemist;
+			name = "UitzendingGemist-Simulator";
 			productName = UitzendingGemist;
 			productReference = 5108FBBD16A87F140020589D /* UitzendingGemist.app */;
 			productType = "com.apple.product-type.application";
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5108FBBC16A87F140020589D /* UitzendingGemist */,
+				5108FBBC16A87F140020589D /* UitzendingGemist-Simulator */,
 			);
 		};
 /* End PBXProject section */
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist" */ = {
+		5108FBE116A87F140020589D /* Build configuration list for PBXNativeTarget "UitzendingGemist-Simulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5108FBE216A87F140020589D /* Debug */,
