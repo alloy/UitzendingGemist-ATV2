@@ -39,6 +39,8 @@
 		5199A6FC16AB60870057AA02 /* UZGShowsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FA16AB60870057AA02 /* UZGShowsListController.m */; };
 		5199A6FF16AB64850057AA02 /* BRListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FE16AB64850057AA02 /* BRListControl.m */; };
 		5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70116AB693F0057AA02 /* BRMenuItem.m */; };
+		5199A70316AB86080057AA02 /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */; };
+		5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -66,8 +68,8 @@
 		5167278316AB3D03000C7E17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5167278E16AB4064000C7E17 /* GemistAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAppliance.h; sourceTree = "<group>"; };
 		5167278F16AB4064000C7E17 /* GemistAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAppliance.m; sourceTree = "<group>"; };
-		5167279116AB4064000C7E17 /* GemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAPIClient.h; sourceTree = "<group>"; };
-		5167279216AB4064000C7E17 /* GemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAPIClient.m; sourceTree = "<group>"; };
+		5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UitzendingGemistAPIClient.h; sourceTree = "<group>"; };
+		5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
 		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
@@ -252,8 +254,8 @@
 		5167279016AB4064000C7E17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5167279116AB4064000C7E17 /* GemistAPIClient.h */,
-				5167279216AB4064000C7E17 /* GemistAPIClient.m */,
+				5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */,
+				5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */,
 				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
 				5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
 				5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */,
@@ -423,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5199A70316AB86080057AA02 /* UitzendingGemistAPIClient.m in Sources */,
 				5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */,
 				5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
 				5167277A16AB3D03000C7E17 /* main.m in Sources */,

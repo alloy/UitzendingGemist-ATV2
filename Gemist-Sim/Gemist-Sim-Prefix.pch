@@ -11,5 +11,9 @@
 #ifdef __OBJC__
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
+  #import <SystemConfiguration/SystemConfiguration.h>
+  // TODO is this supported on ATV?
+  // For now we don't need it anyway, it's for multipart uploads.
+  //#import <MobileCoreServices/MobileCoreServices.h>
   #import "BackRow.h"
 #endif

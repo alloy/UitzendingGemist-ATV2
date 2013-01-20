@@ -1,8 +1,11 @@
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BRMenuItem : NSObject
 
 @property (retain) NSAttributedString *text;
+
+// Private UIKit implementation!
+@property (assign) UITableViewCellAccessoryType accessoryType;
 
 // type:
 // 0 = none

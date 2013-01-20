@@ -34,21 +34,23 @@
   }
 }
 
+- (void)reload;
+{
+  [self.tableView reloadData];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-  if (self.datasource && [self.datasource respondsToSelector:@selector(heightForRow:)]) {
-    return [self.datasource heightForRow:indexPath.row];
-  } else {
-    return tableView.rowHeight;
+  float height = [self.datasource heightForRow:indexPath.row];
+  if (height == 0) {
+    height = tableView.rowHeight;
   }
+  return height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-  if (self.datasource && [self.datasource respondsToSelector:@selector(itemCount)]) {
-    return [self.datasource itemCount];
-  }
-  return 0;
+  return [self.datasource itemCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -58,28 +60,22 @@
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
   }
-  if (self.datasource) {
-    if ([self.datasource respondsToSelector:@selector(titleForRow:)]) {
-      NSString *title = [self.datasource titleForRow:indexPath.row];
-      cell.textLabel.text = title;
-    }
-    if ([self.datasource respondsToSelector:@selector(rowSelectable:)] &&
-          [self.datasource rowSelectable:indexPath.row]) {
-      cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    } else {
-      cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+
+  BRMenuItem *item = [self.datasource itemForRow:indexPath.row];
+  cell.textLabel.attributedText = item.text;
+  cell.accessoryType = item.accessoryType;
+
+  if ([self.datasource rowSelectable:indexPath.row]) {
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+  } else {
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
   }
   return cell;
 }
 
-// TODO is this how it works?
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-  if (self.datasource && [self.datasource respondsToSelector:@selector(itemForRow:)]) {
-    BRMenuItem *item = [self.datasource itemForRow:indexPath.row];
-    NSLog(@"Selected menu item: %@", item.text);
-  }
+  [self.datasource itemSelected:indexPath.row];
 }
 
 @end

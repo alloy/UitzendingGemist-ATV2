@@ -1,30 +1,40 @@
 #import "BRMediaMenuController.h"
 
 @interface BRMediaMenuController ()
-
+@property (retain) UIActivityIndicatorView *spinner;
 @end
 
 @implementation BRMediaMenuController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)dealloc;
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  [_spinner release];
+  [super dealloc];
 }
 
-- (void)viewDidLoad
+- (id)init;
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  if ((self = [super init])) {
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+  }
+  return self;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidLoad;
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super viewDidLoad];
+  [self.view addSubview:self.spinner];
+  self.spinner.center = [self.view convertPoint:self.view.center fromView:self.view];
+}
+
+- (BOOL)showSpinner;
+{
+  return self.spinner.isAnimating;
+}
+
+- (void)setShowSpinner:(BOOL)showSpinner;
+{
+  self.spinner.isAnimating ? [self.spinner stopAnimating] : [self.spinner startAnimating];
 }
 
 @end
