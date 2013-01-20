@@ -1,5 +1,6 @@
 #import "GemistAppliance.h"
 #import "UZGTopShelfController.h"
+#import "UZGShowsListController.h"
 
 static NSString * const kUitzendingGemistName = @"Gemist";
 
@@ -73,60 +74,20 @@ static NSString * const kUitzendingGemistName = @"Gemist";
   return nil;
 }
 
-- (id)controllerForIdentifier:(id)identifier args:(id)args;
+- (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
   NSLog(@"SELECTED: %@", identifier);
+  BRController *controller = nil;
 
-  id controller = [BRAlertController alertOfType:0
-                                          titled:@"BRAlertController"
-                                     primaryText:@"Show"
-                                   secondaryText:identifier];
+  //controller = [BRAlertController alertOfType:0
+                                                     //titled:@"BRAlertController"
+                                                //primaryText:@"Show"
+                                              //secondaryText:identifier];
+
+  controller = [[[UZGShowsListController alloc] initWithTitleInitial:identifier] autorelease];
 
   return controller;
 }
-
-//- (id) controllerForIdentifier:(id)identifier args:(id)args
-//{
-	//id controller	= nil;
-	
-	//if ([identifier isEqualToString:HW_ID]) {
-		//controller 	= [BRAlertController alertOfType:0 
-												//titled:@"BRAlertController" 
-										 //primaryText:@"Hello World" 
-										 //secondaryText:@"Goodbye World"];
-	//}
-	//else if ([identifier isEqualToString:T60_ID]) {
-		//controller	= [[[HelloWorldMainMenu alloc] init] autorelease];
-	//}
-	//else if ([identifier isEqualToString:INPUT_EVENTS_ID]) {
-		//InputEventController* inputController = [[InputEventController alloc] init];
-
-		//[inputController setPrimaryInfoText:@"Input Event Testing"];
-		//[inputController setInitialTextEntryText:@""];
-		//[inputController setShowUserEnteredText:NO];
-		//[inputController setFootnoteText:@"Push some buttons..." withAttributes:nil];
-		
-		//controller = [inputController autorelease];
-	//}
-	//else if ([identifier isEqualToString:VIDEO_ID]) {
-		//[[BRMediaPlayerManager singleton] presentMediaAsset:[[[SampleVideoAsset alloc] init] autorelease] options:nil];
-	//}
-	//else if ([identifier isEqualToString:EAGLCONTROL_ID]) {
-		//EAGLControl* eaglCtrl = [[EAGLControl alloc] init];
-		//[eaglCtrl startAnimation];
-		//controller	= [BRController controllerWithContentControl:eaglCtrl];
-		//[eaglCtrl release];
-	//}
-	//else if ([identifier isEqualToString:TEAPOT_ID]) {
-		//GLGravityView* gravityView = [[GLGravityView alloc] init];
-		//[gravityView startAnimation];
-		
-		//controller = [BRController controllerWithContentControl:gravityView];
-		//[gravityView release];
-	//}
-	
-	//return controller;
-//}
 
 @end
 

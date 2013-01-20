@@ -1,6 +1,6 @@
-#import <UIKit/UIKit.h>
+#import "BRController.h"
 
-@interface BRAlertController : NSObject
+@interface BRAlertController : BRController
 
 // type:
 // 0 = without warning sign

@@ -1,5 +1,6 @@
 #import "BRBaseAppliance.h"
 #import "BRApplianceCategory.h"
+#import "BRController.h"
 
 @interface BRBaseAppliance ()
 
@@ -19,7 +20,7 @@
   return nil;
 }
 
-- (id)controllerForIdentifier:(id)identifier args:(id)args;
+- (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
   return nil;
 }
@@ -86,8 +87,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
   BRApplianceCategory *category = self.applianceCategories[indexPath.row];
-  id controller = [self controllerForIdentifier:category.identifier args:nil];
-  NSLog(@"SELECTED CONTROLLER: %@", controller);
+  BRController *controller = [self controllerForIdentifier:category.identifier args:nil];
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

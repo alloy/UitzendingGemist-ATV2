@@ -32,6 +32,13 @@
 		5199A6E616AB53660057AA02 /* BRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6E516AB53660057AA02 /* BRImage.m */; };
 		5199A6E916AB53810057AA02 /* BRThemeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6E816AB53810057AA02 /* BRThemeInfo.m */; };
 		5199A6EC16AB55360057AA02 /* BRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6EB16AB55350057AA02 /* BRAlertController.m */; };
+		5199A6F216AB5DE00057AA02 /* BRController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6F116AB5DDF0057AA02 /* BRController.m */; };
+		5199A6F516AB5DF90057AA02 /* BRMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6F416AB5DF90057AA02 /* BRMenuController.m */; };
+		5199A6F816AB5E130057AA02 /* BRMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6F716AB5E120057AA02 /* BRMediaMenuController.m */; };
+		5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FA16AB60870057AA02 /* UZGShowsListController.m */; };
+		5199A6FC16AB60870057AA02 /* UZGShowsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FA16AB60870057AA02 /* UZGShowsListController.m */; };
+		5199A6FF16AB64850057AA02 /* BRListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FE16AB64850057AA02 /* BRListControl.m */; };
+		5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70116AB693F0057AA02 /* BRMenuItem.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +78,13 @@
 		5199A6E516AB53660057AA02 /* BRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRImage.m; sourceTree = "<group>"; };
 		5199A6E816AB53810057AA02 /* BRThemeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRThemeInfo.m; sourceTree = "<group>"; };
 		5199A6EB16AB55350057AA02 /* BRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAlertController.m; sourceTree = "<group>"; };
+		5199A6F116AB5DDF0057AA02 /* BRController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRController.m; sourceTree = "<group>"; };
+		5199A6F416AB5DF90057AA02 /* BRMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuController.m; sourceTree = "<group>"; };
+		5199A6F716AB5E120057AA02 /* BRMediaMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaMenuController.m; sourceTree = "<group>"; };
+		5199A6F916AB60870057AA02 /* UZGShowsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGShowsListController.h; sourceTree = "<group>"; };
+		5199A6FA16AB60870057AA02 /* UZGShowsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGShowsListController.m; sourceTree = "<group>"; };
+		5199A6FE16AB64850057AA02 /* BRListControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRListControl.m; sourceTree = "<group>"; };
+		5199A70116AB693F0057AA02 /* BRMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuItem.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +176,11 @@
 				5199A6E816AB53810057AA02 /* BRThemeInfo.m */,
 				5199A6E516AB53660057AA02 /* BRImage.m */,
 				5199A6EB16AB55350057AA02 /* BRAlertController.m */,
+				5199A6F116AB5DDF0057AA02 /* BRController.m */,
+				5199A6F416AB5DF90057AA02 /* BRMenuController.m */,
+				5199A6F716AB5E120057AA02 /* BRMediaMenuController.m */,
+				5199A6FE16AB64850057AA02 /* BRListControl.m */,
+				5199A70116AB693F0057AA02 /* BRMenuItem.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -224,6 +243,8 @@
 				5167278F16AB4064000C7E17 /* GemistAppliance.m */,
 				5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */,
 				5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */,
+				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
+				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -368,7 +389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\ntar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}\n\nmv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz\n\ncd ${PROJECT_DIR}\n\nscp ${EXECUTABLE_FOLDER_PATH}.tar.gz \"${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz\"\n\nssh ${ATV_SSH_USER}@${ATV_ADDRESS} \"cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV\"";
+			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\ntar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}\n\nmv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz\n\ncd ${PROJECT_DIR}\n\n#scp ${EXECUTABLE_FOLDER_PATH}.tar.gz \"${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz\"\n\n#ssh ${ATV_SSH_USER}@${ATV_ADDRESS} \"cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV\"";
 		};
 		A95187666B404D67A1813070 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -394,6 +415,7 @@
 				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
 				5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
 				5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */,
+				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +435,12 @@
 				5199A6E616AB53660057AA02 /* BRImage.m in Sources */,
 				5199A6E916AB53810057AA02 /* BRThemeInfo.m in Sources */,
 				5199A6EC16AB55360057AA02 /* BRAlertController.m in Sources */,
+				5199A6F216AB5DE00057AA02 /* BRController.m in Sources */,
+				5199A6F516AB5DF90057AA02 /* BRMenuController.m in Sources */,
+				5199A6F816AB5E130057AA02 /* BRMediaMenuController.m in Sources */,
+				5199A6FC16AB60870057AA02 /* UZGShowsListController.m in Sources */,
+				5199A6FF16AB64850057AA02 /* BRListControl.m in Sources */,
+				5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
