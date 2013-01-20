@@ -1,13 +1,5 @@
 #import "BRController.h"
-
-@implementation UINavigationController (BRController)
-
-- (void)pushController:(BRController *)controller;
-{
-  [self pushViewController:controller animated:YES];
-}
-
-@end
+#import "BRControllerStack.h"
 
 @interface BRController ()
 
@@ -20,9 +12,9 @@
   self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
 }
 
-- (id)stack;
+- (BRControllerStack *)stack;
 {
-  return self.navigationController;
+  return (BRControllerStack *)self.navigationController;
 }
 
 @end

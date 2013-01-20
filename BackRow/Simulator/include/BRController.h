@@ -1,12 +1,9 @@
 #import <UIKit/UIKit.h>
 
+@class BRControllerStack;
+
 @interface BRController : UIViewController
 
-- (id)stack;
+- (BRControllerStack *)stack;
 
-@end
-
-// Private implementation
-@interface UINavigationController (BRController)
-- (void)pushController:(BRController *)controller;
 @end

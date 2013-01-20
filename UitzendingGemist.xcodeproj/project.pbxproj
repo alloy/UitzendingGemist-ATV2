@@ -43,6 +43,7 @@
 		5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */; };
 		5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
+		5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		5199A70116AB693F0057AA02 /* BRMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuItem.m; sourceTree = "<group>"; };
 		5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodesListController.h; sourceTree = "<group>"; };
 		5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodesListController.m; sourceTree = "<group>"; };
+		5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControllerStack.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 				5199A6F716AB5E120057AA02 /* BRMediaMenuController.m */,
 				5199A6FE16AB64850057AA02 /* BRListControl.m */,
 				5199A70116AB693F0057AA02 /* BRMenuItem.m */,
+				5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				5199A6FF16AB64850057AA02 /* BRListControl.m in Sources */,
 				5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */,
 				5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
+				5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

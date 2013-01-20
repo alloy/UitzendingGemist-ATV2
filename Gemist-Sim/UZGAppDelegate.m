@@ -15,7 +15,7 @@
   self.window.backgroundColor = [UIColor whiteColor];
 
   GemistAppliance *appliance = [GemistAppliance new];
-  self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:appliance];
+  self.window.rootViewController = [[BRControllerStack alloc] initWithRootViewController:appliance];
 
   [self.window makeKeyAndVisible];
   return YES;
