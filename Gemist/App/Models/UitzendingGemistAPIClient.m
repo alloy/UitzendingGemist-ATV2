@@ -132,4 +132,88 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
   } failure:failure];
 }
 
+- (void)episodeMediaAssetForPath:(NSString *)episodePath
+                         success:(UZGSuccessBlock)success
+                         failure:(UZGFailureBlock)failure;
+{
+  [self getPath:episodePath parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
+    NSError *parseError = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
+
+    if (parseError) {
+      failure(operation, parseError);
+    } else {
+      // TODO:
+      // * collect thumbnail url
+      // * collect datetime metadata
+      HTMLNode *headNode = [parser head];
+      NSArray *metaNodes = [headNode findChildTags:@"meta"];
+      for (HTMLNode *metaNode in metaNodes) {
+        if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:video"]) {
+          NSString *swfURL = [metaNode getAttributeNamed:@"content"];
+          NSError *error = nil;
+          // TODO this regex is weak!
+          NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\w+_\\d+"
+                                                                                 options:NSRegularExpressionCaseInsensitive
+                                                                                   error:&error];
+          if (error) {
+            NSLog(@"ERROR: %@", error);
+          }
+          NSRange range = [regex rangeOfFirstMatchInString:swfURL
+                                                   options:NSMatchingReportCompletion
+                                                     range:NSMakeRange(0, [swfURL length])];
+          if (range.location == NSNotFound) {
+            NSLog(@"Unable to find episode ID in string: %@", swfURL);
+          } else {
+            NSString *ID = [swfURL substringWithRange:range];
+            NSLog(@"Parsed episode ID: %@", ID);
+            [self episodePlayerData:ID];
+          }
+          break;
+        }
+      }
+
+      [parser release];
+      // NSLog(@"%@", episodes);
+      success(operation, nil);
+    }
+  } failure:failure];
+}
+
+- (void)episodePlayerData:(NSString *)ID;
+{
+  NSString *path = [NSString stringWithFormat:@"/player/%@", ID];
+  NSLog(@"GET EPISODE DATA: %@", path);
+  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
+    // NSLog(@"\n\n\nGOT DATA:\n\n\n%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+    NSError *parseError = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
+
+    if (parseError) {
+      //failure(operation, parseError);
+      NSLog(@"ERROR: %@", parseError);
+    } else {
+      // TODO:
+      // * collect pagination info
+      // * collect thumbnail url
+      // * collect datetime metadata
+      HTMLNode *bodyNode = [parser body];
+      NSArray *sourceNodes = [bodyNode findChildTags:@"source"];
+      NSMutableArray *sources = [NSMutableArray array];
+      for (HTMLNode *sourceNode in sourceNodes) {
+        NSString *streamPath = [sourceNode getAttributeNamed:@"src"];
+        // NSLog(@"STREAM: %@", streamPath);
+        [sources addObject:streamPath];
+      }
+      [parser release];
+      NSLog(@"%@", sources);
+      // success(operation, nil);
+    }
+
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"ERROR: %@", error);
+  }];
+}
+
 @end

@@ -1,6 +1,7 @@
 #import "GemistAppliance.h"
 #import "UZGTopShelfController.h"
 #import "UZGShowsListController.h"
+#import "AFHTTPRequestOperationLogger.h"
 
 static NSString * const kUitzendingGemistName = @"Gemist";
 
@@ -33,8 +34,8 @@ static NSString * const kUitzendingGemistName = @"Gemist";
                                                  preferredOrder:(float)('Z' + 1)]];
     _applianceCategories = [categories copy];
 
-    //[[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelDebug];
-    //[[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+    // [[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
 
     //NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     //[NSURLCache setSharedURLCache:URLCache];

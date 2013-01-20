@@ -93,6 +93,7 @@
 		5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodesListController.h; sourceTree = "<group>"; };
 		5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodesListController.m; sourceTree = "<group>"; };
 		5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControllerStack.m; sourceTree = "<group>"; };
+		5199A71416AC275E0057AA02 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +126,7 @@
 		5108FBB216A87F140020589D = {
 			isa = PBXGroup;
 			children = (
+				5199A71416AC275E0057AA02 /* WebKit.framework */,
 				5119020416AAEC78006E7359 /* BackRow */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
 				5167277316AB3D03000C7E17 /* Gemist-Sim */,
@@ -531,6 +533,10 @@
 				ATV_APPLIANCE_INSTALL_PATH = /Applications/AppleTV.app/Appliances;
 				ATV_SSH_USER = root;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
@@ -574,6 +580,10 @@
 				ATV_SSH_USER = root;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";

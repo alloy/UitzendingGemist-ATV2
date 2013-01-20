@@ -5,6 +5,7 @@
 #import "BRBaseAppliance.h"
 #import "BRControl.h"
 #import "BRController.h"
+#import "BRControllerStack.h"
 #import "BRImage.h"
 #import "BRImageControl.h"
 #import "BRListControl.h"
