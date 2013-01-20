@@ -17,7 +17,7 @@
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
   if ((self = [super init])) {
-    _shows = [@[@"Wie is de mol?", @"Keuringsdienst van Waarde"] retain];
+    _shows = [@[@"Wie is de mol?", @"Keuringsdienst van Waarde", @"Foo", @"Bar", @"Baz", @"Bla", @"Boe", @"A", @"B", @"C", @"D", @"E", @"F", @"G"] retain];
     _titleInitial = [titleInitial retain];
     self.listTitle = [NSString stringWithFormat:@"Shows: %@", self.titleInitial];
     self.list.datasource = self;
@@ -25,10 +25,10 @@
   return self;
 }
 
-//- (float)heightForRow:(long)row;
-//{
-  //return 100;
-//}
+- (float)heightForRow:(long)row;
+{
+  return 0;
+}
 
 - (long)itemCount;
 {
@@ -43,7 +43,11 @@
 - (id)itemForRow:(long)row;
 {
   NSLog(@"ITEM FOR ROW: %ld", row);
-  return nil;
+  BRMenuItem *item = [BRMenuItem new];
+  item.text = self.shows[row];
+  //[menuItem setText:menuTitle withAttributes:[[BRThemeInfo sharedTheme] menuItemTextAttributes]];
+  [item addAccessoryOfType:row];
+  return item;
 }
 
 - (BOOL)rowSelectable:(long)selectable;
@@ -54,6 +58,7 @@
 - (void)itemSelected:(long)selected;
 {
   NSLog(@"ITEM SELECTED: %ld", selected);
+  self.showSpinner = YES;
 }
 
 //- (BOOL) brEventAction:(BREvent*)event {
