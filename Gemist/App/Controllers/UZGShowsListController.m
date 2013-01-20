@@ -5,6 +5,8 @@
 @interface UZGShowsListController ()
 @property (retain) NSString *titleInitial;
 @property (retain) NSArray *shows;
+
+@property (retain) NSString *realTitle;
 @property (assign) NSUInteger currentPage;
 @property (assign) NSUInteger lastPage;
 @end
@@ -13,7 +15,7 @@
 
 - (void)dealloc;
 {
-  [_titleInitial release];
+  [_realTitle release];
   [_shows release];
   [super dealloc];
 }
@@ -26,7 +28,8 @@
     // _shows = [@[@"Wie is de mol?", @"Keuringsdienst van Waarde", @"Foo", @"Bar", @"Baz", @"Bla", @"Boe", @"A", @"B", @"C", @"D", @"E", @"F", @"G"] retain];
     _shows = [NSArray new];
     _titleInitial = [titleInitial retain];
-    self.listTitle = [NSString stringWithFormat:@"Shows: %@", self.titleInitial];
+    _realTitle = [[NSString stringWithFormat:@"Shows: %@", _titleInitial] retain];
+    self.listTitle = _realTitle;
     self.list.datasource = self;
     [self fetchShows];
   }
@@ -41,23 +44,6 @@
 - (BOOL)showNextPageMenuItem;
 {
   return (self.lastPage != self.currentPage);
-}
-
-#pragma mark - BRMenuListItemProvider
-
-- (float)heightForRow:(long)row;
-{
-  return 0;
-}
-
-- (long)itemCount;
-{
-  NSUInteger count = self.shows.count;
-  if (count == 0) return 0;
-
-  if (self.showPreviousPageMenuItem) count++;
-  if (self.showNextPageMenuItem) count++;
-  return count;
 }
 
 // YES if previous, NO if next
@@ -86,6 +72,33 @@
   }
   *row = r;
   return isPagination;
+}
+
+- (void)reloadData;
+{
+  if (self.lastPage == 0) {
+    self.listTitle = self.realTitle;
+  } else {
+    self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
+  }
+  [self.list reload];
+}
+
+#pragma mark - BRMenuListItemProvider
+
+- (float)heightForRow:(long)row;
+{
+  return 0;
+}
+
+- (long)itemCount;
+{
+  NSUInteger count = self.shows.count;
+  if (count == 0) return 0;
+
+  if (self.showPreviousPageMenuItem) count++;
+  if (self.showNextPageMenuItem) count++;
+  return count;
 }
 
 // TODO no idea what this is for
@@ -119,7 +132,7 @@
   if ([self isPaginationRow:&row previous:&previous]) {
     self.currentPage = self.currentPage + (previous ? -1 : +1);
     self.shows = [NSArray array];
-    [self.list reload];
+    [self reloadData];
     [self fetchShows];
   } else {
     NSDictionary *show = self.shows[row];
@@ -141,7 +154,7 @@
     self.shows = showsAndLastPage[0];
     self.lastPage = [showsAndLastPage[1] unsignedIntegerValue];
     self.showSpinner = NO;
-    [self.list reload];
+    [self reloadData];
   }
                                                           failure:^(id _, NSError *error) {
                                                                     NSLog(@"ERROR: %@", error);
