@@ -21,6 +21,7 @@
     self.listTitle = title;
     _path = [path retain];
     _episodes = [NSArray new];
+    self.list.datasource = self;
     [self fetchEpisodes];
   }
   return self;
