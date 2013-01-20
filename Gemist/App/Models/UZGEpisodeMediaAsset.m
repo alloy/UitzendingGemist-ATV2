@@ -353,7 +353,7 @@
 
 - (id)mediaType {
   NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
-  return [BRMediaType movieTrailer];
+  return [BRMediaType TVShow];
 };
 
 // TODO how do we provide the other streams so the player can be adaptive?
@@ -369,11 +369,12 @@
   return nil;
 }
 
-- (void)registerAsPendingImageProvider:(BRImageLoader*)loader {
+// BRImageLoader *loader
+- (void)registerAsPendingImageProvider:(id)loader {
   NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 }
 
-- (void)loadImage:(BRImageLoader*)loader{ 
+- (void)loadImage:(id)loader{
   NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 }
 

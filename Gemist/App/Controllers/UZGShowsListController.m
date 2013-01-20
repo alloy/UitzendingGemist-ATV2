@@ -80,7 +80,6 @@
                                                             page:1
                                                          success:^(id _, id shows) {
     NSLog(@"%@", shows);
-    NSLog(@"QUEUE: %s", dispatch_queue_get_label(dispatch_get_current_queue()));
     self.shows = shows;
     self.showSpinner = NO;
     [self.list reload];

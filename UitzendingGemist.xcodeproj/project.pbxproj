@@ -25,6 +25,10 @@
 		5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
 		517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
 		517C3DB216AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
+		517C3DB616AC653D00270F3D /* BRBaseMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */; };
+		517C3DB916AC663800270F3D /* BRMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB816AC663800270F3D /* BRMediaType.m */; };
+		517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */; };
+		517C3DBE16AC6A7500270F3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */; };
 		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
@@ -77,6 +81,10 @@
 		5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
 		517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodeMediaAsset.h; sourceTree = "<group>"; };
 		517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodeMediaAsset.m; sourceTree = "<group>"; };
+		517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseMediaAsset.m; sourceTree = "<group>"; };
+		517C3DB816AC663800270F3D /* BRMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaType.m; sourceTree = "<group>"; };
+		517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaPlayerManager.m; sourceTree = "<group>"; };
+		517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
 		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517C3DBE16AC6A7500270F3D /* MediaPlayer.framework in Frameworks */,
 				5167277016AB3D03000C7E17 /* UIKit.framework in Frameworks */,
 				5167277116AB3D03000C7E17 /* Foundation.framework in Frameworks */,
 				5167277216AB3D03000C7E17 /* CoreGraphics.framework in Frameworks */,
@@ -130,6 +139,7 @@
 		5108FBB216A87F140020589D = {
 			isa = PBXGroup;
 			children = (
+				517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */,
 				5199A71416AC275E0057AA02 /* WebKit.framework */,
 				5119020416AAEC78006E7359 /* BackRow */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
@@ -196,6 +206,9 @@
 				5199A6FE16AB64850057AA02 /* BRListControl.m */,
 				5199A70116AB693F0057AA02 /* BRMenuItem.m */,
 				5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */,
+				517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */,
+				517C3DB816AC663800270F3D /* BRMediaType.m */,
+				517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -467,6 +480,9 @@
 				5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */,
 				517C3DB216AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
+				517C3DB616AC653D00270F3D /* BRBaseMediaAsset.m in Sources */,
+				517C3DB916AC663800270F3D /* BRMediaType.m in Sources */,
+				517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

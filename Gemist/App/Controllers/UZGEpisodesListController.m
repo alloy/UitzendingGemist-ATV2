@@ -1,9 +1,9 @@
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
 
-#import "BRURLImageProxy.h"
-#import "BRMediaType.h"
-#import "BRImageLoader.h"
+//#import "BRURLImageProxy.h"
+//#import "BRMediaType.h"
+//#import "BRImageLoader.h"
 
 @interface UZGEpisodesListController ()
 @property (retain) NSString *path;
