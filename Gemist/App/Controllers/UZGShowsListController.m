@@ -40,29 +40,31 @@
   return self.shows.count;
 }
 
+// TODO no idea what this is for
 - (NSString *)titleForRow:(long)row;
 {
-  return self.shows[row];
+  return self.shows[row][@"title"];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
   NSLog(@"ITEM FOR ROW: %ld", row);
   BRMenuItem *item = [BRMenuItem new];
-  item.text = [[[NSAttributedString alloc] initWithString:self.shows[row]] autorelease];
+  item.text = self.shows[row][@"title"];
+  //item.text = [[[NSAttributedString alloc] initWithString:self.shows[row][@"title"]] autorelease];
   //[menuItem setText:menuTitle withAttributes:[[BRThemeInfo sharedTheme] menuItemTextAttributes]];
-  [item addAccessoryOfType:row];
+  [item addAccessoryOfType:1];
   return item;
 }
 
 - (BOOL)rowSelectable:(long)selectable;
 {
-  return NO;
+  return YES;
 }
 
 - (void)itemSelected:(long)selected;
 {
-  NSLog(@"ITEM SELECTED: %ld", selected);
+  NSLog(@"ITEM SELECTED: %@", self.shows[selected]);
 }
 
 - (void)fetchShows;
@@ -70,12 +72,12 @@
   NSLog(@"FETCH SHOWS!");
   self.showSpinner = YES;
 
-  [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:@"programmas/2237-wie-is-de-mol"
+  [[UitzendingGemistAPIClient sharedClient] showsWithTitleInitial:self.titleInitial
                                                             page:1
-                                                         success:^(id _, id episodes) {
-    NSLog(@"%@", episodes);
+                                                         success:^(id _, id shows) {
+    NSLog(@"%@", shows);
     NSLog(@"QUEUE: %s", dispatch_queue_get_label(dispatch_get_current_queue()));
-    self.shows = [episodes valueForKey:@"title"];
+    self.shows = shows;
     self.showSpinner = NO;
     [self.list reload];
   }

@@ -8,6 +8,11 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
 
 + (UitzendingGemistAPIClient *)sharedClient;
 
+- (void)showsWithTitleInitial:(NSString *)titleInitial
+                         page:(NSUInteger)pageNumber
+                      success:(UZGSuccessBlock)success
+                      failure:(UZGFailureBlock)failure;
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGSuccessBlock)success

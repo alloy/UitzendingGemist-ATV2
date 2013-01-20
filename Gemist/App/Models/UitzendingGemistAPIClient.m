@@ -67,6 +67,40 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
                                                                   failure:failure]];
 }
 
+- (void)showsWithTitleInitial:(NSString *)titleInitial
+                         page:(NSUInteger)pageNumber
+                      success:(UZGSuccessBlock)success
+                      failure:(UZGFailureBlock)failure;
+{
+  if ([titleInitial isEqualToString:@"#"]) {
+    titleInitial = @"0-9";
+  } else {
+    titleInitial = [titleInitial lowercaseString];
+  }
+  NSString *path = [NSString stringWithFormat:@"/programmas/%@?page=%d", titleInitial, pageNumber];
+  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
+    NSError *parseError = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
+
+    if (parseError) {
+      failure(operation, parseError);
+    } else {
+      // TODO:
+      // * collect pagination info
+      // * collect thumbnail url
+      // * collect datetime metadata
+      HTMLNode *bodyNode = [parser body];
+      NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
+      NSMutableArray *shows = [NSMutableArray array];
+      for (HTMLNode *anchorNode in showNodes) {
+        [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
+      }
+      [parser release];
+      success(operation, shows);
+    }
+  } failure:failure];
+}
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGSuccessBlock)success
@@ -74,12 +108,6 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
 {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
   [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    //NSLog(@"RESPONSE BODY: %@", [[NSString alloc] initWithData:html encoding:NSUTF8StringEncoding]);
-    //NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
-    //for (NSHTTPCookie *cookie in cookies) {
-      //NSLog(@"COOKIE: %@", cookie);
-    //}
-
     NSError *parseError = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
 
@@ -92,11 +120,12 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
       NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
-      NSMutableArray *episodes = [NSMutableArray new];
+      NSMutableArray *episodes = [NSMutableArray array];
       for (HTMLNode *epNode in epNodes) {
         HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
         [episodes addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
       }
+      [parser release];
       // NSLog(@"%@", episodes);
       success(operation, episodes);
     }

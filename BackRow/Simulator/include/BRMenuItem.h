@@ -13,6 +13,10 @@
 // ...
 // 6 = spinner
 // ...
+// 16 = not seen
+// 17 = partially seen
+// ...
+// 26 = user photo
 - (void)addAccessoryOfType:(int)type;
 
 @end
