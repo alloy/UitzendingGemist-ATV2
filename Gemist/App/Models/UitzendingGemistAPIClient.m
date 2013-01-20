@@ -9,6 +9,22 @@ static NSString * const kUitzendingGemistAPICookiesAcceptURLString = @"http://co
 static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25";
 
 
+static NSInteger
+UZGParseLastPageFromBody(HTMLNode *bodyNode) {
+  HTMLNode *paginationNode = [bodyNode findChildOfClass:@"pagination"];
+  NSArray *nodes = [paginationNode children];
+  NSMutableArray *filteredNodes = [NSMutableArray array];
+  for (HTMLNode *node in nodes) {
+    if (node.nodetype != HTMLTextNode) {
+      [filteredNodes addObject:node];
+    }
+  }
+  HTMLNode *lastPageNode = filteredNodes[filteredNodes.count - 2];
+  NSString *lastPage = [lastPageNode contents];
+  return [lastPage integerValue];
+}
+
+
 @implementation UitzendingGemistAPIClient
 
 + (UitzendingGemistAPIClient *)sharedClient {
@@ -91,13 +107,19 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
       // * collect thumbnail url
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
+
+      // Collect show paths
       NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
       NSMutableArray *shows = [NSMutableArray array];
       for (HTMLNode *anchorNode in showNodes) {
         [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
       }
+
+      // Collect pagination info
+      NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
+
       [parser release];
-      success(operation, shows);
+      success(operation, @[shows, lastPage]);
     }
   } failure:failure];
 }
