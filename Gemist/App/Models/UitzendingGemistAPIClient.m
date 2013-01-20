@@ -138,7 +138,6 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
       failure(operation, parseError);
     } else {
       // TODO:
-      // * collect pagination info
       // * collect thumbnail url
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
@@ -148,9 +147,12 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
         HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
         [episodes addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
       }
+
+      // Collect pagination info
+      NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
+
       [parser release];
-      // NSLog(@"%@", episodes);
-      success(operation, episodes);
+      success(operation, @[episodes, lastPage]);
     }
   } failure:failure];
 }

@@ -19,7 +19,6 @@
   if ((self = [super init])) {
     _titleInitial = [titleInitial retain];
     self.realTitle = [NSString stringWithFormat:@"Shows: %@", _titleInitial];
-    self.list.datasource = self;
   }
   return self;
 }

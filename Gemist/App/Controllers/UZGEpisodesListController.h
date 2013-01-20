@@ -1,6 +1,6 @@
-#import "BackRow.h"
+#import "UZGBaseListController.h"
 
-@interface UZGEpisodesListController : BRMediaMenuController <BRMenuListItemProvider>
+@interface UZGEpisodesListController : UZGBaseListController <BRMenuListItemProvider>
 
 - (id)initWithShowTitle:(NSString *)title path:(NSString *)path;
 
