@@ -1,8 +1,9 @@
 #import "UitzendingGemistAPIClient.h"
+#import "UZGEpisodeMediaAsset.h"
 #import "HTMLParser.h"
 
 
-static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl/";
+static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl";
 static NSString * const kUitzendingGemistAPICookiesHost = @"cookies.publiekeomroep.nl";
 static NSString * const kUitzendingGemistAPICookiesAcceptURLString = @"http://cookies.publiekeomroep.nl/accept/";
 static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25";
@@ -132,9 +133,10 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
   } failure:failure];
 }
 
-- (void)episodeMediaAssetForPath:(NSString *)episodePath
-                         success:(UZGSuccessBlock)success
-                         failure:(UZGFailureBlock)failure;
+// This takes two request, the second one is made from episodeStreamsForID:success:failure:
+- (void)episodeStreamSourcesForPath:(NSString *)episodePath
+                            success:(UZGSuccessBlock)success
+                            failure:(UZGFailureBlock)failure;
 {
   [self getPath:episodePath parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
     NSError *parseError = nil;
@@ -157,7 +159,8 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
                                                                                  options:NSRegularExpressionCaseInsensitive
                                                                                    error:&error];
           if (error) {
-            NSLog(@"ERROR: %@", error);
+            failure(operation, error);
+            break;
           }
           NSRange range = [regex rangeOfFirstMatchInString:swfURL
                                                    options:NSMatchingReportCompletion
@@ -167,35 +170,30 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
           } else {
             NSString *ID = [swfURL substringWithRange:range];
             NSLog(@"Parsed episode ID: %@", ID);
-            [self episodePlayerData:ID];
+            [self episodeStreamsForID:ID success:success failure:failure];
           }
           break;
         }
       }
 
       [parser release];
-      // NSLog(@"%@", episodes);
-      success(operation, nil);
     }
   } failure:failure];
 }
 
-- (void)episodePlayerData:(NSString *)ID;
+- (void)episodeStreamsForID:(NSString *)ID
+                    success:(UZGSuccessBlock)success
+                    failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"/player/%@", ID];
-  NSLog(@"GET EPISODE DATA: %@", path);
   [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    // NSLog(@"\n\n\nGOT DATA:\n\n\n%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
     NSError *parseError = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
 
     if (parseError) {
-      //failure(operation, parseError);
-      NSLog(@"ERROR: %@", parseError);
+      failure(operation, parseError);
     } else {
       // TODO:
-      // * collect pagination info
       // * collect thumbnail url
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
@@ -203,17 +201,16 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
       NSMutableArray *sources = [NSMutableArray array];
       for (HTMLNode *sourceNode in sourceNodes) {
         NSString *streamPath = [sourceNode getAttributeNamed:@"src"];
-        // NSLog(@"STREAM: %@", streamPath);
-        [sources addObject:streamPath];
+        NSURL *sourceURL = [NSURL URLWithString:[kUitzendingGemistAPIBaseURLString stringByAppendingString:streamPath]];
+        [sources addObject:sourceURL];
       }
       [parser release];
-      NSLog(@"%@", sources);
-      // success(operation, nil);
+      NSLog(@"SOURCES: %@", sources);
+      UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithStreamURLs:sources] autorelease];;
+      success(operation, asset);
     }
 
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"ERROR: %@", error);
-  }];
+  } failure:failure];
 }
 
 @end

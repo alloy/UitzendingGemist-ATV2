@@ -1,13 +1,14 @@
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
 
-#import <objc/runtime.h>
+#import "BRURLImageProxy.h"
+#import "BRMediaType.h"
+#import "BRImageLoader.h"
 
 @interface UZGEpisodesListController ()
 @property (retain) NSString *path;
 @property (retain) NSArray *episodes;
 @property (retain) NSDictionary *loadingEpisode;
-//@property (retain) BRWebControl *webControl;
 @end
 
 @implementation UZGEpisodesListController
@@ -17,7 +18,6 @@
   [_path release];
   [_episodes release];
   [_loadingEpisode release];
-//  [_webControl release];
   [super dealloc];
 }
 
@@ -99,93 +99,20 @@
                                                                  }];
 }
 
-- (void)bundleDidLoad:(NSNotification *)n;
-{
-  NSLog(@"%@", n.userInfo);
-}
-
 - (void)loadEpisode;
 {
   NSString *path = self.loadingEpisode[@"path"];
   NSLog(@"FETCH EPISODE: %@", self.loadingEpisode);
 
-  // NSURLRequest *request = [[UitzendingGemistAPIClient sharedClient] requestWithMethod:@"GET" path:path parameters:nil];
-  // NSLog(@"REQUEST: %@, %@", request, request.allHTTPHeaderFields);
-
-  //NSBundle *couchSurferBundle = [NSBundle bundleWithPath:@"/Applications/AppleTV.app/Appliances/CouchSurfer.frappliance"];
-  //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bundleDidLoad:) name:NSBundleDidLoadNotification object:couchSurferBundle];
-  //NSLog(@"BUNDLE: %@", couchSurferBundle);
-  //if ([couchSurferBundle load]) {
-    //NSLog(@"LOADED");
-  //}
-
-  // Class XWebView = NSClassFromString(@"CouchSurferWebView");
-  // id webControl = [NSClassFromString(@"CouchSurferWebView") webControl];
-  // NSLog(@"WebView: %@", XWebView);
-  // BRController *controller = [BRController controllerWithContentControl:];
-
-  //Class XWebView = NSClassFromString(@"WebView");
-  //NSLog(@"WebView: %@, %@", XWebView, [XWebView superclass]);
-
-  // id webView = [[XWebView alloc] init];
-  // id webView = [XWebView performSelector:@selector(alloc)];
-
-  //int i=0;
-  //unsigned int mc = 0;
-  //Method * mlist = class_copyMethodList(object_getClass(webView), &mc);
-  //NSLog(@"%d methods", mc);
-  //for(i=0;i<mc;i++) {
-    //NSLog(@"Method no #%d: %s", i, sel_getName(method_getName(mlist[i])));
-  //}
-
-  // NSMethodSignature *sig = [webView methodSignatureForSelector:@selector(initWithFrame:)];
-  // NSLog(@"%@, arg type: %s", sig, [sig getArgumentTypeAtIndex:2]);
-
-  // [webView _initWithArguments:nil];
-  // [webView initWithFrame:CGRectMake(0, 0, 100, 100)];
-
-  // id webView = [[XWebView performSelector:@selector(alloc)] performSelector:@selector(init)];
-  // NSLog(@"%@", webView);
-  // [webView _openNewWindowWithRequest:request];
-
-  // self.webControl = [BRWebControl control];
-  // NSLog(@"CONTROL: %@", self.webControl);
-  //
-  //self.webControl.delegate = self;
-  //[self.webControl loadRequest:request];
-
-  [[UitzendingGemistAPIClient sharedClient] episodeMediaAssetForPath:path
-                                                             success:^(id _, id episodeMediaAsset) {
-    NSLog(@"%@", episodeMediaAsset);
-    // [[BRMediaPlayerManager singleton] presentMediaAsset:episodeMediaAsset options:nil];
+  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:path
+                                                                success:^(id _, id episodeMediaAsset) {
+    NSLog(@"Media asset URL: %@", [episodeMediaAsset mediaURL]);
+    self.loadingEpisode = nil;
+    [[BRMediaPlayerManager singleton] presentMediaAsset:episodeMediaAsset options:nil];
   }
-                                                            failure:^(id _, NSError *error) {
-                                                                      NSLog(@"ERROR: %@", error);
-                                                                    }];
+                                                                failure:^(id _, NSError *error) {
+                                                                          NSLog(@"ERROR: %@", error);
+                                                                        }];
 }
-
-//- (void)webControl:(id)control didFailLoadWithError:(id)error;
-//{
-  //NSLog(@"WEB CONTROL: %@, FAILED WITH ERROR: %@", control, error);
-//}
-
-//- (void)webControl:(id)control didReceiveTitle:(id)title;
-//{
-  //NSLog(@"WEB CONTROL: %@, DID RECEIVE TITLE: %@", control, title);
-//}
-
-//- (void)webControl:(id)control saveStateToHistoryItem:(id)historyItem;
-//{
-//}
-
-//- (void)webControlDidFinishLoad:(id)webControl;
-//{
-  //NSLog(@"WEB CONTROL DID FINISH LOADING: %@", webControl);
-//}
-
-//- (void)webControlDidStartLoad:(id)webControl;
-//{
-  //NSLog(@"WEB CONTROL DID START LOADING: %@", webControl);
-//}
 
 @end

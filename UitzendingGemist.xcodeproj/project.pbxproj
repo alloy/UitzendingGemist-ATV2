@@ -23,6 +23,8 @@
 		5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
 		5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
 		5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
+		517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
+		517C3DB216AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
 		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
@@ -73,7 +75,9 @@
 		5167278F16AB4064000C7E17 /* GemistAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAppliance.m; sourceTree = "<group>"; };
 		5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UitzendingGemistAPIClient.h; sourceTree = "<group>"; };
 		5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
-		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodeMediaAsset.h; sourceTree = "<group>"; };
+		517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodeMediaAsset.m; sourceTree = "<group>"; };
+		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
 		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
 		5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = "BRTopShelfView+ProductImage.m"; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 			children = (
 				5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */,
 				5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */,
+				517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */,
+				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */,
 				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
+				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +466,7 @@
 				5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */,
 				5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */,
+				517C3DB216AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

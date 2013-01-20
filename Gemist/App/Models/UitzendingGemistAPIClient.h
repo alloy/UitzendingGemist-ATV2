@@ -18,8 +18,8 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
                      success:(UZGSuccessBlock)success
                      failure:(UZGFailureBlock)failure;
 
-- (void)episodeMediaAssetForPath:(NSString *)episodePath
-                         success:(UZGSuccessBlock)success
-                         failure:(UZGFailureBlock)failure;
+- (void)episodeStreamSourcesForPath:(NSString *)episodePath
+                            success:(UZGSuccessBlock)success
+                            failure:(UZGFailureBlock)failure;
 
 @end
