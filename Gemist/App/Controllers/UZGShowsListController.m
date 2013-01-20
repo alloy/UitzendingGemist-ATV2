@@ -1,4 +1,5 @@
 #import "UZGShowsListController.h"
+#import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
 
 @interface UZGShowsListController ()
@@ -64,7 +65,10 @@
 
 - (void)itemSelected:(long)selected;
 {
-  NSLog(@"ITEM SELECTED: %@", self.shows[selected]);
+  NSDictionary *show = self.shows[selected];
+  NSLog(@"ITEM SELECTED: %@", show);
+  UZGEpisodesListController *controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"] path:show[@"path"]] autorelease];
+  [[self stack] pushController:controller];
 }
 
 - (void)fetchShows;
