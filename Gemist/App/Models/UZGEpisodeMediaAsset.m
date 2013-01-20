@@ -1,6 +1,8 @@
 #import "UZGEpisodeMediaAsset.h"
+#import "UZGPlayedList.h"
 
 @interface UZGEpisodeMediaAsset ()
+@property (retain) NSString *path;
 @property (retain) NSArray *streamURLs;
 @end
 
@@ -8,13 +10,15 @@
 
 - (void)dealloc;
 {
+  [_path release];
   [_streamURLs release];
   [super dealloc];
 }
 
-- (id)initWithStreamURLs:(NSArray *)streamURLs;
+- (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
 {
   if ((self = [super init])) {
+    _path = [path retain];
     _streamURLs = [streamURLs copy];
   }
   return self;
@@ -119,33 +123,33 @@
 };
 
 - (BOOL)hasBeenPlayed {
-  return YES;
+  return [[UZGPlayedList sharedList] playedEpisodeForPath:self.path];
 };
 
-- (void)setHasBeenPlayed:(BOOL)fp8 {
-  
+- (void)setHasBeenPlayed:(BOOL)played {
+  [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
 };
 
 - (id)previewURL {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   [super previewURL];
   //NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
   //return [NSURL fileURLWithPath:moviePosterPath];
   return nil;
 };
 - (id)trickPlayURL {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return nil;
 };
 - (id)imageProxy {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return nil;
   //NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
   //return [BRURLImageProxy proxyWithURL:[[NSURL fileURLWithPath:moviePosterPath] absoluteString]];
 };
 
 - (id)imageProxyWithBookMarkTimeInMS:(unsigned int)fp8 {  
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return nil;
   //NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
   //return [BRURLImageProxy proxyWithURL:[[NSURL fileURLWithPath:moviePosterPath] absoluteString]];
@@ -275,14 +279,14 @@
   return 1;
 };
 - (void)willBeDeleted {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 };
 - (void)preparePlaybackContext{
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 };
 
 - (void)cleanUpPlaybackContext {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 };
 
 - (long)parentalControlRatingSystemID {
@@ -352,13 +356,13 @@
 };
 
 - (id)mediaType {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return [BRMediaType TVShow];
 };
 
 // TODO how do we provide the other streams so the player can be adaptive?
 - (id)mediaURL {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   NSURL *highQuality = self.streamURLs[0];
   return [highQuality absoluteString];
 }
@@ -371,11 +375,11 @@
 
 // BRImageLoader *loader
 - (void)registerAsPendingImageProvider:(id)loader {
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 }
 
 - (void)loadImage:(id)loader{
-  NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 }
 
 @end

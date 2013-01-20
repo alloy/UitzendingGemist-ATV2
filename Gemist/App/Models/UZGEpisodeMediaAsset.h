@@ -2,6 +2,8 @@
 
 @interface UZGEpisodeMediaAsset : BRBaseMediaAsset <BRMediaAsset>
 
-- (id)initWithStreamURLs:(NSArray *)streamURLs;
+@property (assign) BOOL hasBeenPlayed;
+
+- (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
 
 @end

@@ -10,5 +10,6 @@
 - (void)fetchListEntries;
 - (void)listEntrySelected:(long)row;
 - (void)fetchedlistEntriesAndLastPage:(NSArray *)listEntriesAndLastPage;
+- (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
 
 @end

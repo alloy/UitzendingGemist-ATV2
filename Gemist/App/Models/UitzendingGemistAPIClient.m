@@ -19,6 +19,9 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
       [filteredNodes addObject:node];
     }
   }
+  if (filteredNodes.count == 0) {
+    return 1;
+  }
   HTMLNode *lastPageNode = filteredNodes[filteredNodes.count - 2];
   NSString *lastPage = [lastPageNode contents];
   return [lastPage integerValue];
@@ -74,9 +77,9 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
 - (void)acceptCookiesWithSuccess:(UZGSuccessBlock)success
                          failure:(UZGFailureBlock)failure;
 {
-  NSLog(@"-------------------------------------------------------------------");
-  NSLog(@"[!] START ACCEPT COOKIES PROCESS!");
-  NSLog(@"-------------------------------------------------------------------");
+  //NSLog(@"-------------------------------------------------------------------");
+  //NSLog(@"[!] START ACCEPT COOKIES PROCESS!");
+  //NSLog(@"-------------------------------------------------------------------");
   NSURL *URL = [NSURL URLWithString:kUitzendingGemistAPICookiesAcceptURLString];
   NSURLRequest *request = [NSURLRequest requestWithURL:URL];
   [self enqueueHTTPRequestOperation:[self HTTPRequestOperationWithRequest:request
@@ -191,10 +194,11 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
                                                      range:NSMakeRange(0, [swfURL length])];
           if (range.location == NSNotFound) {
             NSLog(@"Unable to find episode ID in string: %@", swfURL);
+            failure(operation, nil); // TODO
           } else {
             NSString *ID = [swfURL substringWithRange:range];
-            NSLog(@"Parsed episode ID: %@", ID);
-            [self episodeStreamsForID:ID success:success failure:failure];
+            // NSLog(@"Parsed episode ID: %@", ID);
+            [self episodeStreamsForID:ID episodePath:episodePath success:success failure:failure];
           }
           break;
         }
@@ -206,6 +210,7 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
 }
 
 - (void)episodeStreamsForID:(NSString *)ID
+                episodePath:(NSString *)episodePath
                     success:(UZGSuccessBlock)success
                     failure:(UZGFailureBlock)failure;
 {
@@ -229,8 +234,7 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
         [sources addObject:sourceURL];
       }
       [parser release];
-      NSLog(@"SOURCES: %@", sources);
-      UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithStreamURLs:sources] autorelease];;
+      UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithEpisodePath:episodePath streamURLs:sources] autorelease];;
       success(operation, asset);
     }
 

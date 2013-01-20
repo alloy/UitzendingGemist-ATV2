@@ -31,6 +31,10 @@
 		517C3DBE16AC6A7500270F3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */; };
 		517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
 		517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
+		517C3DC516AC8F4B00270F3D /* UZGPlayedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */; };
+		517C3DC616AC8F4B00270F3D /* UZGPlayedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */; };
+		517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DCD16ACA4D200270F3D /* InfoPlist.strings */; };
+		517C3DD516ACA8BC00270F3D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DD116ACA8BC00270F3D /* AppIcon.png */; };
 		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
@@ -89,6 +93,10 @@
 		517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		517C3DBF16AC827F00270F3D /* UZGBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseListController.h; sourceTree = "<group>"; };
 		517C3DC016AC827F00270F3D /* UZGBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseListController.m; sourceTree = "<group>"; };
+		517C3DC316AC8F4B00270F3D /* UZGPlayedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPlayedList.h; sourceTree = "<group>"; };
+		517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPlayedList.m; sourceTree = "<group>"; };
+		517C3DCC16ACA4D200270F3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		517C3DD116ACA8BC00270F3D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
 		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
@@ -109,7 +117,6 @@
 		5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodesListController.h; sourceTree = "<group>"; };
 		5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodesListController.m; sourceTree = "<group>"; };
 		5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControllerStack.m; sourceTree = "<group>"; };
-		5199A71416AC275E0057AA02 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */,
-				5199A71416AC275E0057AA02 /* WebKit.framework */,
 				5119020416AAEC78006E7359 /* BackRow */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
 				5167277316AB3D03000C7E17 /* Gemist-Sim */,
@@ -220,6 +226,7 @@
 		5167275816AB3B7D000C7E17 /* Gemist */ = {
 			isa = PBXGroup;
 			children = (
+				517C3DCE16ACA8BC00270F3D /* Resources */,
 				5167278C16AB4064000C7E17 /* App */,
 				5167275916AB3B7D000C7E17 /* Supporting Files */,
 			);
@@ -231,6 +238,7 @@
 			children = (
 				5167275A16AB3B7D000C7E17 /* Gemist-Info.plist */,
 				5167275E16AB3B7D000C7E17 /* Gemist-Prefix.pch */,
+				517C3DCD16ACA4D200270F3D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,9 +300,19 @@
 				5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */,
 				517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */,
 				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
+				517C3DC316AC8F4B00270F3D /* UZGPlayedList.h */,
+				517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
+		};
+		517C3DCE16ACA8BC00270F3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				517C3DD116ACA8BC00270F3D /* AppIcon.png */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		5199A6D516AB4DEC0057AA02 /* src */ = {
 			isa = PBXGroup;
@@ -385,6 +403,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */,
+				517C3DD516ACA8BC00270F3D /* AppIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +478,7 @@
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
 				517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */,
+				517C3DC516AC8F4B00270F3D /* UZGPlayedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +512,7 @@
 				517C3DB916AC663800270F3D /* BRMediaType.m in Sources */,
 				517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */,
 				517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */,
+				517C3DC616AC8F4B00270F3D /* UZGPlayedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +523,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				5167277716AB3D03000C7E17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		517C3DCD16ACA4D200270F3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				517C3DCC16ACA4D200270F3D /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

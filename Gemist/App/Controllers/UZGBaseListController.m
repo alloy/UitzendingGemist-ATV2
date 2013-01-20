@@ -43,7 +43,7 @@
 
 - (void)fetchedlistEntriesAndLastPage:(NSArray *)listEntriesAndLastPage;
 {
-  NSLog(@"%@", listEntriesAndLastPage);
+  // NSLog(@"%@", listEntriesAndLastPage);
   self.listEntries = listEntriesAndLastPage[0];
   self.lastPage = [listEntriesAndLastPage[1] unsignedIntegerValue];
   self.showSpinner = NO;

@@ -1,5 +1,6 @@
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
+#import "UZGPlayedList.h"
 
 //#import "BRURLImageProxy.h"
 //#import "BRMediaType.h"
@@ -33,6 +34,20 @@
   return self.loadingEpisode != nil;
 }
 
+- (BRMenuItem *)itemForRow:(long)row;
+{
+  long realRow = row;
+  BRMenuItem *item = [super itemForRow:realRow];
+  BOOL previous = NO;
+  if (![self isPaginationRow:&row previous:&previous]) {
+    NSDictionary *episode = self.listEntries[row];
+    if (![[UZGPlayedList sharedList] playedEpisodeForPath:episode[@"path"]]) {
+      [item addAccessoryOfType:16];
+    }
+  }
+  return item;
+}
+
 // TODO Hmm, this doesn't stop it from being selected!
 // - (BOOL)rowSelectable:(long)row;
 // {
@@ -63,13 +78,16 @@
 - (void)loadEpisode;
 {
   NSString *path = self.loadingEpisode[@"path"];
-  NSLog(@"FETCH EPISODE: %@", self.loadingEpisode);
+  // NSLog(@"FETCH EPISODE: %@", self.loadingEpisode);
 
   [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:path
                                                                 success:^(id _, id episodeMediaAsset) {
-    NSLog(@"Media asset URL: %@", [episodeMediaAsset mediaURL]);
+    // NSLog(@"Media asset URL: %@", [episodeMediaAsset mediaURL]);
     self.loadingEpisode = nil;
     [[BRMediaPlayerManager singleton] presentMediaAsset:episodeMediaAsset options:nil];
+    // TODO need to figure out how to reload the list entries when the video player
+    // is closed and the view returns to this list, in which case the played status
+    // accessory should be updated.
   }
                                                                 failure:^(id _, NSError *error) {
                                                                           NSLog(@"ERROR: %@", error);
