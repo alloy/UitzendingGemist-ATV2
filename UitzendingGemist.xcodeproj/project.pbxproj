@@ -29,6 +29,8 @@
 		517C3DB916AC663800270F3D /* BRMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB816AC663800270F3D /* BRMediaType.m */; };
 		517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */; };
 		517C3DBE16AC6A7500270F3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */; };
+		517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
+		517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
 		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
 		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
@@ -85,6 +87,8 @@
 		517C3DB816AC663800270F3D /* BRMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaType.m; sourceTree = "<group>"; };
 		517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaPlayerManager.m; sourceTree = "<group>"; };
 		517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		517C3DBF16AC827F00270F3D /* UZGBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseListController.h; sourceTree = "<group>"; };
+		517C3DC016AC827F00270F3D /* UZGBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseListController.m; sourceTree = "<group>"; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
 		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
 				5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */,
+				517C3DBF16AC827F00270F3D /* UZGBaseListController.h */,
+				517C3DC016AC827F00270F3D /* UZGBaseListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
+				517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +490,7 @@
 				517C3DB616AC653D00270F3D /* BRBaseMediaAsset.m in Sources */,
 				517C3DB916AC663800270F3D /* BRMediaType.m in Sources */,
 				517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */,
+				517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

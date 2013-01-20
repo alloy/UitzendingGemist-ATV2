@@ -4,157 +4,49 @@
 
 @interface UZGShowsListController ()
 @property (retain) NSString *titleInitial;
-@property (retain) NSArray *shows;
-
-@property (retain) NSString *realTitle;
-@property (assign) NSUInteger currentPage;
-@property (assign) NSUInteger lastPage;
 @end
 
 @implementation UZGShowsListController
 
 - (void)dealloc;
 {
-  [_realTitle release];
-  [_shows release];
+  [_titleInitial release];
   [super dealloc];
 }
 
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
   if ((self = [super init])) {
-    _currentPage = 1;
-    _lastPage = 0;
-    // _shows = [@[@"Wie is de mol?", @"Keuringsdienst van Waarde", @"Foo", @"Bar", @"Baz", @"Bla", @"Boe", @"A", @"B", @"C", @"D", @"E", @"F", @"G"] retain];
-    _shows = [NSArray new];
     _titleInitial = [titleInitial retain];
-    _realTitle = [[NSString stringWithFormat:@"Shows: %@", _titleInitial] retain];
-    self.listTitle = _realTitle;
+    self.realTitle = [NSString stringWithFormat:@"Shows: %@", _titleInitial];
     self.list.datasource = self;
-    [self fetchShows];
   }
   return self;
 }
 
-- (BOOL)showPreviousPageMenuItem;
-{
-  return self.currentPage > 1;
-}
-
-- (BOOL)showNextPageMenuItem;
-{
-  return (self.lastPage != self.currentPage);
-}
-
-// YES if previous, NO if next
-- (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
-{
-  BOOL isPagination = NO;
-  long r = *row;
-  if (self.showPreviousPageMenuItem) {
-    if (r == 0) {
-      *previous = YES;
-      isPagination = YES;
-    } else if (self.showNextPageMenuItem) {
-      if (r == 1) {
-        *previous = NO;
-        isPagination = YES;
-      }
-      r--;
-    }
-    r--;
-  } else if (self.showNextPageMenuItem) {
-    if (r == 0) {
-      *previous = NO;
-      isPagination = YES;
-    }
-    r--;
-  }
-  *row = r;
-  return isPagination;
-}
-
-- (void)reloadData;
-{
-  if (self.lastPage == 0) {
-    self.listTitle = self.realTitle;
-  } else {
-    self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
-  }
-  [self.list reload];
-}
-
-#pragma mark - BRMenuListItemProvider
-
-- (float)heightForRow:(long)row;
-{
-  return 0;
-}
-
-- (long)itemCount;
-{
-  NSUInteger count = self.shows.count;
-  if (count == 0) return 0;
-
-  if (self.showPreviousPageMenuItem) count++;
-  if (self.showNextPageMenuItem) count++;
-  return count;
-}
-
-// TODO no idea what this is for
-- (NSString *)titleForRow:(long)row;
-{
-  BOOL previous = NO;
-  if ([self isPaginationRow:&row previous:&previous]) {
-    return previous ? @"Previous Page" : @"Next Page";
-  } else {
-    return self.shows[row][@"title"];
-  }
-}
-
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  NSLog(@"ITEM FOR ROW: %ld", row);
-  BRMenuItem *item = [BRMenuItem new];
-  item.text = [self titleForRow:row];
+  BRMenuItem *item = [super itemForRow:row];
   [item addAccessoryOfType:1];
   return item;
 }
 
-- (BOOL)rowSelectable:(long)selectable;
+- (void)listEntrySelected:(long)row;
 {
-  return YES;
+  NSDictionary *show = self.listEntries[row];
+  UZGEpisodesListController *controller;
+  controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"]
+                                                                path:show[@"path"]] autorelease];
+  [[self stack] pushController:controller];
 }
 
-- (void)itemSelected:(long)row;
+- (void)fetchListEntries;
 {
-  BOOL previous = NO;
-  if ([self isPaginationRow:&row previous:&previous]) {
-    self.currentPage = self.currentPage + (previous ? -1 : +1);
-    self.shows = [NSArray array];
-    [self reloadData];
-    [self fetchShows];
-  } else {
-    NSDictionary *show = self.shows[row];
-    NSLog(@"ITEM SELECTED: %@", show);
-    UZGEpisodesListController *controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"] path:show[@"path"]] autorelease];
-    [[self stack] pushController:controller];
-  }
-}
-
-- (void)fetchShows;
-{
-  NSLog(@"FETCH SHOWS!");
-  self.showSpinner = YES;
-
+  [super fetchListEntries];
   [[UitzendingGemistAPIClient sharedClient] showsWithTitleInitial:self.titleInitial
                                                              page:self.currentPage
                                                           success:^(id _, id showsAndLastPage) {
-    NSLog(@"%@", showsAndLastPage);
-    self.shows = showsAndLastPage[0];
-    self.lastPage = [showsAndLastPage[1] unsignedIntegerValue];
-    self.showSpinner = NO;
-    [self reloadData];
+    [self fetchedlistEntriesAndLastPage:showsAndLastPage];
   }
                                                           failure:^(id _, NSError *error) {
                                                                     NSLog(@"ERROR: %@", error);
