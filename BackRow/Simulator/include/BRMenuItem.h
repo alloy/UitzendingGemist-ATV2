@@ -2,7 +2,12 @@
 
 @interface BRMenuItem : NSObject
 
-@property (retain) NSAttributedString *text;
+// TODO in my copy of the headers this is a NSAttributedString,
+// but the headers are outdated and at runtime the ATV really
+// expects a NSString...
+//
+// @property (retain) NSAttributedString *text;
+@property (retain) NSString *text;
 
 // Private UIKit implementation!
 @property (assign) UITableViewCellAccessoryType accessoryType;

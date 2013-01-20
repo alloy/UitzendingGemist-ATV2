@@ -62,7 +62,8 @@
   }
 
   BRMenuItem *item = [self.datasource itemForRow:indexPath.row];
-  cell.textLabel.attributedText = item.text;
+  cell.textLabel.text = item.text;
+  // cell.textLabel.attributedText = item.text;
   cell.accessoryType = item.accessoryType;
 
   if ([self.datasource rowSelectable:indexPath.row]) {
