@@ -1,3 +1,6 @@
+BackRow:
+* How do I generate the header dump of ATV2 OS 5.0.1 myself? The BackRow framework doesn't exist anymore and dumping the AppleTV app doesn't give me everything.
+
 FRAppliance.xctemplate:
 * Add build setting to compile sources as Objective-C++ (for BackRowExtras.h)
 * Add InfoPlist.strings file with app title
