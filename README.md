@@ -4,7 +4,7 @@ _For this to work your Apple TV 2 has to be jailbroken and run OS 5.0.1 or compa
 
 This is a simple application allowing me to watch tv-shows from UitzendingGemist.nl without having to use AirPlay.
 
-I’m working on this for my own viewing pleasure and to learn more about the Apple TV 2 environment. As such, this application is, for now, very much a work-in-progress.
+I’m working on this for my own viewing pleasure and to learn more about the Apple TV 2 environment. As such, this application is, for now, very much a work-in-progress and **NO** promises are made at all regarding a distributed release.
 
 You can watch a very early video of the app [here](http://cl.ly/2p2V0W3W0n3m) (note that VNC only shows the video player, but not the actual video!) and a newer screenshot of the dashboard with a proper app icon and title [here](http://cl.ly/image/343L0100242e).
 
