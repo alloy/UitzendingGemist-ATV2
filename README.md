@@ -8,7 +8,7 @@ I’m working on this for my own viewing pleasure and to learn more about the Ap
 
 You can watch a very early video of the app [here](http://cl.ly/2p2V0W3W0n3m) (note that VNC only shows the video player, but not the actual video!) and a newer screenshot of the dashboard with a proper app icon and title [here](http://cl.ly/image/343L0100242e).
 
-**NOTE**: UitzendingGemist.nl is a Dutch public broadcasting site, so it might not work abroad. However, the `BackRow/Simulator`, CocoaPods integration, and the Xcode 4 FRAppliance template are of use to anyone looking into Apple TV 2 app development.
+**NOTE**: UitzendingGemist.nl is a Dutch public broadcasting site, so it might not work abroad. However, the `BackRow/Simulator`, CocoaPods integration, and the Xcode 4 FRAppliance template are still of use to anyone looking into Apple TV 2 app development.
 
 
 ### Installation
