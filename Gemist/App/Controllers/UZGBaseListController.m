@@ -128,7 +128,7 @@
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  BRMenuItem *item = [BRMenuItem new];
+  BRMenuItem *item = [[BRMenuItem new] autorelease];
   item.text = [self titleForRow:row];
   return item;
 }
