@@ -1,5 +1,7 @@
 # UitzendingGemist Apple TV 2 app
 
+_For this to work your Apple TV 2 has to be jailbroken and run OS 5.0.1 or compatible._
+
 This is a simple application allowing me to watch tv-shows from UitzendingGemist.nl without having to use AirPlay.
 
 I’m working on this for my own viewing pleasure and to learn more about the Apple TV 2 environment. As such, this application is, for now, very much a work-in-progress.
@@ -7,6 +9,13 @@ I’m working on this for my own viewing pleasure and to learn more about the Ap
 You can watch a very early video of the app [here](http://cl.ly/2p2V0W3W0n3m) (note that VNC only shows the video player, but not the actual video!) and a newer screenshot of the dashboard with a proper app icon and title [here](http://cl.ly/image/343L0100242e).
 
 **NOTE**: UitzendingGemist.nl is a Dutch public broadcasting site, so it might not work abroad. However, the `BackRow/Simulator`, CocoaPods integration, and the Xcode 4 FRAppliance template are of use to anyone looking into Apple TV 2 app development.
+
+
+### Installation
+
+For now installation is done by a post-build script in Xcode, which assumes you have setup SSH public-key authentication. Otherwise copy the build to:
+
+    /Applications/AppleTV.app/Appliances/Gemist.frappliance
 
 
 ### Components in this repo
