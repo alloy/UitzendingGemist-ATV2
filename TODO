@@ -1,5 +1,6 @@
 BackRow:
 * How do I generate the header dump of ATV2 OS 5.0.1 myself? The BackRow framework doesn't exist anymore and dumping the AppleTV app doesn't give me everything.
+* Can we use ARC? (In my naive experiments, the only issue is that some of the class-dumped headers aren’t ARC compatible.)
 
 FRAppliance.xctemplate:
 * Add build setting to compile sources as Objective-C++ (for BackRowExtras.h)
