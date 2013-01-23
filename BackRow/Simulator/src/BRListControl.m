@@ -55,23 +55,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-  static NSString *identifier = @"BRListItemCell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-  if (cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-  }
-
   BRMenuItem *item = [self.datasource itemForRow:indexPath.row];
-  cell.textLabel.text = item.text;
-  // cell.textLabel.attributedText = item.text;
-  cell.accessoryType = item.accessoryType;
 
-  if ([self.datasource rowSelectable:indexPath.row]) {
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-  } else {
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-  }
-  return cell;
+  // TODO this does not work as I expected...
+  //if ([self.datasource rowSelectable:indexPath.row]) {
+    //cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+  //} else {
+    //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  //}
+
+  return item;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
