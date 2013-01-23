@@ -24,6 +24,41 @@
   return self;
 }
 
+#pragma mark - Actually implemented
+
+- (id)mediaType;
+{
+  return [BRMediaType TVShow];
+};
+
+// TODO how do we provide the other streams so the player can be adaptive?
+- (id)mediaURL;
+{
+  NSURL *highQuality = self.streamURLs[0];
+  return [highQuality absoluteString];
+}
+
+- (BOOL)hasBeenPlayed;
+{
+  return [[UZGPlayedList sharedList] playedEpisodeForPath:self.path];
+}
+
+- (void)setHasBeenPlayed:(BOOL)played;
+{
+  [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
+}
+
+// Called when paused and when the user stops playback by navigating back.
+- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
+{
+  [[UZGPlayedList sharedList] setBookmarkTime:seconds forEpisodePath:self.path];
+}
+
+- (unsigned int)bookmarkTimeInSeconds;
+{
+  return [[UZGPlayedList sharedList] bookmarkTimeForEpisodePath:self.path];
+}
+
 #pragma mark BRMediaPreviewFactoryDelegate
 
 - (BOOL)mediaPreviewShouldShowMetadata{ 
@@ -122,14 +157,6 @@
   
 };
 
-- (BOOL)hasBeenPlayed {
-  return [[UZGPlayedList sharedList] playedEpisodeForPath:self.path];
-};
-
-- (void)setHasBeenPlayed:(BOOL)played {
-  [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
-};
-
 - (id)previewURL {
   // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   [super previewURL];
@@ -216,15 +243,9 @@
   return nil;
 };
 - (void)setBookmarkTimeInMS:(unsigned int)fp8 {
-  
-};
-- (void)setBookmarkTimeInSeconds:(unsigned int)fp8 {
-  
+  NSLog(@"%s - %d", __PRETTY_FUNCTION__, fp8);
 };
 - (unsigned int)bookmarkTimeInMS {
-  return 1;
-};
-- (unsigned int)bookmarkTimeInSeconds {
   return 1;
 };
 - (unsigned int)startTimeInMS {
@@ -354,18 +375,6 @@
 - (BOOL)hasVideoContent {
   return YES;
 };
-
-- (id)mediaType {
-  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
-  return [BRMediaType TVShow];
-};
-
-// TODO how do we provide the other streams so the player can be adaptive?
-- (id)mediaURL {
-  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
-  NSURL *highQuality = self.streamURLs[0];
-  return [highQuality absoluteString];
-}
 
 #pragma mark BRImageProvider
 

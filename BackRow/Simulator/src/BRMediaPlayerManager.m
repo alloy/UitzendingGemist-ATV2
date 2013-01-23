@@ -24,6 +24,10 @@
                                              selector:@selector(moviePlayerStateChanged:)
                                                  name:MPMoviePlayerPlaybackStateDidChangeNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerLoadStateChanged:)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
   }
   return self;
 }
@@ -41,12 +45,32 @@
   [controller release];
 }
 
+- (void)moviePlayerLoadStateChanged:(NSNotification *)notification;
+{
+  MPMoviePlayerController *player = (MPMoviePlayerController *)notification.object;
+  if ((player.loadState & MPMovieLoadStatePlayable) == MPMovieLoadStatePlayable ||
+        (player.loadState & MPMovieLoadStatePlaythroughOK) == MPMovieLoadStatePlaythroughOK) {
+    player.currentPlaybackTime = (NSTimeInterval)self.currentAsset.bookmarkTimeInSeconds;
+  }
+}
+
 - (void)moviePlayerStateChanged:(NSNotification *)notification;
 {
   if (self.currentAsset) {
     MPMoviePlayerController *player = (MPMoviePlayerController *)notification.object;
-    if (player.playbackState == MPMoviePlaybackStatePlaying) {
-      self.currentAsset.hasBeenPlayed = YES;
+    switch (player.playbackState) {
+      case MPMoviePlaybackStatePlaying:
+        self.currentAsset.hasBeenPlayed = YES;
+        break;
+
+      // TODO This is like the user using the back button, but by this time the
+      //      player has been reset to 0.
+      //
+      // case MPMoviePlaybackStateStopped:
+      case MPMoviePlaybackStatePaused:
+      case MPMoviePlaybackStateInterrupted:
+        self.currentAsset.bookmarkTimeInSeconds = (NSUInteger)player.currentPlaybackTime;
+        break;
     }
   }
 }

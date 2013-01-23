@@ -34,7 +34,7 @@ static NSString * const kUitzendingGemistName = @"Gemist";
                                                  preferredOrder:(float)('Z' + 1)]];
     _applianceCategories = [categories copy];
 
-    // [[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    //[[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelDebug];
     [[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelWarn];
     [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
 
