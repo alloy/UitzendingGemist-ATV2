@@ -32,37 +32,27 @@
 
 - (void)addAccessoryOfType:(BRMenuItemAccessoryType)type;
 {
-  [self.accessoryTypes addObject:@(type)];
-}
+  switch (type) {
+    case BRDisclosureMenuItemAccessoryType:
+      self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+      break;
 
-- (void)layoutSubviews;
-{
-  for (NSNumber *type in self.accessoryTypes) {
-    NSLog(@"ADD TYPE: %@", type);
-    switch ((BRMenuItemAccessoryType)[type intValue]) {
-      case BRDisclosureMenuItemAccessoryType:
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        break;
-
-      case BRSpinnerMenuItemAccessoryType: {
-        // Why not ;)
-        UIActivityIndicatorView *view = [UIActivityIndicatorView alloc];
-        view = [[view initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
-        self.accessoryView = view;
-        [view startAnimating];
-        break;
-      }
-
-      case BRUnplayedMenuItemAccessoryType:
-        self.imageView.image = [UIImage backRowImageNamed:@"UIUnplayedIndicator"];
-        break;
-
-      case BRUnplayedPartialMenuItemAccessoryType:
-        self.imageView.image = [UIImage backRowImageNamed:@"UIUnplayedPartialIndicator"];
-        break;
+    case BRSpinnerMenuItemAccessoryType: {
+      UIActivityIndicatorView *view = [UIActivityIndicatorView alloc];
+      view = [[view initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+      self.accessoryView = view;
+      [view startAnimating];
+      break;
     }
+
+    case BRUnplayedMenuItemAccessoryType:
+      self.imageView.image = [UIImage backRowImageNamed:@"UIUnplayedIndicator"];
+      break;
+
+    case BRUnplayedPartialMenuItemAccessoryType:
+      self.imageView.image = [UIImage backRowImageNamed:@"UIUnplayedPartialIndicator"];
+      break;
   }
-  [super layoutSubviews];
 }
 
 @end

@@ -44,6 +44,9 @@
     if (![[UZGPlayedList sharedList] playedEpisodeForPath:episode[@"path"]]) {
       [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
     }
+    if ([self.loadingEpisode isEqual:episode]) {
+      [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
+    }
   }
   return item;
 }
