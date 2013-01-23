@@ -1,5 +1,8 @@
 #import <UIKit/UIKit.h>
 
+// Not part of the dump! We provide a layer of constants ourselves.
+#import "BackRow+Constants.h"
+
 #import "BRAlertController.h"
 #import "BRApplianceCategory.h"
 #import "BRBaseAppliance.h"

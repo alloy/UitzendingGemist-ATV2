@@ -10,6 +10,9 @@
 #import <CoreText/CoreText.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
+// Not part of the dump! We provide a layer of constants ourselves.
+#import "BackRow+Constants.h"
+
 #import "BackRow-Structs.h"
 #import "BRKeyboardRomanWebKeyContainer.h"
 #import "BRLegacyProvider.h"
