@@ -91,6 +91,7 @@
     // TODO need to figure out how to reload the list entries when the video player
     // is closed and the view returns to this list, in which case the played status
     // accessory should be updated.
+    [self.list reload];
   }
                                                                 failure:^(id _, NSError *error) {
                                                                           NSLog(@"ERROR: %@", error);
