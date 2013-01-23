@@ -42,7 +42,7 @@
   if (![self isPaginationRow:&row previous:&previous]) {
     NSDictionary *episode = self.listEntries[row];
     if (![[UZGPlayedList sharedList] playedEpisodeForPath:episode[@"path"]]) {
-      [item addAccessoryOfType:16];
+      [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
     }
   }
   return item;

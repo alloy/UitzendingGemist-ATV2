@@ -56,6 +56,7 @@
 		5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */; };
+		51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51E10D1C16B062C20062BA19 /* BackRow.bundle */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodesListController.h; sourceTree = "<group>"; };
 		5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodesListController.m; sourceTree = "<group>"; };
 		5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControllerStack.m; sourceTree = "<group>"; };
+		51E10D1C16B062C20062BA19 /* BackRow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BackRow.bundle; path = BackRow/Simulator/resources/BackRow.bundle; sourceTree = SOURCE_ROOT; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -256,6 +258,7 @@
 		5167277416AB3D03000C7E17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51E10D1C16B062C20062BA19 /* BackRow.bundle */,
 				5167277516AB3D03000C7E17 /* Gemist-Sim-Info.plist */,
 				5167277616AB3D03000C7E17 /* InfoPlist.strings */,
 				5167277916AB3D03000C7E17 /* main.m */,
@@ -416,6 +419,7 @@
 				5167278016AB3D03000C7E17 /* Default.png in Resources */,
 				5167278216AB3D03000C7E17 /* Default@2x.png in Resources */,
 				5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */,
+				51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +451,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\ntar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}\n\nmv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz\n\ncd ${PROJECT_DIR}\n\nscp ${EXECUTABLE_FOLDER_PATH}.tar.gz \"${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz\"\n\nssh ${ATV_SSH_USER}@${ATV_ADDRESS} \"cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV\"";
+			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\ntar -cvzf ${EXECUTABLE_FOLDER_PATH}.tar.gz ${EXECUTABLE_FOLDER_PATH}\n\nmv ${EXECUTABLE_FOLDER_PATH}.tar.gz ${PROJECT_DIR}/${EXECUTABLE_FOLDER_PATH}.tar.gz\n\ncd ${PROJECT_DIR}\n\n#scp ${EXECUTABLE_FOLDER_PATH}.tar.gz \"${ATV_SSH_USER}@${ATV_ADDRESS}:${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz\"\n\n#ssh ${ATV_SSH_USER}@${ATV_ADDRESS} \"cd ${ATV_APPLIANCE_INSTALL_PATH}; tar -xvzf ${ATV_APPLIANCE_INSTALL_PATH}/${EXECUTABLE_FOLDER_PATH}.tar.gz; rm ${EXECUTABLE_FOLDER_PATH}.tar.gz; killall -9 AppleTV\"";
 		};
 		A95187666B404D67A1813070 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -610,7 +614,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/BackRow/Device/include/**",
+					"\"$(SRCROOT)/BackRow/Device/include\"/**",
+					"\"$(SRCROOT)/BackRow/Shared/include\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist/Gemist-Info.plist";
@@ -655,7 +660,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/BackRow/Device/include/**",
+					"\"$(SRCROOT)/BackRow/Device/include\"/**",
+					"\"$(SRCROOT)/BackRow/Shared/include\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist/Gemist-Info.plist";
@@ -687,6 +693,7 @@
 				GCC_PREFIX_HEADER = "Gemist-Sim/Gemist-Sim-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"\"$(SRCROOT)/BackRow/Shared/include\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist-Sim/Gemist-Sim-Info.plist";
@@ -705,6 +712,7 @@
 				GCC_PREFIX_HEADER = "Gemist-Sim/Gemist-Sim-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${SRCROOT}/BackRow/Simulator/include\"",
+					"\"$(SRCROOT)/BackRow/Shared/include\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Gemist-Sim/Gemist-Sim-Info.plist";

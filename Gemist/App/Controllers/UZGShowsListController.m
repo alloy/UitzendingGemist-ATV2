@@ -26,7 +26,7 @@
 - (BRMenuItem *)itemForRow:(long)row;
 {
   BRMenuItem *item = [super itemForRow:row];
-  [item addAccessoryOfType:1];
+  [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
   return item;
 }
 
