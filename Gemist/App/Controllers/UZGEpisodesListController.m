@@ -6,9 +6,12 @@
 //#import "BRMediaType.h"
 //#import "BRImageLoader.h"
 
+#import "BRMediaPlayer.h"
+
 @interface UZGEpisodesListController ()
 @property (retain) NSString *path;
 @property (retain) NSDictionary *loadingEpisode;
+@property (retain) BRMediaPlayer *player;
 @end
 
 @implementation UZGEpisodesListController
@@ -17,6 +20,7 @@
 {
   [_path release];
   [_loadingEpisode release];
+  [_player release];
   [super dealloc];
 }
 
@@ -41,8 +45,15 @@
   BOOL previous = NO;
   if (![self isPaginationRow:&row previous:&previous]) {
     NSDictionary *episode = self.listEntries[row];
-    if (![[UZGPlayedList sharedList] playedEpisodeForPath:episode[@"path"]]) {
-      [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+    NSString *path = episode[@"path"];
+    UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:path];
+    switch (status) {
+      case UZGEpisodeUnplayedStatus:
+         [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+         break;
+      case UZGEpisodeUnplayedPartialStatus:
+        [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
+        break;
     }
     if ([self.loadingEpisode isEqual:episode]) {
       [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
@@ -81,13 +92,18 @@
 - (void)loadEpisode;
 {
   NSString *path = self.loadingEpisode[@"path"];
-  // NSLog(@"FETCH EPISODE: %@", self.loadingEpisode);
-
   [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:path
-                                                                success:^(id _, id episodeMediaAsset) {
-    // NSLog(@"Media asset URL: %@", [episodeMediaAsset mediaURL]);
+                                                                success:^(id _, UZGEpisodeMediaAsset *episodeMediaAsset) {
     self.loadingEpisode = nil;
-    [[BRMediaPlayerManager singleton] presentMediaAsset:episodeMediaAsset options:nil];
+    episodeMediaAsset.delegate = self;
+    NSError *error = nil;
+    self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episodeMediaAsset error:&error];
+    if (error) {
+      NSLog(@"ERROR: %@", error);
+    } else {
+      [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
+    }
+
     // TODO need to figure out how to reload the list entries when the video player
     // is closed and the view returns to this list, in which case the played status
     // accessory should be updated.
@@ -96,6 +112,11 @@
                                                                 failure:^(id _, NSError *error) {
                                                                           NSLog(@"ERROR: %@", error);
                                                                         }];
+}
+
+- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
+{
+  episodeMediaAsset.duration = (NSUInteger)roundf(self.player.duration);
 }
 
 @end

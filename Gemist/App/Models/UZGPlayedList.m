@@ -1,7 +1,11 @@
 #import "UZGPlayedList.h"
 
-static NSString * const kUZGPlayedListPlayedKey = @"Played";
 static NSString * const kUZGPlayedListBookmarkTimeKey = @"BookmarkTime";
+static NSString * const kUZGPlayedListDurationKey     = @"Duration";
+static NSString * const kUZGPlayedListPlayedKey       = @"Played";
+
+// Consider it played if within the lst 5 minutes.
+static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 @interface UZGPlayedList ()
 @property (retain) NSString *storePath;
@@ -87,6 +91,32 @@ static NSString * const kUZGPlayedListBookmarkTimeKey = @"BookmarkTime";
 - (NSUInteger)bookmarkTimeForEpisodePath:(NSString *)path;
 {
   return [[self valueForKey:kUZGPlayedListBookmarkTimeKey forEpisodePath:path] unsignedIntegerValue];
+}
+
+- (void)setDuration:(NSUInteger)seconds forEpisodePath:(NSString *)path;
+{
+  [self setValue:@(seconds) forKey:kUZGPlayedListDurationKey forEpisodePath:path];
+}
+
+- (NSUInteger)durationOfEpisodeForPath:(NSString *)path;
+{
+  return [[self valueForKey:kUZGPlayedListDurationKey forEpisodePath:path] unsignedIntegerValue];
+}
+
+- (UZGEpisodeProgressStatus)playedStatusForEpisodePath:(NSString *)path;
+{
+  if ([self playedEpisodeForPath:path]) {
+    NSUInteger duration = [self durationOfEpisodeForPath:path];
+    NSUInteger progress = [self bookmarkTimeForEpisodePath:path];
+    // NSLog(@"%s - duration %d - progress %d - remaining: %d - threshold %d", __PRETTY_FUNCTION__, duration, progress, duration - progress, kUZGPlayedThresholdTime);
+    if ((duration - progress) < kUZGPlayedThresholdTime) {
+      return UZGEpisodePlayedStatus;
+    } else {
+      return UZGEpisodeUnplayedPartialStatus;
+    }
+  } else {
+    return UZGEpisodeUnplayedStatus;
+  }
 }
 
 @end

@@ -46,6 +46,17 @@
 - (void)setHasBeenPlayed:(BOOL)played;
 {
   [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
+  [self.delegate episodeMediaAsset:self hasBeenPlayed:played];
+}
+
+- (NSUInteger)duration;
+{
+  return [[UZGPlayedList sharedList] durationOfEpisodeForPath:self.path];
+}
+
+- (void)setDuration:(NSUInteger)duration;
+{
+  [[UZGPlayedList sharedList] setDuration:duration forEpisodePath:self.path];
 }
 
 // Called when paused and when the user stops playback by navigating back.
@@ -128,10 +139,6 @@
 - (BOOL)isHD {
   return NO;
 };
-
-- (long)duration; {
-  return 147;
-}
 
 - (BOOL)isWidescreen {
   return YES;
