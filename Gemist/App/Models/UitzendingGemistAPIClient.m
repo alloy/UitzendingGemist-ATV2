@@ -141,14 +141,30 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
       failure(operation, parseError);
     } else {
       // TODO:
-      // * collect thumbnail url
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
       NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
       NSMutableArray *episodes = [NSMutableArray array];
       for (HTMLNode *epNode in epNodes) {
+        // Get thumbnail URL, if available.
+        HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
+        NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
+        NSString *imageSource = (id)[NSNull null];
+        if (![imageSourcesList isEqualToString:@"[]"]) {
+          NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
+          // NSLog(@"SOURCES: %@", imageSources);
+          // Get one further in the show if available.
+          imageSource = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+        }
+
+        // Get episode URL.
         HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
-        [episodes addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
+
+        [episodes addObject:@{
+          @"title":anchorNode.contents,
+          @"path":[anchorNode getAttributeNamed:@"href"],
+          @"thumbnail":imageSource
+        }];
       }
 
       // Collect pagination info

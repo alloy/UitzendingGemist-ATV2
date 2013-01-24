@@ -15,6 +15,7 @@
 #import "BRListControl.h"
 #import "BRMediaMenuController.h"
 #import "BRMediaPlayerManager.h"
+#import "BRMediaPlayer.h"
 #import "BRMediaType.h"
 #import "BRMenuController.h"
 #import "BRMenuItem.h"

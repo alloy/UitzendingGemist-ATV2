@@ -67,7 +67,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 - (id)valueForKey:(NSString *)key forEpisodePath:(NSString *)path;
 {
-  NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, key, path);
+  // NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, key, path);
   NSDictionary *episode = self.list[path];
   if (episode) return episode[key];
   return nil;

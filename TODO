@@ -8,4 +8,5 @@ FRAppliance.xctemplate:
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
 
 App:
+* Add remote logging with different levels. Maybe NSLogger over network? Does images too.
 * Do we even need the TopShelfController on 5.0.1?

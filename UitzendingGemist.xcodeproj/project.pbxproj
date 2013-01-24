@@ -56,6 +56,7 @@
 		5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */; };
+		51A11A5A16B1E9BF00E3C88D /* BRMediaPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A11A5916B1E9BF00E3C88D /* BRMediaPlayer.m */; };
 		51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51E10D1C16B062C20062BA19 /* BackRow.bundle */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
@@ -118,6 +119,7 @@
 		5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodesListController.h; sourceTree = "<group>"; };
 		5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodesListController.m; sourceTree = "<group>"; };
 		5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControllerStack.m; sourceTree = "<group>"; };
+		51A11A5916B1E9BF00E3C88D /* BRMediaPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaPlayer.m; sourceTree = "<group>"; };
 		51E10D1C16B062C20062BA19 /* BackRow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BackRow.bundle; path = BackRow/Simulator/resources/BackRow.bundle; sourceTree = SOURCE_ROOT; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 				517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */,
 				517C3DB816AC663800270F3D /* BRMediaType.m */,
 				517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */,
+				51A11A5916B1E9BF00E3C88D /* BRMediaPlayer.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */,
 				517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */,
 				517C3DC616AC8F4B00270F3D /* UZGPlayedList.m in Sources */,
+				51A11A5A16B1E9BF00E3C88D /* BRMediaPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
