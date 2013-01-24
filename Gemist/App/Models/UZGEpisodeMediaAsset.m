@@ -63,6 +63,7 @@
 - (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
 {
   [[UZGPlayedList sharedList] setBookmarkTime:seconds forEpisodePath:self.path];
+  [self.delegate episodeMediaAssetDidStopPlayback:self];
 }
 
 - (unsigned int)bookmarkTimeInSeconds;

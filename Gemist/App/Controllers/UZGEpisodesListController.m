@@ -94,7 +94,6 @@
   NSString *path = self.loadingEpisode[@"path"];
   [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:path
                                                                 success:^(id _, UZGEpisodeMediaAsset *episodeMediaAsset) {
-    self.loadingEpisode = nil;
     episodeMediaAsset.delegate = self;
     NSError *error = nil;
     self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episodeMediaAsset error:&error];
@@ -104,9 +103,9 @@
       [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
     }
 
-    // TODO need to figure out how to reload the list entries when the video player
-    // is closed and the view returns to this list, in which case the played status
-    // accessory should be updated.
+    // Reload now so that if the user returns imediately the spinner accessory
+    // is no longer shown.
+    self.loadingEpisode = nil;
     [self.list reload];
   }
                                                                 failure:^(id _, NSError *error) {
@@ -117,6 +116,17 @@
 - (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
 {
   episodeMediaAsset.duration = (NSUInteger)roundf(self.player.duration);
+}
+
+// Reload list to reflect any change in the episode’s progress status.
+//
+// TODO Using the -[BRMediaAsset setBookmarkTimeInSeconds:] callback for this
+// delegate callback. There has to be a better way to get notifications from
+// the player, because now we update the list everytime the user stops playback
+// instead of only when the user will return to the list.
+- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
+{
+  [self.list reload];
 }
 
 @end

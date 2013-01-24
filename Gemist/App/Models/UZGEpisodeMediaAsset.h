@@ -4,6 +4,7 @@
 
 @protocol UZGEpisodeMediaAssetDelegate <NSObject>
 - (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
+- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
 @end
 
 @interface UZGEpisodeMediaAsset : BRBaseMediaAsset <BRMediaAsset>
