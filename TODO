@@ -10,3 +10,5 @@ FRAppliance.xctemplate:
 App:
 * Add remote logging with different levels. Maybe NSLogger over network? Does images too.
 * Do we even need the TopShelfController on 5.0.1?
+* Use Core Data?
+* Cache banners to disk?
