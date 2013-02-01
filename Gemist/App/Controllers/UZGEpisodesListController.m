@@ -40,7 +40,6 @@
 
 - (id)previewControlForItem:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   if (row != 0) {
     // offset for bookmark item
     row -= 1;
@@ -85,13 +84,11 @@
 
 - (long)itemCount;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   return [super itemCount] + 1;
 }
 
 - (NSString *)titleForRow:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   if (row == 0) {
     return @"Bookmark";
   } else {
@@ -101,7 +98,6 @@
 
 - (BOOL)rowSelectable:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   if (row == 0) {
     return YES;
   } else {
@@ -111,13 +107,11 @@
 
 - (void)itemSelected:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   if (row == 0) {
-    NSLog(@"BOOKMARK!");
     BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
     [[UZGPlayedList sharedList] setHasBookmarkedShow:!bookmarked
                                              forPath:self.path
-                                            withName:self.realTitle];
+                                           withTitle:self.realTitle];
     [self.list reload];
   } else {
     [super itemSelected:row-1];
@@ -126,13 +120,11 @@
 
 - (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   [super addDisclosureAccessoryToPaginationItem:item row:row-1];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
   long realRow = row;
   BRMenuItem *item = [super itemForRow:realRow];
 

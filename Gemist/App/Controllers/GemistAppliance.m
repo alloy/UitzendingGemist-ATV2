@@ -1,9 +1,11 @@
 #import "GemistAppliance.h"
 #import "UZGTopShelfController.h"
+#import "UZGBookmarksListController.h"
 #import "UZGShowsListController.h"
 #import "AFHTTPRequestOperationLogger.h"
 
 static NSString * const kUitzendingGemistName = @"Gemist";
+static NSString * const kUZGBookmarksCategoryIdentifier = @"Bookmarks";
 
 @interface GemistAppliance ()
 @end
@@ -23,15 +25,18 @@ static NSString * const kUitzendingGemistName = @"Gemist";
     _topShelfController = [UZGTopShelfController new];
 
     NSMutableArray *categories = [NSMutableArray array];
+    [categories addObject:[BRApplianceCategory categoryWithName:kUZGBookmarksCategoryIdentifier
+                                                     identifier:kUZGBookmarksCategoryIdentifier
+                                                 preferredOrder:0]];
     for(char c = 'A'; c <= 'Z'; c++) {
       NSString *name = [NSString stringWithFormat:@"%c", c];
       [categories addObject:[BRApplianceCategory categoryWithName:name
                                                        identifier:name
-                                                   preferredOrder:(float)(c - 'A')]];
+                                                   preferredOrder:categories.count]];
     }
     [categories addObject:[BRApplianceCategory categoryWithName:@"#"
                                                      identifier:@"#"
-                                                 preferredOrder:(float)('Z' + 1)]];
+                                                 preferredOrder:categories.count]];
     _applianceCategories = [categories copy];
 
     //[[AFHTTPRequestOperationLogger sharedLogger] setLevel:AFLoggerLevelDebug];
@@ -79,7 +84,12 @@ static NSString * const kUitzendingGemistName = @"Gemist";
 - (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
   // NSLog(@"SELECTED: %@", identifier);
-  BRController *controller = [[[UZGShowsListController alloc] initWithTitleInitial:identifier] autorelease];
+  BRController *controller = nil;
+  if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
+    controller = [[UZGBookmarksListController new] autorelease];
+  } else {
+    controller = [[[UZGShowsListController alloc] initWithTitleInitial:identifier] autorelease];
+  }
   return controller;
 }
 

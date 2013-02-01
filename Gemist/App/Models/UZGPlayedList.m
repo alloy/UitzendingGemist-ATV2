@@ -76,17 +76,27 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 #pragma mark - shows
 
+// This returns a reversed dictionary, that is, the titles are the keys and the
+// objects are the paths.
+- (NSDictionary *)allBookmarks;
+{
+  NSDictionary *bookmarks = self.list[kUZGPlayedListShowBookmarksKey];
+  NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:bookmarks.count];
+  for (NSString *key in bookmarks) {
+    result[bookmarks[key]] = key;
+  }
+  return [[result copy] autorelease];
+}
+
 - (BOOL)hasBookmarkedShowForPath:(NSString *)path;
 {
-  NSLog(@"%s - %@", __PRETTY_FUNCTION__, path);
   return self.list[kUZGPlayedListShowBookmarksKey][path] != nil;
 }
 
-- (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path withName:(NSString *)name;
+- (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path withTitle:(NSString *)title;
 {
-  NSLog(@"%s - %d, %@, %@", __PRETTY_FUNCTION__, (int)bookmark, path, name);
   if (bookmark) {
-    self.list[kUZGPlayedListShowBookmarksKey][path] = name;
+    self.list[kUZGPlayedListShowBookmarksKey][path] = title;
   } else {
     [self.list[kUZGPlayedListShowBookmarksKey] removeObjectForKey:path];
   }
