@@ -50,50 +50,46 @@
   [self reloadListData];
 }
 
-- (BOOL)showPreviousPageMenuItem;
+- (BOOL)hasMultiplePages;
+{
+  return self.lastPage > 0;
+}
+
+- (BOOL)enablePreviousPageMenuItem;
 {
   return self.currentPage > 1;
 }
 
-- (BOOL)showNextPageMenuItem;
+- (BOOL)enableNextPageMenuItem;
 {
   return (self.lastPage != self.currentPage);
 }
 
-// YES if previous, NO if next
 - (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
 {
-  BOOL isPagination = NO;
-  long r = *row;
-  if (self.showPreviousPageMenuItem) {
-    if (r == 0) {
-      *previous = YES;
-      isPagination = YES;
-    } else if (self.showNextPageMenuItem) {
-      if (r == 1) {
-        *previous = NO;
-        isPagination = YES;
-      }
-      r--;
-    }
-    r--;
-  } else if (self.showNextPageMenuItem) {
-    if (r == 0) {
+  if (!self.hasMultiplePages) {
+    return NO;
+  } else {
+    BOOL isPaginationRow = NO;
+    if (*row == 0) {
       *previous = NO;
-      isPagination = YES;
+      isPaginationRow = YES;
+    } else if (*row == 1) {
+      *previous = YES;
+      isPaginationRow = YES;
     }
-    r--;
+    // Always offset row
+    *row = *row - 2;
+    return isPaginationRow;
   }
-  *row = r;
-  return isPagination;
 }
 
 - (void)reloadListData;
 {
-  if (self.lastPage == 0) {
-    self.listTitle = self.realTitle;
-  } else {
+  if (self.hasMultiplePages) {
     self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
+  } else {
+    self.listTitle = self.realTitle;
   }
   [self.list reload];
 }
@@ -108,33 +104,40 @@
 - (long)itemCount;
 {
   NSUInteger count = self.listEntries.count;
-  if (count == 0) return 0;
-
-  if (self.showPreviousPageMenuItem) count++;
-  if (self.showNextPageMenuItem) count++;
+  if (self.hasMultiplePages) count += 2;
   return count;
 }
 
-// TODO no idea what this is for
+// TODO no idea what this is really for
 - (NSString *)titleForRow:(long)row;
 {
   BOOL previous = NO;
   if ([self isPaginationRow:&row previous:&previous]) {
     return previous ? @"Previous Page" : @"Next Page";
-  } else {
-    return self.listEntries[row][@"title"];
   }
+  return self.listEntries[row][@"title"];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
   BRMenuItem *item = [[BRMenuItem new] autorelease];
   item.text = [self titleForRow:row];
+  item.acceptsFocus = [self rowSelectable:row];
+  item.dimmed = !item.acceptsFocus;
   return item;
 }
 
-- (BOOL)rowSelectable:(long)selectable;
+// TODO no idea what this is really for
+- (BOOL)rowSelectable:(long)row;
 {
+  BOOL previous = NO;
+  if ([self isPaginationRow:&row previous:&previous]) {
+    if (previous) {
+      return self.enablePreviousPageMenuItem;
+    } else {
+      return self.enableNextPageMenuItem;
+    }
+  }
   return YES;
 }
 
