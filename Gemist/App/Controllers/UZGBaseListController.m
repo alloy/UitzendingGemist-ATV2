@@ -72,10 +72,10 @@
   } else {
     BOOL isPaginationRow = NO;
     if (*row == 0) {
-      *previous = NO;
+      if (previous != NULL) *previous = NO;
       isPaginationRow = YES;
     } else if (*row == 1) {
-      *previous = YES;
+      if (previous != NULL) *previous = YES;
       isPaginationRow = YES;
     }
     // Always offset row
@@ -124,6 +124,9 @@
   item.text = [self titleForRow:row];
   item.acceptsFocus = [self rowSelectable:row];
   item.dimmed = !item.acceptsFocus;
+  if ([self isPaginationRow:&row previous:NULL]) {
+    [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
+  }
   return item;
 }
 
