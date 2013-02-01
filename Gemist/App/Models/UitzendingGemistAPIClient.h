@@ -13,6 +13,10 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
                       success:(UZGSuccessBlock)success
                       failure:(UZGFailureBlock)failure;
 
+- (void)bannerForShowAtPath:(NSString *)showPath
+                    success:(UZGSuccessBlock)success
+                    failure:(UZGFailureBlock)failure;
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGSuccessBlock)success

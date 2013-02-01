@@ -1,8 +1,10 @@
 #import "UZGBookmarksListController.h"
 #import "UZGPlayedList.h"
 #import "UZGEpisodesListController.h"
+#import "UitzendingGemistAPIClient.h"
 
 @interface UZGBookmarksListController ()
+@property (retain) NSMutableDictionary *bannerCache;
 @property (retain) NSDictionary *bookmarks;
 @property (retain) NSArray *bookmarkTitles;
 @end
@@ -11,6 +13,7 @@
 
 - (void)dealloc;
 {
+  [_bannerCache release];
   [_bookmarks release];
   [_bookmarkTitles release];
   [super dealloc];
@@ -19,6 +22,7 @@
 - (id)init;
 {
   if ((self = [super init])) {
+    _bannerCache = [NSMutableDictionary new];
     _bookmarks = [[[UZGPlayedList sharedList] allBookmarks] retain];
     _bookmarkTitles = [[[_bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] retain];
     self.list.datasource = self;
@@ -53,6 +57,29 @@
 - (NSString *)titleForRow:(long)row;
 {
   return self.bookmarkTitles[row];
+}
+
+- (id)previewControlForItem:(long)row;
+{
+  BRImage *bannerImage = self.bannerCache[@(row)];
+  if (bannerImage) {
+    BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+    controller.image = bannerImage;
+    return controller;
+
+  } else {
+    NSString *title = self.bookmarkTitles[row];
+    NSString *path = self.bookmarks[title];
+    [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:path
+                                                          success:^(id _, id bannerImage) {
+      self.bannerCache[@(row)] = bannerImage;
+      [self updatePreviewController];
+    }
+                                                          failure:^(id _, NSError *error) {
+                                                                      NSLog(@"ERROR: %@", error);
+                                                                  }];
+  }
+  return nil;
 }
 
 - (void)itemSelected:(long)row;

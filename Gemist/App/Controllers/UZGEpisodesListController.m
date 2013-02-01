@@ -45,34 +45,9 @@
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
       NSDictionary *episode = self.listEntries[row];
-      NSString *thumbnailURLString = episode[@"thumbnail"];
-      if (thumbnailURLString != (id)[NSNull null]) {
-        NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
-        // NSLog(@"ORIGINAL THUMBNAIL URL: %@", thumbnailURL);
-
-        // Find dimensions in filename
-        NSString *filename = [thumbnailURL lastPathComponent];
-        NSScanner *scanner = [NSScanner scannerWithString:filename];
-        int width, height;
-        [scanner scanInt:&width];
-        [scanner scanString:@"x" intoString:NULL];
-        [scanner scanInt:&height];
-
-        // Construct new filename for higher resolution version of thumbnail.
-        // TODO dynamically figure out the required width.
-        int newWidth = 432;
-        //int newWidth = 864;
-        float ratio = (float)newWidth / (float)width;
-        int newHeight = (int)roundf(height * ratio);
-        NSString *newFilename = [NSString stringWithFormat:@"%dx%d.%@", newWidth, newHeight, [filename pathExtension]];
-        NSURL *newThumbnailURL = [[thumbnailURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:newFilename];
-        // NSLog(@"NEW URL: %@", newThumbnailURL);
-
-        // Load the thumbnail.
-        // TODO figure out on device if this automagically loads in the background.
-        //NSDate *start = [NSDate date];
-        BRImage *thumbnailImage = [BRImage imageWithURL:newThumbnailURL];
-        // NSLog(@"LOADED IMAGE: %@ - in %f sec", thumbnailImage, [[NSDate date] timeIntervalSinceDate:start]);
+      NSURL *thumbnailURL = episode[@"thumbnail"];
+      if (thumbnailURL != (id)[NSNull null]) {
+        BRImage *thumbnailImage = [BRImage imageWithURL:thumbnailURL];
         BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
         controller.image = thumbnailImage;
         return controller;

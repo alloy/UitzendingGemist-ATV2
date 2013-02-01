@@ -27,6 +27,11 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
   return [lastPage integerValue];
 }
 
+static NSURL *
+UZGBannerURL(NSString *URL, NSString *extension) {
+  return [NSURL URLWithString:[[URL stringByAppendingPathComponent:@"640x480"] stringByAppendingPathExtension:extension]];
+}
+
 
 @implementation UitzendingGemistAPIClient
 
@@ -127,6 +132,51 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
   } failure:failure];
 }
 
+- (void)bannerForShowAtPath:(NSString *)showPath
+                    success:(UZGSuccessBlock)success
+                    failure:(UZGFailureBlock)failure;
+{
+  [self getPath:showPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
+    NSError *parseError = nil;
+    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
+
+    if (parseError) {
+      failure(operation, parseError);
+    } else {
+      HTMLNode *headNode = [parser head];
+      NSArray *metaNodes = [headNode findChildTags:@"meta"];
+      // NSLog(@"%@", [metaNodes valueForKey:@"rawContents"]);
+      for (HTMLNode *metaNode in metaNodes) {
+        if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:image"]) {
+          NSString *source = [metaNode getAttributeNamed:@"content"];
+          // TODO Should we use a placeholder image when there is none?
+          if (source) {
+            NSURL *bannerURL = UZGBannerURL([source stringByDeletingPathExtension], [source pathExtension]);
+            [self loadImageFromURL:bannerURL success:success failure:failure];
+          }
+          break;
+        }
+      }
+
+      [parser release];
+    }
+  } failure:failure];
+}
+
+// TODO use this to load episode banners as well.
+- (void)loadImageFromURL:(NSURL *)URL
+                 success:(UZGSuccessBlock)success
+                 failure:(UZGFailureBlock)failure;
+{
+  NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+  UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, id data) {
+    success(operation, [BRImage imageWithData:data]);
+  };
+  [self enqueueHTTPRequestOperation:[self HTTPRequestOperationWithRequest:request
+                                                                  success:successWrapper
+                                                                  failure:failure]];
+}
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGSuccessBlock)success
@@ -149,12 +199,12 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
         // Get thumbnail URL, if available.
         HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
         NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
-        NSString *imageSource = (id)[NSNull null];
+        NSURL *imageSource = (id)[NSNull null];
         if (![imageSourcesList isEqualToString:@"[]"]) {
           NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
-          // NSLog(@"SOURCES: %@", imageSources);
           // Get one further in the show if available.
-          imageSource = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+          NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+          imageSource = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
         }
 
         // Get episode URL.

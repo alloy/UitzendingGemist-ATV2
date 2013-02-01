@@ -4,12 +4,14 @@
 
 @interface UZGShowsListController ()
 @property (retain) NSString *titleInitial;
+@property (retain) NSMutableDictionary *bannerCache;
 @end
 
 @implementation UZGShowsListController
 
 - (void)dealloc;
 {
+  [_bannerCache release];
   [_titleInitial release];
   [super dealloc];
 }
@@ -17,10 +19,35 @@
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
   if ((self = [super init])) {
+    _bannerCache = [NSMutableDictionary new];
     _titleInitial = [titleInitial retain];
     self.realTitle = [NSString stringWithFormat:@"Shows: %@", _titleInitial];
   }
   return self;
+}
+
+- (id)previewControlForItem:(long)row;
+{
+  if (![self isPaginationRow:&row previous:NULL]) {
+    BRImage *bannerImage = self.bannerCache[@(row)];
+    if (bannerImage) {
+      BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+      controller.image = bannerImage;
+      return controller;
+
+    } else {
+      NSDictionary *show = self.listEntries[row];
+      [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:show[@"path"]
+                                                            success:^(id _, id bannerImage) {
+        self.bannerCache[@(row)] = bannerImage;
+        [self updatePreviewController];
+      }
+                                                            failure:^(id _, NSError *error) {
+                                                                        NSLog(@"ERROR: %@", error);
+                                                                    }];
+    }
+  }
+  return nil;
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
@@ -32,6 +59,9 @@
 
 - (void)listEntrySelected:(long)row;
 {
+  // TODO just a test
+  [self previewControlForItem:row];
+
   NSDictionary *show = self.listEntries[row];
   UZGEpisodesListController *controller;
   controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"]

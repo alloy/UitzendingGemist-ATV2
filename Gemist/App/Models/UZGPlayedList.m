@@ -46,7 +46,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
       _list[kUZGPlayedListEpisodesKey] = [NSMutableDictionary dictionary];
       _list[kUZGPlayedListShowBookmarksKey] = [NSMutableDictionary dictionary];
     }
-    NSLog(@"LIST IN MEMORY: %@", _list);
+    // NSLog(@"LIST IN MEMORY: %@", _list);
   }
   return self;
 }
