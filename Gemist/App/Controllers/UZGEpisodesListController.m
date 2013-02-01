@@ -200,4 +200,14 @@
   [self.list reload];
 }
 
+- (BOOL)brEventAction:(BREvent *)event;
+{
+  if (event.remoteAction == BREventOKButtonLongAction) {
+    NSLog(@"TOGGLE PROGRESS STATUS");
+    return YES;
+  } else {
+    return [super brEventAction:event];
+  }
+}
+
 @end

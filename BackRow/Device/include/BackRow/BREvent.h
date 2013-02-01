@@ -5,26 +5,6 @@
  * Source: /System/Library/PrivateFrameworks/BackRow.framework/BackRow
  */
 
-/**
- * XTODO: This is a custom enum, deduced by watching brEventAction callbacks
- */
-typedef enum {
-    BREventMenuButtonAction			= 1,
-	/* XTODO: What is Button action 2? */
-	BREventUpButtonAction			= 3,
-    BREventDownButtonAction			= 4,
-    BREventOKButtonAction			= 5,
-	BREventLeftButtonAction			= 6,
-    BREventRightButtonAction		= 7,
-	/* XTODO: What are buttons 8,9? */
-	BREventPlayPauseButtonAction	= 10
-} BREventButtonAction;
-
-typedef enum {
-    BREventUpValue		= 0,
-    BREventDownValue	= 1
-} BREventValue;
-
 @class NSDictionary;
 
 @interface BREvent : NSObject {
