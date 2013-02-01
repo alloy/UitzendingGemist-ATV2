@@ -11,6 +11,7 @@
 #import "BRController.h"
 #import "BRControllerStack.h"
 #import "BRImage.h"
+#import "BRImageAndSyncingPreviewController.h"
 #import "BRImageControl.h"
 #import "BRListControl.h"
 #import "BRMediaMenuController.h"

@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BRImage : UIImage
-
++ (BRImage *)imageWithURL:(NSURL *)URL;
 @end
 
 // Private implementation

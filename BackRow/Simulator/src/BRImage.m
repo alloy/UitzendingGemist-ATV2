@@ -2,6 +2,11 @@
 
 @implementation BRImage
 
++ (BRImage *)imageWithURL:(NSURL *)URL;
+{
+  return nil;
+}
+
 @end
 
 @implementation UIImage (BackRow)
