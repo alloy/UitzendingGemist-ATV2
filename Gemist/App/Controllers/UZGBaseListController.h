@@ -11,5 +11,6 @@
 - (void)listEntrySelected:(long)row;
 - (void)fetchedlistEntriesAndLastPage:(NSArray *)listEntriesAndLastPage;
 - (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
+- (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
 
 @end

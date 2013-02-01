@@ -52,6 +52,10 @@
     case BRUnplayedPartialMenuItemAccessoryType:
       self.imageView.image = [UIImage backRowImageNamed:@"UIUnplayedPartialIndicator"];
       break;
+
+    case BRCheckmarkMenuItemAccessoryType:
+      self.accessoryType = UITableViewCellAccessoryCheckmark;
+      break;
   }
 }
 
