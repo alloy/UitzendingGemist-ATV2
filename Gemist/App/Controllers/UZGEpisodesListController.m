@@ -49,6 +49,7 @@
       if (thumbnailURL != (id)[NSNull null]) {
         BRImage *thumbnailImage = [BRImage imageWithURL:thumbnailURL];
         BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+        [controller setReflectionAmount:0.5];
         controller.image = thumbnailImage;
         return controller;
       }

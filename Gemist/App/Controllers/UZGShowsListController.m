@@ -32,6 +32,7 @@
     BRImage *bannerImage = self.bannerCache[@(row)];
     if (bannerImage) {
       BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+      [controller setReflectionAmount:0.5];
       controller.image = bannerImage;
       return controller;
 

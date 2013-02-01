@@ -12,3 +12,4 @@ App:
 * Do we even need the TopShelfController on 5.0.1?
 * Use Core Data?
 * Cache banners to disk?
+* Unify the banner code more.
