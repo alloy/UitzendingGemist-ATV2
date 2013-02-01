@@ -3,6 +3,8 @@
 
 @interface BRMenuItem : UITableViewCell
 
+@property (assign) BOOL acceptsFocus, dimmed;
+
 // TODO in my copy of the headers this is a NSAttributedString,
 // but the headers are outdated and at runtime the ATV really
 // expects a NSString...

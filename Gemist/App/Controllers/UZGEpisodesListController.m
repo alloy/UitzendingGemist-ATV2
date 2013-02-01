@@ -40,66 +40,114 @@
 
 - (id)previewControlForItem:(long)row;
 {
-  BOOL previous = NO;
-  if (![self isPaginationRow:&row previous:&previous]) {
-    NSDictionary *episode = self.listEntries[row];
-    NSString *thumbnailURLString = episode[@"thumbnail"];
-    if (thumbnailURLString != (id)[NSNull null]) {
-      NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
-      // NSLog(@"ORIGINAL THUMBNAIL URL: %@", thumbnailURL);
+  if (row != 0) {
+    // offset for bookmark item
+    row -= 1;
+    if (![self isPaginationRow:&row previous:NULL]) {
+      NSDictionary *episode = self.listEntries[row];
+      NSString *thumbnailURLString = episode[@"thumbnail"];
+      if (thumbnailURLString != (id)[NSNull null]) {
+        NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
+        // NSLog(@"ORIGINAL THUMBNAIL URL: %@", thumbnailURL);
 
-      // Find dimensions in filename
-      NSString *filename = [thumbnailURL lastPathComponent];
-      NSScanner *scanner = [NSScanner scannerWithString:filename];
-      int width, height;
-      [scanner scanInt:&width];
-      [scanner scanString:@"x" intoString:NULL];
-      [scanner scanInt:&height];
+        // Find dimensions in filename
+        NSString *filename = [thumbnailURL lastPathComponent];
+        NSScanner *scanner = [NSScanner scannerWithString:filename];
+        int width, height;
+        [scanner scanInt:&width];
+        [scanner scanString:@"x" intoString:NULL];
+        [scanner scanInt:&height];
 
-      // Construct new filename for higher resolution version of thumbnail.
-      // TODO dynamically figure out the required width.
-      int newWidth = 432;
-      //int newWidth = 864;
-      float ratio = (float)newWidth / (float)width;
-      int newHeight = (int)roundf(height * ratio);
-      NSString *newFilename = [NSString stringWithFormat:@"%dx%d.%@", newWidth, newHeight, [filename pathExtension]];
-      NSURL *newThumbnailURL = [[thumbnailURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:newFilename];
-      // NSLog(@"NEW URL: %@", newThumbnailURL);
+        // Construct new filename for higher resolution version of thumbnail.
+        // TODO dynamically figure out the required width.
+        int newWidth = 432;
+        //int newWidth = 864;
+        float ratio = (float)newWidth / (float)width;
+        int newHeight = (int)roundf(height * ratio);
+        NSString *newFilename = [NSString stringWithFormat:@"%dx%d.%@", newWidth, newHeight, [filename pathExtension]];
+        NSURL *newThumbnailURL = [[thumbnailURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:newFilename];
+        // NSLog(@"NEW URL: %@", newThumbnailURL);
 
-      // Load the thumbnail.
-      // TODO figure out on device if this automagically loads in the background.
-      //NSDate *start = [NSDate date];
-      BRImage *thumbnailImage = [BRImage imageWithURL:newThumbnailURL];
-      // NSLog(@"LOADED IMAGE: %@ - in %f sec", thumbnailImage, [[NSDate date] timeIntervalSinceDate:start]);
-      BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
-      controller.image = thumbnailImage;
-      return controller;
+        // Load the thumbnail.
+        // TODO figure out on device if this automagically loads in the background.
+        //NSDate *start = [NSDate date];
+        BRImage *thumbnailImage = [BRImage imageWithURL:newThumbnailURL];
+        // NSLog(@"LOADED IMAGE: %@ - in %f sec", thumbnailImage, [[NSDate date] timeIntervalSinceDate:start]);
+        BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+        controller.image = thumbnailImage;
+        return controller;
+      }
     }
   }
   return nil;
+}
+
+- (long)itemCount;
+{
+  return [super itemCount] + 1;
+}
+
+- (NSString *)titleForRow:(long)row;
+{
+  if (row == 0) {
+    return @"Bookmark";
+  } else {
+    return [super titleForRow:row-1];
+  }
+}
+
+- (BOOL)rowSelectable:(long)row;
+{
+  if (row == 0) {
+    return YES;
+  } else {
+    return [super rowSelectable:row-1];
+  }
+}
+
+- (void)itemSelected:(long)row;
+{
+  if (row == 0) {
+    NSLog(@"BOOKMARK!");
+  } else {
+    [super itemSelected:row-1];
+  }
+}
+
+- (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
+{
+  [super addDisclosureAccessoryToPaginationItem:item row:row-1];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
   long realRow = row;
   BRMenuItem *item = [super itemForRow:realRow];
-  BOOL previous = NO;
-  if (![self isPaginationRow:&row previous:&previous]) {
-    NSDictionary *episode = self.listEntries[row];
-    NSString *path = episode[@"path"];
-    UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:path];
-    switch (status) {
-      case UZGEpisodeUnplayedStatus:
-         [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
-         break;
-      case UZGEpisodeUnplayedPartialStatus:
-        [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
-        break;
-    }
-    if ([self.loadingEpisode isEqual:episode]) {
-      [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
+
+  if (row == 0) {
+    [item addAccessoryOfType:BRCheckmarkMenuItemAccessoryType];
+
+  } else {
+    // offset for bookmark item
+    row -= 1;
+    if (![self isPaginationRow:&row previous:NULL]) {
+      NSDictionary *episode = self.listEntries[row];
+      NSString *path = episode[@"path"];
+      UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:path];
+      switch (status) {
+        case UZGEpisodeUnplayedStatus:
+           [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+           break;
+        case UZGEpisodeUnplayedPartialStatus:
+          [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
+          break;
+      }
+      if ([self.loadingEpisode isEqual:episode]) {
+        [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
+      }
     }
   }
+
   return item;
 }
 

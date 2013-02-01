@@ -52,7 +52,7 @@
 
 - (BOOL)hasMultiplePages;
 {
-  return self.lastPage > 0;
+  return self.lastPage > 1;
 }
 
 - (BOOL)enablePreviousPageMenuItem;
@@ -103,7 +103,7 @@
 
 - (long)itemCount;
 {
-  NSUInteger count = self.listEntries.count;
+  long count = self.listEntries.count;
   if (self.hasMultiplePages) count += 2;
   return count;
 }
@@ -124,10 +124,15 @@
   item.text = [self titleForRow:row];
   item.acceptsFocus = [self rowSelectable:row];
   item.dimmed = !item.acceptsFocus;
+  [self addDisclosureAccessoryToPaginationItem:item row:row];
+  return item;
+}
+
+- (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
+{
   if ([self isPaginationRow:&row previous:NULL]) {
     [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
   }
-  return item;
 }
 
 // TODO no idea what this is really for
