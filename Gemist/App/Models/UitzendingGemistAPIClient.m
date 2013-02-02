@@ -29,7 +29,7 @@ UZGParseLastPageFromBody(HTMLNode *bodyNode) {
 
 static NSURL *
 UZGBannerURL(NSString *URL, NSString *extension) {
-  return [NSURL URLWithString:[[URL stringByAppendingPathComponent:@"640x480"] stringByAppendingPathExtension:extension]];
+  return [NSURL URLWithString:[[URL stringByAppendingPathComponent:@"720x480"] stringByAppendingPathExtension:extension]];
 }
 
 
@@ -163,7 +163,6 @@ UZGBannerURL(NSString *URL, NSString *extension) {
   } failure:failure];
 }
 
-// TODO use this to load episode banners as well.
 - (void)loadImageFromURL:(NSURL *)URL
                  success:(UZGSuccessBlock)success
                  failure:(UZGFailureBlock)failure;

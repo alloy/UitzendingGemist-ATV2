@@ -13,6 +13,10 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
                       success:(UZGSuccessBlock)success
                       failure:(UZGFailureBlock)failure;
 
+- (void)loadImageFromURL:(NSURL *)URL
+                 success:(UZGSuccessBlock)success
+                 failure:(UZGFailureBlock)failure;
+
 - (void)bannerForShowAtPath:(NSString *)showPath
                     success:(UZGSuccessBlock)success
                     failure:(UZGFailureBlock)failure;

@@ -9,6 +9,7 @@
 #import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
+@property (retain) NSMutableDictionary *bannerCache;
 @property (retain) NSString *path;
 @property (retain) NSDictionary *loadingEpisode;
 @property (retain) BRMediaPlayer *player;
@@ -18,6 +19,7 @@
 
 - (void)dealloc;
 {
+  [_bannerCache release];
   [_path release];
   [_loadingEpisode release];
   [_player release];
@@ -27,6 +29,7 @@
 - (id)initWithShowTitle:(NSString *)title path:(NSString *)path;
 {
   if ((self = [super init])) {
+    _bannerCache = [NSMutableDictionary new];
     self.realTitle = title;
     _path = [path retain];
   }
@@ -47,11 +50,23 @@
       NSDictionary *episode = self.listEntries[row];
       NSURL *thumbnailURL = episode[@"thumbnail"];
       if (thumbnailURL != (id)[NSNull null]) {
-        BRImage *thumbnailImage = [BRImage imageWithURL:thumbnailURL];
-        BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
-        [controller setReflectionAmount:0.5];
-        controller.image = thumbnailImage;
-        return controller;
+        BRImage *bannerImage = self.bannerCache[@(row)];
+        if (bannerImage) {
+          BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+          [controller setReflectionAmount:0.5];
+          controller.image = bannerImage;
+          return controller;
+
+        } else {
+          [[UitzendingGemistAPIClient sharedClient] loadImageFromURL:thumbnailURL
+                                                             success:^(id _, id bannerImage) {
+            self.bannerCache[@(row)] = bannerImage;
+            [self updatePreviewController];
+          }
+                                                             failure:^(id _, NSError *error) {
+                                                                       NSLog(@"ERROR: %@", error);
+                                                                     }];
+        }
       }
     }
   }
