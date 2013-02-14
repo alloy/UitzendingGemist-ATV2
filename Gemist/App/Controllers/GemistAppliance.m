@@ -45,17 +45,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
     //NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     //[NSURLCache setSharedURLCache:URLCache];
-
-    //[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-
-    //[[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:@"programmas/2237-wie-is-de-mol"
-                                                              //page:1
-                                                           //success:^(id _, id episodes) {
-                                                                     //NSLog(@"%@", episodes);
-                                                                   //}
-                                                           //failure:^(id _, NSError *error) {
-                                                                     //NSLog(@"ERROR: %@", error);
-                                                                   //}];
   }
   return self;
 }
@@ -83,7 +72,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 - (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
-  // NSLog(@"SELECTED: %@", identifier);
   BRController *controller = nil;
   if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
     controller = [[UZGBookmarksListController new] autorelease];
