@@ -4,14 +4,12 @@
 
 @interface UZGShowsListController ()
 @property (retain) NSString *titleInitial;
-@property (retain) NSMutableDictionary *bannerCache;
 @end
 
 @implementation UZGShowsListController
 
 - (void)dealloc;
 {
-  [_bannerCache release];
   [_titleInitial release];
   [super dealloc];
 }
@@ -19,7 +17,6 @@
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
   if ((self = [super init])) {
-    _bannerCache = [NSMutableDictionary new];
     _titleInitial = [titleInitial retain];
     self.realTitle = [NSString stringWithFormat:@"Shows: %@", _titleInitial];
   }

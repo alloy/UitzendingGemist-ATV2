@@ -9,7 +9,6 @@
 #import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
-@property (retain) NSMutableDictionary *bannerCache;
 @property (retain) NSString *path;
 @property (retain) NSDictionary *loadingEpisode;
 @property (retain) BRMediaPlayer *player;
@@ -19,7 +18,6 @@
 
 - (void)dealloc;
 {
-  [_bannerCache release];
   [_path release];
   [_loadingEpisode release];
   [_player release];
@@ -29,7 +27,6 @@
 - (id)initWithShowTitle:(NSString *)title path:(NSString *)path;
 {
   if ((self = [super init])) {
-    _bannerCache = [NSMutableDictionary new];
     self.realTitle = title;
     _path = [path retain];
   }

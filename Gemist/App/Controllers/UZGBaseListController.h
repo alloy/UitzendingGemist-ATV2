@@ -6,6 +6,7 @@
 @property (nonatomic, retain) NSString *realTitle;
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, assign) NSUInteger lastPage;
+@property (retain) NSMutableDictionary *bannerCache;
 
 - (void)fetchListEntries;
 - (void)listEntrySelected:(long)row;
