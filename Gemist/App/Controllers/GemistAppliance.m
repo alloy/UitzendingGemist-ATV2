@@ -5,7 +5,7 @@
 #import "AFHTTPRequestOperationLogger.h"
 
 static NSString * const kUitzendingGemistName = @"Gemist";
-static NSString * const kUZGBookmarksCategoryIdentifier = @"Bookmarks";
+static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 @interface GemistAppliance ()
 @end

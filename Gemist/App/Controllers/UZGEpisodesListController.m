@@ -78,7 +78,8 @@
 - (NSString *)titleForRow:(long)row;
 {
   if (row == 0) {
-    return @"Bookmark";
+    BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
+    return bookmarked ? @"Remove from Favorites" : @"Add to Favorites";
   } else {
     return [super titleForRow:row-1];
   }
@@ -116,12 +117,7 @@
   long realRow = row;
   BRMenuItem *item = [super itemForRow:realRow];
 
-  if (row == 0) {
-    if ([[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path]) {
-      [item addAccessoryOfType:BRCheckmarkMenuItemAccessoryType];
-    }
-
-  } else {
+  if (row > 0) {
     // offset for bookmark item
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
