@@ -1,25 +1,19 @@
-#import "UZGEpisodeMediaAsset.h"
-#import "UZGPlayedList.h"
+#import "UZGShowMediaAsset.h"
 
-@interface UZGEpisodeMediaAsset ()
-@property (retain) NSString *path;
-@property (retain) NSArray *streamURLs;
-@end
-
-@implementation UZGEpisodeMediaAsset
+@implementation UZGShowMediaAsset
 
 - (void)dealloc;
 {
+  [_title release];
   [_path release];
-  [_streamURLs release];
   [super dealloc];
 }
 
-- (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
+- (id)initWithTitle:(NSString *)title path:(NSString *)path;
 {
   if ((self = [super init])) {
+    _title = [title retain];
     _path = [path retain];
-    _streamURLs = [streamURLs copy];
   }
   return self;
 }
@@ -31,45 +25,9 @@
   return [BRMediaType TVShow];
 }
 
-// TODO how do we provide the other streams so the player can be adaptive?
-- (id)mediaURL;
-{
-  NSURL *highQuality = self.streamURLs[0];
-  return [highQuality absoluteString];
-}
-
-- (BOOL)hasBeenPlayed;
-{
-  return [[UZGPlayedList sharedList] playedEpisodeForPath:self.path];
-}
-
-- (void)setHasBeenPlayed:(BOOL)played;
-{
-  [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
-  [self.delegate episodeMediaAsset:self hasBeenPlayed:played];
-}
-
-- (NSUInteger)duration;
-{
-  return [[UZGPlayedList sharedList] durationOfEpisodeForPath:self.path];
-}
-
-- (void)setDuration:(NSUInteger)duration;
-{
-  [[UZGPlayedList sharedList] setDuration:duration forEpisodePath:self.path];
-}
-
-// Called when paused and when the user stops playback by navigating back.
-- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
-{
-  [[UZGPlayedList sharedList] setBookmarkTime:seconds forEpisodePath:self.path];
-  [self.delegate episodeMediaAssetDidStopPlayback:self];
-}
-
-- (unsigned int)bookmarkTimeInSeconds;
-{
-  return [[UZGPlayedList sharedList] bookmarkTimeForEpisodePath:self.path];
-}
+- (id)assetID {
+  return self.path;
+};
 
 #pragma mark BRMediaPreviewFactoryDelegate
 
@@ -81,13 +39,10 @@
 }
 
 #pragma mark BRMediaAsset
+
 - (id)provider {
   return nil;
 }
-
-- (id)assetID {
-  return @"1234";
-};
 
 - (id)titleForSorting {
   return @"360iDev Sample Video";
@@ -250,6 +205,34 @@
 - (id)datePublishedString {
   return nil;
 };
+
+- (BOOL)hasBeenPlayed;
+{
+  return NO;
+}
+
+- (void)setHasBeenPlayed:(BOOL)played;
+{
+}
+
+- (NSUInteger)duration;
+{
+  return 0;
+}
+
+- (void)setDuration:(NSUInteger)duration;
+{
+}
+
+- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
+{
+}
+
+- (unsigned int)bookmarkTimeInSeconds;
+{
+  return 0;
+}
+
 - (void)setBookmarkTimeInMS:(unsigned int)fp8 {
   NSLog(@"%s - %d", __PRETTY_FUNCTION__, fp8);
 };
@@ -356,6 +339,10 @@
 - (id)rating {
   return nil;
 };
+- (id)mediaURL;
+{
+  return nil;
+}
 - (id)mediaDescription {
   return nil;
 };
