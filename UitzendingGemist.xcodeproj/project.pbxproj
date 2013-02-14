@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5100D54416CD8F53004E2D5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5100D54716CD8F53004E2D5E /* Localizable.strings */; };
+		5100D54516CD8F53004E2D5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5100D54716CD8F53004E2D5E /* Localizable.strings */; };
 		5167275416AB3B7D000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
 		5167275516AB3B7D000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
 		5167275716AB3B7D000C7E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167275616AB3B7D000C7E17 /* QuartzCore.framework */; };
@@ -67,6 +69,10 @@
 
 /* Begin PBXFileReference section */
 		35AD7A1621304CC5AED3E626 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5100D54616CD8F53004E2D5E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5100D54B16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5100D54C16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5100D54D16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5108FBC116A87F140020589D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5108FBC316A87F140020589D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,7 +166,6 @@
 		5108FBB216A87F140020589D = {
 			isa = PBXGroup;
 			children = (
-				517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */,
 				5119020416AAEC78006E7359 /* BackRow */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
 				5167277316AB3D03000C7E17 /* Gemist-Sim */,
@@ -181,6 +186,7 @@
 		5108FBC016A87F140020589D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */,
 				5199A6C916AB42D90057AA02 /* Pods.xcconfig */,
 				5108FBC116A87F140020589D /* UIKit.framework */,
 				5108FBC316A87F140020589D /* Foundation.framework */,
@@ -251,6 +257,7 @@
 				5167275A16AB3B7D000C7E17 /* Gemist-Info.plist */,
 				5167275E16AB3B7D000C7E17 /* Gemist-Prefix.pch */,
 				517C3DCD16ACA4D200270F3D /* InfoPlist.strings */,
+				5100D54716CD8F53004E2D5E /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,6 +363,7 @@
 				5167274F16AB3B7D000C7E17 /* Frameworks */,
 				5167275016AB3B7D000C7E17 /* Resources */,
 				A95187666B404D67A1813070 /* Copy Pods Resources */,
+				5100D54E16CD9453004E2D5E /* ShellScript */,
 				5167275116AB3B7D000C7E17 /* ShellScript */,
 			);
 			buildRules = (
@@ -401,6 +409,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				nl,
 			);
 			mainGroup = 5108FBB216A87F140020589D;
 			productRefGroup = 5108FBBE16A87F140020589D /* Products */;
@@ -420,6 +429,7 @@
 			files = (
 				517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */,
 				517C3DD516ACA8BC00270F3D /* AppIcon.png in Resources */,
+				5100D54416CD8F53004E2D5E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +442,7 @@
 				5167278216AB3D03000C7E17 /* Default@2x.png in Resources */,
 				5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */,
 				51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */,
+				5100D54516CD8F53004E2D5E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +462,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		5100D54E16CD9453004E2D5E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\nmv ${EXECUTABLE_FOLDER_PATH}/en.lproj ${EXECUTABLE_FOLDER_PATH}/English.lproj\nmv ${EXECUTABLE_FOLDER_PATH}/nl.lproj ${EXECUTABLE_FOLDER_PATH}/Dutch.lproj";
 		};
 		5167275116AB3B7D000C7E17 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -539,10 +563,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5100D54716CD8F53004E2D5E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5100D54616CD8F53004E2D5E /* en */,
+				5100D54C16CD9025004E2D5E /* nl */,
+			);
+			name = Localizable.strings;
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 		5167277616AB3D03000C7E17 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5167277716AB3D03000C7E17 /* en */,
+				5100D54D16CD9025004E2D5E /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -551,6 +586,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				517C3DCC16ACA4D200270F3D /* en */,
+				5100D54B16CD9025004E2D5E /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

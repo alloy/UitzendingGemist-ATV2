@@ -116,7 +116,7 @@
 {
   BOOL previous = NO;
   if ([self isPaginationRow:&row previous:&previous]) {
-    return previous ? @"Previous Page" : @"Next Page";
+    return UZGLocalizedString(previous ? @"Previous Page" : @"Next Page");
   }
   return self.listEntries[row][@"title"];
 }

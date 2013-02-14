@@ -18,7 +18,7 @@
 {
   if ((self = [super init])) {
     _titleInitial = [titleInitial retain];
-    self.realTitle = [NSString stringWithFormat:@"Shows: %@", _titleInitial];
+    self.realTitle = [NSString stringWithFormat:@"%@: %@", UZGLocalizedString(@"Shows"), _titleInitial];
   }
   return self;
 }
@@ -57,9 +57,6 @@
 
 - (void)listEntrySelected:(long)row;
 {
-  // TODO just a test
-  [self previewControlForItem:row];
-
   NSDictionary *show = self.listEntries[row];
   UZGEpisodesListController *controller;
   controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"]

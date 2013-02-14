@@ -25,7 +25,7 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
     _topShelfController = [UZGTopShelfController new];
 
     NSMutableArray *categories = [NSMutableArray array];
-    [categories addObject:[BRApplianceCategory categoryWithName:kUZGBookmarksCategoryIdentifier
+    [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
                                                      identifier:kUZGBookmarksCategoryIdentifier
                                                  preferredOrder:0]];
     for(char c = 'A'; c <= 'Z'; c++) {

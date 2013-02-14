@@ -79,7 +79,7 @@
 {
   if (row == 0) {
     BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
-    return bookmarked ? @"Remove from Favorites" : @"Add to Favorites";
+    return UZGLocalizedString(bookmarked ? @"Remove from Favorites" : @"Add to Favorites");
   } else {
     return [super titleForRow:row-1];
   }

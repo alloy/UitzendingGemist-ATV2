@@ -8,6 +8,9 @@ FRAppliance.xctemplate:
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
 
 App:
+* Report error with error window.
+* Make namespacing consistent: UZG.
+* Add list of pages of shows/episodes in the same way Netflix does for seasons.
 * Move opening HTML document into a specialized AFHTTPRequestOperation.
 * Add remote logging with different levels. Maybe NSLogger over network? Does images too.
 * Do we even need the TopShelfController on 5.0.1?
