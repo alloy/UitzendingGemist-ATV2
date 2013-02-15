@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5100D54416CD8F53004E2D5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5100D54716CD8F53004E2D5E /* Localizable.strings */; };
 		5100D54516CD8F53004E2D5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5100D54716CD8F53004E2D5E /* Localizable.strings */; };
+		5100D58516CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */; };
+		5100D58616CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */; };
 		5167275416AB3B7D000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
 		5167275516AB3B7D000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
 		5167275716AB3B7D000C7E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167275616AB3B7D000C7E17 /* QuartzCore.framework */; };
@@ -69,10 +71,12 @@
 
 /* Begin PBXFileReference section */
 		35AD7A1621304CC5AED3E626 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5100D54616CD8F53004E2D5E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5100D54616CD8F53004E2D5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5100D54B16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5100D54C16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5100D54C16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5100D54D16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5100D58316CEA406004E2D5E /* UZGHTMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGHTMLRequestOperation.h; sourceTree = "<group>"; };
+		5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGHTMLRequestOperation.m; sourceTree = "<group>"; };
 		5108FBC116A87F140020589D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5108FBC316A87F140020589D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -324,6 +328,8 @@
 				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
 				517C3DC316AC8F4B00270F3D /* UZGPlayedList.h */,
 				517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */,
+				5100D58316CEA406004E2D5E /* UZGHTMLRequestOperation.h */,
+				5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */,
 				517C3DC516AC8F4B00270F3D /* UZGPlayedList.m in Sources */,
 				51D6A8A216BC417100E174E1 /* UZGBookmarksListController.m in Sources */,
+				5100D58516CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +564,7 @@
 				51A11A5A16B1E9BF00E3C88D /* BRMediaPlayer.m in Sources */,
 				51D6A89F16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m in Sources */,
 				51D6A8A316BC417100E174E1 /* UZGBookmarksListController.m in Sources */,
+				5100D58616CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

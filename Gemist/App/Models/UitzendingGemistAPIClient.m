@@ -1,6 +1,6 @@
 #import "UitzendingGemistAPIClient.h"
+#import "UZGHTMLRequestOperation.h"
 #import "UZGEpisodeMediaAsset.h"
-#import "HTMLParser.h"
 
 
 static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl";
@@ -51,26 +51,26 @@ UZGBannerURL(NSString *URL, NSString *extension) {
         return nil;
     }
     
-    [self registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [self registerHTTPOperationClass:[UZGHTMLRequestOperation class]];
     [self setDefaultHeader:@"User-Agent" value:kUitzendingGemistAPIUserAgent];
-    [self setDefaultHeader:@"Accept" value:@"text/html"];
+    // [self setDefaultHeader:@"Accept" value:@"text/html"];
     
     return self;
 }
 
-// TODO check if cookie exists, if not start flow immediately.
+// TODO check if cookie exists, if not start flow immediately and/or use setRedirectResponseBlock
 - (void)getPath:(NSString *)path
      parameters:(NSDictionary *)parameters
         success:(UZGSuccessBlock)success
         failure:(UZGFailureBlock)failure;
 {
   // Check if we need to go through a cookie acceptance flow. Stupid cookie law...
-  UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, id data) {
+  UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, HTMLParser *parser) {
     NSString *host = operation.response.URL.host;
     if ([host isEqualToString:kUitzendingGemistAPICookiesHost]) {
       [self acceptCookiesWithSuccess:success failure:failure];
     } else {
-      success(operation, data);
+      success(operation, parser);
     }
   };
   [super getPath:path
@@ -102,33 +102,22 @@ UZGBannerURL(NSString *URL, NSString *extension) {
   } else {
     titleInitial = [titleInitial lowercaseString];
   }
-  NSString *path = [NSString stringWithFormat:@"/programmas/%@?page=%d", titleInitial, pageNumber];
-  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    NSError *parseError = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
 
-    if (parseError) {
-      failure(operation, parseError);
-    } else {
+  NSString *path = [NSString stringWithFormat:@"/programmas/%@?page=%d", titleInitial, pageNumber];
+  [self getPath:path parameters:nil success:^(id operation, HTMLParser *parser) {
       // TODO:
-      // * collect pagination info
-      // * collect thumbnail url
       // * collect datetime metadata
       HTMLNode *bodyNode = [parser body];
-
       // Collect show paths
       NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
       NSMutableArray *shows = [NSMutableArray array];
       for (HTMLNode *anchorNode in showNodes) {
         [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
       }
-
       // Collect pagination info
       NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
-
-      [parser release];
       success(operation, @[shows, lastPage]);
-    }
+
   } failure:failure];
 }
 
@@ -136,30 +125,21 @@ UZGBannerURL(NSString *URL, NSString *extension) {
                     success:(UZGSuccessBlock)success
                     failure:(UZGFailureBlock)failure;
 {
-  [self getPath:showPath parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    NSError *parseError = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
-
-    if (parseError) {
-      failure(operation, parseError);
-    } else {
-      HTMLNode *headNode = [parser head];
-      NSArray *metaNodes = [headNode findChildTags:@"meta"];
-      // NSLog(@"%@", [metaNodes valueForKey:@"rawContents"]);
-      for (HTMLNode *metaNode in metaNodes) {
-        if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:image"]) {
-          NSString *source = [metaNode getAttributeNamed:@"content"];
-          // TODO Should we use a placeholder image when there is none?
-          if (source) {
-            NSURL *bannerURL = UZGBannerURL([source stringByDeletingPathExtension], [source pathExtension]);
-            [self loadImageFromURL:bannerURL success:success failure:failure];
-          }
-          break;
+  [self getPath:showPath parameters:nil success:^(id operation, HTMLParser *parser) {
+    HTMLNode *headNode = [parser head];
+    NSArray *metaNodes = [headNode findChildTags:@"meta"];
+    for (HTMLNode *metaNode in metaNodes) {
+      if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:image"]) {
+        NSString *source = [metaNode getAttributeNamed:@"content"];
+        // TODO Should we use a placeholder image when there is none?
+        if (source) {
+          NSURL *bannerURL = UZGBannerURL([source stringByDeletingPathExtension], [source pathExtension]);
+          [self loadImageFromURL:bannerURL success:success failure:failure];
         }
+        break;
       }
-
-      [parser release];
     }
+
   } failure:failure];
 }
 
@@ -171,9 +151,9 @@ UZGBannerURL(NSString *URL, NSString *extension) {
   UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, id data) {
     success(operation, [BRImage imageWithData:data]);
   };
-  [self enqueueHTTPRequestOperation:[self HTTPRequestOperationWithRequest:request
-                                                                  success:successWrapper
-                                                                  failure:failure]];
+  AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+  [operation setCompletionBlockWithSuccess:successWrapper failure:failure];
+  [self enqueueHTTPRequestOperation:operation];
 }
 
 - (void)episodesOfShowAtPath:(NSString *)showPath
@@ -182,46 +162,38 @@ UZGBannerURL(NSString *URL, NSString *extension) {
                      failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
-  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    NSError *parseError = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
-
-    if (parseError) {
-      failure(operation, parseError);
-    } else {
-      // TODO:
-      // * collect datetime metadata
-      HTMLNode *bodyNode = [parser body];
-      NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
-      NSMutableArray *episodes = [NSMutableArray array];
-      for (HTMLNode *epNode in epNodes) {
-        // Get thumbnail URL, if available.
-        HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
-        NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
-        NSURL *imageSource = (id)[NSNull null];
-        if (![imageSourcesList isEqualToString:@"[]"]) {
-          NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
-          // Get one further in the show if available.
-          NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
-          imageSource = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
-        }
-
-        // Get episode URL.
-        HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
-
-        [episodes addObject:@{
-          @"title":anchorNode.contents,
-          @"path":[anchorNode getAttributeNamed:@"href"],
-          @"thumbnail":imageSource
-        }];
+  [self getPath:path parameters:nil success:^(id operation, HTMLParser *parser) {
+    // TODO:
+    // * collect datetime metadata
+    HTMLNode *bodyNode = [parser body];
+    NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
+    NSMutableArray *episodes = [NSMutableArray array];
+    for (HTMLNode *epNode in epNodes) {
+      // Get thumbnail URL, if available.
+      HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
+      NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
+      NSURL *imageSource = (id)[NSNull null];
+      if (![imageSourcesList isEqualToString:@"[]"]) {
+        NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
+        // Get one further in the show if available.
+        NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+        imageSource = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
       }
 
-      // Collect pagination info
-      NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
+      // Get episode URL.
+      HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
 
-      [parser release];
-      success(operation, @[episodes, lastPage]);
+      [episodes addObject:@{
+        @"title":anchorNode.contents,
+        @"path":[anchorNode getAttributeNamed:@"href"],
+        @"thumbnail":imageSource
+      }];
     }
+
+    // Collect pagination info
+    NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
+    success(operation, @[episodes, lastPage]);
+
   } failure:failure];
 }
 
@@ -230,46 +202,36 @@ UZGBannerURL(NSString *URL, NSString *extension) {
                             success:(UZGSuccessBlock)success
                             failure:(UZGFailureBlock)failure;
 {
-  [self getPath:episodePath parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    NSError *parseError = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
-
-    if (parseError) {
-      failure(operation, parseError);
-    } else {
-      // TODO:
-      // * collect thumbnail url
-      // * collect datetime metadata
-      HTMLNode *headNode = [parser head];
-      NSArray *metaNodes = [headNode findChildTags:@"meta"];
-      for (HTMLNode *metaNode in metaNodes) {
-        if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:video"]) {
-          NSString *swfURL = [metaNode getAttributeNamed:@"content"];
-          NSError *error = nil;
-          // TODO this regex is weak!
-          NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\w+_\\d+"
-                                                                                 options:NSRegularExpressionCaseInsensitive
-                                                                                   error:&error];
-          if (error) {
-            failure(operation, error);
-            break;
-          }
-          NSRange range = [regex rangeOfFirstMatchInString:swfURL
-                                                   options:NSMatchingReportCompletion
-                                                     range:NSMakeRange(0, [swfURL length])];
-          if (range.location == NSNotFound) {
-            NSLog(@"Unable to find episode ID in string: %@", swfURL);
-            failure(operation, nil); // TODO
-          } else {
-            NSString *ID = [swfURL substringWithRange:range];
-            // NSLog(@"Parsed episode ID: %@", ID);
-            [self episodeStreamsForID:ID episodePath:episodePath success:success failure:failure];
-          }
+  [self getPath:episodePath parameters:nil success:^(id operation, HTMLParser *parser) {
+    HTMLNode *headNode = [parser head];
+    NSArray *metaNodes = [headNode findChildTags:@"meta"];
+    for (HTMLNode *metaNode in metaNodes) {
+      if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:video"]) {
+        NSString *swfURL = [metaNode getAttributeNamed:@"content"];
+        NSError *error = nil;
+        // Get the episode ID.
+        // TODO this regex is weak!
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\w+_\\d+"
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+        if (error) {
+          failure(operation, error);
           break;
         }
+        NSRange range = [regex rangeOfFirstMatchInString:swfURL
+                                                 options:NSMatchingReportCompletion
+                                                   range:NSMakeRange(0, [swfURL length])];
+        if (range.location == NSNotFound) {
+          NSLog(@"Unable to find episode ID in string: %@", swfURL);
+          failure(operation, nil); // TODO
+        } else {
+          NSString *ID = [swfURL substringWithRange:range];
+          // NSLog(@"Parsed episode ID: %@", ID);
+          [self episodeStreamsForID:ID episodePath:episodePath success:success failure:failure];
+        }
+        break;
       }
 
-      [parser release];
     }
   } failure:failure];
 }
@@ -280,28 +242,17 @@ UZGBannerURL(NSString *URL, NSString *extension) {
                     failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"/player/%@", ID];
-  [self getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, NSData *data) {
-    NSError *parseError = nil;
-    HTMLParser *parser = [[HTMLParser alloc] initWithData:data error:&parseError];
-
-    if (parseError) {
-      failure(operation, parseError);
-    } else {
-      // TODO:
-      // * collect thumbnail url
-      // * collect datetime metadata
-      HTMLNode *bodyNode = [parser body];
-      NSArray *sourceNodes = [bodyNode findChildTags:@"source"];
-      NSMutableArray *sources = [NSMutableArray array];
-      for (HTMLNode *sourceNode in sourceNodes) {
-        NSString *streamPath = [sourceNode getAttributeNamed:@"src"];
-        NSURL *sourceURL = [NSURL URLWithString:[kUitzendingGemistAPIBaseURLString stringByAppendingString:streamPath]];
-        [sources addObject:sourceURL];
-      }
-      [parser release];
-      UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithEpisodePath:episodePath streamURLs:sources] autorelease];;
-      success(operation, asset);
+  [self getPath:path parameters:nil success:^(id operation, HTMLParser *parser) {
+    HTMLNode *bodyNode = [parser body];
+    NSArray *sourceNodes = [bodyNode findChildTags:@"source"];
+    NSMutableArray *sources = [NSMutableArray array];
+    for (HTMLNode *sourceNode in sourceNodes) {
+      NSString *streamPath = [sourceNode getAttributeNamed:@"src"];
+      NSURL *sourceURL = [NSURL URLWithString:[kUitzendingGemistAPIBaseURLString stringByAppendingString:streamPath]];
+      [sources addObject:sourceURL];
     }
+    UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithEpisodePath:episodePath streamURLs:sources] autorelease];;
+    success(operation, asset);
 
   } failure:failure];
 }
