@@ -16,4 +16,6 @@
   // For now we don't need it anyway, it's for multipart uploads.
   //#import <MobileCoreServices/MobileCoreServices.h>
   #import "BackRow.h"
+
+  #define UZGLocalizedString(key) [[NSBundle bundleWithIdentifier:@"nl.superalloy.Gemist-Sim"] localizedStringForKey:(key) value:@"" table:nil]
 #endif

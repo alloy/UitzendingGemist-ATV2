@@ -37,4 +37,10 @@
   self.spinner.isAnimating ? [self.spinner stopAnimating] : [self.spinner startAnimating];
 }
 
+- (BOOL)brEventAction:(BREvent *)event;
+{
+  // TODO
+  return YES;
+}
+
 @end

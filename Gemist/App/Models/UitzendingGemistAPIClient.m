@@ -35,27 +35,24 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 
 @implementation UitzendingGemistAPIClient
 
-+ (UitzendingGemistAPIClient *)sharedClient {
-    static UitzendingGemistAPIClient *_sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kUitzendingGemistAPIBaseURLString]];
-    });
-    
-    return _sharedClient;
++ (UitzendingGemistAPIClient *)sharedClient;
+{
+  static UitzendingGemistAPIClient *_sharedClient = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kUitzendingGemistAPIBaseURLString]];
+  });
+  return _sharedClient;
 }
 
-- (id)initWithBaseURL:(NSURL *)url {
-    self = [super initWithBaseURL:url];
-    if (!self) {
-        return nil;
-    }
-    
+- (id)initWithBaseURL:(NSURL *)url;
+{
+  if ((self = [super initWithBaseURL:url])) {
     [self registerHTTPOperationClass:[UZGHTMLRequestOperation class]];
     [self setDefaultHeader:@"User-Agent" value:kUitzendingGemistAPIUserAgent];
-    // [self setDefaultHeader:@"Accept" value:@"text/html"];
-    
-    return self;
+    [self setDefaultHeader:@"Accept" value:@"text/html"];
+  }
+  return self;
 }
 
 // TODO check if cookie exists, if not start flow immediately and/or use setRedirectResponseBlock
@@ -105,18 +102,18 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 
   NSString *path = [NSString stringWithFormat:@"/programmas/%@?page=%d", titleInitial, pageNumber];
   [self getPath:path parameters:nil success:^(id operation, HTMLParser *parser) {
-      // TODO:
-      // * collect datetime metadata
-      HTMLNode *bodyNode = [parser body];
-      // Collect show paths
-      NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
-      NSMutableArray *shows = [NSMutableArray array];
-      for (HTMLNode *anchorNode in showNodes) {
-        [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
-      }
-      // Collect pagination info
-      NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
-      success(operation, @[shows, lastPage]);
+    // TODO:
+    // * collect  metadata
+    HTMLNode *bodyNode = [parser body];
+    // Collect show paths
+    NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
+    NSMutableArray *shows = [NSMutableArray array];
+    for (HTMLNode *anchorNode in showNodes) {
+      [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
+    }
+    // Collect pagination info
+    NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
+    success(operation, @[shows, lastPage]);
 
   } failure:failure];
 }
@@ -151,6 +148,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
   UZGSuccessBlock successWrapper = ^(AFHTTPRequestOperation *operation, id data) {
     success(operation, [BRImage imageWithData:data]);
   };
+  // TODO could probably just set the accept header field to not text/html
   AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
   [operation setCompletionBlockWithSuccess:successWrapper failure:failure];
   [self enqueueHTTPRequestOperation:operation];
@@ -164,7 +162,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
   [self getPath:path parameters:nil success:^(id operation, HTMLParser *parser) {
     // TODO:
-    // * collect datetime metadata
+    // * collect metadata
     HTMLNode *bodyNode = [parser body];
     NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
     NSMutableArray *episodes = [NSMutableArray array];

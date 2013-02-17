@@ -10,6 +10,7 @@
 #import "BRControl.h"
 #import "BRController.h"
 #import "BRControllerStack.h"
+#import "BREvent.h"
 #import "BRImage.h"
 #import "BRImageAndSyncingPreviewController.h"
 #import "BRImageControl.h"

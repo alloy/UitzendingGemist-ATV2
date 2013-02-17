@@ -11,6 +11,7 @@
 		5100D54516CD8F53004E2D5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5100D54716CD8F53004E2D5E /* Localizable.strings */; };
 		5100D58516CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */; };
 		5100D58616CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */; };
+		5100D58916D05E55004E2D5E /* BREvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58816D05E55004E2D5E /* BREvent.m */; };
 		5167275416AB3B7D000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
 		5167275516AB3B7D000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
 		5167275716AB3B7D000C7E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167275616AB3B7D000C7E17 /* QuartzCore.framework */; };
@@ -77,6 +78,7 @@
 		5100D54D16CD9025004E2D5E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5100D58316CEA406004E2D5E /* UZGHTMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGHTMLRequestOperation.h; sourceTree = "<group>"; };
 		5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGHTMLRequestOperation.m; sourceTree = "<group>"; };
+		5100D58816D05E55004E2D5E /* BREvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BREvent.m; sourceTree = "<group>"; };
 		5108FBC116A87F140020589D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5108FBC316A87F140020589D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +243,7 @@
 				517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */,
 				51A11A5916B1E9BF00E3C88D /* BRMediaPlayer.m */,
 				51D6A89E16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m */,
+				5100D58816D05E55004E2D5E /* BREvent.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				51D6A89F16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m in Sources */,
 				51D6A8A316BC417100E174E1 /* UZGBookmarksListController.m in Sources */,
 				5100D58616CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */,
+				5100D58916D05E55004E2D5E /* BREvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
