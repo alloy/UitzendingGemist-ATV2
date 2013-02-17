@@ -18,3 +18,5 @@ App:
 * Do we even need the TopShelfController on 5.0.1?
 * Use Core Data?
 * Check what NSURLCache is caching and/or optimize. E.g. Cache banners of favorites to disk.
+
+* There’s a potential memleak in HTMLNode.m when the first attr is NULL, newVal never gets freed.

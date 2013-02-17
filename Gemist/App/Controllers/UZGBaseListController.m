@@ -93,7 +93,7 @@
   } else {
     self.listTitle = self.realTitle;
   }
-  self.bannerCache = [NSMutableDictionary new];
+  self.bannerCache = [[NSMutableDictionary new] autorelease];
   [self.list reload];
 }
 
