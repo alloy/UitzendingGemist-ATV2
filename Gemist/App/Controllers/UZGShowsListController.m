@@ -1,6 +1,7 @@
 #import "UZGShowsListController.h"
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
+#import "UZGShowMediaAsset.h"
 
 @interface UZGShowsListController ()
 @property (retain) NSString *titleInitial;
@@ -34,8 +35,8 @@
       return controller;
 
     } else {
-      NSDictionary *show = self.listEntries[row];
-      [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:show[@"path"]
+      UZGShowMediaAsset *show = self.assets[row];
+      [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:show.path
                                                             success:^(id _, id bannerImage) {
         self.bannerCache[@(row)] = bannerImage;
         [self updatePreviewController];
@@ -55,22 +56,22 @@
   return item;
 }
 
-- (void)listEntrySelected:(long)row;
+- (void)selectedAsset:(long)row;
 {
-  NSDictionary *show = self.listEntries[row];
+  UZGShowMediaAsset *show = self.assets[row];
   UZGEpisodesListController *controller;
-  controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show[@"title"]
-                                                                path:show[@"path"]] autorelease];
+  controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show.title
+                                                                path:show.path] autorelease];
   [[self stack] pushController:controller];
 }
 
-- (void)fetchListEntries;
+- (void)fetchAssets;
 {
-  [super fetchListEntries];
+  [super fetchAssets];
   [[UitzendingGemistAPIClient sharedClient] showsWithTitleInitial:self.titleInitial
                                                              page:self.currentPage
                                                           success:^(id _, id showsAndLastPage) {
-    [self fetchedlistEntriesAndLastPage:showsAndLastPage];
+    [self fetchedAssetsAndLastPage:showsAndLastPage];
   }
                                                           failure:^(id _, NSError *error) {
                                                                     NSLog(@"ERROR: %@", error);

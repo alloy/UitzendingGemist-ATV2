@@ -10,7 +10,7 @@
 
 @interface UZGEpisodesListController ()
 @property (retain) NSString *path;
-@property (retain) NSDictionary *loadingEpisode;
+@property (retain) UZGEpisodeMediaAsset *loadingEpisode;
 @property (retain) BRMediaPlayer *player;
 @end
 
@@ -44,9 +44,10 @@
     // offset for bookmark item
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
-      NSDictionary *episode = self.listEntries[row];
-      NSURL *thumbnailURL = episode[@"thumbnail"];
-      if (thumbnailURL != (id)[NSNull null]) {
+      UZGEpisodeMediaAsset *episode = self.assets[row];
+      NSURL *thumbnailURL = episode.previewURL;
+      if (thumbnailURL) {
+        // TODO cache on the episode instance
         BRImage *bannerImage = self.bannerCache[@(row)];
         if (bannerImage) {
           BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
@@ -121,9 +122,9 @@
     // offset for bookmark item
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
-      NSDictionary *episode = self.listEntries[row];
-      NSString *path = episode[@"path"];
-      UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:path];
+      UZGEpisodeMediaAsset *episode = self.assets[row];
+      // TODO move to episode instance
+      UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:episode.path];
       switch (status) {
         case UZGEpisodeUnplayedStatus:
            [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
@@ -148,20 +149,20 @@
 // }
 
 // TODO disable interface so user can't selecte another episode.
-- (void)listEntrySelected:(long)row;
+- (void)selectedAsset:(long)row;
 {
-  self.loadingEpisode = self.listEntries[row];
+  self.loadingEpisode = self.assets[row];
   [self loadEpisode];
   [self.list reload];
 }
 
-- (void)fetchListEntries;
+- (void)fetchAssets;
 {
-  [super fetchListEntries];
+  [super fetchAssets];
   [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:self.path
                                                             page:self.currentPage
                                                          success:^(id _, id episodesAndLastPage) {
-    [self fetchedlistEntriesAndLastPage:episodesAndLastPage];
+    [self fetchedAssetsAndLastPage:episodesAndLastPage];
   }
                                                          failure:^(id _, NSError *error) {
                                                                    NSLog(@"ERROR: %@", error);
@@ -170,8 +171,8 @@
 
 - (void)loadEpisode;
 {
-  NSString *path = self.loadingEpisode[@"path"];
-  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:path
+  // TODO make the API client take a episode instance and fetch its stream URL.
+  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:self.loadingEpisode.path
                                                                 success:^(id _, UZGEpisodeMediaAsset *episodeMediaAsset) {
     episodeMediaAsset.delegate = self;
     NSError *error = nil;

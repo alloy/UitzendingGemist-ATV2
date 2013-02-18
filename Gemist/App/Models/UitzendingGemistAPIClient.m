@@ -1,5 +1,6 @@
 #import "UitzendingGemistAPIClient.h"
 #import "UZGHTMLRequestOperation.h"
+#import "UZGShowMediaAsset.h"
 #import "UZGEpisodeMediaAsset.h"
 
 
@@ -109,7 +110,10 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
     NSMutableArray *shows = [NSMutableArray array];
     for (HTMLNode *anchorNode in showNodes) {
-      [shows addObject:@{ @"title":anchorNode.contents, @"path":[anchorNode getAttributeNamed:@"href"] }];
+      UZGShowMediaAsset *show = [[UZGShowMediaAsset new] autorelease];
+      show.title = anchorNode.contents;
+      show.path = [anchorNode getAttributeNamed:@"href"];
+      [shows addObject:show];
     }
     // Collect pagination info
     NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
@@ -164,13 +168,15 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     // TODO:
     // * collect metadata
     HTMLNode *bodyNode = [parser body];
-    NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
     NSMutableArray *episodes = [NSMutableArray array];
+
+    NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
     for (HTMLNode *epNode in epNodes) {
       // Get thumbnail URL, if available.
       HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
       NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
-      NSURL *imageSource = (id)[NSNull null];
+      NSURL *imageSource = nil;
+      // TODO Use NSJSONThingie
       if (![imageSourcesList isEqualToString:@"[]"]) {
         NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
         // Get one further in the show if available.
@@ -181,11 +187,11 @@ UZGBannerURL(NSString *URL, NSString *extension) {
       // Get episode URL.
       HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
 
-      [episodes addObject:@{
-        @"title":anchorNode.contents,
-        @"path":[anchorNode getAttributeNamed:@"href"],
-        @"thumbnail":imageSource
-      }];
+      UZGEpisodeMediaAsset *asset = [[UZGEpisodeMediaAsset new] autorelease];
+      asset.title = anchorNode.contents;
+      asset.path = [anchorNode getAttributeNamed:@"href"];
+      asset.previewURL = imageSource;
+      [episodes addObject:asset];
     }
 
     // Collect pagination info

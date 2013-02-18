@@ -11,6 +11,9 @@
 
 @property (assign) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (assign) NSUInteger duration;
+@property (retain) NSURL *previewURL;
+@property (retain) NSString *title;
+@property (retain) NSString *path;
 
 - (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
 

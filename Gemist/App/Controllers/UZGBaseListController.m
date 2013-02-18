@@ -10,7 +10,7 @@
 {
   [_bannerCache release];
   [_realTitle release];
-  [_listEntries release];
+  [_assets release];
   [super dealloc];
 }
 
@@ -19,12 +19,12 @@
   if ((self = [super init])) {
     _currentPage = 1;
     _lastPage = 0;
-    _listEntries = [NSArray new];
+    _assets = [NSArray new];
     _bannerCache = [NSMutableDictionary new];
     self.list.datasource = self;
     // Start in next tick, also gives subclass a chance to set the title.
     dispatch_async(dispatch_get_current_queue(), ^{
-      [self fetchListEntries];
+      [self fetchAssets];
     });
   }
   return self;
@@ -38,16 +38,16 @@
   }
 }
 
-- (void)fetchListEntries;
+- (void)fetchAssets;
 {
   self.showSpinner = YES;
 }
 
-- (void)fetchedlistEntriesAndLastPage:(NSArray *)listEntriesAndLastPage;
+- (void)fetchedAssetsAndLastPage:(NSArray *)assetsAndLastPage;
 {
-  // NSLog(@"%@", listEntriesAndLastPage);
-  self.listEntries = listEntriesAndLastPage[0];
-  self.lastPage = [listEntriesAndLastPage[1] unsignedIntegerValue];
+  // NSLog(@"%@", assetsAndLastPage);
+  self.assets = assetsAndLastPage[0];
+  self.lastPage = [assetsAndLastPage[1] unsignedIntegerValue];
   self.showSpinner = NO;
   [self reloadListData];
 }
@@ -106,7 +106,7 @@
 
 - (long)itemCount;
 {
-  long count = self.listEntries.count;
+  long count = self.assets.count;
   if (self.hasMultiplePages) count += 2;
   return count;
 }
@@ -118,7 +118,7 @@
   if ([self isPaginationRow:&row previous:&previous]) {
     return UZGLocalizedString(previous ? @"Previous Page" : @"Next Page");
   }
-  return self.listEntries[row][@"title"];
+  return [self.assets[row] title];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
@@ -157,15 +157,15 @@
   BOOL previous = NO;
   if ([self isPaginationRow:&row previous:&previous]) {
     self.currentPage = self.currentPage + (previous ? -1 : +1);
-    self.listEntries = [NSArray array];
+    self.assets = [NSArray array];
     [self reloadListData];
-    [self fetchListEntries];
+    [self fetchAssets];
   } else {
-    [self listEntrySelected:row];
+    [self selectedAsset:row];
   }
 }
 
-- (void)listEntrySelected:(long)row;
+- (void)selectedAsset:(long)row;
 {
   NSAssert(NO, @"override!");
 }

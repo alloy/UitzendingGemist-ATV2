@@ -2,7 +2,6 @@
 #import "UZGPlayedList.h"
 
 @interface UZGEpisodeMediaAsset ()
-@property (retain) NSString *path;
 @property (retain) NSArray *streamURLs;
 @end
 
@@ -10,7 +9,9 @@
 
 - (void)dealloc;
 {
+  [_title release];
   [_path release];
+  [_previewURL release];
   [_streamURLs release];
   [super dealloc];
 }
@@ -93,9 +94,9 @@
   return @"360iDev Sample Video";
 };
 
--(id)title {
-  return @"360iDev Sample Video";
-}
+//-(id)title {
+//  return @"360iDev Sample Video";
+//}
 
 - (id)artist {
   return @"Sony Pictures";
@@ -165,13 +166,13 @@
   
 };
 
-- (id)previewURL {
-  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
-  [super previewURL];
-  //NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
-  //return [NSURL fileURLWithPath:moviePosterPath];
-  return nil;
-};
+//- (id)previewURL {
+  //// NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  //// [super previewURL];
+  ////NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
+  ////return [NSURL fileURLWithPath:moviePosterPath];
+  //return nil;
+//};
 - (id)trickPlayURL {
   // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return nil;
