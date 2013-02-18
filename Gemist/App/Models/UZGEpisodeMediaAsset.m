@@ -2,27 +2,28 @@
 #import "UZGPlayedList.h"
 
 @interface UZGEpisodeMediaAsset ()
-@property (retain) NSArray *streamURLs;
 @end
 
 @implementation UZGEpisodeMediaAsset
 
 - (void)dealloc;
 {
+  _delegate = nil;
   [_title release];
   [_path release];
   [_previewURL release];
-  [_streamURLs release];
+  [_mediaURL release];
   [super dealloc];
 }
 
-- (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
+- (void)loadMediaURLWithCompletion:(dispatch_block_t)completion failure:(UZGFailureBlock)failure;
 {
-  if ((self = [super init])) {
-    _path = [path retain];
-    _streamURLs = [streamURLs copy];
-  }
-  return self;
+  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:self.path
+                                                                success:^(id _, NSArray *sources) {
+    // TODO how do we provide the other streams so the player can be adaptive?
+    self.mediaURL = [sources[0] absoluteString];
+    completion();
+  } failure:failure];
 }
 
 #pragma mark - Actually implemented
@@ -33,11 +34,11 @@
 };
 
 // TODO how do we provide the other streams so the player can be adaptive?
-- (id)mediaURL;
-{
-  NSURL *highQuality = self.streamURLs[0];
-  return [highQuality absoluteString];
-}
+//- (id)mediaURL;
+//{
+  //NSURL *highQuality = self.streamURLs[0];
+  //return [highQuality absoluteString];
+//}
 
 - (BOOL)hasBeenPlayed;
 {

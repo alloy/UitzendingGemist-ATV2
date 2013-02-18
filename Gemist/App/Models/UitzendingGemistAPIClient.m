@@ -255,8 +255,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
       NSURL *sourceURL = [NSURL URLWithString:[kUitzendingGemistAPIBaseURLString stringByAppendingString:streamPath]];
       [sources addObject:sourceURL];
     }
-    UZGEpisodeMediaAsset *asset = [[[UZGEpisodeMediaAsset alloc] initWithEpisodePath:episodePath streamURLs:sources] autorelease];;
-    success(operation, asset);
+    success(operation, sources);
 
   } failure:failure];
 }

@@ -171,12 +171,12 @@
 
 - (void)loadEpisode;
 {
-  // TODO make the API client take a episode instance and fetch its stream URL.
-  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:self.loadingEpisode.path
-                                                                success:^(id _, UZGEpisodeMediaAsset *episodeMediaAsset) {
-    episodeMediaAsset.delegate = self;
+  UZGEpisodeMediaAsset *episode = self.loadingEpisode;
+  [episode loadMediaURLWithCompletion:^{
+    episode.delegate = self;
+
     NSError *error = nil;
-    self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episodeMediaAsset error:&error];
+    self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episode error:&error];
     if (error) {
       NSLog(@"ERROR: %@", error);
     } else {
@@ -187,15 +187,15 @@
     // is no longer shown.
     self.loadingEpisode = nil;
     [self.list reload];
-  }
-                                                                failure:^(id _, NSError *error) {
-                                                                          NSLog(@"ERROR: %@", error);
-                                                                        }];
+
+  } failure:^(id _, NSError *error) {
+    NSLog(@"ERROR: %@", error);
+  }];
 }
 
-- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
+- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episode hasBeenPlayed:(BOOL)played;
 {
-  episodeMediaAsset.duration = (NSUInteger)roundf(self.player.duration);
+  episode.duration = (NSUInteger)roundf(self.player.duration);
 }
 
 // Reload list to reflect any change in the episode’s progress status.
@@ -204,7 +204,7 @@
 // delegate callback. There has to be a better way to get notifications from
 // the player, because now we update the list everytime the user stops playback
 // instead of only when the user will return to the list.
-- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
+- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episode;
 {
   [self.list reload];
 }

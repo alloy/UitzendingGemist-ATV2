@@ -34,13 +34,13 @@
 
 - (id)playerForMediaAsset:(id<BRMediaAsset>)mediaAsset error:(NSError **)error;
 {
-  NSLog(@"TODO: %s", __PRETTY_FUNCTION__);
+  NSLog(@"[TODO] %s - %@", __PRETTY_FUNCTION__, mediaAsset.mediaURL);
   return nil;
 }
 
 - (void)presentPlayer:(id)player options:(id)options;
 {
-  NSLog(@"TODO: %s", __PRETTY_FUNCTION__);
+  NSLog(@"[TODO] %s", __PRETTY_FUNCTION__);
 }
 
 - (void)presentMediaAsset:(id<BRMediaAsset>)asset options:(id)options;

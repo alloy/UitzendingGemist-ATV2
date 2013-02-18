@@ -1,4 +1,5 @@
 #import "BackRow.h"
+#import "UitzendingGemistAPIClient.h"
 
 @class UZGEpisodeMediaAsset;
 
@@ -12,9 +13,10 @@
 @property (assign) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (assign) NSUInteger duration;
 @property (retain) NSURL *previewURL;
+@property (retain) NSString *mediaURL;
 @property (retain) NSString *title;
 @property (retain) NSString *path;
 
-- (id)initWithEpisodePath:(NSString *)path streamURLs:(NSArray *)streamURLs;
+- (void)loadMediaURLWithCompletion:(dispatch_block_t)completion failure:(UZGFailureBlock)failure;
 
 @end
