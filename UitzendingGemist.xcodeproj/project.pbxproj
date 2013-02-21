@@ -68,6 +68,8 @@
 		51F2F93C16D58AA700A97FDF /* UZGPaginationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */; };
 		51F2F93F16D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */; };
 		51F2F94016D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */; };
+		51F2F94516D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */; };
+		51F2F94616D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -143,6 +145,8 @@
 		51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPaginationData.m; sourceTree = "<group>"; };
 		51F2F93D16D595A800A97FDF /* UZGBaseMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseMediaAsset.h; sourceTree = "<group>"; };
 		51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseMediaAsset.m; sourceTree = "<group>"; };
+		51F2F94316D6D90B00A97FDF /* UZGHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGHTMLDocument.h; sourceTree = "<group>"; };
+		51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGHTMLDocument.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -363,6 +367,8 @@
 				5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */,
 				51F2F93916D58AA700A97FDF /* UZGPaginationData.h */,
 				51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */,
+				51F2F94316D6D90B00A97FDF /* UZGHTMLDocument.h */,
+				51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */,
 			);
 			path = UZGClient;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				5100D58C16D2DD90004E2D5E /* UZGShowMediaAsset.m in Sources */,
 				51F2F93B16D58AA700A97FDF /* UZGPaginationData.m in Sources */,
 				51F2F93F16D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */,
+				51F2F94516D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +584,7 @@
 				5100D58D16D2DD90004E2D5E /* UZGShowMediaAsset.m in Sources */,
 				51F2F93C16D58AA700A97FDF /* UZGPaginationData.m in Sources */,
 				51F2F94016D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */,
+				51F2F94616D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
