@@ -104,8 +104,8 @@
 		5167278316AB3D03000C7E17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5167278E16AB4064000C7E17 /* UZGAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGAppliance.h; sourceTree = "<group>"; };
 		5167278F16AB4064000C7E17 /* UZGAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGAppliance.m; sourceTree = "<group>"; };
-		5167279116AB4064000C7E17 /* UZGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGClient.h; sourceTree = "<group>"; };
-		5167279216AB4064000C7E17 /* UZGClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGClient.m; sourceTree = "<group>"; };
+		5167279116AB4064000C7E17 /* UZGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UZGClient.h; path = Gemist/App/Models/UZGClient/UZGClient.h; sourceTree = SOURCE_ROOT; };
+		5167279216AB4064000C7E17 /* UZGClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UZGClient.m; path = Gemist/App/Models/UZGClient/UZGClient.m; sourceTree = SOURCE_ROOT; };
 		517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodeMediaAsset.h; sourceTree = "<group>"; };
 		517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodeMediaAsset.m; sourceTree = "<group>"; };
 		517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseMediaAsset.m; sourceTree = "<group>"; };
@@ -310,14 +310,14 @@
 			children = (
 				5167278E16AB4064000C7E17 /* UZGAppliance.h */,
 				5167278F16AB4064000C7E17 /* UZGAppliance.m */,
-				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
-				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
-				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
-				5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */,
 				517C3DBF16AC827F00270F3D /* UZGBaseListController.h */,
 				517C3DC016AC827F00270F3D /* UZGBaseListController.m */,
 				51D6A8A016BC417100E174E1 /* UZGBookmarksListController.h */,
 				51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */,
+				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
+				5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */,
+				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
+				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -325,20 +325,10 @@
 		5167279016AB4064000C7E17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5167279116AB4064000C7E17 /* UZGClient.h */,
-				5167279216AB4064000C7E17 /* UZGClient.m */,
-				517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */,
-				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
+				51F2F94116D6D4E800A97FDF /* Assets */,
+				51F2F94216D6D4E900A97FDF /* UZGClient */,
 				517C3DC316AC8F4B00270F3D /* UZGPlayedList.h */,
 				517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */,
-				5100D58316CEA406004E2D5E /* UZGHTMLRequestOperation.h */,
-				5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */,
-				5100D58A16D2DD90004E2D5E /* UZGShowMediaAsset.h */,
-				5100D58B16D2DD90004E2D5E /* UZGShowMediaAsset.m */,
-				51F2F93916D58AA700A97FDF /* UZGPaginationData.h */,
-				51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */,
-				51F2F93D16D595A800A97FDF /* UZGBaseMediaAsset.h */,
-				51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +340,32 @@
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
+		};
+		51F2F94116D6D4E800A97FDF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				51F2F93D16D595A800A97FDF /* UZGBaseMediaAsset.h */,
+				51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */,
+				517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */,
+				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
+				5100D58A16D2DD90004E2D5E /* UZGShowMediaAsset.h */,
+				5100D58B16D2DD90004E2D5E /* UZGShowMediaAsset.m */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		51F2F94216D6D4E900A97FDF /* UZGClient */ = {
+			isa = PBXGroup;
+			children = (
+				5167279116AB4064000C7E17 /* UZGClient.h */,
+				5167279216AB4064000C7E17 /* UZGClient.m */,
+				5100D58316CEA406004E2D5E /* UZGHTMLRequestOperation.h */,
+				5100D58416CEA406004E2D5E /* UZGHTMLRequestOperation.m */,
+				51F2F93916D58AA700A97FDF /* UZGPaginationData.h */,
+				51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */,
+			);
+			path = UZGClient;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
