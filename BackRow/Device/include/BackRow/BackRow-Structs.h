@@ -10,8 +10,8 @@
 typedef struct __ATVMediaItem *ATVMediaItemRef;
 
 typedef struct BRMultiPartImageMap {
-	id _field1;
-	id _field2;
+	__unsafe_unretained id _field1;
+	__unsafe_unretained id _field2;
 } BRMultiPartImageMap;
 
 typedef struct BRTimeRange {

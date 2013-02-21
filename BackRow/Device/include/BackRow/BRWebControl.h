@@ -36,14 +36,14 @@
 	long _pointerRepeat;	// 100 = 0x64
 	BOOL _pointerForRemote;	// 104 = 0x68
 	struct {
-		NSMutableArray *all;
-		NSMutableArray *html;
-		NSMutableArray *javascript;
-		NSMutableArray *css;
-		NSMutableArray *error;
-		NSMutableArray *warning;
-		NSMutableArray *tip;
-		NSMutableArray *log;
+		__unsafe_unretained NSMutableArray *all;
+		__unsafe_unretained NSMutableArray *html;
+		__unsafe_unretained NSMutableArray *javascript;
+		__unsafe_unretained NSMutableArray *css;
+		__unsafe_unretained NSMutableArray *error;
+		__unsafe_unretained NSMutableArray *warning;
+		__unsafe_unretained NSMutableArray *tip;
+		__unsafe_unretained NSMutableArray *log;
 	} _messages;	// 108 = 0x6c
 	NSMutableString *_consoleMessages;	// 140 = 0x8c
 }
