@@ -9,7 +9,7 @@
 
 - (void)loadView
 {
-  self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
+  self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 }
 
 - (BRControllerStack *)stack;

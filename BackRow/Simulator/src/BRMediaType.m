@@ -4,7 +4,7 @@
 
 + (id)TVShow;
 {
-  BRMediaType *type = [[[self alloc] init] autorelease];
+  BRMediaType *type = [[self alloc] init];
   type.typeString = @"TVShow";
   return type;
 }

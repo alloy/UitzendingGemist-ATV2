@@ -2,16 +2,11 @@
 #import "BRImageControl.h"
 
 @interface BRTopShelfView ()
-@property (nonatomic, retain) BRImageControl *productImage;
+@property (nonatomic, strong) BRImageControl *productImage;
 @end
 
 @implementation BRTopShelfView
 
-- (void)dealloc;
-{
-  [_productImage release];
-  [super dealloc];
-}
 
 - (id)initWithFrame:(CGRect)frame;
 {

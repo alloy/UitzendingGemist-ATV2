@@ -2,7 +2,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface BRMediaPlayerManager ()
-@property (retain) id<BRMediaAsset> currentAsset;
+@property (strong) id<BRMediaAsset> currentAsset;
 @end
 
 @implementation BRMediaPlayerManager
@@ -53,7 +53,6 @@
   UIWindow *window = [[UIApplication sharedApplication] keyWindow];
   UINavigationController *stack = (UINavigationController *)window.rootViewController;
   [stack pushViewController:controller animated:YES];
-  [controller release];
 }
 
 - (void)moviePlayerLoadStateChanged:(NSNotification *)notification;

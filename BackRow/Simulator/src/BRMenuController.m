@@ -7,11 +7,6 @@
 
 @implementation BRMenuController
 
-- (void)dealloc;
-{
-  [_list release];
-  [super dealloc];
-}
 
 - (id)init;
 {

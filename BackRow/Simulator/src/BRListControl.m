@@ -2,7 +2,7 @@
 #import "BRMenuItem.h"
 
 @interface BRListControl () <UITableViewDataSource, UITableViewDelegate>
-@property (retain) UITableView *tableView;
+@property (strong) UITableView *tableView;
 @end
 
 @implementation BRListControl
@@ -10,8 +10,6 @@
 - (void)dealloc;
 {
   _datasource = nil;
-  [_tableView release];
-  [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame;

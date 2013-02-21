@@ -1,16 +1,11 @@
 #import "BRMediaMenuController.h"
 
 @interface BRMediaMenuController ()
-@property (retain) UIActivityIndicatorView *spinner;
+@property (strong) UIActivityIndicatorView *spinner;
 @end
 
 @implementation BRMediaMenuController
 
-- (void)dealloc;
-{
-  [_spinner release];
-  [super dealloc];
-}
 
 - (id)init;
 {

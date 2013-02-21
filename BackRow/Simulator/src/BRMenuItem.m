@@ -1,16 +1,11 @@
 #import "BRMenuItem.h"
 
 @interface BRMenuItem ()
-@property (retain) NSMutableArray *accessoryTypes;
+@property (strong) NSMutableArray *accessoryTypes;
 @end
 
 @implementation BRMenuItem
 
-- (void)dealloc;
-{
-  [_accessoryTypes release];
-  [super dealloc];
-}
 
 - (id)init;
 {
@@ -39,7 +34,7 @@
 
     case BRSpinnerMenuItemAccessoryType: {
       UIActivityIndicatorView *view = [UIActivityIndicatorView alloc];
-      view = [[view initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+      view = [view initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
       self.accessoryView = view;
       [view startAnimating];
       break;
