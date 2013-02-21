@@ -22,4 +22,3 @@
 #import "BRMenuController.h"
 #import "BRMenuItem.h"
 #import "BRThemeInfo.h"
-#import "BRTopShelfView.h"
