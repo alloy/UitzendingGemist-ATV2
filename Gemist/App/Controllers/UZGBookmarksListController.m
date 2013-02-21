@@ -2,6 +2,7 @@
 #import "UZGPlayedList.h"
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
+#import "UZGShowMediaAsset.h"
 
 @interface UZGBookmarksListController ()
 @property (retain) NSMutableDictionary *bannerCache;
@@ -85,11 +86,12 @@
 
 - (void)itemSelected:(long)row;
 {
-  NSString *title = self.bookmarkTitles[row];
-  NSString *path = self.bookmarks[title];
+  UZGShowMediaAsset *show = [[UZGShowMediaAsset new] autorelease];
+  show.title = self.bookmarkTitles[row];
+  show.path = self.bookmarks[show.title];
+
   UZGEpisodesListController *controller;
-  controller = [[[UZGEpisodesListController alloc] initWithShowTitle:title
-                                                                path:path] autorelease];
+  controller = [[[UZGEpisodesListController alloc] initWithShow:show] autorelease];
   [[self stack] pushController:controller];
 }
 

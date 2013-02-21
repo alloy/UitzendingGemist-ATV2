@@ -60,22 +60,17 @@
 {
   UZGShowMediaAsset *show = self.assets[row];
   UZGEpisodesListController *controller;
-  controller = [[[UZGEpisodesListController alloc] initWithShowTitle:show.title
-                                                                path:show.path] autorelease];
+  controller = [[[UZGEpisodesListController alloc] initWithShow:show] autorelease];
   [[self stack] pushController:controller];
 }
 
 - (void)fetchAssets;
 {
   [super fetchAssets];
-  [[UitzendingGemistAPIClient sharedClient] showsWithTitleInitial:self.titleInitial
-                                                             page:self.currentPage
-                                                          success:^(id _, id showsAndLastPage) {
-    [self fetchedAssetsAndLastPage:showsAndLastPage];
-  }
-                                                          failure:^(id _, NSError *error) {
-                                                                    NSLog(@"ERROR: %@", error);
-                                                                  }];
+  [UZGShowMediaAsset showsWithTitleInitial:self.titleInitial
+                                      page:self.currentPage
+                                   success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
+                                   failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
 }
 
 //- (BOOL) brEventAction:(BREvent*)event {

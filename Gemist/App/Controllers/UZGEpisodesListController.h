@@ -1,8 +1,10 @@
 #import "UZGBaseListController.h"
 #import "UZGEpisodeMediaAsset.h"
 
+@class UZGShowMediaAsset;
+
 @interface UZGEpisodesListController : UZGBaseListController <BRMenuListItemProvider, UZGEpisodeMediaAssetDelegate>
 
-- (id)initWithShowTitle:(NSString *)title path:(NSString *)path;
+- (id)initWithShow:(UZGShowMediaAsset *)show;
 
 @end

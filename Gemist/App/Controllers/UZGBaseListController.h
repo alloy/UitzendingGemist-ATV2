@@ -1,5 +1,7 @@
 #import "BackRow.h"
 
+@class UZGPaginationData;
+
 @interface UZGBaseListController : BRMediaMenuController <BRMenuListItemProvider>
 
 @property (nonatomic, retain) NSArray *assets;
@@ -10,7 +12,7 @@
 
 - (void)fetchAssets;
 - (void)selectedAsset:(long)row;
-- (void)fetchedAssetsAndLastPage:(NSArray *)assetsAndLastPage;
+- (void)processPaginationData:(UZGPaginationData *)paginationData;
 - (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
 - (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
 

@@ -1,5 +1,4 @@
-#import "BackRow.h"
-#import "UitzendingGemistAPIClient.h"
+#import "UZGBaseMediaAsset.h"
 
 @class UZGEpisodeMediaAsset;
 
@@ -8,7 +7,7 @@
 - (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
 @end
 
-@interface UZGEpisodeMediaAsset : BRBaseMediaAsset <BRMediaAsset>
+@interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset>
 
 @property (assign) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (assign) NSUInteger duration;
@@ -17,6 +16,6 @@
 @property (retain) NSString *title;
 @property (retain) NSString *path;
 
-- (void)loadMediaURLWithCompletion:(dispatch_block_t)completion failure:(UZGFailureBlock)failure;
+- (void)withMediaURL:(dispatch_block_t)success failure:(UZGFailureBlock)failure;
 
 @end

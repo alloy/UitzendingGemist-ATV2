@@ -1,6 +1,7 @@
 #import "UZGEpisodesListController.h"
 #import "UitzendingGemistAPIClient.h"
 #import "UZGPlayedList.h"
+#import "UZGShowMediaAsset.h"
 
 //#import "BRURLImageProxy.h"
 //#import "BRMediaType.h"
@@ -9,6 +10,7 @@
 #import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
+@property (retain) UZGShowMediaAsset *show;
 @property (retain) NSString *path;
 @property (retain) UZGEpisodeMediaAsset *loadingEpisode;
 @property (retain) BRMediaPlayer *player;
@@ -18,17 +20,19 @@
 
 - (void)dealloc;
 {
+  [_show release];
   [_path release];
   [_loadingEpisode release];
   [_player release];
   [super dealloc];
 }
 
-- (id)initWithShowTitle:(NSString *)title path:(NSString *)path;
+- (id)initWithShow:(UZGShowMediaAsset *)show;
 {
   if ((self = [super init])) {
-    self.realTitle = title;
-    _path = [path retain];
+    _show = [show retain];
+    self.realTitle = _show.title;
+    _path = [_show.path retain];
   }
   return self;
 }
@@ -159,20 +163,15 @@
 - (void)fetchAssets;
 {
   [super fetchAssets];
-  [[UitzendingGemistAPIClient sharedClient] episodesOfShowAtPath:self.path
-                                                            page:self.currentPage
-                                                         success:^(id _, id episodesAndLastPage) {
-    [self fetchedAssetsAndLastPage:episodesAndLastPage];
-  }
-                                                         failure:^(id _, NSError *error) {
-                                                                   NSLog(@"ERROR: %@", error);
-                                                                 }];
+  [self.show episodesAtPage:self.currentPage
+                    success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
+                    failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
 }
 
 - (void)loadEpisode;
 {
   UZGEpisodeMediaAsset *episode = self.loadingEpisode;
-  [episode loadMediaURLWithCompletion:^{
+  [episode withMediaURL:^{
     episode.delegate = self;
 
     NSError *error = nil;

@@ -16,13 +16,17 @@
   [super dealloc];
 }
 
-- (void)loadMediaURLWithCompletion:(dispatch_block_t)completion failure:(UZGFailureBlock)failure;
+- (void)withMediaURL:(dispatch_block_t)success failure:(UZGFailureBlock)failure;
 {
+  if (self.mediaURL) {
+    success();
+    return;
+  }
   [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:self.path
                                                                 success:^(id _, NSArray *sources) {
     // TODO how do we provide the other streams so the player can be adaptive?
     self.mediaURL = [sources[0] absoluteString];
-    completion();
+    success();
   } failure:failure];
 }
 

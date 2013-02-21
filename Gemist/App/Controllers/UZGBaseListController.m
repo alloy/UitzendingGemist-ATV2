@@ -1,4 +1,5 @@
 #import "UZGBaseListController.h"
+#import "UZGPaginationData.h"
 
 @interface UZGBaseListController ()
 
@@ -43,11 +44,10 @@
   self.showSpinner = YES;
 }
 
-- (void)fetchedAssetsAndLastPage:(NSArray *)assetsAndLastPage;
+- (void)processPaginationData:(UZGPaginationData *)paginationData;
 {
-  // NSLog(@"%@", assetsAndLastPage);
-  self.assets = assetsAndLastPage[0];
-  self.lastPage = [assetsAndLastPage[1] unsignedIntegerValue];
+  self.assets = paginationData.entries;
+  self.lastPage = paginationData.pageCount;
   self.showSpinner = NO;
   [self reloadListData];
 }

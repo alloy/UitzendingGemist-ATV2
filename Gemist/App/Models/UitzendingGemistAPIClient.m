@@ -1,8 +1,5 @@
 #import "UitzendingGemistAPIClient.h"
 #import "UZGHTMLRequestOperation.h"
-#import "UZGShowMediaAsset.h"
-#import "UZGEpisodeMediaAsset.h"
-
 
 static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl";
 static NSString * const kUitzendingGemistAPICookiesHost = @"cookies.publiekeomroep.nl";
@@ -92,7 +89,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 
 - (void)showsWithTitleInitial:(NSString *)titleInitial
                          page:(NSUInteger)pageNumber
-                      success:(UZGSuccessBlock)success
+                      success:(UZGPaginationDataBlock)success
                       failure:(UZGFailureBlock)failure;
 {
   if ([titleInitial isEqualToString:@"#"]) {
@@ -106,18 +103,20 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     // TODO:
     // * collect  metadata
     HTMLNode *bodyNode = [parser body];
-    // Collect show paths
-    NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
+    NSInteger pageCount = UZGParseLastPageFromBody(bodyNode);
+
     NSMutableArray *shows = [NSMutableArray array];
+    NSArray *showNodes = [bodyNode findChildrenOfClass:@"series knav_link"];
     for (HTMLNode *anchorNode in showNodes) {
-      UZGShowMediaAsset *show = [[UZGShowMediaAsset new] autorelease];
-      show.title = anchorNode.contents;
-      show.path = [anchorNode getAttributeNamed:@"href"];
-      [shows addObject:show];
+      [shows addObject:@{
+        @"title":anchorNode.contents,
+        @"path":[anchorNode getAttributeNamed:@"href"]
+      }];
     }
-    // Collect pagination info
-    NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
-    success(operation, @[shows, lastPage]);
+
+    success([[[UZGPaginationData alloc] initWithEntries:shows
+                                             pageNumber:pageNumber
+                                              pageCount:pageCount] autorelease]);
 
   } failure:failure];
 }
@@ -160,7 +159,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
-                     success:(UZGSuccessBlock)success
+                     success:(UZGPaginationDataBlock)success
                      failure:(UZGFailureBlock)failure;
 {
   NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
@@ -168,35 +167,35 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     // TODO:
     // * collect metadata
     HTMLNode *bodyNode = [parser body];
-    NSMutableArray *episodes = [NSMutableArray array];
+    NSInteger pageCount = UZGParseLastPageFromBody(bodyNode);
 
+    NSMutableArray *episodes = [NSMutableArray array];
     NSArray *epNodes = [bodyNode findChildrenOfClass:@"episode active knav"];
     for (HTMLNode *epNode in epNodes) {
+      NSMutableDictionary *episodeData = [NSMutableDictionary new];
+
+      HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
+      episodeData[@"title"] = anchorNode.contents;
+      episodeData[@"path"] = [anchorNode getAttributeNamed:@"href"];
+
       // Get thumbnail URL, if available.
       HTMLNode *imageNode = [epNode findChildrenOfClass:@"thumbnail"][0];
       NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
-      NSURL *imageSource = nil;
       // TODO Use NSJSONThingie
       if (![imageSourcesList isEqualToString:@"[]"]) {
         NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
         // Get one further in the show if available.
         NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
-        imageSource = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
+        episodeData[@"previewURL"] = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
       }
 
-      // Get episode URL.
-      HTMLNode *anchorNode = [epNode findChildrenOfClass:@"episode active knav_link"][0];
-
-      UZGEpisodeMediaAsset *asset = [[UZGEpisodeMediaAsset new] autorelease];
-      asset.title = anchorNode.contents;
-      asset.path = [anchorNode getAttributeNamed:@"href"];
-      asset.previewURL = imageSource;
-      [episodes addObject:asset];
+      [episodes addObject:episodeData];
+      [episodeData release];
     }
 
-    // Collect pagination info
-    NSNumber *lastPage = @(UZGParseLastPageFromBody(bodyNode));
-    success(operation, @[episodes, lastPage]);
+    success([[[UZGPaginationData alloc] initWithEntries:episodes
+                                             pageNumber:pageNumber
+                                              pageCount:pageCount] autorelease]);
 
   } failure:failure];
 }
