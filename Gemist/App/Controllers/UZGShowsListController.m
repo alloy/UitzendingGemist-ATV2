@@ -1,6 +1,6 @@
 #import "UZGShowsListController.h"
 #import "UZGEpisodesListController.h"
-#import "UitzendingGemistAPIClient.h"
+#import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
 
 @interface UZGShowsListController ()
@@ -36,7 +36,7 @@
 
     } else {
       UZGShowMediaAsset *show = self.assets[row];
-      [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:show.path
+      [[UZGClient sharedClient] bannerForShowAtPath:show.path
                                                             success:^(id _, id bannerImage) {
         self.bannerCache[@(row)] = bannerImage;
         [self updatePreviewController];

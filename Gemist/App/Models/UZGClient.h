@@ -7,9 +7,9 @@ typedef void (^UZGFailureBlock)(AFHTTPRequestOperation *, NSError *);
 
 typedef void (^UZGPaginationDataBlock)(UZGPaginationData *);
 
-@interface UitzendingGemistAPIClient : AFHTTPClient
+@interface UZGClient : AFHTTPClient
 
-+ (UitzendingGemistAPIClient *)sharedClient;
++ (UZGClient *)sharedClient;
 
 - (void)showsWithTitleInitial:(NSString *)titleInitial
                          page:(NSUInteger)pageNumber

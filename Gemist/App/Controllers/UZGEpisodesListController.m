@@ -1,5 +1,5 @@
 #import "UZGEpisodesListController.h"
-#import "UitzendingGemistAPIClient.h"
+#import "UZGClient.h"
 #import "UZGPlayedList.h"
 #import "UZGShowMediaAsset.h"
 
@@ -60,7 +60,7 @@
           return controller;
 
         } else {
-          [[UitzendingGemistAPIClient sharedClient] loadImageFromURL:thumbnailURL
+          [[UZGClient sharedClient] loadImageFromURL:thumbnailURL
                                                              success:^(id _, id bannerImage) {
             self.bannerCache[@(row)] = bannerImage;
             [self updatePreviewController];

@@ -39,7 +39,7 @@
 	<key>MinimumOSVersion</key>
 	<string>3.0</string>
 	<key>NSPrincipalClass</key>
-	<string>GemistAppliance</string>
+	<string>UZGAppliance</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>3</integer>

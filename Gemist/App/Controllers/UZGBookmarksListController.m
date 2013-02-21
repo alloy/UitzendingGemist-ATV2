@@ -1,7 +1,7 @@
 #import "UZGBookmarksListController.h"
 #import "UZGPlayedList.h"
 #import "UZGEpisodesListController.h"
-#import "UitzendingGemistAPIClient.h"
+#import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
 
 @interface UZGBookmarksListController ()
@@ -72,7 +72,7 @@
   } else {
     NSString *title = self.bookmarkTitles[row];
     NSString *path = self.bookmarks[title];
-    [[UitzendingGemistAPIClient sharedClient] bannerForShowAtPath:path
+    [[UZGClient sharedClient] bannerForShowAtPath:path
                                                           success:^(id _, id bannerImage) {
       self.bannerCache[@(row)] = bannerImage;
       [self updatePreviewController];

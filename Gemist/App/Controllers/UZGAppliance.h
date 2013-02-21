@@ -1,6 +1,6 @@
 #import "BackRow.h"
 
-@interface GemistAppliance : BRBaseAppliance <BRAppliance>
+@interface UZGAppliance : BRBaseAppliance <BRAppliance>
 
 @property (nonatomic, retain) NSArray *applianceCategories;
 

@@ -1,5 +1,5 @@
 #import "BackRow.h"
-#import "UitzendingGemistAPIClient.h"
+#import "UZGClient.h"
 
 @interface UZGBaseMediaAsset : BRBaseMediaAsset
 

@@ -22,7 +22,7 @@
     success();
     return;
   }
-  [[UitzendingGemistAPIClient sharedClient] episodeStreamSourcesForPath:self.path
+  [[UZGClient sharedClient] episodeStreamSourcesForPath:self.path
                                                                 success:^(id _, NSArray *sources) {
     // TODO how do we provide the other streams so the player can be adaptive?
     self.mediaURL = [sources[0] absoluteString];

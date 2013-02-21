@@ -1,4 +1,4 @@
-#import "GemistAppliance.h"
+#import "UZGAppliance.h"
 #import "UZGBookmarksListController.h"
 #import "UZGShowsListController.h"
 #import "AFHTTPRequestOperationLogger.h"
@@ -6,10 +6,10 @@
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
-@interface GemistAppliance ()
+@interface UZGAppliance ()
 @end
 
-@implementation GemistAppliance
+@implementation UZGAppliance
 
 - (void)dealloc;
 {

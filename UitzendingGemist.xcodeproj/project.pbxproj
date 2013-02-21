@@ -28,8 +28,8 @@
 		5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5167278316AB3D03000C7E17 /* Default-568h@2x.png */; };
 		5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903ED16AAEC79006E7359 /* BRApplianceCategory.m */; };
 		5167278B16AB3F56000C7E17 /* BRBaseAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 511903EE16AAEC79006E7359 /* BRBaseAppliance.m */; };
-		5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
-		5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* GemistAppliance.m */; };
+		5167279316AB4064000C7E17 /* UZGAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* UZGAppliance.m */; };
+		5167279516AB4078000C7E17 /* UZGAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167278F16AB4064000C7E17 /* UZGAppliance.m */; };
 		517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
 		517C3DB216AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */; };
 		517C3DB616AC653D00270F3D /* BRBaseMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */; };
@@ -55,8 +55,8 @@
 		5199A6FC16AB60870057AA02 /* UZGShowsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FA16AB60870057AA02 /* UZGShowsListController.m */; };
 		5199A6FF16AB64850057AA02 /* BRListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6FE16AB64850057AA02 /* BRListControl.m */; };
 		5199A70216AB693F0057AA02 /* BRMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70116AB693F0057AA02 /* BRMenuItem.m */; };
-		5199A70316AB86080057AA02 /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */; };
-		5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */; };
+		5199A70316AB86080057AA02 /* UZGClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UZGClient.m */; };
+		5199A70416AB86150057AA02 /* UZGClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5167279216AB4064000C7E17 /* UZGClient.m */; };
 		5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70C16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */; };
 		5199A70F16AC0B9E0057AA02 /* BRControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A70E16AC0B9D0057AA02 /* BRControllerStack.m */; };
@@ -103,10 +103,10 @@
 		5167277F16AB3D03000C7E17 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5167278116AB3D03000C7E17 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5167278316AB3D03000C7E17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		5167278E16AB4064000C7E17 /* GemistAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemistAppliance.h; sourceTree = "<group>"; };
-		5167278F16AB4064000C7E17 /* GemistAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemistAppliance.m; sourceTree = "<group>"; };
-		5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UitzendingGemistAPIClient.h; sourceTree = "<group>"; };
-		5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UitzendingGemistAPIClient.m; sourceTree = "<group>"; };
+		5167278E16AB4064000C7E17 /* UZGAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGAppliance.h; sourceTree = "<group>"; };
+		5167278F16AB4064000C7E17 /* UZGAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGAppliance.m; sourceTree = "<group>"; };
+		5167279116AB4064000C7E17 /* UZGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGClient.h; sourceTree = "<group>"; };
+		5167279216AB4064000C7E17 /* UZGClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGClient.m; sourceTree = "<group>"; };
 		517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGEpisodeMediaAsset.h; sourceTree = "<group>"; };
 		517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGEpisodeMediaAsset.m; sourceTree = "<group>"; };
 		517C3DB516AC653D00270F3D /* BRBaseMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseMediaAsset.m; sourceTree = "<group>"; };
@@ -311,8 +311,8 @@
 		5167278D16AB4064000C7E17 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5167278E16AB4064000C7E17 /* GemistAppliance.h */,
-				5167278F16AB4064000C7E17 /* GemistAppliance.m */,
+				5167278E16AB4064000C7E17 /* UZGAppliance.h */,
+				5167278F16AB4064000C7E17 /* UZGAppliance.m */,
 				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
 				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
@@ -328,8 +328,8 @@
 		5167279016AB4064000C7E17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5167279116AB4064000C7E17 /* UitzendingGemistAPIClient.h */,
-				5167279216AB4064000C7E17 /* UitzendingGemistAPIClient.m */,
+				5167279116AB4064000C7E17 /* UZGClient.h */,
+				5167279216AB4064000C7E17 /* UZGClient.m */,
 				517C3DAF16AC5F5200270F3D /* UZGEpisodeMediaAsset.h */,
 				517C3DB016AC5F5200270F3D /* UZGEpisodeMediaAsset.m */,
 				517C3DC316AC8F4B00270F3D /* UZGPlayedList.h */,
@@ -512,8 +512,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */,
-				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
+				5199A70416AB86150057AA02 /* UZGClient.m in Sources */,
+				5167279316AB4064000C7E17 /* UZGAppliance.m in Sources */,
 				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
@@ -531,8 +531,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5199A70316AB86080057AA02 /* UitzendingGemistAPIClient.m in Sources */,
-				5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */,
+				5199A70316AB86080057AA02 /* UZGClient.m in Sources */,
+				5167279516AB4078000C7E17 /* UZGAppliance.m in Sources */,
 				5167277A16AB3D03000C7E17 /* main.m in Sources */,
 				5167277E16AB3D03000C7E17 /* UZGAppDelegate.m in Sources */,
 				5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */,

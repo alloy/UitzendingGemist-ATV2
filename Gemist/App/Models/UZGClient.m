@@ -1,4 +1,4 @@
-#import "UitzendingGemistAPIClient.h"
+#import "UZGClient.h"
 #import "UZGHTMLRequestOperation.h"
 
 static NSString * const kUitzendingGemistAPIBaseURLString = @"http://www.uitzendinggemist.nl";
@@ -31,11 +31,11 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 }
 
 
-@implementation UitzendingGemistAPIClient
+@implementation UZGClient
 
-+ (UitzendingGemistAPIClient *)sharedClient;
++ (UZGClient *)sharedClient;
 {
-  static UitzendingGemistAPIClient *_sharedClient = nil;
+  static UZGClient *_sharedClient = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kUitzendingGemistAPIBaseURLString]];
