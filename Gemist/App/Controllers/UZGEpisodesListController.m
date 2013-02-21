@@ -102,6 +102,7 @@
 - (void)itemSelected:(long)row;
 {
   if (row == 0) {
+    // TODO move to UZGShowMediaAsset.
     BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
     [[UZGPlayedList sharedList] setHasBookmarkedShow:!bookmarked
                                              forPath:self.path

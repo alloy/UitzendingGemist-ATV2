@@ -1,5 +1,4 @@
 #import "GemistAppliance.h"
-#import "UZGTopShelfController.h"
 #import "UZGBookmarksListController.h"
 #import "UZGShowsListController.h"
 #import "AFHTTPRequestOperationLogger.h"
@@ -14,7 +13,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 - (void)dealloc;
 {
-  [_topShelfController release];
   [_applianceCategories release];
   [super dealloc];
 }
@@ -22,8 +20,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 - (id)init;
 {
   if ((self = [super init])) {
-    _topShelfController = [UZGTopShelfController new];
-
     NSMutableArray *categories = [NSMutableArray array];
     [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
                                                      identifier:kUZGBookmarksCategoryIdentifier

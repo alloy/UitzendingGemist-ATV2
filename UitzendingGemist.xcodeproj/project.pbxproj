@@ -42,9 +42,6 @@
 		517C3DC616AC8F4B00270F3D /* UZGPlayedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC416AC8F4B00270F3D /* UZGPlayedList.m */; };
 		517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DCD16ACA4D200270F3D /* InfoPlist.strings */; };
 		517C3DD516ACA8BC00270F3D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DD116ACA8BC00270F3D /* AppIcon.png */; };
-		5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
-		5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */; };
-		5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */; };
 		5199A6DD16AB4F5C0057AA02 /* BRTopShelfView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DB16AB4F5C0057AA02 /* BRTopShelfView.m */; };
 		5199A6E116AB52950057AA02 /* BRControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DE16AB52950057AA02 /* BRControl.m */; };
 		5199A6E316AB52950057AA02 /* BRImageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5199A6DF16AB52950057AA02 /* BRImageControl.m */; };
@@ -123,9 +120,6 @@
 		517C3DCC16ACA4D200270F3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		517C3DD116ACA8BC00270F3D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		5199A6C916AB42D90057AA02 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGTopShelfController.h; sourceTree = "<group>"; };
-		5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGTopShelfController.m; sourceTree = "<group>"; };
-		5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = "BRTopShelfView+ProductImage.m"; sourceTree = "<group>"; };
 		5199A6DB16AB4F5C0057AA02 /* BRTopShelfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTopShelfView.m; sourceTree = "<group>"; };
 		5199A6DE16AB52950057AA02 /* BRControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRControl.m; sourceTree = "<group>"; };
 		5199A6DF16AB52950057AA02 /* BRImageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRImageControl.m; sourceTree = "<group>"; };
@@ -219,7 +213,6 @@
 		5119020416AAEC78006E7359 /* BackRow */ = {
 			isa = PBXGroup;
 			children = (
-				5199A6D916AB4E000057AA02 /* Device */,
 				511903E816AAEC79006E7359 /* Simulator */,
 			);
 			path = BackRow;
@@ -320,8 +313,6 @@
 			children = (
 				5167278E16AB4064000C7E17 /* GemistAppliance.h */,
 				5167278F16AB4064000C7E17 /* GemistAppliance.m */,
-				5199A6CC16AB45110057AA02 /* UZGTopShelfController.h */,
-				5199A6CD16AB45110057AA02 /* UZGTopShelfController.m */,
 				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
 				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
@@ -362,22 +353,6 @@
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
-		};
-		5199A6D516AB4DEC0057AA02 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				5199A6D616AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		5199A6D916AB4E000057AA02 /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				5199A6D516AB4DEC0057AA02 /* src */,
-			);
-			path = Device;
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -501,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\nmv ${EXECUTABLE_FOLDER_PATH}/en.lproj ${EXECUTABLE_FOLDER_PATH}/English.lproj\nmv ${EXECUTABLE_FOLDER_PATH}/nl.lproj ${EXECUTABLE_FOLDER_PATH}/Dutch.lproj";
+			shellScript = "cd ${CONFIGURATION_BUILD_DIR}\nrm -rf ${EXECUTABLE_FOLDER_PATH}/English.lproj\nrm -rf ${EXECUTABLE_FOLDER_PATH}/Dutch.lproj\nmv ${EXECUTABLE_FOLDER_PATH}/en.lproj ${EXECUTABLE_FOLDER_PATH}/English.lproj\nmv ${EXECUTABLE_FOLDER_PATH}/nl.lproj ${EXECUTABLE_FOLDER_PATH}/Dutch.lproj";
 		};
 		5167275116AB3B7D000C7E17 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -539,8 +514,6 @@
 			files = (
 				5199A70416AB86150057AA02 /* UitzendingGemistAPIClient.m in Sources */,
 				5167279316AB4064000C7E17 /* GemistAppliance.m in Sources */,
-				5199A6CE16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
-				5199A6D716AB4DEC0057AA02 /* BRTopShelfView+ProductImage.m in Sources */,
 				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
@@ -560,7 +533,6 @@
 			files = (
 				5199A70316AB86080057AA02 /* UitzendingGemistAPIClient.m in Sources */,
 				5167279516AB4078000C7E17 /* GemistAppliance.m in Sources */,
-				5199A6CF16AB45110057AA02 /* UZGTopShelfController.m in Sources */,
 				5167277A16AB3D03000C7E17 /* main.m in Sources */,
 				5167277E16AB3D03000C7E17 /* UZGAppDelegate.m in Sources */,
 				5167278A16AB3F56000C7E17 /* BRApplianceCategory.m in Sources */,
@@ -693,7 +665,6 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -740,7 +711,6 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_MODEL_TUNING = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gemist/Gemist-Prefix.pch";
