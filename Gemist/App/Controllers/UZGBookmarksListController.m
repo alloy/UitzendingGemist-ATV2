@@ -5,27 +5,20 @@
 #import "UZGShowMediaAsset.h"
 
 @interface UZGBookmarksListController ()
-@property (retain) NSMutableDictionary *bannerCache;
-@property (retain) NSDictionary *bookmarks;
-@property (retain) NSArray *bookmarkTitles;
+@property (strong) NSMutableDictionary *bannerCache;
+@property (strong) NSDictionary *bookmarks;
+@property (strong) NSArray *bookmarkTitles;
 @end
 
 @implementation UZGBookmarksListController
 
-- (void)dealloc;
-{
-  [_bannerCache release];
-  [_bookmarks release];
-  [_bookmarkTitles release];
-  [super dealloc];
-}
 
 - (id)init;
 {
   if ((self = [super init])) {
     _bannerCache = [NSMutableDictionary new];
-    _bookmarks = [[[UZGPlayedList sharedList] allBookmarks] retain];
-    _bookmarkTitles = [[[_bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] retain];
+    _bookmarks = [[UZGPlayedList sharedList] allBookmarks];
+    _bookmarkTitles = [[_bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     self.list.datasource = self;
   }
   return self;
@@ -43,7 +36,7 @@
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  BRMenuItem *item = [[BRMenuItem new] autorelease];
+  BRMenuItem *item = [BRMenuItem new];
   item.text = [self titleForRow:row];
   [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
   return item;
@@ -64,7 +57,7 @@
 {
   BRImage *bannerImage = self.bannerCache[@(row)];
   if (bannerImage) {
-    BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+    BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
     [controller setReflectionAmount:0.5];
     controller.image = bannerImage;
     return controller;
@@ -86,12 +79,12 @@
 
 - (void)itemSelected:(long)row;
 {
-  UZGShowMediaAsset *show = [[UZGShowMediaAsset new] autorelease];
+  UZGShowMediaAsset *show = [UZGShowMediaAsset new];
   show.title = self.bookmarkTitles[row];
   show.path = self.bookmarks[show.title];
 
   UZGEpisodesListController *controller;
-  controller = [[[UZGEpisodesListController alloc] initWithShow:show] autorelease];
+  controller = [[UZGEpisodesListController alloc] initWithShow:show];
   [[self stack] pushController:controller];
 }
 

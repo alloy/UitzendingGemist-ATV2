@@ -114,9 +114,9 @@ UZGBannerURL(NSString *URL, NSString *extension) {
       }];
     }
 
-    success([[[UZGPaginationData alloc] initWithEntries:shows
+    success([[UZGPaginationData alloc] initWithEntries:shows
                                              pageNumber:pageNumber
-                                              pageCount:pageCount] autorelease]);
+                                              pageCount:pageCount]);
 
   } failure:failure];
 }
@@ -190,12 +190,11 @@ UZGBannerURL(NSString *URL, NSString *extension) {
       }
 
       [episodes addObject:episodeData];
-      [episodeData release];
     }
 
-    success([[[UZGPaginationData alloc] initWithEntries:episodes
+    success([[UZGPaginationData alloc] initWithEntries:episodes
                                              pageNumber:pageNumber
-                                              pageCount:pageCount] autorelease]);
+                                              pageCount:pageCount]);
 
   } failure:failure];
 }

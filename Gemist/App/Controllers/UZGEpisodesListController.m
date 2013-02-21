@@ -10,29 +10,21 @@
 #import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
-@property (retain) UZGShowMediaAsset *show;
-@property (retain) NSString *path;
-@property (retain) UZGEpisodeMediaAsset *loadingEpisode;
-@property (retain) BRMediaPlayer *player;
+@property (strong) UZGShowMediaAsset *show;
+@property (strong) NSString *path;
+@property (strong) UZGEpisodeMediaAsset *loadingEpisode;
+@property (strong) BRMediaPlayer *player;
 @end
 
 @implementation UZGEpisodesListController
 
-- (void)dealloc;
-{
-  [_show release];
-  [_path release];
-  [_loadingEpisode release];
-  [_player release];
-  [super dealloc];
-}
 
 - (id)initWithShow:(UZGShowMediaAsset *)show;
 {
   if ((self = [super init])) {
-    _show = [show retain];
+    _show = show;
     self.realTitle = _show.title;
-    _path = [_show.path retain];
+    _path = _show.path;
   }
   return self;
 }
@@ -54,7 +46,7 @@
         // TODO cache on the episode instance
         BRImage *bannerImage = self.bannerCache[@(row)];
         if (bannerImage) {
-          BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+          BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
           [controller setReflectionAmount:0.5];
           controller.image = bannerImage;
           return controller;

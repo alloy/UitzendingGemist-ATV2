@@ -11,11 +11,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 @implementation UZGAppliance
 
-- (void)dealloc;
-{
-  [_applianceCategories release];
-  [super dealloc];
-}
 
 - (id)init;
 {
@@ -70,9 +65,9 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 {
   BRController *controller = nil;
   if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
-    controller = [[UZGBookmarksListController new] autorelease];
+    controller = [UZGBookmarksListController new];
   } else {
-    controller = [[[UZGShowsListController alloc] initWithTitleInitial:identifier] autorelease];
+    controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];
   }
   return controller;
 }

@@ -7,13 +7,6 @@
 
 @implementation UZGBaseListController
 
-- (void)dealloc;
-{
-  [_bannerCache release];
-  [_realTitle release];
-  [_assets release];
-  [super dealloc];
-}
 
 - (id)init;
 {
@@ -34,7 +27,7 @@
 - (void)setRealTitle:(NSString *)realTitle;
 {
   if (![_realTitle isEqualToString:realTitle]) {
-    _realTitle = [realTitle retain];
+    _realTitle = realTitle;
     self.listTitle = realTitle;
   }
 }
@@ -93,7 +86,7 @@
   } else {
     self.listTitle = self.realTitle;
   }
-  self.bannerCache = [[NSMutableDictionary new] autorelease];
+  self.bannerCache = [NSMutableDictionary new];
   [self.list reload];
 }
 
@@ -123,7 +116,7 @@
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  BRMenuItem *item = [[BRMenuItem new] autorelease];
+  BRMenuItem *item = [BRMenuItem new];
   item.text = [self titleForRow:row];
   item.acceptsFocus = [self rowSelectable:row];
   item.dimmed = !item.acceptsFocus;

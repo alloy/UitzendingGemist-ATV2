@@ -10,8 +10,8 @@ static NSString * const kUZGPlayedListShowBookmarksKey = @"ShowBookmarks";
 static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 @interface UZGPlayedList ()
-@property (retain) NSString *storePath;
-@property (retain) NSMutableDictionary *list;
+@property (strong) NSString *storePath;
+@property (strong) NSMutableDictionary *list;
 @end
 
 @implementation UZGPlayedList
@@ -26,21 +26,15 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   return sharedList;
 }
 
-- (void)dealloc;
-{
-  [_storePath release];
-  [_list release];
-  [super dealloc];
-}
 
 - (id)init;
 {
   if ((self = [super init])) {
-    _storePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"] retain];
+    _storePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"];
     // NSLog(@"STORE PATH: %@", _storePath);
     NSMutableDictionary *list = [self loadListFromDisk];
     if (list) {
-      _list = [list retain];
+      _list = list;
     } else {
       _list = [NSMutableDictionary new];
       _list[kUZGPlayedListEpisodesKey] = [NSMutableDictionary dictionary];
@@ -60,7 +54,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
     } else {
       // Make recursive mutable
       for (NSString *key in [list allKeys]) {
-        list[key] = [[list[key] mutableCopy] autorelease];
+        list[key] = [list[key] mutableCopy];
       }
     }
   }
@@ -85,7 +79,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   for (NSString *key in bookmarks) {
     result[bookmarks[key]] = key;
   }
-  return [[result copy] autorelease];
+  return [result copy];
 }
 
 - (BOOL)hasBookmarkedShowForPath:(NSString *)path;
@@ -111,9 +105,9 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   NSMutableDictionary *list = self.list[kUZGPlayedListEpisodesKey];
   NSDictionary *episode = list[path];
   if (episode) {
-    NSMutableDictionary *mutableEpisode = [[episode mutableCopy] autorelease];
+    NSMutableDictionary *mutableEpisode = [episode mutableCopy];
     mutableEpisode[key] = value;
-    list[path] = [[mutableEpisode copy] autorelease];
+    list[path] = [mutableEpisode copy];
   } else {
     list[path] = @{ key:value };
   }

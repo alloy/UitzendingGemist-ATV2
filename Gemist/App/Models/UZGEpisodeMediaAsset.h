@@ -9,12 +9,12 @@
 
 @interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset>
 
-@property (assign) id<UZGEpisodeMediaAssetDelegate> delegate;
+@property (weak) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (assign) NSUInteger duration;
-@property (retain) NSURL *previewURL;
-@property (retain) NSString *mediaURL;
-@property (retain) NSString *title;
-@property (retain) NSString *path;
+@property (strong) NSURL *previewURL;
+@property (strong) NSString *mediaURL;
+@property (strong) NSString *title;
+@property (strong) NSString *path;
 
 - (void)withMediaURL:(dispatch_block_t)success failure:(UZGFailureBlock)failure;
 

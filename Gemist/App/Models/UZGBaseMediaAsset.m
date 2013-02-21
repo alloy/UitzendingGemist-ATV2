@@ -9,10 +9,8 @@
     UZGBaseMediaAsset *asset = [self new];
     [asset setValuesForKeysWithDictionary:assetData];
     [assets addObject:asset];
-    [asset release];
   }
   UZGPaginationData *result = [paginationData dataWithEntries:assets];
-  [assets release];
   return result;
 }
 

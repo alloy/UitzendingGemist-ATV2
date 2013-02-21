@@ -3,7 +3,7 @@
 
 @interface UZGHTMLRequestOperation : AFHTTPRequestOperation
 
-@property (readonly, nonatomic, retain) HTMLParser *responseHTMLParser;
+@property (readonly, nonatomic, strong) HTMLParser *responseHTMLParser;
 
 + (instancetype)HTMLParserRequestOperationWithRequest:(NSURLRequest *)urlRequest
                                               success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, HTMLParser *HTMLParser))success

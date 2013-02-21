@@ -9,11 +9,6 @@
 - (void)dealloc;
 {
   _delegate = nil;
-  [_title release];
-  [_path release];
-  [_previewURL release];
-  [_mediaURL release];
-  [super dealloc];
 }
 
 - (void)withMediaURL:(dispatch_block_t)success failure:(UZGFailureBlock)failure;

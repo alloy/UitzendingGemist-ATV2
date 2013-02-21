@@ -4,21 +4,16 @@
 #import "UZGShowMediaAsset.h"
 
 @interface UZGShowsListController ()
-@property (retain) NSString *titleInitial;
+@property (strong) NSString *titleInitial;
 @end
 
 @implementation UZGShowsListController
 
-- (void)dealloc;
-{
-  [_titleInitial release];
-  [super dealloc];
-}
 
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
   if ((self = [super init])) {
-    _titleInitial = [titleInitial retain];
+    _titleInitial = titleInitial;
     self.realTitle = [NSString stringWithFormat:@"%@: %@", UZGLocalizedString(@"Shows"), _titleInitial];
   }
   return self;
@@ -29,7 +24,7 @@
   if (![self isPaginationRow:&row previous:NULL]) {
     BRImage *bannerImage = self.bannerCache[@(row)];
     if (bannerImage) {
-      BRImageAndSyncingPreviewController *controller = [[BRImageAndSyncingPreviewController new] autorelease];
+      BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
       [controller setReflectionAmount:0.5];
       controller.image = bannerImage;
       return controller;
@@ -60,7 +55,7 @@
 {
   UZGShowMediaAsset *show = self.assets[row];
   UZGEpisodesListController *controller;
-  controller = [[[UZGEpisodesListController alloc] initWithShow:show] autorelease];
+  controller = [[UZGEpisodesListController alloc] initWithShow:show];
   [[self stack] pushController:controller];
 }
 

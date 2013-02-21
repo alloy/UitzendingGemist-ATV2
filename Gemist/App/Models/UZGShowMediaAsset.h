@@ -2,8 +2,8 @@
 
 @interface UZGShowMediaAsset : UZGBaseMediaAsset // TODO <BRMediaAsset>
 
-@property (retain) NSString *title;
-@property (retain) NSString *path;
+@property (strong) NSString *title;
+@property (strong) NSString *path;
 
 + (void)showsWithTitleInitial:(NSString *)initial
                          page:(NSUInteger)pageNumber

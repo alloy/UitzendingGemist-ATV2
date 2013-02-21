@@ -2,6 +2,6 @@
 
 @interface UZGAppliance : BRBaseAppliance <BRAppliance>
 
-@property (nonatomic, retain) NSArray *applianceCategories;
+@property (nonatomic, strong) NSArray *applianceCategories;
 
 @end

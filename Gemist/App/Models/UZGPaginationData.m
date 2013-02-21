@@ -2,11 +2,6 @@
 
 @implementation UZGPaginationData
 
-- (void)dealloc;
-{
-  [_entries release];
-  [super dealloc];
-}
 
 - (instancetype)initWithEntries:(NSArray *)entries
                      pageNumber:(NSInteger)pageNumber
@@ -22,9 +17,9 @@
 
 - (instancetype)dataWithEntries:(NSArray *)entries;
 {
-  return [[[[self class] alloc] initWithEntries:entries
+  return [[[self class] alloc] initWithEntries:entries
                                      pageNumber:self.pageNumber
-                                      pageCount:self.pageCount] autorelease];
+                                      pageCount:self.pageCount];
 }
 
 @end

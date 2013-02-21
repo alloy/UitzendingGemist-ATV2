@@ -1,8 +1,8 @@
 #import "UZGHTMLRequestOperation.h"
 
 @interface UZGHTMLRequestOperation ()
-@property (nonatomic, retain) HTMLParser *responseHTMLParser;
-@property (nonatomic, retain) NSError *HTMLParserError;
+@property (nonatomic, strong) HTMLParser *responseHTMLParser;
+@property (nonatomic, strong) NSError *HTMLParserError;
 @end
 
 @implementation UZGHTMLRequestOperation
@@ -21,21 +21,15 @@
       failure(operation.request, operation.response, error, [(UZGHTMLRequestOperation *)operation responseHTMLParser]);
     }
   }];
-  return [requestOperation autorelease];
+  return requestOperation;
 }
 
-- (void)dealloc;
-{
-  [_responseHTMLParser release];
-  [_HTMLParserError release];
-  [super dealloc];
-}
 
 - (HTMLParser *)responseHTMLParser;
 {
   if (!_responseHTMLParser && [self.responseData length] > 0 && [self isFinished]) {
     NSError *error = nil;
-    self.responseHTMLParser = [[[HTMLParser alloc] initWithData:self.responseData error:&error] autorelease];
+    self.responseHTMLParser = [[HTMLParser alloc] initWithData:self.responseData error:&error];
     self.HTMLParserError = error;
   }
   return _responseHTMLParser;

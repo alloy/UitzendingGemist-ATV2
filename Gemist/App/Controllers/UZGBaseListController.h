@@ -4,11 +4,11 @@
 
 @interface UZGBaseListController : BRMediaMenuController <BRMenuListItemProvider>
 
-@property (nonatomic, retain) NSArray *assets;
-@property (nonatomic, retain) NSString *realTitle;
+@property (nonatomic, strong) NSArray *assets;
+@property (nonatomic, strong) NSString *realTitle;
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, assign) NSUInteger lastPage;
-@property (retain) NSMutableDictionary *bannerCache;
+@property (strong) NSMutableDictionary *bannerCache;
 
 - (void)fetchAssets;
 - (void)selectedAsset:(long)row;

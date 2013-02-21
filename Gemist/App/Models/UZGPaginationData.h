@@ -2,7 +2,7 @@
 
 @interface UZGPaginationData : NSObject
 
-@property (retain) NSArray *entries;
+@property (strong) NSArray *entries;
 @property (assign) NSInteger pageNumber;
 @property (assign) NSInteger pageCount;
 
