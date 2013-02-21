@@ -1,5 +1,5 @@
 #import "UZGEpisodeMediaAsset.h"
-#import "UZGPlayedList.h"
+#import "UZGPlistStore.h"
 
 @interface UZGEpisodeMediaAsset ()
 @end
@@ -41,35 +41,35 @@
 
 - (BOOL)hasBeenPlayed;
 {
-  return [[UZGPlayedList sharedList] playedEpisodeForPath:self.path];
+  return [[UZGPlistStore sharedStore] playedEpisodeForPath:self.path];
 }
 
 - (void)setHasBeenPlayed:(BOOL)played;
 {
-  [[UZGPlayedList sharedList] setPlayed:played forEpisodePath:self.path];
+  [[UZGPlistStore sharedStore] setPlayed:played forEpisodePath:self.path];
   [self.delegate episodeMediaAsset:self hasBeenPlayed:played];
 }
 
 - (NSUInteger)duration;
 {
-  return [[UZGPlayedList sharedList] durationOfEpisodeForPath:self.path];
+  return [[UZGPlistStore sharedStore] durationOfEpisodeForPath:self.path];
 }
 
 - (void)setDuration:(NSUInteger)duration;
 {
-  [[UZGPlayedList sharedList] setDuration:duration forEpisodePath:self.path];
+  [[UZGPlistStore sharedStore] setDuration:duration forEpisodePath:self.path];
 }
 
 // Called when paused and when the user stops playback by navigating back.
 - (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
 {
-  [[UZGPlayedList sharedList] setBookmarkTime:seconds forEpisodePath:self.path];
+  [[UZGPlistStore sharedStore] setBookmarkTime:seconds forEpisodePath:self.path];
   [self.delegate episodeMediaAssetDidStopPlayback:self];
 }
 
 - (unsigned int)bookmarkTimeInSeconds;
 {
-  return [[UZGPlayedList sharedList] bookmarkTimeForEpisodePath:self.path];
+  return [[UZGPlistStore sharedStore] bookmarkTimeForEpisodePath:self.path];
 }
 
 #pragma mark BRMediaPreviewFactoryDelegate

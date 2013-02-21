@@ -1,6 +1,6 @@
 #import "UZGEpisodesListController.h"
 #import "UZGClient.h"
-#import "UZGPlayedList.h"
+#import "UZGPlistStore.h"
 #import "UZGShowMediaAsset.h"
 
 //#import "BRURLImageProxy.h"
@@ -75,7 +75,7 @@
 - (NSString *)titleForRow:(long)row;
 {
   if (row == 0) {
-    BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
+    BOOL bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
     return UZGLocalizedString(bookmarked ? @"Remove from Favorites" : @"Add to Favorites");
   } else {
     return [super titleForRow:row-1];
@@ -95,8 +95,8 @@
 {
   if (row == 0) {
     // TODO move to UZGShowMediaAsset.
-    BOOL bookmarked = [[UZGPlayedList sharedList] hasBookmarkedShowForPath:self.path];
-    [[UZGPlayedList sharedList] setHasBookmarkedShow:!bookmarked
+    BOOL bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
+    [[UZGPlistStore sharedStore] setHasBookmarkedShow:!bookmarked
                                              forPath:self.path
                                            withTitle:self.realTitle];
     [self.list reload];
@@ -121,7 +121,7 @@
     if (![self isPaginationRow:&row previous:NULL]) {
       UZGEpisodeMediaAsset *episode = self.assets[row];
       // TODO move to episode instance
-      UZGEpisodeProgressStatus status = [[UZGPlayedList sharedList] playedStatusForEpisodePath:episode.path];
+      UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
       switch (status) {
         case UZGEpisodeUnplayedStatus:
            [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];

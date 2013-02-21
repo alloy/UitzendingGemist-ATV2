@@ -1,29 +1,29 @@
-#import "UZGPlayedList.h"
+#import "UZGPlistStore.h"
 
-static NSString * const kUZGPlayedListBookmarkTimeKey  = @"BookmarkTime";
-static NSString * const kUZGPlayedListDurationKey      = @"Duration";
-static NSString * const kUZGPlayedListEpisodesKey      = @"PlayedEpisodes";
-static NSString * const kUZGPlayedListPlayedKey        = @"Played";
-static NSString * const kUZGPlayedListShowBookmarksKey = @"ShowBookmarks";
+static NSString * const kUZGPlistStoreBookmarkTimeKey  = @"BookmarkTime";
+static NSString * const kUZGPlistStoreDurationKey      = @"Duration";
+static NSString * const kUZGPlistStoreEpisodesKey      = @"PlayedEpisodes";
+static NSString * const kUZGPlistStorePlayedKey        = @"Played";
+static NSString * const kUZGPlistStoreShowBookmarksKey = @"ShowBookmarks";
 
 // Consider it played if within the lst 5 minutes.
 static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
-@interface UZGPlayedList ()
+@interface UZGPlistStore ()
 @property (strong) NSString *storePath;
-@property (strong) NSMutableDictionary *list;
+@property (strong) NSMutableDictionary *store;
 @end
 
-@implementation UZGPlayedList
+@implementation UZGPlistStore
 
-+ (UZGPlayedList *)sharedList;
++ (UZGPlistStore *)sharedStore;
 {
   static dispatch_once_t onceToken;
-  static UZGPlayedList *sharedList;
+  static UZGPlistStore *sharedStore;
   dispatch_once(&onceToken, ^{
-    sharedList = [self new];
+    sharedStore = [self new];
   });
-  return sharedList;
+  return sharedStore;
 }
 
 
@@ -31,40 +31,38 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 {
   if ((self = [super init])) {
     _storePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"];
-    // NSLog(@"STORE PATH: %@", _storePath);
-    NSMutableDictionary *list = [self loadListFromDisk];
-    if (list) {
-      _list = list;
+    NSMutableDictionary *store = [self loadStoreFromDisk];
+    if (store) {
+      _store = store;
     } else {
-      _list = [NSMutableDictionary new];
-      _list[kUZGPlayedListEpisodesKey] = [NSMutableDictionary dictionary];
-      _list[kUZGPlayedListShowBookmarksKey] = [NSMutableDictionary dictionary];
+      _store = [NSMutableDictionary new];
+      _store[kUZGPlistStoreEpisodesKey] = [NSMutableDictionary dictionary];
+      _store[kUZGPlistStoreShowBookmarksKey] = [NSMutableDictionary dictionary];
     }
-    // NSLog(@"LIST IN MEMORY: %@", _list);
   }
   return self;
 }
 
-- (NSMutableDictionary *)loadListFromDisk;
+- (NSMutableDictionary *)loadStoreFromDisk;
 {
-  NSMutableDictionary *list = [NSMutableDictionary dictionaryWithContentsOfFile:self.storePath];
-  if (list) {
-    if (!list[kUZGPlayedListShowBookmarksKey]) {
-      list[kUZGPlayedListShowBookmarksKey] = [NSMutableDictionary dictionary];
+  NSMutableDictionary *store = [NSMutableDictionary dictionaryWithContentsOfFile:self.storePath];
+  if (store) {
+    if (!store[kUZGPlistStoreShowBookmarksKey]) {
+      store[kUZGPlistStoreShowBookmarksKey] = [NSMutableDictionary dictionary];
     } else {
       // Make recursive mutable
-      for (NSString *key in [list allKeys]) {
-        list[key] = [list[key] mutableCopy];
+      for (NSString *key in [store allKeys]) {
+        store[key] = [store[key] mutableCopy];
       }
     }
   }
-  return list;
+  return store;
 }
 
 - (void)saveStore;
 {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    [self.list writeToFile:self.storePath atomically:YES];
+    [self.store writeToFile:self.storePath atomically:YES];
   });
 }
 
@@ -74,7 +72,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 // objects are the paths.
 - (NSDictionary *)allBookmarks;
 {
-  NSDictionary *bookmarks = self.list[kUZGPlayedListShowBookmarksKey];
+  NSDictionary *bookmarks = self.store[kUZGPlistStoreShowBookmarksKey];
   NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:bookmarks.count];
   for (NSString *key in bookmarks) {
     result[bookmarks[key]] = key;
@@ -84,15 +82,15 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 - (BOOL)hasBookmarkedShowForPath:(NSString *)path;
 {
-  return self.list[kUZGPlayedListShowBookmarksKey][path] != nil;
+  return self.store[kUZGPlistStoreShowBookmarksKey][path] != nil;
 }
 
 - (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path withTitle:(NSString *)title;
 {
   if (bookmark) {
-    self.list[kUZGPlayedListShowBookmarksKey][path] = title;
+    self.store[kUZGPlistStoreShowBookmarksKey][path] = title;
   } else {
-    [self.list[kUZGPlayedListShowBookmarksKey] removeObjectForKey:path];
+    [self.store[kUZGPlistStoreShowBookmarksKey] removeObjectForKey:path];
   }
   [self saveStore];
 }
@@ -102,14 +100,14 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 - (void)setValue:(id)value forKey:(NSString *)key forEpisodePath:(NSString *)path;
 {
   // NSLog(@"%s - %@, %@, %@", __PRETTY_FUNCTION__, value, key, path);
-  NSMutableDictionary *list = self.list[kUZGPlayedListEpisodesKey];
-  NSDictionary *episode = list[path];
+  NSMutableDictionary *store = self.store[kUZGPlistStoreEpisodesKey];
+  NSDictionary *episode = store[path];
   if (episode) {
     NSMutableDictionary *mutableEpisode = [episode mutableCopy];
     mutableEpisode[key] = value;
-    list[path] = [mutableEpisode copy];
+    store[path] = [mutableEpisode copy];
   } else {
-    list[path] = @{ key:value };
+    store[path] = @{ key:value };
   }
   [self saveStore];
 }
@@ -117,39 +115,39 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 - (id)valueForKey:(NSString *)key forEpisodePath:(NSString *)path;
 {
   // NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, key, path);
-  NSDictionary *episode = self.list[kUZGPlayedListEpisodesKey][path];
+  NSDictionary *episode = self.store[kUZGPlistStoreEpisodesKey][path];
   if (episode) return episode[key];
   return nil;
 }
 
 - (void)setPlayed:(BOOL)played forEpisodePath:(NSString *)path;
 {
-  [self setValue:@(played) forKey:kUZGPlayedListPlayedKey forEpisodePath:path];
+  [self setValue:@(played) forKey:kUZGPlistStorePlayedKey forEpisodePath:path];
 }
 
 - (BOOL)playedEpisodeForPath:(NSString *)path;
 {
-  return [[self valueForKey:kUZGPlayedListPlayedKey forEpisodePath:path] boolValue];
+  return [[self valueForKey:kUZGPlistStorePlayedKey forEpisodePath:path] boolValue];
 }
 
 - (void)setBookmarkTime:(NSUInteger)seconds forEpisodePath:(NSString *)path;
 {
-  [self setValue:@(seconds) forKey:kUZGPlayedListBookmarkTimeKey forEpisodePath:path];
+  [self setValue:@(seconds) forKey:kUZGPlistStoreBookmarkTimeKey forEpisodePath:path];
 }
 
 - (NSUInteger)bookmarkTimeForEpisodePath:(NSString *)path;
 {
-  return [[self valueForKey:kUZGPlayedListBookmarkTimeKey forEpisodePath:path] unsignedIntegerValue];
+  return [[self valueForKey:kUZGPlistStoreBookmarkTimeKey forEpisodePath:path] unsignedIntegerValue];
 }
 
 - (void)setDuration:(NSUInteger)seconds forEpisodePath:(NSString *)path;
 {
-  [self setValue:@(seconds) forKey:kUZGPlayedListDurationKey forEpisodePath:path];
+  [self setValue:@(seconds) forKey:kUZGPlistStoreDurationKey forEpisodePath:path];
 }
 
 - (NSUInteger)durationOfEpisodeForPath:(NSString *)path;
 {
-  return [[self valueForKey:kUZGPlayedListDurationKey forEpisodePath:path] unsignedIntegerValue];
+  return [[self valueForKey:kUZGPlistStoreDurationKey forEpisodePath:path] unsignedIntegerValue];
 }
 
 - (UZGEpisodeProgressStatus)playedStatusForEpisodePath:(NSString *)path;

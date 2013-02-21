@@ -1,5 +1,5 @@
 #import "UZGBookmarksListController.h"
-#import "UZGPlayedList.h"
+#import "UZGPlistStore.h"
 #import "UZGEpisodesListController.h"
 #import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
@@ -17,7 +17,7 @@
 {
   if ((self = [super init])) {
     _bannerCache = [NSMutableDictionary new];
-    _bookmarks = [[UZGPlayedList sharedList] allBookmarks];
+    _bookmarks = [[UZGPlistStore sharedStore] allBookmarks];
     _bookmarkTitles = [[_bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     self.list.datasource = self;
   }
