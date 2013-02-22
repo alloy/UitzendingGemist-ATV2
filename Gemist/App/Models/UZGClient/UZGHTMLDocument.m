@@ -111,7 +111,7 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     } else {
       if (imageSources.count > 0) {
         // Get one from further in the show if available.
-        NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+        NSString *source = imageSources.count > 1 ? imageSources[1] : imageSources[0];
         episodeData[@"previewURL"] = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
       }
     }
