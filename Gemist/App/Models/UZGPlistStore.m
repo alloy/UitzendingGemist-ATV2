@@ -61,8 +61,9 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 - (void)saveStore;
 {
+  NSDictionary *store = [self.store copy];
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    [self.store writeToFile:self.storePath atomically:YES];
+    [store writeToFile:self.storePath atomically:YES];
   });
 }
 
