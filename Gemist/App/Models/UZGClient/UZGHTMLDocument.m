@@ -101,12 +101,19 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 
     // Get thumbnail URL, if available.
     HTMLNode *imageNode = [episodeNode findChildrenOfClass:@"thumbnail"][0];
-    NSString *imageSourcesList = [imageNode getAttributeNamed:@"data-images"];
-    if (![imageSourcesList isEqualToString:@"[]"]) {
-      NSArray *imageSources = [imageSourcesList componentsSeparatedByString:@"\""];
-      // Get one further in the show if available.
-      NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
-      episodeData[@"previewURL"] = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
+    NSData *imageSourcesData = [[imageNode getAttributeNamed:@"data-images"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSArray *imageSources = [NSJSONSerialization JSONObjectWithData:imageSourcesData
+                                                            options:0
+                                                              error:&error];
+    if (error) {
+      NSLog(@"JSON parse error: %@", error);
+    } else {
+      if (imageSources.count > 0) {
+        // Get one from further in the show if available.
+        NSString *source = imageSources.count > 3 ? imageSources[3] : imageSources[1];
+        episodeData[@"previewURL"] = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
+      }
     }
 
     [episodes addObject:episodeData];
