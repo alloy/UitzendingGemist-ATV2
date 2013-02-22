@@ -11,18 +11,17 @@
   _delegate = nil;
 }
 
+// TODO how do we provide the other streams so the player can be adaptive?
 - (void)withMediaURL:(dispatch_block_t)success failure:(UZGFailureBlock)failure;
 {
   if (self.mediaURL) {
     success();
     return;
   }
-  [[UZGClient sharedClient] episodeStreamSourcesForPath:self.path
-                                                                success:^(id _, NSArray *sources) {
-    // TODO how do we provide the other streams so the player can be adaptive?
-    self.mediaURL = [sources[0] absoluteString];
-    success();
-  } failure:failure];
+  UZGClient *client = [UZGClient sharedClient];
+  [client episodeStreamSourcesForPath:self.path
+                              success:^(id _, NSArray *sources) { self.mediaURL = [sources[0] absoluteString]; success(); }
+                              failure:failure];
 }
 
 #pragma mark - Actually implemented

@@ -90,8 +90,8 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 // * collect  metadata
 - (UZGPaginationData *)episodesPaginationDataForPage:(NSInteger)pageNumber;
 {
-  NSMutableArray *episodes = [NSMutableArray array];
-  NSArray *episodeNodes = [self.parser.body findChildrenOfClass:@"episode active knav"];
+  NSMutableArray *episodes = [NSMutableArray new];
+  NSArray *episodeNodes = [self.parser.body findChildrenOfClass:@"episode active"];
   for (HTMLNode *episodeNode in episodeNodes) {
     NSMutableDictionary *episodeData = [NSMutableDictionary new];
 
