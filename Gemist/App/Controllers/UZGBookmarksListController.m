@@ -5,9 +5,7 @@
 #import "UZGShowMediaAsset.h"
 
 @interface UZGBookmarksListController ()
-@property (strong) NSMutableDictionary *bannerCache;
-@property (strong) NSDictionary *bookmarks;
-@property (strong) NSArray *bookmarkTitles;
+@property (strong) NSArray *bookmarks;
 @end
 
 @implementation UZGBookmarksListController
@@ -16,9 +14,7 @@
 - (id)init;
 {
   if ((self = [super init])) {
-    _bannerCache = [NSMutableDictionary new];
-    _bookmarks = [[UZGPlistStore sharedStore] allBookmarks];
-    _bookmarkTitles = [[_bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    _bookmarks = [[UZGPlistStore sharedStore] allBookmarkedShows];
     self.list.datasource = self;
   }
   return self;
@@ -31,7 +27,7 @@
 
 - (long)itemCount;
 {
-  return self.bookmarkTitles.count;
+  return self.bookmarks.count;
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
@@ -50,41 +46,31 @@
 // TODO what is this used for?
 - (NSString *)titleForRow:(long)row;
 {
-  return self.bookmarkTitles[row];
+  return [self.bookmarks[row] title];
 }
 
 - (id)previewControlForItem:(long)row;
 {
-  BRImage *bannerImage = self.bannerCache[@(row)];
-  if (bannerImage) {
+  UZGShowMediaAsset *show = self.bookmarks[row];
+  if (show.thumbnail) {
     BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
     [controller setReflectionAmount:0.5];
-    controller.image = bannerImage;
+    controller.image = show.thumbnail;
     return controller;
 
   } else {
-    NSString *title = self.bookmarkTitles[row];
-    NSString *path = self.bookmarks[title];
-    [[UZGClient sharedClient] bannerForShowAtPath:path
-                                                          success:^(id _, id bannerImage) {
-      self.bannerCache[@(row)] = bannerImage;
-      [self updatePreviewController];
+    if (show.previewURL) {
+      [show withThumbnail:^{ [self updatePreviewController]; }
+                  failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
     }
-                                                          failure:^(id _, NSError *error) {
-                                                                      NSLog(@"ERROR: %@", error);
-                                                                  }];
   }
   return nil;
 }
 
 - (void)itemSelected:(long)row;
 {
-  UZGShowMediaAsset *show = [UZGShowMediaAsset new];
-  show.title = self.bookmarkTitles[row];
-  show.path = self.bookmarks[show.title];
-
   UZGEpisodesListController *controller;
-  controller = [[UZGEpisodesListController alloc] initWithShow:show];
+  controller = [[UZGEpisodesListController alloc] initWithShow:self.bookmarks[row]];
   [[self stack] pushController:controller];
 }
 

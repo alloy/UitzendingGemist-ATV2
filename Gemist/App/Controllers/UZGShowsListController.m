@@ -1,6 +1,5 @@
 #import "UZGShowsListController.h"
 #import "UZGEpisodesListController.h"
-#import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
 
 @interface UZGShowsListController ()
@@ -22,23 +21,18 @@
 - (id)previewControlForItem:(long)row;
 {
   if (![self isPaginationRow:&row previous:NULL]) {
-    BRImage *bannerImage = self.bannerCache[@(row)];
-    if (bannerImage) {
+    UZGShowMediaAsset *show = self.assets[row];
+    if (show.thumbnail) {
       BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
       [controller setReflectionAmount:0.5];
-      controller.image = bannerImage;
+      controller.image = show.thumbnail;
       return controller;
 
     } else {
-      UZGShowMediaAsset *show = self.assets[row];
-      [[UZGClient sharedClient] bannerForShowAtPath:show.path
-                                                            success:^(id _, id bannerImage) {
-        self.bannerCache[@(row)] = bannerImage;
-        [self updatePreviewController];
+      if (show.previewURL) {
+        [show withThumbnail:^{ [self updatePreviewController]; }
+                    failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
       }
-                                                            failure:^(id _, NSError *error) {
-                                                                        NSLog(@"ERROR: %@", error);
-                                                                    }];
     }
   }
   return nil;

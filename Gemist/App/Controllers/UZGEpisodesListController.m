@@ -1,5 +1,4 @@
 #import "UZGEpisodesListController.h"
-#import "UZGClient.h"
 #import "UZGPlistStore.h"
 #import "UZGShowMediaAsset.h"
 
@@ -41,26 +40,15 @@
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
       UZGEpisodeMediaAsset *episode = self.assets[row];
-      NSURL *thumbnailURL = episode.previewURL;
-      if (thumbnailURL) {
-        // TODO cache on the episode instance
-        BRImage *bannerImage = self.bannerCache[@(row)];
-        if (bannerImage) {
-          BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
-          [controller setReflectionAmount:0.5];
-          controller.image = bannerImage;
-          return controller;
+      if (episode.thumbnail) {
+        BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
+        [controller setReflectionAmount:0.5];
+        controller.image = episode.thumbnail;
+        return controller;
 
-        } else {
-          [[UZGClient sharedClient] loadImageFromURL:thumbnailURL
-                                                             success:^(id _, id bannerImage) {
-            self.bannerCache[@(row)] = bannerImage;
-            [self updatePreviewController];
-          }
-                                                             failure:^(id _, NSError *error) {
-                                                                       NSLog(@"ERROR: %@", error);
-                                                                     }];
-        }
+      } else {
+        [episode withThumbnail:^{ [self updatePreviewController]; }
+                       failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
       }
     }
   }

@@ -14,7 +14,6 @@
     _currentPage = 1;
     _lastPage = 0;
     _assets = [NSArray new];
-    _bannerCache = [NSMutableDictionary new];
     self.list.datasource = self;
     // Start in next tick, also gives subclass a chance to set the title.
     dispatch_async(dispatch_get_current_queue(), ^{
@@ -86,7 +85,6 @@
   } else {
     self.listTitle = self.realTitle;
   }
-  self.bannerCache = [NSMutableDictionary new];
   [self.list reload];
 }
 

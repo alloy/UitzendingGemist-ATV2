@@ -8,7 +8,6 @@
 @property (nonatomic, strong) NSString *realTitle;
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, assign) NSUInteger lastPage;
-@property (strong) NSMutableDictionary *bannerCache;
 
 - (void)fetchAssets;
 - (void)selectedAsset:(long)row;
