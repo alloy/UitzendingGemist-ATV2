@@ -47,12 +47,19 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 {
   NSMutableDictionary *store = [NSMutableDictionary dictionaryWithContentsOfFile:self.storePath];
   if (store) {
-    if (!store[kUZGPlistStoreShowBookmarksKey]) {
-      store[kUZGPlistStoreShowBookmarksKey] = [NSMutableDictionary dictionary];
-    } else {
       // Make recursive mutable
       for (NSString *key in [store allKeys]) {
         store[key] = [store[key] mutableCopy];
+      }
+
+    // Migrate from version where a bookmark was just: `path => title`
+    NSMutableDictionary *bookmarks = store[kUZGPlistStoreShowBookmarksKey];
+    for (NSString *path in [bookmarks allKeys]) {
+      id bookmark = bookmarks[path];
+      if ([bookmark isKindOfClass:[NSString class]]) {
+        bookmarks[path] = @{ @"title":bookmark };
+      } else {
+        break;
       }
     }
   }
@@ -81,15 +88,10 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   return [result copy];
 }
 
-- (BOOL)hasBookmarkedShowForPath:(NSString *)path;
-{
-  return self.store[kUZGPlistStoreShowBookmarksKey][path] != nil;
-}
-
-- (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path withTitle:(NSString *)title;
+- (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path attributes:(NSDictionary *)attributes;
 {
   if (bookmark) {
-    self.store[kUZGPlistStoreShowBookmarksKey][path] = title;
+    self.store[kUZGPlistStoreShowBookmarksKey][path] = attributes;
   } else {
     [self.store[kUZGPlistStoreShowBookmarksKey] removeObjectForKey:path];
   }
