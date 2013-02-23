@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, UZGEpisodeProgressStatus) {
 
 - (NSArray *)allBookmarkedShows;
 - (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path attributes:(NSDictionary *)attributes;
+- (BOOL)hasBookmarkedShowForPath:(NSString *)path;
 
 - (void)setPlayed:(BOOL)played forEpisodePath:(NSString *)path;
 - (BOOL)playedEpisodeForPath:(NSString *)path;

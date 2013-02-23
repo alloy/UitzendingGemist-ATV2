@@ -95,6 +95,11 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   return [result copy];
 }
 
+- (BOOL)hasBookmarkedShowForPath:(NSString *)path;
+{
+  return self.store[kUZGPlistStoreShowBookmarksKey][path] != nil;
+}
+
 - (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path attributes:(NSDictionary *)attributes;
 {
   if (bookmark) {

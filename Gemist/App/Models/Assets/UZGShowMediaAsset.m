@@ -2,7 +2,13 @@
 #import "UZGEpisodeMediaAsset.h"
 #import "UZGPlistStore.h"
 
+@interface UZGShowMediaAsset ()
+@property (assign) BOOL shouldLoadBookmarkedStatus;
+@end
+
 @implementation UZGShowMediaAsset
+
+@synthesize bookmarked = _bookmarked;
 
 + (void)showsWithTitleInitial:(NSString *)initial
                          page:(NSUInteger)pageNumber
@@ -20,6 +26,15 @@
 {
   if ((self = [super init])) {
     _bookmarked = YES;
+    _shouldLoadBookmarkedStatus = NO;
+  }
+  return self;
+}
+
+- (instancetype)init;
+{
+  if ((self = [super init])) {
+    _shouldLoadBookmarkedStatus = YES;
   }
   return self;
 }
@@ -33,6 +48,15 @@
                           page:pageNumber
                        success:^(UZGPaginationData *data) { success([UZGEpisodeMediaAsset assetsWithPaginationData:data]); }
                        failure:failure];
+}
+
+- (BOOL)isBookmarked;
+{
+  if (self.shouldLoadBookmarkedStatus) {
+    self.shouldLoadBookmarkedStatus = NO;
+    _bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
+  }
+  return _bookmarked;
 }
 
 - (void)setBookmarked:(BOOL)bookmarked;
