@@ -9,7 +9,6 @@
 + (instancetype)documentWithData:(NSData *)data error:(NSError **)error;
 
 - (UZGPaginationData *)showsPaginationDataForPage:(NSInteger)pageNumber;
-- (NSURL *)showBannerURL;
 
 - (UZGPaginationData *)episodesPaginationDataForPage:(NSInteger)pageNumber;
 - (NSString *)episodeID;

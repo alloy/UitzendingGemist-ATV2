@@ -4,9 +4,59 @@
 #import "HTMLParser.h"
 
 static NSURL *
-UZGBannerURL(NSString *URL, NSString *extension) {
-  return [NSURL URLWithString:[[URL stringByAppendingPathComponent:@"720x480"] stringByAppendingPathExtension:extension]];
+UZGExtractThumbnailURL(HTMLNode *imageNode) {
+  NSError *error = nil;
+  NSString *json = [imageNode getAttributeNamed:@"data-images"];
+  NSArray *sources = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding]
+                                                     options:0
+                                                       error:&error];
+  if (error) {
+    NSLog(@"JSON parse error: %@", error);
+  } else {
+    if (sources.count > 0) {
+      // Get one from further down in the show if available.
+      NSString *source = sources.count > 1 ? sources[1] : sources[0];
+      NSString *extname = [source pathExtension];
+      source = [source stringByDeletingLastPathComponent];
+      source = [source stringByAppendingPathComponent:@"720x480"];
+      source = [source stringByAppendingPathExtension:extname];
+      return [NSURL URLWithString:source];
+    }
+  }
+  return nil;
 }
+
+@interface HTMLNode (UZG)
+@end
+
+@implementation HTMLNode (UZG)
+
+- (NSArray *)findChildrenWithTagName:(NSString *)tagName
+                           className:(NSString *)className;
+{
+  NSMutableArray *result = [NSMutableArray new];
+  NSArray *nodes = [self findChildTags:tagName];
+  for (HTMLNode *node in nodes) {
+    NSArray *classes = [[node getAttributeNamed:@"class"] componentsSeparatedByString:@" "];
+    if (classes.count > 0 && [classes indexOfObject:className] != NSNotFound) {
+      [result addObject:node];
+    }
+  }
+  return result;
+}
+
+- (HTMLNode *)findChildWithTagName:(NSString *)tagName
+                         className:(NSString *)className;
+{
+  NSArray *nodes = [self findChildrenWithTagName:tagName className:className];
+  if (nodes.count > 0) {
+    return nodes[0];
+  }
+  return nil;
+}
+
+@end
+
 
 @interface UZGHTMLDocument ()
 @property (strong) HTMLParser *parser;
@@ -57,29 +107,26 @@ UZGBannerURL(NSString *URL, NSString *extension) {
 - (UZGPaginationData *)showsPaginationDataForPage:(NSInteger)pageNumber;
 {
   NSMutableArray *shows = [NSMutableArray new];
-  NSArray *showNodes = [self.parser.body findChildrenOfClass:@"series knav_link"];
-  for (HTMLNode *anchorNode in showNodes) {
-    [shows addObject:@{
-      @"title":anchorNode.contents,
-      @"path":[anchorNode getAttributeNamed:@"href"]
-    }];
+  NSArray *showNodes = [self.parser.body findChildrenWithTagName:@"li" className:@"series"];
+  for (HTMLNode *showNode in showNodes) {
+    NSMutableDictionary *show = [NSMutableDictionary new];
+
+    HTMLNode *thumbnailNode = [showNode findChildWithTagName:@"img" className:@"thumbnail"];
+    NSURL *thumbnailURL = UZGExtractThumbnailURL(thumbnailNode);
+    if (thumbnailURL) {
+      show[@"previewURL"] = thumbnailURL;
+    }
+
+    HTMLNode *infoNode = [showNode findChildOfClass:@"info"];
+    HTMLNode *anchorNode = [infoNode findChildWithTagName:@"a" className:@"series"];
+    show[@"title"] = anchorNode.contents;
+    show[@"path"] = [anchorNode getAttributeNamed:@"href"];
+
+    [shows addObject:show];
   }
   return [[UZGPaginationData alloc] initWithEntries:shows
                                          pageNumber:pageNumber
                                           pageCount:self.pageCount];
-}
-
-// TODO Should we use a placeholder image when there is none?
-- (NSURL *)showBannerURL;
-{
-  NSArray *metaNodes = [self.parser.head findChildTags:@"meta"];
-  for (HTMLNode *metaNode in metaNodes) {
-    if ([[metaNode getAttributeNamed:@"property"] isEqual:@"og:image"]) {
-      NSString *source = [metaNode getAttributeNamed:@"content"];
-      if (source) return UZGBannerURL([source stringByDeletingPathExtension], [source pathExtension]);
-    }
-  }
-  return nil;
 }
 
 #pragma mark - Episode Data
@@ -99,21 +146,10 @@ UZGBannerURL(NSString *URL, NSString *extension) {
     episodeData[@"title"] = anchorNode.contents;
     episodeData[@"path"] = [anchorNode getAttributeNamed:@"href"];
 
-    // Get thumbnail URL, if available.
     HTMLNode *imageNode = [episodeNode findChildrenOfClass:@"thumbnail"][0];
-    NSData *imageSourcesData = [[imageNode getAttributeNamed:@"data-images"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error = nil;
-    NSArray *imageSources = [NSJSONSerialization JSONObjectWithData:imageSourcesData
-                                                            options:0
-                                                              error:&error];
-    if (error) {
-      NSLog(@"JSON parse error: %@", error);
-    } else {
-      if (imageSources.count > 0) {
-        // Get one from further in the show if available.
-        NSString *source = imageSources.count > 1 ? imageSources[1] : imageSources[0];
-        episodeData[@"previewURL"] = UZGBannerURL([source stringByDeletingLastPathComponent], [source pathExtension]);
-      }
+    NSURL *thumbnailURL = UZGExtractThumbnailURL(imageNode);
+    if (thumbnailURL) {
+      episodeData[@"previewURL"] = thumbnailURL;
     }
 
     [episodes addObject:episodeData];

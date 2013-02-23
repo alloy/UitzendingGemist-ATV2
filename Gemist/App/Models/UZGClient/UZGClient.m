@@ -75,24 +75,11 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
     titleInitial = [titleInitial lowercaseString];
   }
 
-  NSString *path = [NSString stringWithFormat:@"/programmas/%@?page=%d", titleInitial, pageNumber];
+  NSString *path = [NSString stringWithFormat:@"/programmas/%@?display_mode=detail&page=%d", titleInitial, pageNumber];
   [self getPath:path
      parameters:nil
         success:^(id operation, UZGHTMLDocument *doc) { success([doc showsPaginationDataForPage:pageNumber]); }
         failure:failure];
-}
-
-- (void)bannerForShowAtPath:(NSString *)showPath
-                    success:(UZGSuccessBlock)success
-                    failure:(UZGFailureBlock)failure;
-{
-  [self getPath:showPath
-     parameters:nil
-        success:^(id operation, UZGHTMLDocument *doc) {
-                  NSURL *bannerURL = [doc showBannerURL];
-                  if (bannerURL) [self loadImageFromURL:bannerURL success:success failure:failure];
-                }
-       failure:failure];
 }
 
 // TODO could probably just set the accept header field to not text/html

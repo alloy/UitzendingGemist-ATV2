@@ -20,10 +20,6 @@ typedef void (^UZGPaginationDataBlock)(UZGPaginationData *);
                  success:(UZGSuccessBlock)success
                  failure:(UZGFailureBlock)failure;
 
-- (void)bannerForShowAtPath:(NSString *)showPath
-                    success:(UZGSuccessBlock)success
-                    failure:(UZGFailureBlock)failure;
-
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGPaginationDataBlock)success
