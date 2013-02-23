@@ -1,4 +1,5 @@
 #import "UZGPlistStore.h"
+#import "UZGShowMediaAsset.h"
 
 static NSString * const kUZGPlistStoreBookmarkTimeKey  = @"BookmarkTime";
 static NSString * const kUZGPlistStoreDurationKey      = @"Duration";
@@ -47,10 +48,10 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 {
   NSMutableDictionary *store = [NSMutableDictionary dictionaryWithContentsOfFile:self.storePath];
   if (store) {
-      // Make recursive mutable
-      for (NSString *key in [store allKeys]) {
-        store[key] = [store[key] mutableCopy];
-      }
+    // Make recursive mutable
+    for (NSString *key in [store allKeys]) {
+      store[key] = [store[key] mutableCopy];
+    }
 
     // Migrate from version where a bookmark was just: `path => title`
     NSMutableDictionary *bookmarks = store[kUZGPlistStoreShowBookmarksKey];
@@ -76,14 +77,20 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 #pragma mark - shows
 
-// This returns a reversed dictionary, that is, the titles are the keys and the
-// objects are the paths.
-- (NSDictionary *)allBookmarks;
+- (NSArray *)allBookmarkedShows;
 {
   NSDictionary *bookmarks = self.store[kUZGPlistStoreShowBookmarksKey];
-  NSMutableDictionary *result = [NSMutableDictionary dictionaryWithCapacity:bookmarks.count];
-  for (NSString *key in bookmarks) {
-    result[bookmarks[key]] = key;
+  NSMutableArray *result = [NSMutableArray arrayWithCapacity:bookmarks.count];
+  NSArray *paths = [[bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+  for (NSString *path in paths) {
+    UZGShowMediaAsset *show = [[UZGShowMediaAsset alloc] initAsBookmarked];
+    show.path = path;
+    show.title = bookmarks[path][@"title"];
+    NSString *previewURL = bookmarks[path][@"previewURL"];
+    if (previewURL) {
+      show.previewURL = [NSURL URLWithString:previewURL];
+    }
+    [result addObject:show];
   }
   return [result copy];
 }

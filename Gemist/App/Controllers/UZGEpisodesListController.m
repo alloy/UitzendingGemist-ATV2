@@ -75,8 +75,7 @@
 - (NSString *)titleForRow:(long)row;
 {
   if (row == 0) {
-    BOOL bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
-    return UZGLocalizedString(bookmarked ? @"Remove from Favorites" : @"Add to Favorites");
+    return UZGLocalizedString(self.show.isBookmarked ? @"Remove from Favorites" : @"Add to Favorites");
   } else {
     return [super titleForRow:row-1];
   }
@@ -94,11 +93,7 @@
 - (void)itemSelected:(long)row;
 {
   if (row == 0) {
-    // TODO move to UZGShowMediaAsset.
-    BOOL bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
-    [[UZGPlistStore sharedStore] setHasBookmarkedShow:!bookmarked
-                                             forPath:self.path
-                                           withTitle:self.realTitle];
+    [self.show toggleBookmarked];
     [self.list reload];
   } else {
     [super itemSelected:row-1];
