@@ -15,8 +15,7 @@
   [metadataControl setSummary:asset.mediaSummary];
   [metadataControl setCopyright:asset.copyright];
 
-  // NSString *rating = asset.rating;
-  NSString *rating = @"123.456";
+  NSString *rating = asset.rating;
   if (rating) {
     self.eyeImageControl = [BRImageControl new];
     [[self.metadataControl valueForKey:@"_ratingImageLayer"] addControl:self.eyeImageControl];

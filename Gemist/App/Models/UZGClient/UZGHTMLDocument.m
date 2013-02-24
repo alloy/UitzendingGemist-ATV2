@@ -171,6 +171,9 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     episode[@"title"] = anchorNode.contents;
     episode[@"path"] = [anchorNode getAttributeNamed:@"href"];
 
+    HTMLNode *viewsNode = [descriptionNode findChildWithTagName:@"span" className:@"views"];
+    episode[@"rating"] = [viewsNode.textContents stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     HTMLNode *imageNode = [episodeNode findChildWithTagName:@"img" className:@"thumbnail"];
     NSURL *thumbnailURL = UZGExtractThumbnailURL(imageNode);
     if (thumbnailURL) {

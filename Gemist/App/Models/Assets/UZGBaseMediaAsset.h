@@ -7,6 +7,7 @@
 @property (strong) NSString *path;
 @property (strong) NSString *mediaSummary;
 @property (strong) NSString *copyright;
+@property (strong) NSString *rating;
 
 @property (strong) NSURL *previewURL;
 @property (strong) BRImage *thumbnail;
