@@ -44,7 +44,7 @@
       control.showsMetadataImmediately = YES;
       control.asset = episode;
       [control.metadataControl setTitle:episode.title];
-      // [control.metadataControl setSummary:episode.mediaSummary];
+      [control.metadataControl setSummary:episode.mediaSummary];
       // [control.metadataControl setCopyright:episode.copyright];
       return control;
     }

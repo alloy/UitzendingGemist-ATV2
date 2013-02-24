@@ -54,6 +54,20 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
   return nil;
 }
 
+- (NSString *)textContents;
+{
+  NSMutableString *text = nil;
+  for (HTMLNode *node in self.children) {
+    if (node.nodetype == HTMLTextNode) {
+      if (text == nil) {
+        text = [NSMutableString new];
+      }
+      [text appendString:node.rawContents];
+    }
+  }
+  return [text copy];
+}
+
 @end
 
 
@@ -138,27 +152,32 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
 #pragma mark - Episode Data
 
 // TODO
-// * Use category methods added to HTMLNode.
 // * the pageNumber param requirement is ugly
 // * collect  metadata
 - (UZGPaginationData *)episodesPaginationDataForPage:(NSInteger)pageNumber;
 {
   NSMutableArray *episodes = [NSMutableArray new];
-  NSArray *episodeNodes = [self.parser.body findChildrenOfClass:@"episode active"];
+  NSArray *episodeNodes = [self.parser.body findChildrenWithTagName:@"li" className:@"episode"];
   for (HTMLNode *episodeNode in episodeNodes) {
-    NSMutableDictionary *episodeData = [NSMutableDictionary new];
+    NSMutableDictionary *episode = [NSMutableDictionary new];
 
-    HTMLNode *anchorNode = [episodeNode findChildrenOfClass:@"episode active knav_link"][0];
-    episodeData[@"title"] = anchorNode.contents;
-    episodeData[@"path"] = [anchorNode getAttributeNamed:@"href"];
-
-    HTMLNode *imageNode = [episodeNode findChildrenOfClass:@"thumbnail"][0];
-    NSURL *thumbnailURL = UZGExtractThumbnailURL(imageNode);
-    if (thumbnailURL) {
-      episodeData[@"previewURL"] = thumbnailURL;
+    HTMLNode *descriptionNode = [episodeNode findChildWithTagName:@"div" className:@"description"];
+    NSString *summary = descriptionNode.textContents;
+    if (summary) {
+      episode[@"mediaSummary"] = [summary stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
 
-    [episodes addObject:episodeData];
+    HTMLNode *anchorNode = [descriptionNode findChildWithTagName:@"a" className:@"episode"];
+    episode[@"title"] = anchorNode.contents;
+    episode[@"path"] = [anchorNode getAttributeNamed:@"href"];
+
+    HTMLNode *imageNode = [episodeNode findChildWithTagName:@"img" className:@"thumbnail"];
+    NSURL *thumbnailURL = UZGExtractThumbnailURL(imageNode);
+    if (thumbnailURL) {
+      episode[@"previewURL"] = thumbnailURL;
+    }
+
+    [episodes addObject:episode];
   }
 
   return [[UZGPaginationData alloc] initWithEntries:episodes

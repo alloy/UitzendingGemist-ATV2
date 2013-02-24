@@ -359,9 +359,9 @@
 //- (id)mediaDescription {
   //return nil;
 //};
-- (id)mediaSummary {
-  return nil;
-};
+//- (id)mediaSummary {
+  //return nil;
+//};
 - (id)primaryGenre {
   return nil;
 };
