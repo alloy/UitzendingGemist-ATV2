@@ -140,7 +140,10 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
 
     // There is a `broadcasters` property in BRMediaAsset, however, the BRMetadataControl only uses `copyright`.
     HTMLNode *broadcastersNode = [infoNode findChildWithTagName:@"span" className:@"broadcasters"];
-    show[@"copyright"] = [[[broadcastersNode findChildTags:@"a"] valueForKey:@"contents"] componentsJoinedByString:@", "];
+    NSString *copyright = [[[broadcastersNode findChildTags:@"a"] valueForKey:@"contents"] componentsJoinedByString:@", "];
+    if (copyright) {
+      show[@"copyright"] = copyright;
+    }
 
     [shows addObject:show];
   }
