@@ -176,12 +176,12 @@
   // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
   return nil;
 };
-- (id)imageProxy {
-  // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
-  return nil;
-  //NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
-  //return [BRURLImageProxy proxyWithURL:[[NSURL fileURLWithPath:moviePosterPath] absoluteString]];
-};
+//- (id)imageProxy {
+  //// NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
+  //return nil;
+  ////NSString* moviePosterPath = [[NSBundle bundleForClass:[SampleVideoAsset class]] pathForResource:@"spiderman-poster" ofType:@"png"];
+  ////return [BRURLImageProxy proxyWithURL:[[NSURL fileURLWithPath:moviePosterPath] absoluteString]];
+//};
 
 - (id)imageProxyWithBookMarkTimeInMS:(unsigned int)fp8 {  
   // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);

@@ -40,16 +40,13 @@
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
       UZGEpisodeMediaAsset *episode = self.assets[row];
-      if (episode.thumbnail) {
-        BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
-        [controller setReflectionAmount:0.5];
-        controller.image = episode.thumbnail;
-        return controller;
-
-      } else {
-        [episode withThumbnail:^{ [self updatePreviewController]; }
-                       failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
-      }
+      BRMetadataPreviewControl *control = [BRMetadataPreviewControl new];
+      control.showsMetadataImmediately = YES;
+      control.asset = episode;
+      [control.metadataControl setTitle:episode.title];
+      // [control.metadataControl setSummary:episode.mediaSummary];
+      // [control.metadataControl setCopyright:episode.copyright];
+      return control;
     }
   }
   return nil;
