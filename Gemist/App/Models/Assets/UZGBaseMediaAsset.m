@@ -15,6 +15,16 @@
   return result;
 }
 
+- (NSString *)previewURLString;
+{
+  return [self.previewURL absoluteString];
+}
+
+- (void)setPreviewURLString:(NSString *)previewURLString;
+{
+  self.previewURL = [NSURL URLWithString:previewURLString];
+}
+
 - (id)imageProxy;
 {
   if (self.previewURL) {

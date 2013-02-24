@@ -85,12 +85,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   for (NSString *path in paths) {
     UZGShowMediaAsset *show = [[UZGShowMediaAsset alloc] initAsBookmarked];
     show.path = path;
-    show.title = bookmarks[path][@"title"];
-    show.mediaSummary = bookmarks[path][@"mediaSummary"];
-    NSString *previewURL = bookmarks[path][@"previewURL"];
-    if (previewURL) {
-      show.previewURL = [NSURL URLWithString:previewURL];
-    }
+    [show setValuesForKeysWithDictionary:bookmarks[path]];
     [result addObject:show];
   }
   return [result copy];

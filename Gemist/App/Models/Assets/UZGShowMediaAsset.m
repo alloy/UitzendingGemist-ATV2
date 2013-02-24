@@ -39,6 +39,16 @@
   return self;
 }
 
+- (NSDictionary *)serializeAsDictionary;
+{
+  NSMutableDictionary *attributes = [NSMutableDictionary new];
+  for (NSString *key in @[@"title", @"mediaSummary", @"copyright", @"previewURLString"]) {
+    NSString *value = [self valueForKey:key];
+    if (value) attributes[key] = value;
+  }
+  return [attributes copy];
+}
+
 - (void)episodesAtPage:(NSInteger)pageNumber
                success:(UZGPaginationDataBlock)success
                failure:(UZGFailureBlock)failure;
@@ -67,13 +77,8 @@
 {
   if (_bookmarked != bookmarked) {
     _bookmarked = bookmarked;
-    NSMutableDictionary *attributes = nil;
-    if (bookmarked) {
-      attributes = [NSMutableDictionary new];
-      attributes[@"title"] = self.title;
-      attributes[@"mediaSummary"] = self.mediaSummary;
-      if (self.previewURL) attributes[@"previewURL"] = [self.previewURL absoluteString];
-    }
+    // No need to serialize when we'll be removing from the store.
+    NSDictionary *attributes = bookmarked ? [self serializeAsDictionary] : nil;
     [[UZGPlistStore sharedStore] setHasBookmarkedShow:bookmarked
                                               forPath:self.path
                                            attributes:attributes];

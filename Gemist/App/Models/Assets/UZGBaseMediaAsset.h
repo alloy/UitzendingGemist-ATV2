@@ -9,8 +9,9 @@
 @property (strong) NSString *copyright;
 @property (strong) NSString *rating;
 
+// This is merely for plist serialization purposes.
+@property (nonatomic, strong) NSString *previewURLString;
 @property (strong) NSURL *previewURL;
-@property (strong) BRImage *thumbnail;
 
 + (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData;
 
