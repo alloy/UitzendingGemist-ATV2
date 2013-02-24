@@ -6,6 +6,7 @@
 @property (strong) NSString *title;
 @property (strong) NSString *path;
 @property (strong) NSString *mediaDescription;
+@property (strong) NSString *copyright;
 
 @property (strong) NSURL *previewURL;
 @property (strong) BRImage *thumbnail;

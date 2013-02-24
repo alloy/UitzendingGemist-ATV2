@@ -125,6 +125,10 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     show[@"title"] = anchorNode.contents;
     show[@"path"] = [anchorNode getAttributeNamed:@"href"];
 
+    // There is a `broadcasters` property in BRMediaAsset, however, the BRMetadataControl only uses `copyright`.
+    HTMLNode *broadcastersNode = [infoNode findChildWithTagName:@"span" className:@"broadcasters"];
+    show[@"copyright"] = [[[broadcastersNode findChildTags:@"a"] valueForKey:@"contents"] componentsJoinedByString:@", "];
+
     [shows addObject:show];
   }
   return [[UZGPaginationData alloc] initWithEntries:shows

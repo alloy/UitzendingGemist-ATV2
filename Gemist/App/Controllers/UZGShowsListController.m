@@ -27,6 +27,7 @@
     control.asset = show;
     [control.metadataControl setTitle:show.title];
     [control.metadataControl setSummary:show.mediaDescription];
+    [control.metadataControl setCopyright:show.copyright];
     return control;
   }
   return nil;
