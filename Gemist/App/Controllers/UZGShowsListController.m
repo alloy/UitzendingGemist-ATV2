@@ -1,6 +1,7 @@
 #import "UZGShowsListController.h"
 #import "UZGEpisodesListController.h"
 #import "UZGShowMediaAsset.h"
+#import "UZGMetadataPreviewControl.h"
 
 @interface UZGShowsListController ()
 @property (strong) NSString *titleInitial;
@@ -21,14 +22,7 @@
 - (id)previewControlForItem:(long)row;
 {
   if (![self isPaginationRow:&row previous:NULL]) {
-    UZGShowMediaAsset *show = self.assets[row];
-    BRMetadataPreviewControl *control = [BRMetadataPreviewControl new];
-    control.showsMetadataImmediately = YES;
-    control.asset = show;
-    [control.metadataControl setTitle:show.title];
-    [control.metadataControl setSummary:show.mediaSummary];
-    [control.metadataControl setCopyright:show.copyright];
-    return control;
+    return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
   }
   return nil;
 }

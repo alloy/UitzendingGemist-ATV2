@@ -40,11 +40,7 @@
     // offset for bookmark item
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
-      UZGEpisodeMediaAsset *episode = self.assets[row];
-      UZGMetadataPreviewControl *control = [UZGMetadataPreviewControl new];
-      control.showsMetadataImmediately = YES;
-      control.asset = episode;
-      return control;
+      return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
     }
   }
   return nil;
