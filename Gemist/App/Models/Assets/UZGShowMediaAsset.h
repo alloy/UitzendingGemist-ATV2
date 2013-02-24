@@ -1,9 +1,7 @@
 #import "UZGBaseMediaAsset.h"
 
-@interface UZGShowMediaAsset : UZGBaseMediaAsset // TODO <BRMediaAsset>
+@interface UZGShowMediaAsset : UZGBaseMediaAsset <BRMediaAsset>
 
-@property (strong) NSString *title;
-@property (strong) NSString *path;
 @property (nonatomic, assign, getter=isBookmarked) BOOL bookmarked;
 
 + (void)showsWithTitleInitial:(NSString *)initial
