@@ -81,14 +81,13 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 {
   NSDictionary *bookmarks = self.store[kUZGPlistStoreShowBookmarksKey];
   NSMutableArray *result = [NSMutableArray arrayWithCapacity:bookmarks.count];
-  NSArray *paths = [[bookmarks allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-  for (NSString *path in paths) {
+  for (NSString *path in bookmarks) {
     UZGShowMediaAsset *show = [[UZGShowMediaAsset alloc] initAsBookmarked];
     show.path = path;
     [show setValuesForKeysWithDictionary:bookmarks[path]];
     [result addObject:show];
   }
-  return [result copy];
+  return [result sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]];
 }
 
 - (BOOL)hasBookmarkedShowForPath:(NSString *)path;
