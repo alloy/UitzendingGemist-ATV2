@@ -46,7 +46,11 @@
   UZGClient *client = [UZGClient sharedClient];
   [client episodesOfShowAtPath:self.path
                           page:pageNumber
-                       success:^(UZGPaginationData *data) { success([UZGEpisodeMediaAsset assetsWithPaginationData:data]); }
+                       success:^(UZGPaginationData *data) {
+                                 UZGPaginationData *episodes = [UZGEpisodeMediaAsset assetsWithPaginationData:data];
+                                 [episodes.entries setValue:self.copyright forKey:@"copyright"];
+                                 success(episodes);
+                               }
                        failure:failure];
 }
 

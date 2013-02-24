@@ -45,7 +45,8 @@
       control.asset = episode;
       [control.metadataControl setTitle:episode.title];
       [control.metadataControl setSummary:episode.mediaSummary];
-      // [control.metadataControl setCopyright:episode.copyright];
+      // TODO why the frak's does this not work?
+      [control.metadataControl setCopyright:episode.copyright];
       return control;
     }
   }
