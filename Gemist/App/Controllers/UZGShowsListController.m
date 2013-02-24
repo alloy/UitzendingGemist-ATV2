@@ -26,7 +26,7 @@
     control.showsMetadataImmediately = YES;
     control.asset = show;
     [control.metadataControl setTitle:show.title];
-    [control.metadataControl setSummary:show.mediaDescription];
+    [control.metadataControl setSummary:show.mediaSummary];
     [control.metadataControl setCopyright:show.copyright];
     return control;
   }

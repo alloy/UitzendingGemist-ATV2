@@ -118,8 +118,8 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     }
 
     HTMLNode *infoNode = [showNode findChildOfClass:@"info"];
-    HTMLNode *descriptionNode = [infoNode findChildWithTagName:@"div" className:@"description"];
-    show[@"mediaDescription"] = [descriptionNode.contents stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    HTMLNode *summaryNode = [infoNode findChildWithTagName:@"div" className:@"description"];
+    show[@"mediaSummary"] = [summaryNode.contents stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     HTMLNode *anchorNode = [infoNode findChildWithTagName:@"a" className:@"series"];
     show[@"title"] = anchorNode.contents;

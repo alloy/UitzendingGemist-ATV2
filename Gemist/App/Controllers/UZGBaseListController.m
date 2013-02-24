@@ -1,5 +1,6 @@
 #import "UZGBaseListController.h"
 #import "UZGPaginationData.h"
+#import "UZGBaseMediaAsset.h"
 
 @interface UZGBaseListController ()
 
