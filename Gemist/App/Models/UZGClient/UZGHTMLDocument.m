@@ -18,7 +18,6 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
       NSString *source = sources.count > 1 ? sources[1] : sources[0];
       NSString *extname = [source pathExtension];
       source = [source stringByDeletingLastPathComponent];
-      source = [source stringByAppendingPathComponent:@"720x480"];
       source = [source stringByAppendingPathExtension:extname];
       return [NSURL URLWithString:source];
     }
