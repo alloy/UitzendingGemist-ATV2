@@ -26,10 +26,11 @@
 
 #pragma mark - Actually implemented
 
-- (id)mediaType;
-{
-  return [BRMediaType TVShow];
-};
+// This controls the way in which BRMetadataControl displays the metadata.
+//- (id)mediaType;
+//{
+  //return [BRMediaType TVShow];
+//}
 
 // TODO how do we provide the other streams so the player can be adaptive?
 //- (id)mediaURL;
@@ -354,7 +355,7 @@
   //return nil;
 //};
 //- (id)rating {
-  //return nil;
+  //return @"123.456 views";
 //};
 ////- (id)mediaDescription {
   ////return nil;

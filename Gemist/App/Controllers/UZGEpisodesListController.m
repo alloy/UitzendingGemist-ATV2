@@ -1,6 +1,7 @@
 #import "UZGEpisodesListController.h"
 #import "UZGPlistStore.h"
 #import "UZGShowMediaAsset.h"
+#import "UZGMetadataPreviewControl.h"
 
 //#import "BRURLImageProxy.h"
 //#import "BRMediaType.h"
@@ -40,13 +41,9 @@
     row -= 1;
     if (![self isPaginationRow:&row previous:NULL]) {
       UZGEpisodeMediaAsset *episode = self.assets[row];
-      BRMetadataPreviewControl *control = [BRMetadataPreviewControl new];
+      UZGMetadataPreviewControl *control = [UZGMetadataPreviewControl new];
       control.showsMetadataImmediately = YES;
       control.asset = episode;
-      [control.metadataControl setTitle:episode.title];
-      [control.metadataControl setSummary:episode.mediaSummary];
-      // TODO why the frak's does this not work?
-      [control.metadataControl setCopyright:episode.copyright];
       return control;
     }
   }
