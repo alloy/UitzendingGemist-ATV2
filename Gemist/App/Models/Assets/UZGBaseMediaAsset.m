@@ -34,4 +34,33 @@
   }
 }
 
+#pragma mark - Debug
+
+//+ (BOOL)conformsToProtocol:(Protocol *)protocol;
+//{
+  //BOOL conforms = [super conformsToProtocol:protocol];
+  //if (!conforms) {
+    //NSLog(@"Does not conform to protocol: %@", NSStringFromProtocol(protocol));
+  //}
+  //return conforms;
+//}
+
+//- (BOOL)conformsToProtocol:(Protocol *)protocol;
+//{
+  //BOOL conforms = [super conformsToProtocol:protocol];
+  //if (!conforms) {
+    //NSLog(@"Does not conform to protocol: %@", NSStringFromProtocol(protocol));
+  //}
+  //return conforms;
+//}
+
+//- (BOOL)respondsToSelector:(SEL)selector;
+//{
+  //BOOL responds = [super respondsToSelector:selector];
+  //if (!responds) {
+    //NSLog(@"Does not respond to selector: %@", NSStringFromSelector(selector));
+  //}
+  //return responds;
+//}
+
 @end
