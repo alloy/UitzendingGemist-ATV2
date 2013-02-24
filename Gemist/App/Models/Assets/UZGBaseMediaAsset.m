@@ -28,4 +28,13 @@
                    failure:failure];
 }
 
+- (id)imageProxy;
+{
+  if (self.previewURL) {
+    return [BRURLImageProxy proxyWithURL:self.previewURL];
+  } else {
+    return [BRURLImageProxy proxyWithURL:[UZGBundle URLForResource:@"ThumbnailPlaceholder" withExtension:@"png"]];
+  }
+}
+
 @end

@@ -81,14 +81,6 @@
   self.bookmarked = !self.isBookmarked;
 }
 
-- (id)imageProxy;
-{
-  if (self.previewURL) {
-    return [BRURLImageProxy proxyWithURL:self.previewURL];
-  }
-  return nil;
-};
-
 #pragma mark - Debug
 
 + (BOOL)conformsToProtocol:(Protocol *)protocol;

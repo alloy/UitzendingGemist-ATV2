@@ -70,6 +70,8 @@
 		51F2F94016D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */; };
 		51F2F94516D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */; };
 		51F2F94616D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */; };
+		51F2F94B16DA251A00A97FDF /* ThumbnailPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */; };
+		51F2F94C16DA251A00A97FDF /* ThumbnailPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -147,6 +149,7 @@
 		51F2F93E16D595A800A97FDF /* UZGBaseMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseMediaAsset.m; sourceTree = "<group>"; };
 		51F2F94316D6D90B00A97FDF /* UZGHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGHTMLDocument.h; sourceTree = "<group>"; };
 		51F2F94416D6D90B00A97FDF /* UZGHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGHTMLDocument.m; sourceTree = "<group>"; };
+		51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbnailPlaceholder.png; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -340,6 +343,7 @@
 		517C3DCE16ACA8BC00270F3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */,
 				517C3DD116ACA8BC00270F3D /* AppIcon.png */,
 			);
 			path = Resources;
@@ -451,6 +455,7 @@
 				517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */,
 				517C3DD516ACA8BC00270F3D /* AppIcon.png in Resources */,
 				5100D54416CD8F53004E2D5E /* Localizable.strings in Resources */,
+				51F2F94B16DA251A00A97FDF /* ThumbnailPlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +469,7 @@
 				5167278416AB3D03000C7E17 /* Default-568h@2x.png in Resources */,
 				51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */,
 				5100D54516CD8F53004E2D5E /* Localizable.strings in Resources */,
+				51F2F94C16DA251A00A97FDF /* ThumbnailPlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

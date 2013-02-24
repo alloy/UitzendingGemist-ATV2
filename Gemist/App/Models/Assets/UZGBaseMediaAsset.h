@@ -15,4 +15,6 @@
 
 - (void)withThumbnail:(dispatch_block_t)success failure:(UZGFailureBlock)failure;
 
+- (id)imageProxy;
+
 @end
