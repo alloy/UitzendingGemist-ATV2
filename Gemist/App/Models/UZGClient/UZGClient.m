@@ -82,18 +82,6 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
         failure:failure];
 }
 
-// TODO could probably just set the accept header field to not text/html
-- (void)loadImageFromURL:(NSURL *)URL
-                 success:(UZGSuccessBlock)success
-                 failure:(UZGFailureBlock)failure;
-{
-  NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-  AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-  [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSData *data) { success(operation, [BRImage imageWithData:data]); }
-                                   failure:failure];
-  [self enqueueHTTPRequestOperation:operation];
-}
-
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGPaginationDataBlock)success

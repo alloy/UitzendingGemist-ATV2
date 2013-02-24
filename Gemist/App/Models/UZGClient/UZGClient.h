@@ -16,10 +16,6 @@ typedef void (^UZGPaginationDataBlock)(UZGPaginationData *);
                       success:(UZGPaginationDataBlock)success
                       failure:(UZGFailureBlock)failure;
 
-- (void)loadImageFromURL:(NSURL *)URL
-                 success:(UZGSuccessBlock)success
-                 failure:(UZGFailureBlock)failure;
-
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGPaginationDataBlock)success

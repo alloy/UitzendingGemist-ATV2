@@ -3,6 +3,7 @@
 #import "UZGEpisodesListController.h"
 #import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
+#import "UZGMetadataPreviewControl.h"
 
 @interface UZGBookmarksListController ()
 @property (strong) NSArray *bookmarks;
@@ -51,26 +52,12 @@
 
 - (id)previewControlForItem:(long)row;
 {
-  UZGShowMediaAsset *show = self.bookmarks[row];
-  if (show.thumbnail) {
-    BRImageAndSyncingPreviewController *controller = [BRImageAndSyncingPreviewController new];
-    [controller setReflectionAmount:0.5];
-    controller.image = show.thumbnail;
-    return controller;
-
-  } else {
-    if (show.previewURL) {
-      [show withThumbnail:^{ [self updatePreviewController]; }
-                  failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
-    }
-  }
-  return nil;
+  return [[UZGMetadataPreviewControl alloc] initWithAsset:self.bookmarks[row]];
 }
 
 - (void)itemSelected:(long)row;
 {
-  UZGEpisodesListController *controller;
-  controller = [[UZGEpisodesListController alloc] initWithShow:self.bookmarks[row]];
+  UZGEpisodesListController *controller = [[UZGEpisodesListController alloc] initWithShow:self.bookmarks[row]];
   [[self stack] pushController:controller];
 }
 
