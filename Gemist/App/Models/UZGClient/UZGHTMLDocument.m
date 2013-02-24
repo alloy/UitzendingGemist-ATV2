@@ -118,6 +118,9 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     }
 
     HTMLNode *infoNode = [showNode findChildOfClass:@"info"];
+    HTMLNode *descriptionNode = [infoNode findChildWithTagName:@"div" className:@"description"];
+    show[@"mediaDescription"] = [descriptionNode.contents stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     HTMLNode *anchorNode = [infoNode findChildWithTagName:@"a" className:@"series"];
     show[@"title"] = anchorNode.contents;
     show[@"path"] = [anchorNode getAttributeNamed:@"href"];
@@ -132,7 +135,7 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
 #pragma mark - Episode Data
 
 // TODO
-// * Use NSJSONThingie to decode the URLs.
+// * Use category methods added to HTMLNode.
 // * the pageNumber param requirement is ugly
 // * collect  metadata
 - (UZGPaginationData *)episodesPaginationDataForPage:(NSInteger)pageNumber;

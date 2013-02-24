@@ -67,6 +67,7 @@
     if (bookmarked) {
       attributes = [NSMutableDictionary new];
       attributes[@"title"] = self.title;
+      attributes[@"mediaDescription"] = self.mediaDescription;
       if (self.previewURL) attributes[@"previewURL"] = [self.previewURL absoluteString];
     }
     [[UZGPlistStore sharedStore] setHasBookmarkedShow:bookmarked

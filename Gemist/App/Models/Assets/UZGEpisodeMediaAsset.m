@@ -356,9 +356,9 @@
 - (id)rating {
   return nil;
 };
-- (id)mediaDescription {
-  return nil;
-};
+//- (id)mediaDescription {
+  //return nil;
+//};
 - (id)mediaSummary {
   return nil;
 };
