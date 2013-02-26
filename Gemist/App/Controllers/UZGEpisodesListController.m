@@ -104,7 +104,7 @@
           [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
           break;
       }
-      if ([self.loadingEpisode isEqual:episode]) {
+      if ([self.loadingEpisode.path isEqualToString:episode.path]) {
         [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
       }
     }
