@@ -26,6 +26,9 @@
 
 #pragma mark - Actually implemented
 
+// TODO Check if this is really required for an episode to be accepted by the
+// playback manager, because this breaks our custom metadata preview control.
+//
 // This controls the way in which BRMetadataControl displays the metadata.
 - (id)mediaType;
 {
