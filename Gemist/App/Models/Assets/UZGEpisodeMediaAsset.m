@@ -357,9 +357,9 @@
 - (id)publisher {
   return nil;
 };
-//- (id)rating {
-  //return @"123.456 views";
-//};
+- (id)rating {
+  return nil;
+};
 - (id)mediaDescription {
   return nil;
 };

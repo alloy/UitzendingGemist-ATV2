@@ -7,7 +7,6 @@
 @property (strong) NSString *path;
 @property (strong) NSString *mediaSummary;
 @property (strong) NSString *copyright;
-@property (strong) NSString *rating;
 
 // This is merely for plist serialization purposes.
 @property (nonatomic, strong) NSString *previewURLString;
