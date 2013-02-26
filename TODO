@@ -8,6 +8,7 @@ FRAppliance.xctemplate:
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
 
 App:
+* Check for crash log on startup and submit. HockeyApp?
 * Before making a request check that we have the required cookie instead of hoping for the best and making a possible extra request in the process.
 * Report error with error window.
 * Make namespacing consistent: UZG.
