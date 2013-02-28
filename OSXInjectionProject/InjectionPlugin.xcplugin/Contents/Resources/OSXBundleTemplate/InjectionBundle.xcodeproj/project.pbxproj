@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5119D56116DFDF90003290AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5119D56016DFDF90003290AF /* Foundation.framework */; };
-		5119D56316DFDF98003290AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5119D56216DFDF98003290AF /* CoreGraphics.framework */; };
-		5119D56516DFDF9F003290AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5119D56416DFDF9F003290AF /* QuartzCore.framework */; };
+		BB38FF3D15652C7100921F8E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB38FF3A15652C5900921F8E /* WebKit.framework */; };
+		BB836D4B14DE3B610064F4F9 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB836D4814DE3B610064F4F9 /* Quartz.framework */; };
+		BB836D4C14DE3B610064F4F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB836D4914DE3B610064F4F9 /* QuartzCore.framework */; };
+		BB836D5014DE3B750064F4F9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB836D4F14DE3B750064F4F9 /* OpenGL.framework */; };
+		BBC55D8E14C4ED1500C41CA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC55D8D14C4ED1500C41CA1 /* Cocoa.framework */; };
 		BBC7A4A816A57FF700B90868 /* BundleContents.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC7A4A716A57FF700B90868 /* BundleContents.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5119D56016DFDF90003290AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		5119D56216DFDF98003290AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5119D56416DFDF9F003290AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB38FF3A15652C5900921F8E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BB836D4814DE3B610064F4F9 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		BB836D4914DE3B610064F4F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB836D4F14DE3B750064F4F9 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		BBC55D8A14C4ED1500C41CA1 /* InjectionBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InjectionBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC55D8D14C4ED1500C41CA1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BBC55D9014C4ED1500C41CA1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BBC55D9114C4ED1500C41CA1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BBC55D9214C4ED1500C41CA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BBC55D9514C4ED1500C41CA1 /* InjectionBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InjectionBundle-Info.plist"; sourceTree = "<group>"; };
 		BBC55D9914C4ED1500C41CA1 /* InjectionBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InjectionBundle-Prefix.pch"; sourceTree = "<group>"; };
 		BBC7A4A716A57FF700B90868 /* BundleContents.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = BundleContents.m; sourceTree = SOURCE_ROOT; };
@@ -28,9 +35,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5119D56516DFDF9F003290AF /* QuartzCore.framework in Frameworks */,
-				5119D56316DFDF98003290AF /* CoreGraphics.framework in Frameworks */,
-				5119D56116DFDF90003290AF /* Foundation.framework in Frameworks */,
+				BB38FF3D15652C7100921F8E /* WebKit.framework in Frameworks */,
+				BB836D5014DE3B750064F4F9 /* OpenGL.framework in Frameworks */,
+				BB836D4B14DE3B610064F4F9 /* Quartz.framework in Frameworks */,
+				BB836D4C14DE3B610064F4F9 /* QuartzCore.framework in Frameworks */,
+				BBC55D8E14C4ED1500C41CA1 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,9 +49,6 @@
 		BBC55D7F14C4ED1500C41CA1 = {
 			isa = PBXGroup;
 			children = (
-				5119D56416DFDF9F003290AF /* QuartzCore.framework */,
-				5119D56216DFDF98003290AF /* CoreGraphics.framework */,
-				5119D56016DFDF90003290AF /* Foundation.framework */,
 				BBC55D9314C4ED1500C41CA1 /* InjectionBundle */,
 				BBC55D8C14C4ED1500C41CA1 /* Frameworks */,
 				BBC55D8B14C4ED1500C41CA1 /* Products */,
@@ -60,6 +66,7 @@
 		BBC55D8C14C4ED1500C41CA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBC55D8D14C4ED1500C41CA1 /* Cocoa.framework */,
 				BBC55D8F14C4ED1500C41CA1 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -68,6 +75,13 @@
 		BBC55D8F14C4ED1500C41CA1 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB38FF3A15652C5900921F8E /* WebKit.framework */,
+				BB836D4F14DE3B750064F4F9 /* OpenGL.framework */,
+				BB836D4814DE3B610064F4F9 /* Quartz.framework */,
+				BB836D4914DE3B610064F4F9 /* QuartzCore.framework */,
+				BBC55D9014C4ED1500C41CA1 /* AppKit.framework */,
+				BBC55D9114C4ED1500C41CA1 /* CoreData.framework */,
+				BBC55D9214C4ED1500C41CA1 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -162,9 +176,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				BUNDLE_LOADER = "";
+				CLANG_CXX_LANGUAGE_STANDARD = "";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "../**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -193,7 +208,7 @@
 					"-undefined",
 					dynamic_lookup,
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ..;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 			};
@@ -204,9 +219,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				BUNDLE_LOADER = "";
+				CLANG_CXX_LANGUAGE_STANDARD = "";
+				CLANG_CXX_LIBRARY = "";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "../**";
@@ -228,7 +244,7 @@
 					"-undefined",
 					dynamic_lookup,
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = ..;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 			};
@@ -239,16 +255,8 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InjectionBundle-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					../BackRow/Device/include/BackRow,
-					../BackRow/Shared/include,
-					$SDKROOT/usr/include/libxml2,
-					"../Gemist/**",
-					"../Pods/BuildHeaders/**",
-				);
 				INFOPLIST_FILE = "InjectionBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LINK_WITH_STANDARD_LIBRARIES = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -259,16 +267,8 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InjectionBundle-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					../BackRow/Device/include/BackRow,
-					../BackRow/Shared/include,
-					$SDKROOT/usr/include/libxml2,
-					"../Gemist/**",
-					"../Pods/BuildHeaders/**",
-				);
 				INFOPLIST_FILE = "InjectionBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LINK_WITH_STANDARD_LIBRARIES = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};

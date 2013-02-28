@@ -31,6 +31,7 @@
 {
   BRMenuItem *item = [super itemForRow:row];
   [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
+  item.leftMargin = 0;
   return item;
 }
 

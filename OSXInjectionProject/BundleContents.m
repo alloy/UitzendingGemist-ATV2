@@ -3,7 +3,7 @@
 */
 
 #define INJECTION_NOIMPL
-#define INJECTION_BUNDLE InjectionBundle5
+#define INJECTION_BUNDLE InjectionBundle2
 
 #import "/Users/eloy/Library/Application Support/Developer/Shared/Xcode/Plug-ins/InjectionPlugin.xcplugin/Contents/Resources/BundleInjection.h"
 
@@ -19,9 +19,9 @@
 #import "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Gemist/App/Controllers/UZGShowsListController.m"
 
 
-@interface InjectionBundle5 : NSObject
+@interface InjectionBundle2 : NSObject
 @end
-@implementation InjectionBundle5
+@implementation InjectionBundle2
 
 + (void)load {
     Class bundleInjection = NSClassFromString(@"BundleInjection");
