@@ -10,3 +10,9 @@
   #define UZGLocalizedString(key) [UZGBundle localizedStringForKey:(key) value:@"" table:nil]
 #endif
 
+// From here to end of file added by Injection Plugin //
+
+#ifdef DEBUG
+#define INJECTION_ENABLED
+#import "/Users/eloy/Library/Application Support/Developer/Shared/Xcode/Plug-ins/InjectionPlugin.xcplugin/Contents/Resources/BundleInterface.h"
+#endif
