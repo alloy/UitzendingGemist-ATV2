@@ -8,7 +8,6 @@
 
 @implementation UZGBaseListController
 
-
 - (id)init;
 {
   if ((self = [super init])) {
@@ -158,14 +157,21 @@
 - (void)itemSelected:(long)row;
 {
   if ([self isPaginationRow:&row]) {
-    NSLog(@"Load pagination controller!");
-    //self.currentPage = self.currentPage + (previous ? -1 : +1);
-    //self.assets = [NSArray array];
-    //[self reloadListData];
-    //[self fetchAssets];
+    [[self stack] pushController:[[UZGPagesListController alloc] initWithPageCount:self.lastPage
+                                                                       currentPage:self.currentPage
+                                                                          delegate:self]];
   } else {
     [self selectedAsset:row];
   }
+}
+
+- (void)pagesListController:(UZGPagesListController *)controller didSelectPage:(NSUInteger)page;
+{
+  [[self stack] removeController:controller];
+  self.currentPage = page;
+  self.assets = [NSArray array];
+  [self reloadListData];
+  [self fetchAssets];
 }
 
 - (void)selectedAsset:(long)row;

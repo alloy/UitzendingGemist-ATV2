@@ -74,6 +74,8 @@
 		51F2F94C16DA251A00A97FDF /* ThumbnailPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */; };
 		51F2F95316DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95216DA89AE00A97FDF /* UZGMetadataPreviewControl.m */; };
 		51F2F95416DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95216DA89AE00A97FDF /* UZGMetadataPreviewControl.m */; };
+		51F2F95A16DED98700A97FDF /* UZGPagesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95916DED98700A97FDF /* UZGPagesListController.m */; };
+		51F2F95B16DED98700A97FDF /* UZGPagesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95916DED98700A97FDF /* UZGPagesListController.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -154,6 +156,8 @@
 		51F2F94A16DA251A00A97FDF /* ThumbnailPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbnailPlaceholder.png; sourceTree = "<group>"; };
 		51F2F95116DA89AE00A97FDF /* UZGMetadataPreviewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGMetadataPreviewControl.h; sourceTree = "<group>"; };
 		51F2F95216DA89AE00A97FDF /* UZGMetadataPreviewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGMetadataPreviewControl.m; sourceTree = "<group>"; };
+		51F2F95816DED98700A97FDF /* UZGPagesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPagesListController.h; sourceTree = "<group>"; };
+		51F2F95916DED98700A97FDF /* UZGPagesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPagesListController.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -330,6 +334,8 @@
 				5199A70A16AB8C630057AA02 /* UZGEpisodesListController.m */,
 				5199A6F916AB60870057AA02 /* UZGShowsListController.h */,
 				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
+				51F2F95816DED98700A97FDF /* UZGPagesListController.h */,
+				51F2F95916DED98700A97FDF /* UZGPagesListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				51F2F93F16D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */,
 				51F2F94516D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 				51F2F95316DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
+				51F2F95A16DED98700A97FDF /* UZGPagesListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +614,7 @@
 				51F2F94016D595A800A97FDF /* UZGBaseMediaAsset.m in Sources */,
 				51F2F94616D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 				51F2F95416DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
+				51F2F95B16DED98700A97FDF /* UZGPagesListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,9 @@
 #import "BackRow.h"
+#import "UZGPagesListController.h"
 
 @class UZGPaginationData;
 
-@interface UZGBaseListController : BRMediaMenuController <BRMenuListItemProvider>
+@interface UZGBaseListController : BRMediaMenuController <BRMenuListItemProvider, UZGPagesListControllerDelegate>
 
 @property (nonatomic, strong) NSArray *assets;
 @property (nonatomic, strong) NSString *realTitle;

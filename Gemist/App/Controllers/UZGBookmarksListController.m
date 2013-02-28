@@ -11,7 +11,6 @@
 
 @implementation UZGBookmarksListController
 
-
 - (id)init;
 {
   if ((self = [super init])) {
