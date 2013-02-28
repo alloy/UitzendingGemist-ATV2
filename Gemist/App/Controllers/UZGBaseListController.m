@@ -28,7 +28,18 @@
 {
   if (![_realTitle isEqualToString:realTitle]) {
     _realTitle = realTitle;
-    self.listTitle = realTitle;
+    // self.listTitle = realTitle;
+
+    //self.title = @"title";
+    //self.label = @"label";
+    //self.primaryInfoText = @"primary";
+    //self.secondaryInfoText = @"secondary";
+
+    // self.header.title.attributedString = [[NSAttributedString alloc] initWithString:@"title"];
+    // self.header.subtitle.attributedString = [[NSAttributedString alloc] initWithString:@"subtitle"];
+
+    self.header.title = @"title";
+    //self.header.subtitle = @"subtitle";
   }
 }
 
@@ -50,42 +61,47 @@
   return self.lastPage > 1;
 }
 
-- (BOOL)enablePreviousPageMenuItem;
-{
-  return self.currentPage > 1;
-}
-
-- (BOOL)enableNextPageMenuItem;
-{
-  return (self.lastPage != self.currentPage);
-}
-
-- (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
+- (BOOL)isPaginationRow:(long *)row;
 {
   if (!self.hasMultiplePages) {
     return NO;
   } else {
-    BOOL isPaginationRow = NO;
-    if (*row == 0) {
-      if (previous != NULL) *previous = NO;
-      isPaginationRow = YES;
-    } else if (*row == 1) {
-      if (previous != NULL) *previous = YES;
-      isPaginationRow = YES;
-    }
-    // Always offset row
-    *row = *row - 2;
+    BOOL isPaginationRow = *row == 0;
+    // Offset row
+    *row = *row - 1;
     return isPaginationRow;
   }
 }
 
+- (float)listVerticalOffset;
+{
+  return self.hasMultiplePages ? 34 : 11;
+}
+
+- (BOOL)shouldDividerBeVisible;
+{
+  return self.hasMultiplePages;
+}
+
+- (NSInteger)dividerIndex;
+{
+  return 1;
+}
+
 - (void)reloadListData;
 {
+  self.header.title = self.realTitle;
   if (self.hasMultiplePages) {
-    self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
-  } else {
-    self.listTitle = self.realTitle;
+    self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
+    //self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
   }
+
+  self.list.firstDividerVisible = self.shouldDividerBeVisible;
+  if (self.shouldDividerBeVisible) {
+    [self.list removeDividers];
+    [self.list addDividerAtIndex:self.dividerIndex withLabel:nil];
+  }
+
   [self.list reload];
 }
 
@@ -99,18 +115,19 @@
 - (long)itemCount;
 {
   long count = self.assets.count;
-  if (self.hasMultiplePages) count += 2;
+  if (self.hasMultiplePages) count += 1;
   return count;
 }
 
 // TODO no idea what this is really for
 - (NSString *)titleForRow:(long)row;
 {
-  BOOL previous = NO;
-  if ([self isPaginationRow:&row previous:&previous]) {
-    return UZGLocalizedString(previous ? @"Previous Page" : @"Next Page");
+  if ([self isPaginationRow:&row]) {
+    // TODO
+    // return UZGLocalizedString(@"Page %d of %d", self.currentPage, self.lastPage);
+    return @"Other pages";
   }
-  return [self.assets[row] title];
+  return [(UZGBaseMediaAsset *)self.assets[row] title];
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
@@ -120,38 +137,32 @@
   item.acceptsFocus = [self rowSelectable:row];
   item.dimmed = !item.acceptsFocus;
   [self addDisclosureAccessoryToPaginationItem:item row:row];
+  //if (![self isPaginationRow:&row]) {
+    //item.leftMargin += 10;
+  //}
   return item;
 }
 
 - (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
 {
-  if ([self isPaginationRow:&row previous:NULL]) {
+  if ([self isPaginationRow:&row]) {
     [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
   }
 }
 
-// TODO no idea what this is really for
 - (BOOL)rowSelectable:(long)row;
 {
-  BOOL previous = NO;
-  if ([self isPaginationRow:&row previous:&previous]) {
-    if (previous) {
-      return self.enablePreviousPageMenuItem;
-    } else {
-      return self.enableNextPageMenuItem;
-    }
-  }
   return YES;
 }
 
 - (void)itemSelected:(long)row;
 {
-  BOOL previous = NO;
-  if ([self isPaginationRow:&row previous:&previous]) {
-    self.currentPage = self.currentPage + (previous ? -1 : +1);
-    self.assets = [NSArray array];
-    [self reloadListData];
-    [self fetchAssets];
+  if ([self isPaginationRow:&row]) {
+    NSLog(@"Load pagination controller!");
+    //self.currentPage = self.currentPage + (previous ? -1 : +1);
+    //self.assets = [NSArray array];
+    //[self reloadListData];
+    //[self fetchAssets];
   } else {
     [self selectedAsset:row];
   }

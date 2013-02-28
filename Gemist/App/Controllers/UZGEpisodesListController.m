@@ -34,12 +34,22 @@
   return self.loadingEpisode != nil;
 }
 
+- (BOOL)shouldDividerBeVisible;
+{
+  return YES;
+}
+
+- (NSInteger)dividerIndex;
+{
+  return self.hasMultiplePages ? 2 : 1;
+}
+
 - (id)previewControlForItem:(long)row;
 {
   if (row != 0) {
     // offset for bookmark item
     row -= 1;
-    if (![self isPaginationRow:&row previous:NULL]) {
+    if (![self isPaginationRow:&row]) {
       return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
     }
   }
@@ -92,7 +102,7 @@
   if (row > 0) {
     // offset for bookmark item
     row -= 1;
-    if (![self isPaginationRow:&row previous:NULL]) {
+    if (![self isPaginationRow:&row]) {
       UZGEpisodeMediaAsset *episode = self.assets[row];
       // TODO move to episode instance
       UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];

@@ -47,7 +47,7 @@
 // TODO what is this used for?
 - (NSString *)titleForRow:(long)row;
 {
-  return [self.bookmarks[row] title];
+  return [(UZGShowMediaAsset *)self.bookmarks[row] title];
 }
 
 - (id)previewControlForItem:(long)row;

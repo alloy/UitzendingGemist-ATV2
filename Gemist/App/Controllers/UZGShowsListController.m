@@ -21,7 +21,7 @@
 
 - (id)previewControlForItem:(long)row;
 {
-  if (![self isPaginationRow:&row previous:NULL]) {
+  if (![self isPaginationRow:&row]) {
     return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
   }
   return nil;

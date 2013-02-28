@@ -9,10 +9,14 @@
 @property (nonatomic, assign) NSUInteger currentPage;
 @property (nonatomic, assign) NSUInteger lastPage;
 
+@property (readonly) BOOL hasMultiplePages;
+@property (readonly) BOOL shouldDividerBeVisible;
+@property (readonly) NSInteger dividerIndex;
+
 - (void)fetchAssets;
 - (void)selectedAsset:(long)row;
 - (void)processPaginationData:(UZGPaginationData *)paginationData;
-- (BOOL)isPaginationRow:(long *)row previous:(BOOL *)previous;
+- (BOOL)isPaginationRow:(long *)row;
 - (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
 
 @end
