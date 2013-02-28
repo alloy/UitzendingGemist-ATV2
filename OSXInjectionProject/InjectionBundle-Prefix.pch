@@ -1,0 +1,12 @@
+//
+// Prefix header for all source files of the 'InjectionBundle' target in the 'InjectionBundle' project
+//
+
+#ifdef __OBJC__
+    #import "BackRow.h"
+#endif
+
+#ifdef DEBUG
+    #define INJECTION_ENABLED
+    #import "/Users/eloy/Library/Application Support/Developer/Shared/Xcode/Plug-ins/InjectionPlugin.xcplugin/Contents/Resources/BundleInterface.h"
+#endif
