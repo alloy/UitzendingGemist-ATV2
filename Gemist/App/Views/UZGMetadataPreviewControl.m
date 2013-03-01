@@ -21,4 +21,20 @@
   [metadataControl setCopyright:asset.copyright];
 }
 
+//- (void)layoutSubcontrols;
+//{
+  //[super layoutSubcontrols];
+  //NSLog(@"LAYOUT!");
+  ////NSLog(@"FULL FRAME: %@", NSStringFromCGRect([self.layer frame]));
+  ////for (id layer in [self.layer sublayers]) {
+    ////NSLog(@"SUBLAYER FRAME: %@", NSStringFromCGRect([layer frame]));
+  ////}
+  //id sublayer = [self.layer sublayers][0];
+  //CGRect frame = [sublayer frame];
+  //NSLog(@"BEFORE: %@", NSStringFromCGRect(frame));
+  //frame.origin.y = CGRectGetHeight([self.layer frame]) - frame.size.height;
+  //NSLog(@"AFTER: %@", NSStringFromCGRect(frame));
+  //[sublayer setFrame:frame];
+//}
+
 @end
