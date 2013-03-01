@@ -15,6 +15,7 @@
 {
   if ((self = [super init])) {
     _bookmarks = [[UZGPlistStore sharedStore] allBookmarkedShows];
+    self.header.title = UZGLocalizedString(@"Favorites");
     self.list.datasource = self;
   }
   return self;
