@@ -29,7 +29,7 @@
     _favoritesMenuItem = [UZGTopSectionMenuItem new];
     _favoritesMenuItem.isVisible = YES;
     _favoritesMenuItem.text = self.favoritesMenuItemTitle;
-    [self.topSectionItems insertObject:_favoritesMenuItem atIndex:0];
+    [self.topSectionItems addObject:_favoritesMenuItem];
   }
   return self;
 }
