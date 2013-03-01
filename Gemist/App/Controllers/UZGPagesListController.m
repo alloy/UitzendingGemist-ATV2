@@ -1,9 +1,5 @@
 #import "UZGPagesListController.h"
 
-@interface UZGPagesListController ()
-
-@end
-
 @implementation UZGPagesListController
 
 - (id)initWithPageCount:(NSUInteger)pageCount

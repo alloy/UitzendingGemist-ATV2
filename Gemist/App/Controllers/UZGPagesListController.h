@@ -1,4 +1,4 @@
-#import "BackRow.h"
+#import "UZGBaseListController.h"
 
 @class UZGPagesListController;
 
@@ -7,7 +7,7 @@
 - (void)pagesListController:(UZGPagesListController *)controller didSelectPage:(NSUInteger)page;
 @end
 
-@interface UZGPagesListController : BRMediaMenuController
+@interface UZGPagesListController : UZGBaseListController
 
 @property (readonly) NSUInteger pageCount;
 // @property (readonly) NSUInteger currentPage;
