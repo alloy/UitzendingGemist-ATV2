@@ -1,5 +1,5 @@
-#import "BackRow.h"
+#import "UZGBaseListController.h"
 
-@interface UZGBookmarksListController : BRMediaMenuController <BRMenuListItemProvider>
+@interface UZGBookmarksListController : UZGBaseListController <BRMenuListItemProvider>
 
 @end

@@ -36,8 +36,8 @@
 		517C3DB916AC663800270F3D /* BRMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DB816AC663800270F3D /* BRMediaType.m */; };
 		517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */; };
 		517C3DBE16AC6A7500270F3D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */; };
-		517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
-		517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGBaseListController.m */; };
+		517C3DC116AC827F00270F3D /* UZGAssetsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGAssetsListController.m */; };
+		517C3DC216AC827F00270F3D /* UZGAssetsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC016AC827F00270F3D /* UZGAssetsListController.m */; };
 		517C3DC516AC8F4B00270F3D /* UZGPlistStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC416AC8F4B00270F3D /* UZGPlistStore.m */; };
 		517C3DC616AC8F4B00270F3D /* UZGPlistStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 517C3DC416AC8F4B00270F3D /* UZGPlistStore.m */; };
 		517C3DCB16ACA4D200270F3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 517C3DCD16ACA4D200270F3D /* InfoPlist.strings */; };
@@ -63,6 +63,8 @@
 		51D6A89F16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A89E16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m */; };
 		51D6A8A216BC417100E174E1 /* UZGBookmarksListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */; };
 		51D6A8A316BC417100E174E1 /* UZGBookmarksListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */; };
+		51E0947516E166F400027E5D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E0947416E166F400027E5D /* UZGBaseListController.m */; };
+		51E0947616E166F400027E5D /* UZGBaseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E0947416E166F400027E5D /* UZGBaseListController.m */; };
 		51E10D1D16B062C20062BA19 /* BackRow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 51E10D1C16B062C20062BA19 /* BackRow.bundle */; };
 		51F2F93B16D58AA700A97FDF /* UZGPaginationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */; };
 		51F2F93C16D58AA700A97FDF /* UZGPaginationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */; };
@@ -120,8 +122,8 @@
 		517C3DB816AC663800270F3D /* BRMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaType.m; sourceTree = "<group>"; };
 		517C3DBB16AC688900270F3D /* BRMediaPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMediaPlayerManager.m; sourceTree = "<group>"; };
 		517C3DBD16AC6A7500270F3D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		517C3DBF16AC827F00270F3D /* UZGBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseListController.h; sourceTree = "<group>"; };
-		517C3DC016AC827F00270F3D /* UZGBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseListController.m; sourceTree = "<group>"; };
+		517C3DBF16AC827F00270F3D /* UZGAssetsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGAssetsListController.h; sourceTree = "<group>"; };
+		517C3DC016AC827F00270F3D /* UZGAssetsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGAssetsListController.m; sourceTree = "<group>"; };
 		517C3DC316AC8F4B00270F3D /* UZGPlistStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPlistStore.h; sourceTree = "<group>"; };
 		517C3DC416AC8F4B00270F3D /* UZGPlistStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPlistStore.m; sourceTree = "<group>"; };
 		517C3DCC16ACA4D200270F3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -146,6 +148,8 @@
 		51D6A89E16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRImageAndSyncingPreviewController.m; sourceTree = "<group>"; };
 		51D6A8A016BC417100E174E1 /* UZGBookmarksListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBookmarksListController.h; sourceTree = "<group>"; };
 		51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBookmarksListController.m; sourceTree = "<group>"; };
+		51E0947316E166F400027E5D /* UZGBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseListController.h; sourceTree = "<group>"; };
+		51E0947416E166F400027E5D /* UZGBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseListController.m; sourceTree = "<group>"; };
 		51E10D1C16B062C20062BA19 /* BackRow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BackRow.bundle; path = BackRow/Simulator/resources/BackRow.bundle; sourceTree = SOURCE_ROOT; };
 		51F2F93916D58AA700A97FDF /* UZGPaginationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPaginationData.h; sourceTree = "<group>"; };
 		51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPaginationData.m; sourceTree = "<group>"; };
@@ -326,8 +330,10 @@
 			children = (
 				5167278E16AB4064000C7E17 /* UZGAppliance.h */,
 				5167278F16AB4064000C7E17 /* UZGAppliance.m */,
-				517C3DBF16AC827F00270F3D /* UZGBaseListController.h */,
-				517C3DC016AC827F00270F3D /* UZGBaseListController.m */,
+				517C3DBF16AC827F00270F3D /* UZGAssetsListController.h */,
+				51E0947316E166F400027E5D /* UZGBaseListController.h */,
+				51E0947416E166F400027E5D /* UZGBaseListController.m */,
+				517C3DC016AC827F00270F3D /* UZGAssetsListController.m */,
 				51D6A8A016BC417100E174E1 /* UZGBookmarksListController.h */,
 				51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */,
 				5199A70916AB8C630057AA02 /* UZGEpisodesListController.h */,
@@ -562,7 +568,7 @@
 				5199A6FB16AB60870057AA02 /* UZGShowsListController.m in Sources */,
 				5199A70B16AB8C630057AA02 /* UZGEpisodesListController.m in Sources */,
 				517C3DB116AC5F5200270F3D /* UZGEpisodeMediaAsset.m in Sources */,
-				517C3DC116AC827F00270F3D /* UZGBaseListController.m in Sources */,
+				517C3DC116AC827F00270F3D /* UZGAssetsListController.m in Sources */,
 				517C3DC516AC8F4B00270F3D /* UZGPlistStore.m in Sources */,
 				51D6A8A216BC417100E174E1 /* UZGBookmarksListController.m in Sources */,
 				5100D58516CEA406004E2D5E /* UZGHTMLRequestOperation.m in Sources */,
@@ -572,6 +578,7 @@
 				51F2F94516D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 				51F2F95316DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
 				51F2F95A16DED98700A97FDF /* UZGPagesListController.m in Sources */,
+				51E0947516E166F400027E5D /* UZGBaseListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,7 +609,7 @@
 				517C3DB616AC653D00270F3D /* BRBaseMediaAsset.m in Sources */,
 				517C3DB916AC663800270F3D /* BRMediaType.m in Sources */,
 				517C3DBC16AC688900270F3D /* BRMediaPlayerManager.m in Sources */,
-				517C3DC216AC827F00270F3D /* UZGBaseListController.m in Sources */,
+				517C3DC216AC827F00270F3D /* UZGAssetsListController.m in Sources */,
 				517C3DC616AC8F4B00270F3D /* UZGPlistStore.m in Sources */,
 				51A11A5A16B1E9BF00E3C88D /* BRMediaPlayer.m in Sources */,
 				51D6A89F16BC0C9400E174E1 /* BRImageAndSyncingPreviewController.m in Sources */,
@@ -615,6 +622,7 @@
 				51F2F94616D6D90B00A97FDF /* UZGHTMLDocument.m in Sources */,
 				51F2F95416DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
 				51F2F95B16DED98700A97FDF /* UZGPagesListController.m in Sources */,
+				51E0947616E166F400027E5D /* UZGBaseListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

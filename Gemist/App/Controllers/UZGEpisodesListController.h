@@ -1,9 +1,9 @@
-#import "UZGBaseListController.h"
+#import "UZGAssetsListController.h"
 #import "UZGEpisodeMediaAsset.h"
 
 @class UZGShowMediaAsset;
 
-@interface UZGEpisodesListController : UZGBaseListController <BRMenuListItemProvider, UZGEpisodeMediaAssetDelegate>
+@interface UZGEpisodesListController : UZGAssetsListController <BRMenuListItemProvider, UZGEpisodeMediaAssetDelegate>
 
 - (id)initWithShow:(UZGShowMediaAsset *)show;
 

@@ -1,6 +1,6 @@
-#import "UZGBaseListController.h"
+#import "UZGAssetsListController.h"
 
-@interface UZGShowsListController : UZGBaseListController <BRMenuListItemProvider>
+@interface UZGShowsListController : UZGAssetsListController <BRMenuListItemProvider>
 
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 
