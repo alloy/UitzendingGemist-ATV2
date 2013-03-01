@@ -10,6 +10,7 @@
 @interface UZGBaseListController : BRMediaMenuController <BRMenuListItemProvider, UZGPagesListControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *topSectionItems;
+@property (nonatomic, strong) UZGBaseMediaAsset *defaultAsset;
 @property (nonatomic, strong) NSArray *assets;
 @property (nonatomic, strong) NSString *realTitle;
 @property (nonatomic, assign) NSUInteger currentPage;

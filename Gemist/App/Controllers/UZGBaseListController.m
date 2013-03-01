@@ -132,11 +132,17 @@
 {
   NSArray *topItems = self.visibleTopSectionItems;
   if (row < topItems.count) {
-    return nil;
+    if (self.defaultAsset) {
+      // Only show banner.
+      BRCoverArtPreviewControl *control = [BRCoverArtPreviewControl new];
+      [control setImageProxy:self.defaultAsset.imageProxy];
+      return control;
+    }
   } else {
     UZGBaseMediaAsset *asset = self.assets[row - topItems.count];
     return [[UZGMetadataPreviewControl alloc] initWithAsset:asset];
   }
+  return nil;
 }
 
 - (BOOL)rowSelectable:(long)row;

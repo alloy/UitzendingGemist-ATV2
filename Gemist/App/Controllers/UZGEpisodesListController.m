@@ -26,6 +26,8 @@
     self.realTitle = _show.title;
     _path = _show.path;
 
+    self.defaultAsset = show;
+
     _favoritesMenuItem = [UZGTopSectionMenuItem new];
     _favoritesMenuItem.isVisible = YES;
     _favoritesMenuItem.text = self.favoritesMenuItemTitle;
