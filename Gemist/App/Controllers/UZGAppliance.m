@@ -3,6 +3,16 @@
 #import "UZGShowsListController.h"
 #import "AFHTTPRequestOperationLogger.h"
 
+// TODO not in actual release!!
+// Only needed for beta testing.
+#ifdef DEBUG
+#define ENABLE_BETA_FEATURES 1
+#endif
+
+#ifdef ENABLE_BETA_FEATURES
+#import "UZGPlistStore.h"
+#endif
+
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
@@ -63,6 +73,13 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 - (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
+#ifdef ENABLE_BETA_FEATURES
+  if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
+    NSLog(@"Plist store doesn't exist yet, show beta test controller!");
+    return [self betaTestController];
+  }
+#endif
+
   BRController *controller = nil;
   if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
     controller = [UZGBookmarksListController new];
@@ -71,6 +88,19 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
   }
   return controller;
 }
+
+#ifdef ENABLE_BETA_FEATURES
+- (BRController *)betaTestController;
+{
+  NSString *UDID = [[UIDevice currentDevice] uniqueIdentifier];
+  NSLog(@"UDID: %@", UDID);
+  BRAlertController *controller = [BRAlertController alertForError:nil];
+  controller.primaryText = [NSString stringWithFormat:@"Device ID: %@", UDID];
+  controller.secondaryText = @"Please register your device on http://rink.hockeyapp.net and thanks for testing! :)";
+  controller.footerText = @"This alert will no longer be shown once you have favorited a show.";
+  return controller;
+}
+#endif
 
 @end
 

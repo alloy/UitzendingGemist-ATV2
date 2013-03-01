@@ -8,6 +8,8 @@ typedef NS_ENUM(NSUInteger, UZGEpisodeProgressStatus) {
 
 @interface UZGPlistStore : NSObject
 
++ (NSString *)storePath;
+
 + (UZGPlistStore *)sharedStore;
 
 - (NSArray *)allBookmarkedShows;
