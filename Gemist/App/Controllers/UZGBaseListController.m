@@ -20,6 +20,8 @@
     _assets = [NSArray new];
     _topSectionItems = [NSMutableArray new];
 
+    self.header.subtitle = @"";
+
     _paginationMenuItem = [UZGTopSectionMenuItem new];
     _paginationMenuItem.text = @"Other pages";
     [_paginationMenuItem addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
@@ -71,7 +73,7 @@
 
 - (float)listVerticalOffset;
 {
-  return self.hasMultiplePages ? 34 : 11;
+  return 34;
 }
 
 - (NSInteger)dividerIndex;
@@ -83,11 +85,7 @@
 {
   self.header.title = self.realTitle;
   self.paginationMenuItem.isVisible = self.hasMultiplePages;
-
-  if (self.hasMultiplePages) {
-    self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
-    //self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
-  }
+  self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
 
   [self.list removeDividers];
   NSInteger index = self.dividerIndex;
