@@ -9,7 +9,6 @@
 #import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
-@property (strong) UZGShowMediaAsset *show;
 @property (strong) NSString *path;
 @property (strong) UZGEpisodeMediaAsset *loadingEpisode;
 @property (strong) BRMediaPlayer *player;
@@ -22,11 +21,10 @@
 - (id)initWithShow:(UZGShowMediaAsset *)show;
 {
   if ((self = [super init])) {
-    _show = show;
-    self.realTitle = _show.title;
-    _path = _show.path;
-
     self.defaultAsset = show;
+
+    self.realTitle = show.title;
+    _path = show.path;
 
     _favoritesMenuItem = [UZGTopSectionMenuItem new];
     _favoritesMenuItem.isVisible = YES;
@@ -34,6 +32,11 @@
     [self.topSectionItems addObject:_favoritesMenuItem];
   }
   return self;
+}
+
+- (UZGShowMediaAsset *)show;
+{
+  return (UZGShowMediaAsset *)self.defaultAsset;
 }
 
 - (BOOL)isLoadingEpisode;
