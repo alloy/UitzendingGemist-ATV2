@@ -191,10 +191,12 @@
 - (void)pagesListController:(UZGPagesListController *)controller didSelectPage:(NSUInteger)page;
 {
   [[self stack] removeController:controller];
-  self.currentPage = page;
-  self.assets = [NSArray array];
-  [self reloadListData];
-  [self fetchAssets];
+  if (page != self.currentPage) {
+    self.currentPage = page;
+    self.assets = [NSArray array];
+    [self reloadListData];
+    [self fetchAssets];
+  }
 }
 
 #pragma mark - Public/subclass methods
