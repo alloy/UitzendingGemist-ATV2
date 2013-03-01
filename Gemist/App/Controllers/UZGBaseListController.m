@@ -105,7 +105,11 @@
 
 - (long)itemCount;
 {
-  return self.visibleTopSectionItems.count + self.assets.count;
+  if (self.showSpinner) {
+    return 0;
+  } else {
+    return self.visibleTopSectionItems.count + self.assets.count;
+  }
 }
 
 // Needed for something besides being part of the list protocol?
