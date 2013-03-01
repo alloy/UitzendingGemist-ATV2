@@ -35,7 +35,7 @@
   [UZGShowMediaAsset showsWithTitleInitial:self.titleInitial
                                       page:self.currentPage
                                    success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
-                                   failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
+                                   failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
 
 //- (BOOL) brEventAction:(BREvent*)event {

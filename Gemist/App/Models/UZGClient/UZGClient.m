@@ -109,7 +109,11 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
                                       success:success
                                       failure:failure];
                   } else {
-                    failure(operation, nil);
+                    NSMutableDictionary *details = [NSMutableDictionary new];
+                    details[NSLocalizedDescriptionKey] = UZGLocalizedString(@"This episode is not available on Apple TV.");
+                    failure(operation, [NSError errorWithDomain:@"com.apple.frontrow.appliance.Gemist"
+                                                           code:1000
+                                                       userInfo:details]);
                   }
                 }
         failure:failure];

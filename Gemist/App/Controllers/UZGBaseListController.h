@@ -26,4 +26,6 @@
 - (void)fetchAssets;
 - (void)processPaginationData:(UZGPaginationData *)paginationData;
 
+- (void)handleError:(NSError *)error;
+
 @end

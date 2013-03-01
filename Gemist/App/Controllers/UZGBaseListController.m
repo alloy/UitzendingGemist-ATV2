@@ -56,6 +56,15 @@
   self.showSpinner = YES;
 }
 
+- (void)handleError:(NSError *)error;
+{
+  BRAlertController *controller = [BRAlertController alertForError:error];
+  controller.primaryText = error.localizedDescription;
+  controller.secondaryText = [NSString stringWithFormat:@"(%@ - %ld)", error.domain, error.code];
+  [[self stack] pushController:controller];
+  self.showSpinner = NO;
+}
+
 - (void)processPaginationData:(UZGPaginationData *)paginationData;
 {
   self.assets = paginationData.entries;

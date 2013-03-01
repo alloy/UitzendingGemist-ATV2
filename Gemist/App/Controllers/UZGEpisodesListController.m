@@ -39,6 +39,13 @@
   return (UZGShowMediaAsset *)self.defaultAsset;
 }
 
+- (void)handleError:(NSError *)error;
+{
+  [super handleError:error];
+  self.loadingEpisode = nil;
+  [self.list reload];
+}
+
 - (BOOL)isLoadingEpisode;
 {
   return self.loadingEpisode != nil;
@@ -98,7 +105,7 @@
   [super fetchAssets];
   [self.show episodesAtPage:self.currentPage
                     success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
-                    failure:^(id _, NSError *error) { NSLog(@"ERROR: %@", error); }];
+                    failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
 
 - (void)loadEpisode;
@@ -110,7 +117,7 @@
     NSError *error = nil;
     self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episode error:&error];
     if (error) {
-      NSLog(@"ERROR: %@", error);
+      [self handleError:error];
     } else {
       [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
     }
@@ -120,9 +127,7 @@
     self.loadingEpisode = nil;
     [self.list reload];
 
-  } failure:^(id _, NSError *error) {
-    NSLog(@"ERROR: %@", error);
-  }];
+  } failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
 
 - (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episode hasBeenPlayed:(BOOL)played;
@@ -141,14 +146,16 @@
   [self.list reload];
 }
 
-- (BOOL)brEventAction:(BREvent *)event;
-{
-  if (event.remoteAction == BREventOKButtonLongAction) {
-    NSLog(@"TOGGLE PROGRESS STATUS");
-    return YES;
-  } else {
-    return [super brEventAction:event];
-  }
-}
+// TODO toggle progress status
+//
+//- (BOOL)brEventAction:(BREvent *)event;
+//{
+  //if (event.remoteAction == BREventOKButtonLongAction) {
+    //NSLog(@"TOGGLE PROGRESS STATUS");
+    //return YES;
+  //} else {
+    //return [super brEventAction:event];
+  //}
+//}
 
 @end
