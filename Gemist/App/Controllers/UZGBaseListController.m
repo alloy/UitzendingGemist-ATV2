@@ -1,9 +1,13 @@
 #import "UZGBaseListController.h"
 #import "UZGPaginationData.h"
 #import "UZGBaseMediaAsset.h"
+#import "UZGMetadataPreviewControl.h"
+
+@implementation UZGTopSectionMenuItem
+@end
 
 @interface UZGBaseListController ()
-
+@property (strong) UZGTopSectionMenuItem *paginationMenuItem;
 @end
 
 @implementation UZGBaseListController
@@ -14,6 +18,13 @@
     _currentPage = 1;
     _lastPage = 0;
     _assets = [NSArray new];
+    _topSectionItems = [NSMutableArray new];
+
+    _paginationMenuItem = [UZGTopSectionMenuItem new];
+    _paginationMenuItem.text = @"Other pages";
+    [_paginationMenuItem addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
+    [_topSectionItems addObject:_paginationMenuItem];
+
     self.list.datasource = self;
     // Start in next tick, also gives subclass a chance to set the title.
     dispatch_async(dispatch_get_current_queue(), ^{
@@ -27,18 +38,7 @@
 {
   if (![_realTitle isEqualToString:realTitle]) {
     _realTitle = realTitle;
-    // self.listTitle = realTitle;
-
-    //self.title = @"title";
-    //self.label = @"label";
-    //self.primaryInfoText = @"primary";
-    //self.secondaryInfoText = @"secondary";
-
-    // self.header.title.attributedString = [[NSAttributedString alloc] initWithString:@"title"];
-    // self.header.subtitle.attributedString = [[NSAttributedString alloc] initWithString:@"subtitle"];
-
-    self.header.title = @"title";
-    //self.header.subtitle = @"subtitle";
+    self.header.title = realTitle;
   }
 }
 
@@ -60,16 +60,13 @@
   return self.lastPage > 1;
 }
 
-- (BOOL)isPaginationRow:(long *)row;
+- (NSArray *)visibleTopSectionItems;
 {
-  if (!self.hasMultiplePages) {
-    return NO;
-  } else {
-    BOOL isPaginationRow = *row == 0;
-    // Offset row
-    *row = *row - 1;
-    return isPaginationRow;
+  NSMutableArray *items = [NSMutableArray new];
+  for (UZGTopSectionMenuItem *item in self.topSectionItems) {
+    if (item.isVisible) [items addObject:item];
   }
+  return [items copy];
 }
 
 - (float)listVerticalOffset;
@@ -77,28 +74,25 @@
   return self.hasMultiplePages ? 34 : 11;
 }
 
-- (BOOL)shouldDividerBeVisible;
-{
-  return self.hasMultiplePages;
-}
-
 - (NSInteger)dividerIndex;
 {
-  return 1;
+  return self.visibleTopSectionItems.count;
 }
 
 - (void)reloadListData;
 {
   self.header.title = self.realTitle;
+  self.paginationMenuItem.isVisible = self.hasMultiplePages;
+
   if (self.hasMultiplePages) {
     self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
     //self.listTitle = [NSString stringWithFormat:@"%@ (%d/%d)", self.realTitle, self.currentPage, self.lastPage];
   }
 
-  self.list.firstDividerVisible = self.shouldDividerBeVisible;
-  if (self.shouldDividerBeVisible) {
-    [self.list removeDividers];
-    [self.list addDividerAtIndex:self.dividerIndex withLabel:nil];
+  [self.list removeDividers];
+  NSInteger index = self.dividerIndex;
+  if (index > 0) {
+    [self.list addDividerAtIndex:index withLabel:nil];
   }
 
   [self.list reload];
@@ -113,39 +107,33 @@
 
 - (long)itemCount;
 {
-  long count = self.assets.count;
-  if (self.hasMultiplePages) count += 1;
-  return count;
+  return self.visibleTopSectionItems.count + self.assets.count;
 }
 
-// TODO no idea what this is really for
+// Needed for something besides being part of the list protocol?
 - (NSString *)titleForRow:(long)row;
 {
-  if ([self isPaginationRow:&row]) {
-    // TODO
-    // return UZGLocalizedString(@"Page %d of %d", self.currentPage, self.lastPage);
-    return @"Other pages";
-  }
-  return [(UZGBaseMediaAsset *)self.assets[row] title];
+  return nil;
 }
 
 - (BRMenuItem *)itemForRow:(long)row;
 {
-  BRMenuItem *item = [BRMenuItem new];
-  item.text = [self titleForRow:row];
-  item.acceptsFocus = [self rowSelectable:row];
-  item.dimmed = !item.acceptsFocus;
-  [self addDisclosureAccessoryToPaginationItem:item row:row];
-  //if (![self isPaginationRow:&row]) {
-    //item.leftMargin += 10;
-  //}
-  return item;
+  NSArray *topItems = self.visibleTopSectionItems;
+  if (row < topItems.count) {
+    return topItems[row];
+  } else {
+    return [self itemForAsset:self.assets[row - topItems.count]];
+  }
 }
 
-- (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
+- (id)previewControlForItem:(long)row;
 {
-  if ([self isPaginationRow:&row]) {
-    [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
+  NSArray *topItems = self.visibleTopSectionItems;
+  if (row < topItems.count) {
+    return nil;
+  } else {
+    UZGBaseMediaAsset *asset = self.assets[row - topItems.count];
+    return [[UZGMetadataPreviewControl alloc] initWithAsset:asset];
   }
 }
 
@@ -156,14 +144,15 @@
 
 - (void)itemSelected:(long)row;
 {
-  if ([self isPaginationRow:&row]) {
-    [[self stack] pushController:[[UZGPagesListController alloc] initWithPageCount:self.lastPage
-                                                                       currentPage:self.currentPage
-                                                                          delegate:self]];
+  NSArray *topItems = self.visibleTopSectionItems;
+  if (row < topItems.count) {
+    [self selectedTopSectionItem:topItems[row]];
   } else {
-    [self selectedAsset:row];
+    [self selectedAsset:self.assets[row - topItems.count]];
   }
 }
+
+#pragma mark - UZGPagesListControllerDelegate
 
 - (void)pagesListController:(UZGPagesListController *)controller didSelectPage:(NSUInteger)page;
 {
@@ -174,9 +163,28 @@
   [self fetchAssets];
 }
 
-- (void)selectedAsset:(long)row;
+#pragma mark - Public/subclass methods
+
+
+- (BRMenuItem *)itemForAsset:(UZGBaseMediaAsset *)asset;
+{
+  BRMenuItem *item = [BRMenuItem new];
+  item.text = asset.title;
+  return item;
+}
+
+- (void)selectedAsset:(UZGBaseMediaAsset *)asset;
 {
   NSAssert(NO, @"override!");
+}
+
+- (void)selectedTopSectionItem:(UZGTopSectionMenuItem *)item;
+{
+  if (item == self.paginationMenuItem) {
+    [[self stack] pushController:[[UZGPagesListController alloc] initWithPageCount:self.lastPage
+                                                                       currentPage:self.currentPage
+                                                                          delegate:self]];
+  }
 }
 
 @end

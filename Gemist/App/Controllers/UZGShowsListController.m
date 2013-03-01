@@ -1,14 +1,12 @@
 #import "UZGShowsListController.h"
 #import "UZGEpisodesListController.h"
 #import "UZGShowMediaAsset.h"
-#import "UZGMetadataPreviewControl.h"
 
 @interface UZGShowsListController ()
 @property (strong) NSString *titleInitial;
 @end
 
 @implementation UZGShowsListController
-
 
 - (id)initWithTitleInitial:(NSString *)titleInitial;
 {
@@ -19,27 +17,16 @@
   return self;
 }
 
-- (id)previewControlForItem:(long)row;
+- (BRMenuItem *)itemForAsset:(UZGShowMediaAsset *)show;
 {
-  if (![self isPaginationRow:&row]) {
-    return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
-  }
-  return nil;
-}
-
-- (BRMenuItem *)itemForRow:(long)row;
-{
-  BRMenuItem *item = [super itemForRow:row];
+  BRMenuItem *item = [super itemForAsset:show];
   [item addAccessoryOfType:BRDisclosureMenuItemAccessoryType];
   return item;
 }
 
-- (void)selectedAsset:(long)row;
+- (void)selectedAsset:(UZGShowMediaAsset *)show;
 {
-  UZGShowMediaAsset *show = self.assets[row];
-  UZGEpisodesListController *controller;
-  controller = [[UZGEpisodesListController alloc] initWithShow:show];
-  [[self stack] pushController:controller];
+  [[self stack] pushController:[[UZGEpisodesListController alloc] initWithShow:show]];
 }
 
 - (void)fetchAssets;

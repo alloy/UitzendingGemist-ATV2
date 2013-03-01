@@ -1,7 +1,6 @@
 #import "UZGEpisodesListController.h"
 #import "UZGPlistStore.h"
 #import "UZGShowMediaAsset.h"
-#import "UZGMetadataPreviewControl.h"
 
 //#import "BRURLImageProxy.h"
 //#import "BRMediaType.h"
@@ -14,6 +13,7 @@
 @property (strong) NSString *path;
 @property (strong) UZGEpisodeMediaAsset *loadingEpisode;
 @property (strong) BRMediaPlayer *player;
+@property (strong) UZGTopSectionMenuItem *favoritesMenuItem;
 @end
 
 @implementation UZGEpisodesListController
@@ -25,6 +25,11 @@
     _show = show;
     self.realTitle = _show.title;
     _path = _show.path;
+
+    _favoritesMenuItem = [UZGTopSectionMenuItem new];
+    _favoritesMenuItem.isVisible = YES;
+    _favoritesMenuItem.text = self.favoritesMenuItemTitle;
+    [self.topSectionItems insertObject:_favoritesMenuItem atIndex:0];
   }
   return self;
 }
@@ -34,93 +39,47 @@
   return self.loadingEpisode != nil;
 }
 
-- (BOOL)shouldDividerBeVisible;
+- (NSString *)favoritesMenuItemTitle;
 {
-  return YES;
+  return UZGLocalizedString(self.show.isBookmarked ? @"Remove from Favorites" : @"Add to Favorites");
 }
 
-- (NSInteger)dividerIndex;
+- (BRMenuItem *)itemForAsset:(UZGEpisodeMediaAsset *)episode;
 {
-  return self.hasMultiplePages ? 2 : 1;
-}
-
-- (id)previewControlForItem:(long)row;
-{
-  if (row != 0) {
-    // offset for bookmark item
-    row -= 1;
-    if (![self isPaginationRow:&row]) {
-      return [[UZGMetadataPreviewControl alloc] initWithAsset:self.assets[row]];
-    }
+  BRMenuItem *item = [super itemForAsset:episode];
+  // TODO move to episode instance
+  UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
+  switch (status) {
+    case UZGEpisodeUnplayedStatus:
+       [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+       break;
+    case UZGEpisodeUnplayedPartialStatus:
+      [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
+      break;
   }
-  return nil;
-}
-
-- (long)itemCount;
-{
-  return [super itemCount] + 1;
-}
-
-- (NSString *)titleForRow:(long)row;
-{
-  if (row == 0) {
-    return UZGLocalizedString(self.show.isBookmarked ? @"Remove from Favorites" : @"Add to Favorites");
-  } else {
-    return [super titleForRow:row-1];
+  if ([self.loadingEpisode.path isEqualToString:episode.path]) {
+    [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
   }
+  return item;
 }
 
-- (BOOL)rowSelectable:(long)row;
+// TODO disable interface so user can't selecte another episode.
+- (void)selectedAsset:(UZGEpisodeMediaAsset *)episode;
 {
-  if (row == 0) {
-    return YES;
-  } else {
-    return [super rowSelectable:row-1];
-  }
+  self.loadingEpisode = episode;
+  [self loadEpisode];
+  [self.list reload];
 }
 
-- (void)itemSelected:(long)row;
+- (void)selectedTopSectionItem:(UZGTopSectionMenuItem *)item;
 {
-  if (row == 0) {
+  if (item == self.favoritesMenuItem) {
     [self.show toggleBookmarked];
+    self.favoritesMenuItem.text = self.favoritesMenuItemTitle;
     [self.list reload];
   } else {
-    [super itemSelected:row-1];
+    [super selectedTopSectionItem:item];
   }
-}
-
-- (void)addDisclosureAccessoryToPaginationItem:(BRMenuItem *)item row:(long)row;
-{
-  [super addDisclosureAccessoryToPaginationItem:item row:row-1];
-}
-
-- (BRMenuItem *)itemForRow:(long)row;
-{
-  long realRow = row;
-  BRMenuItem *item = [super itemForRow:realRow];
-
-  if (row > 0) {
-    // offset for bookmark item
-    row -= 1;
-    if (![self isPaginationRow:&row]) {
-      UZGEpisodeMediaAsset *episode = self.assets[row];
-      // TODO move to episode instance
-      UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
-      switch (status) {
-        case UZGEpisodeUnplayedStatus:
-           [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
-           break;
-        case UZGEpisodeUnplayedPartialStatus:
-          [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
-          break;
-      }
-      if ([self.loadingEpisode.path isEqualToString:episode.path]) {
-        [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
-      }
-    }
-  }
-
-  return item;
 }
 
 // TODO Hmm, this doesn't stop it from being selected!
@@ -128,14 +87,6 @@
 // {
   // return !self.isLoadingEpisode;
 // }
-
-// TODO disable interface so user can't selecte another episode.
-- (void)selectedAsset:(long)row;
-{
-  self.loadingEpisode = self.assets[row];
-  [self loadEpisode];
-  [self.list reload];
-}
 
 - (void)fetchAssets;
 {
