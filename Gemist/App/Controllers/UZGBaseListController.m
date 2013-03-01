@@ -20,7 +20,14 @@
     _assets = [NSArray new];
     _topSectionItems = [NSMutableArray new];
 
-    self.header.subtitle = @"";
+    // TODO I would love to set this immediately, as it makes the UI seem to
+    // flicker less. However, I have not yet found out how to make sure the
+    // subtitle label resizes after changing it, leading to it being cutoff
+    // when the page count is longer than one digit.
+    //
+    // E.g.: 'Page 1 of 17' is displayed as 'Page 1 of...'
+    //
+    // self.header.subtitle = @"Page 1 of 1";
 
     _paginationMenuItem = [UZGTopSectionMenuItem new];
     _paginationMenuItem.text = @"Other pages";
@@ -84,8 +91,9 @@
 - (void)reloadListData;
 {
   self.header.title = self.realTitle;
-  self.paginationMenuItem.isVisible = self.hasMultiplePages;
   self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
+
+  self.paginationMenuItem.isVisible = self.hasMultiplePages;
 
   [self.list removeDividers];
   NSInteger index = self.dividerIndex;
@@ -93,6 +101,8 @@
     [self.list addDividerAtIndex:index withLabel:nil];
   }
 
+  // TODO use this instead?
+  // [self refreshControllerForModelUpdate];
   [self.list reload];
 }
 
