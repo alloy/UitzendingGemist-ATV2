@@ -28,6 +28,7 @@
     // E.g.: 'Page 1 of 17' is displayed as 'Page 1 of...'
     //
     // self.header.subtitle = @"Page 1 of 1";
+    self.header.subtitle = @"";
 
     _paginationMenuItem = [UZGTopSectionMenuItem new];
     _paginationMenuItem.text = @"Other pages";
@@ -151,15 +152,21 @@
 {
   NSArray *topItems = self.visibleTopSectionItems;
   if (row < topItems.count) {
-    if (self.defaultAsset) {
-      // Only show banner.
-      BRCoverArtPreviewControl *control = [BRCoverArtPreviewControl new];
-      [control setImageProxy:self.defaultAsset.imageProxy];
-      return control;
-    }
+    return [self previewControlForDefaultAsset];
   } else {
     UZGBaseMediaAsset *asset = self.assets[row - topItems.count];
     return [[UZGMetadataPreviewControl alloc] initWithAsset:asset];
+  }
+  return nil;
+}
+
+- (BRControl *)previewControlForDefaultAsset;
+{
+  if (self.defaultAsset) {
+    // Only show banner.
+    BRCoverArtPreviewControl *control = [BRCoverArtPreviewControl new];
+    [control setImageProxy:self.defaultAsset.imageProxy];
+    return control;
   }
   return nil;
 }
@@ -210,6 +217,7 @@
   if (item == self.paginationMenuItem) {
     [[self stack] pushController:[[UZGPagesListController alloc] initWithPageCount:self.lastPage
                                                                        currentPage:self.currentPage
+                                                                             title:self.realTitle
                                                                           delegate:self]];
   }
 }
