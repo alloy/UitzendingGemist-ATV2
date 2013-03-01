@@ -12,8 +12,10 @@
     _delegate = delegate;
     self.header.title = title;
     self.list.datasource = self;
-    // TODO make this work by figuring out the after load callback
-    self.list.selection = currentPage-1;
+    [self.list reload];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.list.selection = currentPage-1;
+    });
   }
   return self;
 }
