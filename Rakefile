@@ -82,6 +82,7 @@ end
 
 desc 'Clean build artifacts'
 task :clean do
+  rm_rf 'DerivedData'
   rm_rf 'deb/Gemist_*_iphoneos-arm'
   rm_f 'deb/repo.tar.gz'
   rm_f 'deb/repo/Packages.bz2'
