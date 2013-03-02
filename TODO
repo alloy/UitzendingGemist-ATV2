@@ -7,8 +7,8 @@ FRAppliance.xctemplate:
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
 
 App:
+* don't show favorites menu when there are none?
 * Before making a request check that we have the required cookie instead of hoping for the best and making a possible extra request in the process.
-* Reclaim singleton memory when appliance closes.
 * Add remote logging with different levels. Maybe NSLogger over network? Does images too.
 * Do we even need the TopShelfController on 5.0.1?
 * Use Core Data?
