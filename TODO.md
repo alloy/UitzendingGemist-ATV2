@@ -4,7 +4,7 @@
 
 # FRAppliance.xctemplate:
 
-* Add build setting to compile sources as Objective-C++ (for BackRowExtras.h)
+* Don't build as Objective-C++ by default.
 * Add InfoPlist.strings file with app title
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
 
