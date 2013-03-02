@@ -74,5 +74,8 @@ namespace :deb do
     mkdir_p "deb/repo/debs"
     mv "#{version_dir}.deb", "deb/repo/debs"
     sh "cd deb/repo && env #{env} dpkg-scanpackages -m . /dev/null > Packages"
+    sh "cd deb/repo && bzip2 Packages"
+
+    sh "cd deb && tar -zcvf repo.tar.gz repo"
   end
 end

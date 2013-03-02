@@ -8,6 +8,7 @@ HockeySDKConfig.h
 Gemist.frappliance.tar.gz
 nl.superalloy.Gemist.plist
 
+deb/repo.tar.gz
 deb/repo/Packages
 deb/repo/debs
 deb/Gemist_*_iphoneos-arm
