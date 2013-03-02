@@ -3,6 +3,13 @@
 #import "UZGShowsListController.h"
 #import "AFHTTPRequestOperationLogger.h"
 
+static NSString * const kUitzendingGemistName = @"Gemist";
+static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
+
+@interface BRAlertController (UpdatedAPI)
+@property (strong) NSString *footerText;
+@end
+
 // TODO not in actual release!!
 // Only needed for beta testing.
 #ifdef DEBUG
@@ -10,13 +17,14 @@
 #endif
 
 #ifdef ENABLE_BETA_FEATURES
+#import "HockeySDKConfig.h"
 #import "UZGPlistStore.h"
-#endif
-
-static NSString * const kUitzendingGemistName = @"Gemist";
-static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
-
+#import <HockeySDK/HockeySDK.h>
+@interface UZGAppliance () <BITCrashManagerDelegate>
+@property (assign) BOOL startedHockeyManager;
+#else
 @interface UZGAppliance ()
+#endif
 @end
 
 @implementation UZGAppliance
@@ -75,9 +83,16 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 {
 #ifdef ENABLE_BETA_FEATURES
   if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
-    NSLog(@"Plist store doesn't exist yet, show beta test controller!");
-    return [self betaTestController];
+    BRController *controller = [self betaTestController];
+    if (controller) {
+      return controller;
+    }
   }
+
+  // Test the crash reporter.
+  //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    //[@"" performSelector:@selector(ohNoes)];
+  //});
 #endif
 
   BRController *controller = nil;
@@ -92,14 +107,51 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 #ifdef ENABLE_BETA_FEATURES
 - (BRController *)betaTestController;
 {
-  NSString *UDID = [[UIDevice currentDevice] uniqueIdentifier];
-  NSLog(@"UDID: %@", UDID);
-  BRAlertController *controller = [BRAlertController alertForError:nil];
-  controller.primaryText = [NSString stringWithFormat:@"Device ID: %@", UDID];
-  controller.secondaryText = @"Please register your device on http://rink.hockeyapp.net and thanks for testing! :)";
-  controller.footerText = @"This alert will no longer be shown once you have favorited a show.";
+  if (self.startedHockeyManager) {
+    return nil;
+  }
+
+  NSLog(@"[Gemist] Enabling Crash Reporting");
+  BITHockeyManager *manager = [BITHockeyManager sharedHockeyManager];
+  [manager configureWithIdentifier:HOCKEY_SDK_APP_ID delegate:self];
+  manager.debugLogEnabled = YES;
+  manager.disableUpdateManager = YES;
+  manager.disableFeedbackManager = YES;
+  manager.crashManager.crashManagerStatus = BITCrashManagerStatusAutoSend;
+  [manager startManager];
+
+  self.startedHockeyManager = YES;
+
+  BRAlertController *controller = [BRAlertController new];
+  controller.primaryText = @"Please register your device on\nhttps://rink.hockeyapp.net/manage/devices/new\nand thanks for testing! :)";
+  controller.secondaryText = [NSString stringWithFormat:@"Device ID: %@", [[UIDevice currentDevice] uniqueIdentifier]];
+  controller.footerText = @"This alert will be shown after each device reboot until a show has been favorited.";
   return controller;
 }
+
+- (NSString *)userIDForHockeyManager:(BITHockeyManager *)hockeyManager
+                    componentManager:(BITHockeyBaseManager *)componentManager;
+{
+  NSString *UDID = [[UIDevice currentDevice] uniqueIdentifier];
+  NSLog(@"Hockey wants UDID: %@", UDID);
+  return UDID;
+}
+
+- (void)crashManagerWillSendCrashReport:(BITCrashManager *)crashManager;
+{
+  NSLog(@"[Gemist] Submitting crash report...");
+}
+
+- (void)crashManager:(BITCrashManager *)crashManager didFailWithError:(NSError *)error;
+{
+  NSLog(@"[Gemist] Failed to submit crash report: %@", error);
+}
+
+- (void)crashManagerDidFinishSendingCrashReport:(BITCrashManager *)crashManager;
+{
+  NSLog(@"[Gemist] Did submit crash report! :)");
+}
+
 #endif
 
 @end

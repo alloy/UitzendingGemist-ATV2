@@ -150,6 +150,7 @@
 		51D6A8A116BC417100E174E1 /* UZGBookmarksListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBookmarksListController.m; sourceTree = "<group>"; };
 		51E0947316E166F400027E5D /* UZGBaseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGBaseListController.h; sourceTree = "<group>"; };
 		51E0947416E166F400027E5D /* UZGBaseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGBaseListController.m; sourceTree = "<group>"; };
+		51E0947716E18DC400027E5D /* HockeySDKConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HockeySDKConfig.h; sourceTree = "<group>"; };
 		51E10D1C16B062C20062BA19 /* BackRow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BackRow.bundle; path = BackRow/Simulator/resources/BackRow.bundle; sourceTree = SOURCE_ROOT; };
 		51F2F93916D58AA700A97FDF /* UZGPaginationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPaginationData.h; sourceTree = "<group>"; };
 		51F2F93A16D58AA700A97FDF /* UZGPaginationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPaginationData.m; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 		5108FBB216A87F140020589D = {
 			isa = PBXGroup;
 			children = (
+				51E0947716E18DC400027E5D /* HockeySDKConfig.h */,
 				5119020416AAEC78006E7359 /* BackRow */,
 				5167275816AB3B7D000C7E17 /* Gemist */,
 				5167277316AB3D03000C7E17 /* Gemist-Sim */,

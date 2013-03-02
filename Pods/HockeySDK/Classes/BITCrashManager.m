@@ -607,13 +607,17 @@ NSString *const kBITCrashManagerStatus = @"BITCrashManagerStatus";
       }
       
       [crashes appendFormat:@"<crash><applicationname>%s</applicationname><uuids>%@</uuids><bundleidentifier>%@</bundleidentifier><systemversion>%@</systemversion><platform>%@</platform><senderversion>%@</senderversion><version>%@</version><uuid>%@</uuid><log><![CDATA[%@]]></log><userid>%@</userid><username>%@</username><contact>%@</contact><installstring>%@</installstring><description><![CDATA[%@]]></description></crash>",
-       [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String],
+       // [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String],
+       [[[NSBundle bundleWithIdentifier:@"com.apple.frontrow.appliance.Gemist"] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String],
        [self extractAppUUIDs:report],
-       report.applicationInfo.applicationIdentifier,
+       // report.applicationInfo.applicationIdentifier,
+       @"com.apple.frontrow.appliance.Gemist",
        report.systemInfo.operatingSystemVersion,
        [self getDevicePlatform],
-       [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],
-       report.applicationInfo.applicationVersion,
+       // [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],
+       [[NSBundle bundleWithIdentifier:@"com.apple.frontrow.appliance.Gemist"] objectForInfoDictionaryKey:@"CFBundleVersion"],
+       // report.applicationInfo.applicationVersion,
+       [[NSBundle bundleWithIdentifier:@"com.apple.frontrow.appliance.Gemist"] objectForInfoDictionaryKey:@"CFBundleVersion"],
        crashUUID,
        [crashLogString stringByReplacingOccurrencesOfString:@"]]>" withString:@"]]" @"]]><![CDATA[" @">" options:NSLiteralSearch range:NSMakeRange(0,crashLogString.length)],
        userid,
@@ -622,6 +626,7 @@ NSString *const kBITCrashManagerStatus = @"BITCrashManagerStatus";
        installString,
        [description stringByReplacingOccurrencesOfString:@"]]>" withString:@"]]" @"]]><![CDATA[" @">" options:NSLiteralSearch range:NSMakeRange(0,description.length)]];
       
+      // NSLog(@"CRASHES: %@", crashes);
       
       // store this crash report as user approved, so if it fails it will retry automatically
       [_approvedCrashReports setObject:[NSNumber numberWithBool:YES] forKey:filename];

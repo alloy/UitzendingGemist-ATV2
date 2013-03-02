@@ -1,0 +1,6 @@
+#ifndef UitzendingGemist_HockeySDKConfig_h
+#define UitzendingGemist_HockeySDKConfig_h
+
+#define HOCKEY_SDK_APP_ID @"secret"
+
+#endif
