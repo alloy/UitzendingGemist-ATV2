@@ -27,7 +27,8 @@
 
 ##### Release
 
-* Currently our crash reporter takes over all crash reporting (for all apps), I’m not sure if it’s a real problem, but it doesn’t sound nice,
+* Currently our crash reporter takes over all crash reporting (for all apps), I’m not sure if it’s a real problem, but it doesn’t sound nice. Thoughts:
   * Is there currently a uncaught exception handler set?
   * Can we get events of when our appliance is started and ended? (Maybe appliance init/dealloc?) and can we disable our crash reporter when the appliance is de-activated? I.e. save the uncaught exception handler that's already set and restore it.
   * Otherwise possibly submit the crash reports the AppleTV stores itself? Only lame thing is that it doesn't contain the exception reason, which is logged to the syslog.
+  * Completely disable crash reporting on release if there are no nice solutions.
