@@ -11,6 +11,9 @@ typedef void (^UZGPaginationDataBlock)(UZGPaginationData *);
 
 + (UZGClient *)sharedClient;
 
+// Frees list and memory and reset's shared instance state.
++ (void)cleanUp;
+
 - (void)showsWithTitleInitial:(NSString *)titleInitial
                          page:(NSUInteger)pageNumber
                       success:(UZGPaginationDataBlock)success

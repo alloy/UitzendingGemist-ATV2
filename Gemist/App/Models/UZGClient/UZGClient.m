@@ -10,14 +10,21 @@ static NSString * const kUitzendingGemistAPIUserAgent = @"Mozilla/5.0 (iPad; CPU
 
 @implementation UZGClient
 
+static UZGClient *_sharedClient = nil;
+static dispatch_once_t onceToken = 0;
+
 + (UZGClient *)sharedClient;
 {
-  static UZGClient *_sharedClient = nil;
-  static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kUitzendingGemistAPIBaseURLString]];
   });
   return _sharedClient;
+}
+
++ (void)cleanUp;
+{
+  _sharedClient = nil;
+  onceToken = 0;
 }
 
 - (id)initWithBaseURL:(NSURL *)url;

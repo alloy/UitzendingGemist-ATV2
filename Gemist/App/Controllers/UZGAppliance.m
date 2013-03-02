@@ -1,6 +1,9 @@
 #import "UZGAppliance.h"
 #import "UZGBookmarksListController.h"
 #import "UZGShowsListController.h"
+#import "UZGClient.h"
+#import "UZGPlistStore.h"
+
 #import "AFHTTPRequestOperationLogger.h"
 
 static NSString * const kUitzendingGemistName = @"Gemist";
@@ -18,7 +21,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 #ifdef ENABLE_BETA_FEATURES
 #import "HockeySDKConfig.h"
-#import "UZGPlistStore.h"
 #import <HockeySDK/HockeySDK.h>
 @interface UZGAppliance () <BITCrashManagerDelegate>
 @property (assign) BOOL startedHockeyManager;
@@ -29,6 +31,13 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 @implementation UZGAppliance
 
+- (void)dealloc;
+{
+  NSLog(@"[Gemist] Clean up.");
+  [UZGClient cleanUp];
+  [UZGPlistStore cleanUp];
+  // TODO disable crash reporter?
+}
 
 - (id)init;
 {

@@ -22,16 +22,22 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
   return [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"];
 }
 
+static dispatch_once_t onceToken = 0;
+static UZGPlistStore *_sharedStore = nil;
+
 + (UZGPlistStore *)sharedStore;
 {
-  static dispatch_once_t onceToken;
-  static UZGPlistStore *sharedStore;
   dispatch_once(&onceToken, ^{
-    sharedStore = [self new];
+    _sharedStore = [self new];
   });
-  return sharedStore;
+  return _sharedStore;
 }
 
++ (void)cleanUp;
+{
+  _sharedStore = nil;
+  onceToken = 0;
+}
 
 - (id)init;
 {
