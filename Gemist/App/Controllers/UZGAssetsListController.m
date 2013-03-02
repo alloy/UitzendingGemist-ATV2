@@ -61,7 +61,7 @@
 {
   BRAlertController *controller = [BRAlertController alertForError:error];
   controller.primaryText = error.localizedDescription;
-  controller.secondaryText = [NSString stringWithFormat:@"(%@ - %ld)", error.domain, error.code];
+  controller.secondaryText = [NSString stringWithFormat:@"(%@ - %ld)", error.domain, (long)error.code];
   [[self stack] pushController:controller];
   self.showSpinner = NO;
 }

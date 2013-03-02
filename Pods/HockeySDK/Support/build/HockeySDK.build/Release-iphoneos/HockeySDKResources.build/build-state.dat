@@ -1,0 +1,687 @@
+THockeySDKResources
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist ../Resources/HockeySDK-Info.plist
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png ../Resources/authorize_denied@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png ../Resources/authorize_denied.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png ../Resources/authorize_request@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png ../Resources/bg.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png ../Resources/buttonHighlight.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png ../Resources/buttonHighlight@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png ../Resources/IconGradient@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png ../Resources/feedbackActivity@2x~ipad.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png ../Resources/feedbackActivity~ipad.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png ../Resources/feedbackActiviy@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png ../Resources/buttonRoundedDelete.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png ../Resources/buttonRoundedDelete@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png ../Resources/buttonRoundedDeleteHighlighted@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png ../Resources/buttonRoundedRegular.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png ../Resources/buttonRoundedRegular@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png ../Resources/buttonRoundedRegularHighlighted.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png ../Resources/buttonRoundedRegularHighlighted@2x.png
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings ../Resources/de.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings ../Resources/es.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings ../Resources/fr.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings ../Resources/it.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings ../Resources/ja.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings ../Resources/pt.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings ../Resources/ru.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings ../Resources/hr.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings ../Resources/pt-PT.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings ../Resources/en.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings ../Resources/zh-Hans.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings ../Resources/ro.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings ../Resources/hu.lproj/HockeySDK.strings
+cTouch /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
+
+N../Resources/HockeySDK-Info.plist
+c00000000513142D300000000000003D2
+t1362182867
+s978
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings
+t2
+s0
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient.png
+c00000000513142D30000000000000AE6
+t1362182867
+s2790
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient@2x.png
+c00000000513142D30000000000000E2C
+t1362182867
+s3628
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied.png
+c00000000513142D30000000000000924
+t1362182867
+s2340
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied@2x.png
+c00000000513142D30000000000001120
+t1362182867
+s4384
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request.png
+c00000000513142D30000000000000990
+t1362182867
+s2448
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request@2x.png
+c00000000513142D300000000000012B9
+t1362182867
+s4793
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/bg.png
+c00000000513142D30000000000000628
+t1362182867
+s1576
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight.png
+c00000000513142D300000000000003FD
+t1362182867
+s1021
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight@2x.png
+c00000000513142D3000000000000044D
+t1362182867
+s1101
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete.png
+c00000000513142D30000000000000D58
+t1362182867
+s3416
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete@2x.png
+c00000000513142D3000000000000104B
+t1362182867
+s4171
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted.png
+c00000000513142D30000000000000DD2
+t1362182867
+s3538
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted@2x.png
+c00000000513142D3000000000000125B
+t1362182867
+s4699
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular.png
+c00000000513142D30000000000000D1B
+t1362182867
+s3355
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular@2x.png
+c00000000513142D3000000000000100C
+t1362182867
+s4108
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted.png
+c00000000513142D30000000000000E15
+t1362182867
+s3605
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted@2x.png
+c00000000513142D3000000000000126D
+t1362182867
+s4717
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/de.lproj/HockeySDK.strings
+c00000000513142D300000000000017FF
+t1362182867
+s6143
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/en.lproj/HockeySDK.strings
+c00000000513142D300000000000016E4
+t1362182867
+s5860
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/es.lproj/HockeySDK.strings
+c00000000513142D300000000000017BB
+t1362182867
+s6075
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity@2x~ipad.png
+c00000000513142D300000000000009CE
+t1362182867
+s2510
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity~ipad.png
+c00000000513142D300000000000006C4
+t1362182867
+s1732
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy.png
+c00000000513142D3000000000000064E
+t1362182867
+s1614
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy@2x.png
+c00000000513142D30000000000000932
+t1362182867
+s2354
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/fr.lproj/HockeySDK.strings
+c00000000513142D3000000000000180D
+t1362182867
+s6157
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hr.lproj/HockeySDK.strings
+c00000000513142D3000000000000174E
+t1362182867
+s5966
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hu.lproj/HockeySDK.strings
+c00000000513142D30000000000001806
+t1362182867
+s6150
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/it.lproj/HockeySDK.strings
+c00000000513142D300000000000017B5
+t1362182867
+s6069
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ja.lproj/HockeySDK.strings
+c00000000513142D3000000000000192F
+t1362182867
+s6447
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt-PT.lproj/HockeySDK.strings
+c00000000513142D300000000000017BB
+t1362182867
+s6075
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt.lproj/HockeySDK.strings
+c00000000513142D300000000000017A5
+t1362182867
+s6053
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ro.lproj/HockeySDK.strings
+c00000000513142D30000000000001754
+t1362182867
+s5972
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ru.lproj/HockeySDK.strings
+c00000000513142D30000000000001AE1
+t1362182867
+s6881
+
+N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/zh-Hans.lproj/HockeySDK.strings
+c00000000513142D300000000000016FC
+t1362182867
+s5884
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies1ac49b577ae1b641^a629b6577ae1b641^---0#1#0#--18"Check dependencies36"6CB4B385-BBD5-4608-99AC-4B4AE1C123DC-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png
+s383875671.840589
+e383875671.897469
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png
+x../Resources/IconGradient.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"CopyPNGFile ../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png7769d7577ae1b641^96cce5577ae1b641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient.png0000000000000000^932"CopyPNGFile ../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png36"212F043C-BB1F-4BFD-8C22-39E5E94685DC-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png ../Resources/IconGradient@2x.png
+s383875671.864167
+e383875671.930845
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png
+x../Resources/IconGradient@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"CopyPNGFile ../Resources/HockeySDKResources.bundle/IconGradient@2x.png ../Resources/IconGradient@2x.png0b61dd577ae1b641^e1b2ee577ae1b641^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient@2x.png0000000000000000^952"CopyPNGFile "../Resources/HockeySDKResources.bundle/IconGradient@2x.png" "../Resources/IconGradient@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png"36"60DC4CA4-D2EE-4C80-A4C1-0378FE9E9D82-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png ../Resources/authorize_denied.png
+s383875671.736781
+e383875671.808153
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png
+x../Resources/authorize_denied.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_denied.png ../Resources/authorize_denied.png2a1cbd577ae1b641^09c5ce577ae1b641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied.png0000000000000000^948"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_denied.png ../Resources/authorize_denied.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png36"826EFDCE-D3B3-4E50-B39C-0EB88E35B558-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png ../Resources/authorize_denied@2x.png
+s383875671.736794
+e383875671.838430
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png
+x../Resources/authorize_denied@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_denied@2x.png ../Resources/authorize_denied@2x.png1728bd577ae1b641^ab04d7577ae1b641^---0#0#0#-19%DVTDocumentLocation2@130"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied@2x.png0000000000000000^968"CopyPNGFile "../Resources/HockeySDKResources.bundle/authorize_denied@2x.png" "../Resources/authorize_denied@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png"36"5EE53B1C-2A08-4631-A340-C521EE8A903B-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.png
+s383875671.738013
+e383875671.808099
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png
+x../Resources/authorize_request.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.pngcd1dbd577ae1b641^41bcce577ae1b641^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request.png0000000000000000^952"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png36"D053C264-E59C-4A09-A3D1-09CBD5AC0C93-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png ../Resources/authorize_request@2x.png
+s383875671.737083
+e383875671.823606
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png
+x../Resources/authorize_request@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"CopyPNGFile ../Resources/HockeySDKResources.bundle/authorize_request@2x.png ../Resources/authorize_request@2x.pngc024bd577ae1b641^ecded2577ae1b641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request@2x.png0000000000000000^972"CopyPNGFile "../Resources/HockeySDKResources.bundle/authorize_request@2x.png" "../Resources/authorize_request@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png"36"B0DC4400-7280-45E6-A176-5608DC21F912-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png ../Resources/bg.png
+s383875671.809594
+e383875671.865413
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png
+x../Resources/bg.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"CopyPNGFile ../Resources/HockeySDKResources.bundle/bg.png ../Resources/bg.pngbb61cf577ae1b641^dfa8dd577ae1b641^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/bg.png0000000000000000^892"CopyPNGFile ../Resources/HockeySDKResources.bundle/bg.png ../Resources/bg.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/bg.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png36"E2400070-2AAD-4A61-840D-F9C761F5BCF5-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png ../Resources/buttonHighlight.png
+s383875671.810267
+e383875671.860121
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png
+x../Resources/buttonHighlight.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonHighlight.png ../Resources/buttonHighlight.png5588cf577ae1b641^d63bdc577ae1b641^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight.png0000000000000000^944"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonHighlight.png ../Resources/buttonHighlight.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png36"E57C3FA7-2998-4AC9-B0E6-F7E308DF8670-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png ../Resources/buttonHighlight@2x.png
+s383875671.827843
+e383875671.894524
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png
+x../Resources/buttonHighlight@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png ../Resources/buttonHighlight@2x.png6517d4577ae1b641^9223e5577ae1b641^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight@2x.png0000000000000000^964"CopyPNGFile "../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png" "../Resources/buttonHighlight@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png"36"21A9B3FA-3B9C-464D-B4A5-5A293D4190BC-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png ../Resources/buttonRoundedDelete.png
+s383875671.945315
+e383875671.998645
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png
+x../Resources/buttonRoundedDelete.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png ../Resources/buttonRoundedDelete.png2121f2577ae1b641^9ab100587ae1b641^---0#0#0#-19%DVTDocumentLocation2@130"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete.png0000000000000000^960"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png ../Resources/buttonRoundedDelete.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png36"254E3D03-31BB-45DE-9F2E-7A531C39E9D0-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png ../Resources/buttonRoundedDelete@2x.png
+s383875671.960676
+e383875672.036412
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png
+x../Resources/buttonRoundedDelete@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png ../Resources/buttonRoundedDelete@2x.pngfd11f6577ae1b641^c66c09587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete@2x.png0000000000000000^980"CopyPNGFile "../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png" "../Resources/buttonRoundedDelete@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png"36"99494F89-CD3C-4AC1-B44C-CE8F3F973C1A-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png
+s383875671.960714
+e383875672.033914
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png
+x../Resources/buttonRoundedDeleteHighlighted.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png3012f6577ae1b641^5cc708587ae1b641^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted.png0000000000000000^1004"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png36"B9C4A9D8-920E-4B3C-B35F-20FDC2303389-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png ../Resources/buttonRoundedDeleteHighlighted@2x.png
+s383875672.023823
+e383875672.120899
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png
+x../Resources/buttonRoundedDeleteHighlighted@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection139"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png ../Resources/buttonRoundedDeleteHighlighted@2x.png573f06587ae1b641^2aff1e587ae1b641^---0#0#0#-19%DVTDocumentLocation2@144"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted@2x.png0000000000000000^1024"CopyPNGFile "../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png" "../Resources/buttonRoundedDeleteHighlighted@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png"36"A007EE12-8A0C-470E-8710-1062BD824D23-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png ../Resources/buttonRoundedRegular.png
+s383875672.028452
+e383875672.127823
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png
+x../Resources/buttonRoundedRegular.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png ../Resources/buttonRoundedRegular.pnga67d07587ae1b641^1dca20587ae1b641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular.png0000000000000000^964"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png ../Resources/buttonRoundedRegular.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png36"43E4A283-4038-49AC-97AA-0D80A4CF2145-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png ../Resources/buttonRoundedRegular@2x.png
+s383875672.037074
+e383875672.110646
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png
+x../Resources/buttonRoundedRegular@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection119"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png ../Resources/buttonRoundedRegular@2x.png55a109587ae1b641^815e1c587ae1b641^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular@2x.png0000000000000000^984"CopyPNGFile "../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png" "../Resources/buttonRoundedRegular@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png"36"7C41ADE7-5460-4D01-B5D7-5E67B764F93B-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png ../Resources/buttonRoundedRegularHighlighted.png
+s383875672.037212
+e383875672.122923
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png
+x../Resources/buttonRoundedRegularHighlighted.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection135"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png ../Resources/buttonRoundedRegularHighlighted.pngd7a609587ae1b641^718d1f587ae1b641^---0#0#0#-19%DVTDocumentLocation2@142"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted.png0000000000000000^1008"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png ../Resources/buttonRoundedRegularHighlighted.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png36"CF5F5BF0-B255-4921-B447-36DEEFDBA195-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png ../Resources/buttonRoundedRegularHighlighted@2x.png
+s383875672.112019
+e383875672.165460
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png
+x../Resources/buttonRoundedRegularHighlighted@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"CopyPNGFile ../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png ../Resources/buttonRoundedRegularHighlighted@2x.png35d41c587ae1b641^e4682a587ae1b641^---0#0#0#-19%DVTDocumentLocation2@145"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted@2x.png0000000000000000^1028"CopyPNGFile "../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png" "../Resources/buttonRoundedRegularHighlighted@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png"36"2AF83939-A49B-48B9-9DD0-39C66C30F18C-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png ../Resources/feedbackActivity@2x~ipad.png
+s383875671.866794
+e383875671.943501
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png
+x../Resources/feedbackActivity@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection121"CopyPNGFile ../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png ../Resources/feedbackActivity@2x~ipad.pngca19de577ae1b641^79e6f1577ae1b641^---0#0#0#-19%DVTDocumentLocation2@135"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity@2x~ipad.png0000000000000000^988"CopyPNGFile "../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png" "../Resources/feedbackActivity@2x~ipad.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity@2x~ipad.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png"36"FAD40B59-6A31-48AA-B0A7-798FB2BB9C57-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png ../Resources/feedbackActivity~ipad.png
+s383875671.896210
+e383875671.959083
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png
+x../Resources/feedbackActivity~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"CopyPNGFile ../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png ../Resources/feedbackActivity~ipad.png6895e5577ae1b641^f19cf5577ae1b641^---0#0#0#-19%DVTDocumentLocation2@132"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity~ipad.png0000000000000000^976"CopyPNGFile "../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png" "../Resources/feedbackActivity~ipad.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity~ipad.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png"36"CFB33699-888B-42E0-B6DF-E231978E1F11-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.png
+s383875671.899814
+e383875671.960260
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png
+x../Resources/feedbackActiviy.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"CopyPNGFile ../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.pngb283e6577ae1b641^37def5577ae1b641^---0#0#0#-19%DVTDocumentLocation2@126"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy.png0000000000000000^944"CopyPNGFile ../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.png    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy.png /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png36"A5ECFA5D-8F68-405E-AA38-99BE7433B8BD-
+
+CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png ../Resources/feedbackActiviy@2x.png
+s383875671.932225
+e383875672.025509
+r1
+xCopyPNGFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png
+x../Resources/feedbackActiviy@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"CopyPNGFile ../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png ../Resources/feedbackActiviy@2x.png70d0ee577ae1b641^319506587ae1b641^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy@2x.png0000000000000000^964"CopyPNGFile "../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png" "../Resources/feedbackActiviy@2x.png"    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy@2x.png" "/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png"36"5A3F808C-4995-44BE-9BF0-8D0E2E3C20ED-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings ../Resources/de.lproj/HockeySDK.strings
+s383875672.122300
+e383875672.127583
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings
+x../Resources/de.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/de.lproj/HockeySDK.strings88801f587ae1b641^b1c320587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/de.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings ../Resources/de.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj -- ../Resources/de.lproj/HockeySDK.strings36"A745C0B7-C129-44ED-9801-5623338A3DB5-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings ../Resources/en.lproj/HockeySDK.strings
+s383875672.143421
+e383875672.149199
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings
+x../Resources/en.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/en.lproj/HockeySDK.stringsa1da24587ae1b641^9f3a26587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/en.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings ../Resources/en.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj -- ../Resources/en.lproj/HockeySDK.strings36"21DD629C-2745-4233-B8DF-7F23AE0B1510-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings ../Resources/es.lproj/HockeySDK.strings
+s383875672.124264
+e383875672.129494
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings
+x../Resources/es.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/es.lproj/HockeySDK.stringsc4ee1f587ae1b641^223521587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/es.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings ../Resources/es.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj -- ../Resources/es.lproj/HockeySDK.strings36"934D00B7-762A-478A-8DB7-91D55024DA21-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings ../Resources/fr.lproj/HockeySDK.strings
+s383875672.128906
+e383875672.133064
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings
+x../Resources/fr.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/fr.lproj/HockeySDK.stringsb32321587ae1b641^db1922587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/fr.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings ../Resources/fr.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj -- ../Resources/fr.lproj/HockeySDK.strings36"EDC6D9C2-F81B-403E-9C4E-CE3919144582-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings ../Resources/hr.lproj/HockeySDK.strings
+s383875672.137134
+e383875672.143704
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings
+x../Resources/hr.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/hr.lproj/HockeySDK.stringsca5223587ae1b641^05df24587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hr.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings ../Resources/hr.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj -- ../Resources/hr.lproj/HockeySDK.strings36"0AC0A7DD-22CB-42BE-AEEE-84A552BA535F-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings ../Resources/hu.lproj/HockeySDK.strings
+s383875672.150390
+e383875672.154987
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings
+x../Resources/hu.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/hu.lproj/HockeySDK.strings2ba226587ae1b641^11e127587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hu.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings ../Resources/hu.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj -- ../Resources/hu.lproj/HockeySDK.strings36"4EA73299-5E56-4E48-B4FB-8607DC30E190-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings ../Resources/it.lproj/HockeySDK.strings
+s383875672.128948
+e383875672.135557
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings
+x../Resources/it.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/it.lproj/HockeySDK.strings032521587ae1b641^d3c122587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/it.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings ../Resources/it.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj -- ../Resources/it.lproj/HockeySDK.strings36"54236076-735A-4308-82B2-63AF07DEF1A9-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings ../Resources/ja.lproj/HockeySDK.strings
+s383875672.130795
+e383875672.136062
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings
+x../Resources/ja.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/ja.lproj/HockeySDK.stringsabb421587ae1b641^55da22587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ja.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings ../Resources/ja.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj -- ../Resources/ja.lproj/HockeySDK.strings36"428EA3AC-FAB5-4E60-8EFC-9EE14BE83CCC-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings ../Resources/pt-PT.lproj/HockeySDK.strings
+s383875672.141359
+e383875672.146262
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings
+x../Resources/pt-PT.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection47"Copy ../Resources/pt-PT.lproj/HockeySDK.stringse75224587ae1b641^d07d25587ae1b641^---0#0#0#-19%DVTDocumentLocation2@136"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt-PT.lproj/HockeySDK.strings0000000000000000^871"CopyStringsFile ../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings ../Resources/pt-PT.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj -- ../Resources/pt-PT.lproj/HockeySDK.strings36"49021AA0-3060-4AB6-8CC2-FC3C28E4597B-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings ../Resources/pt.lproj/HockeySDK.strings
+s383875672.134689
+e383875672.139181
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings
+x../Resources/pt.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/pt.lproj/HockeySDK.strings30a122587ae1b641^21af23587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings ../Resources/pt.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj -- ../Resources/pt.lproj/HockeySDK.strings36"92B6A230-55D4-46A2-9976-ED7C88B7DE9B-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings ../Resources/ro.lproj/HockeySDK.strings
+s383875672.147795
+e383875672.152628
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings
+x../Resources/ro.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/ro.lproj/HockeySDK.stringsb80226587ae1b641^e4db27587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ro.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings ../Resources/ro.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj -- ../Resources/ro.lproj/HockeySDK.strings36"350F3BE4-5DDE-4DF1-B57F-A16AE4E4E016-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings ../Resources/ru.lproj/HockeySDK.strings
+s383875672.136767
+e383875672.142239
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings
+x../Resources/ru.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Copy ../Resources/ru.lproj/HockeySDK.strings0b2523587ae1b641^5d6a24587ae1b641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ru.lproj/HockeySDK.strings0000000000000000^859"CopyStringsFile ../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings ../Resources/ru.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj -- ../Resources/ru.lproj/HockeySDK.strings36"4F62AB7B-8605-4423-8370-1F3594ACDCC1-
+
+CCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings ../Resources/zh-Hans.lproj/HockeySDK.strings
+s383875672.144939
+e383875672.149214
+r1
+xCopyStringsFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings
+x../Resources/zh-Hans.lproj/HockeySDK.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Copy ../Resources/zh-Hans.lproj/HockeySDK.strings9e4325587ae1b641^293e26587ae1b641^---0#0#0#-19%DVTDocumentLocation2@138"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/zh-Hans.lproj/HockeySDK.strings0000000000000000^879"CopyStringsFile ../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings ../Resources/zh-Hans.lproj/HockeySDK.strings    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj -- ../Resources/zh-Hans.lproj/HockeySDK.strings36"72073975-39AA-467A-8D19-F701A937AB5A-
+
+CProcessInfoPlistFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist ../Resources/HockeySDK-Info.plist
+s383875671.723193
+e383875671.727939
+r1
+xProcessInfoPlistFile
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist
+x../Resources/HockeySDK-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Process ../Resources/HockeySDK-Info.plist6473b9577ae1b641^5798ba577ae1b641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDK-Info.plist0000000000000000^832"ProcessInfoPlistFile ../Resources/HockeySDKResources.bundle/Info.plist ../Resources/HockeySDK-Info.plist    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    builtin-infoPlistUtility ../Resources/HockeySDK-Info.plist -expandbuildsettings -format binary -platform iphoneos -o /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist36"A3532155-0CA0-4E8E-B88B-EAB5BE23CEBD-
+
+CTouch /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
+s383875672.178154
+e383875672.201233
+r1
+xTouch
+x/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection122"Touch /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle2bc22d587ae1b641^d78533587ae1b641^---0#0#0#--662"Touch ../Resources/HockeySDKResources.bundle    cd /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/eloy/.rbenv/versions/1.9.3-p194/bin:/Users/eloy/.rbenv/libexec:/Users/eloy/.rbenv/plugins/ruby-build/bin:/Users/eloy/.rbenv/shims:/Users/eloy/.rbenv/bin:/opt/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin"    /usr/bin/touch -c /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle36"A715F15A-CFE9-44B5-8879-A96DF8D2C287-
+

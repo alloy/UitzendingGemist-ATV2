@@ -17,21 +17,32 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 @implementation UZGPlistStore
 
-+ (UZGPlistStore *)sharedStore;
++ (NSString *)storePath;
 {
-  static dispatch_once_t onceToken;
-  static UZGPlistStore *sharedStore;
-  dispatch_once(&onceToken, ^{
-    sharedStore = [self new];
-  });
-  return sharedStore;
+  return [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"];
 }
 
+static dispatch_once_t onceToken = 0;
+static UZGPlistStore *_sharedStore = nil;
+
++ (UZGPlistStore *)sharedStore;
+{
+  dispatch_once(&onceToken, ^{
+    _sharedStore = [self new];
+  });
+  return _sharedStore;
+}
+
++ (void)cleanUp;
+{
+  _sharedStore = nil;
+  onceToken = 0;
+}
 
 - (id)init;
 {
   if ((self = [super init])) {
-    _storePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Preferences/nl.superalloy.Gemist.plist"];
+    _storePath = [[self class] storePath];
     NSMutableDictionary *store = [self loadStoreFromDisk];
     if (store) {
       _store = store;

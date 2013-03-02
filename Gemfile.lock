@@ -1,0 +1,19 @@
+GIT
+  remote: git://github.com/lukeredpath/xcodebuild-rb.git
+  revision: 689feb53dc4f7f0132b70b33436dc13495e9fd4c
+  specs:
+    xcodebuild-rb (0.2.0)
+      state_machine (~> 1.1.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rake (10.0.3)
+    state_machine (1.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  xcodebuild-rb!

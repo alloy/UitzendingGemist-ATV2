@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# This should be placed somewhere in the load path on OS X.
+
+exec shasum -a 256 "$@"

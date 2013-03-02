@@ -8,7 +8,11 @@ typedef NS_ENUM(NSUInteger, UZGEpisodeProgressStatus) {
 
 @interface UZGPlistStore : NSObject
 
++ (NSString *)storePath;
 + (UZGPlistStore *)sharedStore;
+
+// Frees list and memory and reset's shared instance state.
++ (void)cleanUp;
 
 - (NSArray *)allBookmarkedShows;
 - (void)setHasBookmarkedShow:(BOOL)bookmark forPath:(NSString *)path attributes:(NSDictionary *)attributes;
