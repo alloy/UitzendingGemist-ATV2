@@ -1,0 +1,9 @@
+Package: nl.superalloy.Gemist
+Name: Gemist
+Version: 0.9.0-1
+Architecture: iphoneos-arm
+Description: An application that allows you to watch content from UitzendingGemist.nl, which is the Dutch public broadcaster’s site. (Only tested on AppleTV Version 5.0.1.)
+Homepage: https://github.com/alloy/UitzendingGemist-ATV2
+Maintainer: Eloy Durán (alloy) <eloy.de.enige@gmail.com>
+Author: Eloy Durán (alloy) <eloy.de.enige@gmail.com>
+Section: Multimedia

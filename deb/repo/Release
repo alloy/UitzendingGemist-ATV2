@@ -1,0 +1,8 @@
+Origin: UitzendingGemist Apple TV app repo.
+Label: UitzendingGemist
+Suite: stable
+Version: 0.9.0
+Codename: AppleTV
+Architectures: iphoneos-arm
+Components: main
+Description: UitzendingGemist Apple TV app repo.

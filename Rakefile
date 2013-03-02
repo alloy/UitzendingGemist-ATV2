@@ -62,9 +62,17 @@ namespace :deb do
     product_dir  = product_dir.split('=').last.strip
     product_path = File.join(product_dir, product_name)
 
-    destroot = 'deb/Gemist.frappliance/Applications/AppleTV.app/Appliances'
+    version_dir = 'deb/Gemist_0.9.0-1_iphoneos-arm'
+    cp_r('deb/Gemist.frappliance', version_dir)
+
+    destroot = File.join(version_dir, 'Applications/AppleTV.app/Appliances')
     mkdir_p(destroot)
-    rm_rf(File.join(destroot, product_name))
     cp_r(product_path, destroot)
+
+    env = 'PERL5LIB=/opt/local/Cellar/dpkg/1.15.8.13 COPYFILE_DISABLE=1 COPY_EXTENDED_ATTRIBUTES_DISABLE=1'
+    sh "env #{env} dpkg-deb -b #{version_dir}"
+    mkdir_p "deb/repo/debs"
+    mv "#{version_dir}.deb", "deb/repo/debs"
+    sh "cd deb/repo && env #{env} dpkg-scanpackages -m . /dev/null > Packages"
   end
 end
