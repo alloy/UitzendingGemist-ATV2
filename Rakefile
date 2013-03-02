@@ -77,6 +77,10 @@ namespace :deb do
     sh "cd deb/repo && bzip2 Packages"
 
     sh "cd deb && tar -zcvf repo.tar.gz repo"
+
+    sh "scp deb/repo.tar.gz apt.superalloy.nl:~/"
+
+    puts "[!] Now upload the symbols to HockeyApp: #{File.join(product_dir, 'Gemist.frappliance.dSYM')}"
   end
 end
 
