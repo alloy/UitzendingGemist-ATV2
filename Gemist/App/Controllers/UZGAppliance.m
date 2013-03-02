@@ -133,7 +133,7 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
                     componentManager:(BITHockeyBaseManager *)componentManager;
 {
   NSString *UDID = [[UIDevice currentDevice] uniqueIdentifier];
-  NSLog(@"Hockey wants UDID: %@", UDID);
+  NSLog(@"[Gemist] Hockey wants UDID: %@", UDID);
   return UDID;
 }
 
