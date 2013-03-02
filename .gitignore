@@ -10,6 +10,7 @@ nl.superalloy.Gemist.plist
 
 deb/repo.tar.gz
 deb/repo/Packages
+deb/repo/Packages.bz2
 deb/repo/debs
 deb/Gemist_*_iphoneos-arm
 deb/Gemist.frappliance/Applications/AppleTV.app/Appliances/Gemist.frappliance
