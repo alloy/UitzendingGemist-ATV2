@@ -14,6 +14,7 @@
 
 * Add a recently added episodes list.
 * Add a top shelf view with cover flow type view of recently added episodes.
+* Release 1.0.0
 
 ##### Enhancements
 
