@@ -38,3 +38,33 @@ namespace :plist do
     sh "scp #{File.basename(plist)} #{host}:#{File.dirname(plist)}"
   end
 end
+
+begin
+  require 'xcodebuild'
+
+  XcodeBuild::Tasks::BuildTask.new(:debug) do |t|
+    t.workspace = "UitzendingGemist.xcworkspace"
+    t.scheme = "Gemist"
+    t.configuration = "Debug"
+    t.arch = "armv7"
+    t.add_build_setting('ONLY_ACTIVE_ARCH', 'NO')
+    t.add_build_setting('ATV_DEPLOY_TO_DEVICE', 'NO')
+    t.formatter = XcodeBuild::Formatters::ProgressFormatter.new
+  end
+rescue LoadError
+  puts 'Disabling build tasks.'
+end
+
+namespace :deb do
+  task :create => ['debug:clean', 'debug:build'] do
+    product_name = 'Gemist.frappliance'
+    product_dir  = `xcodebuild -workspace UitzendingGemist.xcworkspace -scheme Gemist -showBuildSettings | grep '\\bBUILT_PRODUCTS_DIR\\b'`
+    product_dir  = product_dir.split('=').last.strip
+    product_path = File.join(product_dir, product_name)
+
+    destroot = 'deb/Gemist.frappliance/Applications/AppleTV.app/Appliances'
+    mkdir_p(destroot)
+    rm_rf(File.join(destroot, product_name))
+    cp_r(product_path, destroot)
+  end
+end

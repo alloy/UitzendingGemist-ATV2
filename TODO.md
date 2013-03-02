@@ -7,13 +7,14 @@
 * Don't build as Objective-C++ by default.
 * Add InfoPlist.strings file with app title
 * Add AppIcon.png (this is apperantly different on other OS versions, I have 5.0.1)
+* Only build for armv7.
 
 # App:
 
 ##### Features
 
 * Add a recently added episodes list.
-* Add a top shelf view with cover flow type view of recently added episodes.
+* Add a top shelf view with cover flow type view of recently added episodes. See: https://github.com/tomcool420/SMFramework.
 * Release 1.0.0
 
 ##### Enhancements
