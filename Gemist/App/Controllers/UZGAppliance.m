@@ -90,12 +90,16 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
 - (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
+  BRController *controller = nil;
+
 #ifdef ENABLE_BETA_FEATURES
   if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
-    BRController *controller = [self betaTestController];
-    if (controller) {
-      return controller;
-    }
+    controller = [self betaTestController];
+  }
+  // Always start manager before possibly returning controller.
+  [self startHockeyManager];
+  if (controller) {
+    return controller;
   }
 
   // Test the crash reporter.
@@ -104,7 +108,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
   //});
 #endif
 
-  BRController *controller = nil;
   if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
     controller = [UZGBookmarksListController new];
   } else {
@@ -120,6 +123,27 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
     return nil;
   }
 
+  BRAlertController *controller = [BRAlertController new];
+  controller.primaryText = @"Please register your device on\nrink.hockeyapp.net/manage/devices/new\nand thanks for testing! :)";
+  controller.secondaryText = [NSString stringWithFormat:@"UDID: %@", [self deviceIdentifier]];
+  controller.footerText = @"This alert will be shown on each app launch, until an episode has been partially seen or a show has been favorited.";
+  return controller;
+}
+
+- (NSString *)deviceIdentifier;
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  return [[UIDevice currentDevice] uniqueIdentifier];
+#pragma clang diagnostic pop
+}
+
+- (void)startHockeyManager;
+{
+  if (self.startedHockeyManager) {
+    return;
+  }
+
   NSLog(@"[Gemist] Enabling Crash Reporting");
   BITHockeyManager *manager = [BITHockeyManager sharedHockeyManager];
   [manager configureWithIdentifier:HOCKEY_SDK_APP_ID delegate:self];
@@ -130,18 +154,12 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
   [manager startManager];
 
   self.startedHockeyManager = YES;
-
-  BRAlertController *controller = [BRAlertController new];
-  controller.primaryText = @"Please register your device on\nhttps://rink.hockeyapp.net/manage/devices/new\nand thanks for testing! :)";
-  controller.secondaryText = [NSString stringWithFormat:@"Device ID: %@", [[UIDevice currentDevice] uniqueIdentifier]];
-  controller.footerText = @"This alert will be shown after each device reboot until a show has been favorited.";
-  return controller;
 }
 
 - (NSString *)userIDForHockeyManager:(BITHockeyManager *)hockeyManager
                     componentManager:(BITHockeyBaseManager *)componentManager;
 {
-  NSString *UDID = [[UIDevice currentDevice] uniqueIdentifier];
+  NSString *UDID = [self deviceIdentifier];
   NSLog(@"[Gemist] Hockey wants UDID: %@", UDID);
   return UDID;
 }
