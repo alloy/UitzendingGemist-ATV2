@@ -19,6 +19,11 @@
 
 ##### Enhancements
 
+* Finish localization.
+* Paginate per page with left/right remote control buttons.
+* Silence HockeyApp debug output.
+* HockeyApp does not symbolicate, maybe this has to do with ‘app UUIDs’? http://support.hockeyapp.net/discussions/questions/262-disable-strip-debug-symbols-during-copy
+
 * Don't show favorites menu when there are none?
 * Cleanup inline hacks made to HockeySDK. Commit: a9f13e30a1a059311c552c906e412d6407359108.
 * Before making a request check that we have the required cookie instead of hoping for the best and making a possible extra request in the process.
