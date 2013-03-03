@@ -19,6 +19,7 @@
 
 ##### Enhancements
 
+* Figure out how to get the header subtitle to resize after changes.
 * Finish localization.
 * Silence HockeyApp debug output.
 * HockeyApp does not symbolicate, maybe this has to do with ‘app UUIDs’? http://support.hockeyapp.net/discussions/questions/262-disable-strip-debug-symbols-during-copy
