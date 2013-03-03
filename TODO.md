@@ -20,7 +20,6 @@
 ##### Enhancements
 
 * Finish localization.
-* Paginate per page with left/right remote control buttons.
 * Silence HockeyApp debug output.
 * HockeyApp does not symbolicate, maybe this has to do with ‘app UUIDs’? http://support.hockeyapp.net/discussions/questions/262-disable-strip-debug-symbols-during-copy
 

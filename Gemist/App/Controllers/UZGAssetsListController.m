@@ -28,7 +28,7 @@
     // E.g.: 'Page 1 of 17' is displayed as 'Page 1 of...'
     //
     // self.header.subtitle = @"Page 1 of 1";
-    self.header.subtitle = @"";
+    // self.header.subtitle = @"";
 
     _paginationMenuItem = [UZGTopSectionMenuItem new];
     _paginationMenuItem.text = @"Other pages";
@@ -52,9 +52,24 @@
   }
 }
 
+- (void)setCurrentPage:(NSUInteger)page;
+{
+  if (_currentPage != page) {
+    _currentPage = page;
+    [self fetchAssetsAndReload];
+  }
+}
+
 - (void)fetchAssets;
 {
   self.showSpinner = YES;
+}
+
+- (void)fetchAssetsAndReload;
+{
+  self.assets = [NSArray new];
+  [self reloadListData];
+  [self fetchAssets];
 }
 
 - (void)handleError:(NSError *)error;
@@ -186,6 +201,21 @@
   }
 }
 
+// Move to previouw/next page with left/right button and wrap around.
+- (BOOL)brEventAction:(BREvent *)event;
+{
+  if (event.value == 1 && self.hasMultiplePages) {
+    if (event.remoteAction == BREventLeftButtonAction) {
+      self.currentPage = self.currentPage == 1 ? self.lastPage : self.currentPage-1;
+      return YES;
+    } else if (event.remoteAction == BREventRightButtonAction) {
+      self.currentPage = self.currentPage == self.lastPage ? 1 : self.currentPage+1;
+      return YES;
+    }
+  }
+  return [super brEventAction:event];
+}
+
 #pragma mark - UZGPagesListControllerDelegate
 
 - (void)pagesListController:(UZGPagesListController *)controller didSelectPage:(NSUInteger)page;
@@ -193,9 +223,6 @@
   [[self stack] removeController:controller];
   if (page != self.currentPage) {
     self.currentPage = page;
-    self.assets = [NSArray array];
-    [self reloadListData];
-    [self fetchAssets];
   }
 }
 
