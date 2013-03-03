@@ -20,15 +20,8 @@
     _assets = [NSArray new];
     _topSectionItems = [NSMutableArray new];
 
-    // TODO I would love to set this immediately, as it makes the UI seem to
-    // flicker less. However, I have not yet found out how to make sure the
-    // subtitle label resizes after changing it, leading to it being cutoff
-    // when the page count is longer than one digit.
-    //
-    // E.g.: 'Page 1 of 17' is displayed as 'Page 1 of...'
-    //
-    // self.header.subtitle = @"Page 1 of 1";
-    // self.header.subtitle = @"";
+    // Setting this now means it won’t change the layout of the header later on.
+    self.header.subtitle = @"";
 
     _paginationMenuItem = [UZGTopSectionMenuItem new];
     _paginationMenuItem.text = @"Other pages";
@@ -117,6 +110,13 @@
 {
   self.header.title = self.realTitle;
   self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
+  // Always reset the width of the subtitle to ensure it doesn't truncate it.
+  // TODO probably needs more space when localized in Dutch.
+  // TODO does this need to offset the origin.x, it looks ok, but I haven't pixel checked it yet.
+  CALayer *subtitleLayer = [self.header.layer sublayers][1];
+  CGRect frame = subtitleLayer.frame;
+  frame.size.width = 150;
+  subtitleLayer.frame = frame;
 
   self.paginationMenuItem.isVisible = self.hasMultiplePages;
 
