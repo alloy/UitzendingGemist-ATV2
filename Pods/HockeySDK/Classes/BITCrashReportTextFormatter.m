@@ -577,7 +577,9 @@ static NSInteger binaryImageSort(id binary1, id binary2, void *context) {
         baseAddress = imageInfo.imageBaseAddress;
         pcOffset = frameInfo.instructionPointer - imageInfo.imageBaseAddress;
         NSString *imagePath = [imageInfo.imageName stringByStandardizingPath];
-        NSString *appBundleContentsPath = [[report.processInfo.processPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]; 
+        // TODO custom Gemist hack, don't partially symbolize anything in the Gemist bundle.
+        // NSString *appBundleContentsPath = [[report.processInfo.processPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]; 
+        NSString *appBundleContentsPath = [[NSBundle bundleWithIdentifier:@"com.apple.frontrow.appliance.Gemist"] bundlePath]; 
         
         if ([frameInfo respondsToSelector:@selector(symbolName)]) {
           if (![imagePath isEqual: report.processInfo.processPath] && ![imagePath hasPrefix:appBundleContentsPath]) {
