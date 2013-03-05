@@ -56,14 +56,21 @@ rescue LoadError
 end
 
 namespace :deb do
-  task :create => ['debug:clean', 'debug:build'] do
+  task :create => [:clean, 'debug:build'] do
     product_name = 'Gemist.frappliance'
     product_dir  = `xcodebuild -workspace UitzendingGemist.xcworkspace -scheme Gemist -showBuildSettings | grep '\\bBUILT_PRODUCTS_DIR\\b'`
     product_dir  = product_dir.split('=').last.strip
     product_path = File.join(product_dir, product_name)
 
-    version_dir = 'deb/Gemist_0.9.0-1_iphoneos-arm'
-    cp_r('deb/Gemist.frappliance', version_dir)
+    version = `/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' Gemist/Gemist-Info.plist`.strip
+    version = "#{version}-1" # I have no clue, some deb version thing...
+    version_dir = "deb/Gemist_#{version}_iphoneos-arm"
+
+    control_file_dir = File.join(version_dir, 'DEBIAN')
+    mkdir_p(control_file_dir)
+    File.open(File.join(control_file_dir, 'control'), 'w') do |control|
+      control.write File.read('deb/Gemist.frappliance/DEBIAN/control').sub(/CURRENT-VERSION/, version)
+    end
 
     destroot = File.join(version_dir, 'Applications/AppleTV.app/Appliances')
     mkdir_p(destroot)
