@@ -21,7 +21,6 @@
 
 * Finish localization.
 * Silence HockeyApp debug output.
-* HockeyApp does not symbolicate, maybe this has to do with ‘app UUIDs’? http://support.hockeyapp.net/discussions/questions/262-disable-strip-debug-symbols-during-copy
 
 * Don't show favorites menu when there are none?
 * Cleanup inline hacks made to HockeySDK. Commit: a9f13e30a1a059311c552c906e412d6407359108.
