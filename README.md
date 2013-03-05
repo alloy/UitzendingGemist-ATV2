@@ -2,7 +2,7 @@
 
 This is a simple application allowing me to watch tv-shows from UitzendingGemist.nl without having to use AirPlay.
 
-_For this to work your Apple TV 2 has to be jailbroken and run OS 5.0.x._
+_For this to work your Apple TV 2 has to be jailbroken and run Apple TV version 5.0.x / iOS 5.x._
 
 _UitzendingGemist.nl is the Dutch public broadcasting site, so it might not work abroad. However, the iOS Simulator layer, CocoaPods integration, and the Xcode 4 FRAppliance template are still of use to anyone looking into Apple TV 2 app development._
 
