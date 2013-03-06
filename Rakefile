@@ -98,3 +98,13 @@ task :clean do
   rm_f 'deb/repo.tar.gz'
   rm_f 'deb/repo/Packages.bz2'
 end
+
+desc 'Open the Cycript console'
+task :console do
+  tmp = "/tmp/Cycript-AppleTV-Helpers.cy"
+  cycript = "cycript -p AppleTV"
+  # First copy and load the helpers
+  system "cat Cycript-AppleTV-Helpers.cy | ssh apple-tv.local 'cat > #{tmp}; #{cycript} #{tmp}'"
+  # Then open console
+  system "ssh -t apple-tv.local '#{cycript}'"
+end
