@@ -14,7 +14,7 @@
 ##### Features
 
 * Add a recently added episodes list.
-* Add a top shelf view with cover flow type view of recently added episodes. See: https://github.com/tomcool420/SMFramework.
+* Add a main controller with cover flow type view (BRMediaParadeControl) of recently added episodes. Possibly see: https://github.com/tomcool420/SMFramework.
 * Release 1.0.0
 
 ##### Enhancements
