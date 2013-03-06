@@ -40,6 +40,9 @@ namespace :plist do
 end
 
 begin
+  require 'rubygems'
+  require 'bundler'
+  Bundler.setup
   require 'xcodebuild'
 
   XcodeBuild::Tasks::BuildTask.new(:debug) do |t|
