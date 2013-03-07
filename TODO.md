@@ -13,12 +13,15 @@
 
 ##### Features
 
+* Add a search list.
 * Add a recently added episodes list.
 * Add a main controller with cover flow type view (BRMediaParadeControl) of recently added episodes. Possibly see: https://github.com/tomcool420/SMFramework.
 * Release 1.0.0
 
 ##### Enhancements
 
+* Don't use capitalized name in deb control file / package name.
+* Use rightAction:/leftAction: instead of overriding brEventAction.
 * Finish localization.
 * Silence HockeyApp debug output.
 
