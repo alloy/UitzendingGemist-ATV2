@@ -7,6 +7,7 @@
 #import "BRControl.h"
 
 @class BRCoverArtImageLayer, BRMetadataLongDescriptionControl, BRReflectionControl, NSTimer;
+@protocol BRMetadataProvider;
 
 @interface BRMetadataLongDescriptionPreviewControl : BRControl
 {

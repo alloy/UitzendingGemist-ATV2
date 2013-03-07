@@ -6,7 +6,7 @@
 
 #import "BRMediaMenuController.h"
 
-#import "BRTabControlDelegate.h"
+#import "BRTabControlDelegate-Protocol.h"
 
 @class BRPreferences, BRTabControl, NSMutableDictionary, NSSet, NSString;
 

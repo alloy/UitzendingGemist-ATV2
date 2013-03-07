@@ -6,7 +6,7 @@
 
 #import "BRMediaMenuController.h"
 
-#import "BRMenuListItemProvider.h"
+#import "BRMenuListItemProvider-Protocol.h"
 
 @class BRController, NSArray, NSDictionary;
 

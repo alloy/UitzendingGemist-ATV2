@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSString.h"
-
 @interface NSString (BRStringUtilities)
 + (id)hexStringWithBytes:(const char *)arg1 length:(unsigned int)arg2;
 + (id)timeStringForSeconds:(double)arg1;

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
 
-#import "BRCyclerDataSource.h"
-#import "BRCyclerDelegate.h"
+
+#import "BRCyclerDataSource-Protocol.h"
+#import "BRCyclerDelegate-Protocol.h"
 
 @class BRControl, BRPhotoControlFactory, BRStreamingPhotoCollection, NSMutableArray;
 
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     BOOL _itemsQueried;
 }
 
-- (struct __ATVMediaQuery *)_createItemsQueryForCollection:(struct __ATVMediaCollection *)arg1 requestKeyAssetOnly:(BOOL)arg2;
+//- (struct __ATVMediaQuery *)_createItemsQueryForCollection:(struct __ATVMediaCollection *)arg1 requestKeyAssetOnly:(BOOL)arg2;
 - (void)_itemsQueryComplete:(struct __ATVMediaQuery *)arg1;
 - (id)cycler:(id)arg1 itemAtIndex:(int)arg2;
 - (void)cyclerWasFocused:(id)arg1;

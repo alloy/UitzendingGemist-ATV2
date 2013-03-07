@@ -6,9 +6,9 @@
 
 #import "BRBaseMediaAsset.h"
 
-#import "BRATVMediaItem.h"
-#import "BRMediaAssetDerivesMediaURL.h"
-#import "BRSecureResource.h"
+#import "BRATVMediaItem-Protocol.h"
+#import "BRMediaAssetDerivesMediaURL-Protocol.h"
+#import "BRSecureResource-Protocol.h"
 
 @class NSMutableDictionary, NSString;
 

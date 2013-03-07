@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRTabControlDelegate.h"
+#import "BRTabControlDelegate-Protocol.h"
 
 @class BRCoverArtPreviewControl, BRImage, BRImageControl, BRMediaPlayer, BRReflectionControl, BRTabControl, BRTextControl, BRVideoChapterProvider, BRWaitPromptControl;
 

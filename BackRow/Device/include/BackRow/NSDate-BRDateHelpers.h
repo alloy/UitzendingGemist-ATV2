@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSDate.h"
-
 @interface NSDate (BRDateHelpers)
 + (id)dateFromYear:(int)arg1 month:(int)arg2 day:(int)arg3 hour:(int)arg4 minute:(int)arg5 second:(int)arg6 timeZone:(id)arg7;
 - (id)dateCeiledToNearestMinutes:(int)arg1;

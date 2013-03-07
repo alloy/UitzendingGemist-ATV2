@@ -6,7 +6,7 @@
 
 #import "BRTextEntryController.h"
 
-#import "BRTextFieldDelegate.h"
+#import "BRTextFieldDelegate-Protocol.h"
 
 @class NSString;
 

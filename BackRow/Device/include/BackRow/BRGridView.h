@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRContainerViewCell.h"
+#import "BRContainerViewCell-Protocol.h"
 
 @class BRContainerViewDataCache, BRCursorControl, NSMutableArray, NSTimer;
 

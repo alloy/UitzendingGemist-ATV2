@@ -4,20 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSManagedObject.h"
-
-@class BRTextEntryHistoryBehavior, NSNumber, NSSet, NSString;
-
-__attribute__((visibility("hidden")))
-@interface BRTextEntryHistoryClient : NSManagedObject
-{
-}
-
-
-// Remaining properties
-@property(retain, nonatomic) BRTextEntryHistoryBehavior *behavior; // @dynamic behavior;
-@property(retain, nonatomic) NSString *clientIdentifier; // @dynamic clientIdentifier;
-@property(retain, nonatomic) NSSet *historyItems; // @dynamic historyItems;
-@property(retain, nonatomic) NSNumber *maxNumHistoryItems; // @dynamic maxNumHistoryItems;
-@end
+//#import "NSManagedObject.h"
+//
+//@class BRTextEntryHistoryBehavior, NSNumber, NSSet, NSString;
+//
+//__attribute__((visibility("hidden")))
+//@interface BRTextEntryHistoryClient : NSManagedObject
+//{
+//}
+//
+//
+//// Remaining properties
+//@property(retain, nonatomic) BRTextEntryHistoryBehavior *behavior; // @dynamic behavior;
+//@property(retain, nonatomic) NSString *clientIdentifier; // @dynamic clientIdentifier;
+//@property(retain, nonatomic) NSSet *historyItems; // @dynamic historyItems;
+//@property(retain, nonatomic) NSNumber *maxNumHistoryItems; // @dynamic maxNumHistoryItems;
+//@end
 

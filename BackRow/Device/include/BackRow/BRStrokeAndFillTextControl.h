@@ -12,13 +12,13 @@
 {
     NSAttributedString *_attributedString;
     float _strokeWidth;
-    struct CGColor *_strokeColor;
+    CGColorRef _strokeColor;
 }
 
 @property(copy) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void)dealloc;
 - (void)drawInContext:(struct CGContext *)arg1;
-@property(retain) struct CGColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+@property(retain) __attribute__((NSObject)) CGColorRef strokeColor; // @synthesize strokeColor=_strokeColor;
 @property float strokeWidth; // @synthesize strokeWidth=_strokeWidth;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 

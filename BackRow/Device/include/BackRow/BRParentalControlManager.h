@@ -6,6 +6,8 @@
 
 #import "BRSingleton.h"
 
+@protocol BRRatingInfoDatabase;
+
 @interface BRParentalControlManager : BRSingleton
 {
     id <BRRatingInfoDatabase> _ratingInfoDatabase;

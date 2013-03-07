@@ -6,7 +6,7 @@
 
 #import "BRController.h"
 
-#import "BRFullScreenPhotoControllerDelegate.h"
+#import "BRFullScreenPhotoControllerDelegate-Protocol.h"
 
 @class BRCursorControl, BRGridControl, BRPanelControl, BRPhotoBrowserBannerButton, BRPhotoBrowserHeaderControl, BRScrollControl, BRTextControl, BRWaitSpinnerControl, NSDateFormatter, NSString, NSTimer;
 

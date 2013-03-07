@@ -6,7 +6,7 @@
 
 #import "BRPhotoDataStoreProvider.h"
 
-#import "BRPhotoProviderForCollection.h"
+#import "BRPhotoProviderForCollection-Protocol.h"
 
 @interface BRPhotoDataStoreProviderForCollection : BRPhotoDataStoreProvider <BRPhotoProviderForCollection>
 {

@@ -6,7 +6,7 @@
 
 #import "BRMenuController.h"
 
-#import "BRMenuListItemProvider.h"
+#import "BRMenuListItemProvider-Protocol.h"
 
 @class NSDictionary, NSMutableArray, NSString;
 

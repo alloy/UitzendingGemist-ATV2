@@ -6,7 +6,7 @@
 
 #import "BRSingleton.h"
 
-#import "BRITunesUtilities.h"
+#import "BRITunesUtilities-Protocol.h"
 
 @interface BRITunesLibraryUtilitiesAccess : BRSingleton <BRITunesUtilities>
 {

@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface BRMediaHostConnectionDialog : BRTextWithSpinnerController
 {
     BRMediaHost *_mediaHost;
-    id <BRMediaProvider><BRMediaLoading> _providerNeedingAuth;
+    id <BRMediaProvider, BRMediaLoading> _providerNeedingAuth;
     BRController *_controllerUnderneath;
     BOOL _timerSatisfied;
     BOOL _wasBuried;

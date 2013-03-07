@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRMetadataContainer.h"
+#import "BRMetadataContainer-Protocol.h"
 
 @class NSArray;
 

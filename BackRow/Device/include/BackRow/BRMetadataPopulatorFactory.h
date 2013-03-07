@@ -6,6 +6,8 @@
 
 #import "BRSingleton.h"
 
+@protocol BRMediaImagePopulator, BRMetadataPopulator;
+
 @interface BRMetadataPopulatorFactory : BRSingleton
 {
     id <BRMediaImagePopulator> _imagePopulatorForStoreDictionary;

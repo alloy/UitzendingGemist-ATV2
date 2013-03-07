@@ -6,7 +6,7 @@
 
 #import "BRSingleton.h"
 
-#import "BRTransportDataProvider.h"
+#import "BRTransportDataProvider-Protocol.h"
 
 @interface BRVideoCacheManager : BRSingleton <BRTransportDataProvider>
 {

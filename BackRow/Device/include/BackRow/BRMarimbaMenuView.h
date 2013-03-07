@@ -46,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)playSlideshow;
 - (id)playlistID;
 - (void)setLoopPhotos:(BOOL)arg1;
-- (void)setMusicServerID:(id)arg1 playlistID:(id)arg2 playlistRef:(struct __ATVMediaCollection *)arg3;
+//- (void)setMusicServerID:(id)arg1 playlistID:(id)arg2 playlistRef:(struct __ATVMediaCollection *)arg3;
 - (void)setMuted:(BOOL)arg1;
 - (void)setTimePerSlide:(double)arg1;
 - (void)stopSlideshow;

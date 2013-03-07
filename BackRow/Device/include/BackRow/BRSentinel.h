@@ -6,6 +6,8 @@
 
 #import "BRSingleton.h"
 
+@protocol BRSyncProgressAgent, BRYTSigningAgent, BRDAAPListenerEnabler;
+
 @interface BRSentinel : BRSingleton
 {
     id <BRMusicStoreImageDecryptionAgent> _musicStoreImageDecryptionAgent;

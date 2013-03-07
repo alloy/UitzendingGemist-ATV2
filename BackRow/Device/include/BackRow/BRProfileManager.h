@@ -6,9 +6,9 @@
 
 #import "BRSingleton.h"
 
-#import "MCProfileConnectionObserver.h"
+//#import "MCProfileConnectionObserver.h"
 
-@interface BRProfileManager : BRSingleton <MCProfileConnectionObserver>
+@interface BRProfileManager : BRSingleton //<MCProfileConnectionObserver>
 {
     unsigned int _installedProfileCount;
 }

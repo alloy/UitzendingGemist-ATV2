@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSError.h"
-
 @interface NSError (BRError)
 + (id)errorWithBRError:(int)arg1;
 + (id)errorWithBRError:(int)arg1 withDescription:(id)arg2 withReason:(id)arg3 andSuggestion:(id)arg4;

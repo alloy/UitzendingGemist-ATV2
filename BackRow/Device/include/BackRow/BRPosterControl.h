@@ -6,9 +6,9 @@
 
 #import "BRControl.h"
 
-#import "BRContainerViewCell.h"
-#import "BRMediaShelfViewCell.h"
-#import "BRPosterImageDataSource.h"
+#import "BRContainerViewCell-Protocol.h"
+#import "BRMediaShelfViewCell-Protocol.h"
+#import "BRPosterImageDataSource-Protocol.h"
 
 @class BRAsyncTask, BRAutoScrollingTextControl, BRHorizontalSegmentedWidget, BRImage, BRImageControl, BRPosterReflectionControl, BRTextControl, BRWaitSpinnerControl, NSString;
 

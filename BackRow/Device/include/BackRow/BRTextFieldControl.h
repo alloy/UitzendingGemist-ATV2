@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRTextField.h"
+#import "BRTextField-Protocol.h"
 
 @class BRMarqueeTextControl, NSDictionary, NSMutableString, NSTimer;
 

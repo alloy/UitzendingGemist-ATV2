@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRMetadataContainer.h"
+#import "BRMetadataContainer-Protocol.h"
 
 __attribute__((visibility("hidden")))
 @interface BRMetadataDetailControl : BRControl <BRMetadataContainer>

@@ -6,8 +6,8 @@
 
 #import "BRController.h"
 
-#import "BRSecureResource.h"
-#import "BRVideoCacheManagerDelegate.h"
+#import "BRSecureResource-Protocol.h"
+#import "BRVideoCacheManagerDelegate-Protocol.h"
 
 @class BRControl, BRDescriptionOverlayControl, BRMediaPlayer, BRMediaPlayerEventHandler, BRResumeMenuControl, BRTextControl, BRTransportControl, NSTimer;
 

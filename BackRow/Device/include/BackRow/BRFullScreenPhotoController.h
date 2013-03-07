@@ -7,6 +7,7 @@
 #import "BRController.h"
 
 @class NSMutableArray, NSString;
+@protocol BRPhotoProviderForCollection, BRFullScreenPhotoControllerDelegate;
 
 @interface BRFullScreenPhotoController : BRController
 {

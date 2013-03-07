@@ -6,7 +6,7 @@
 
 #import "BRController.h"
 
-#import "BRTextFieldDelegate.h"
+#import "BRTextFieldDelegate-Protocol.h"
 
 @class BRHeaderControl, BRPasscodeEntryControl, BRTextControl, NSDictionary, NSString;
 

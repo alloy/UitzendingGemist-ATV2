@@ -6,11 +6,11 @@
 
 #import "BRSingleton.h"
 
-#import "ATVProgressMonitorConfiguration.h"
+//#import "ATVProgressMonitorConfiguration.h"
 
 @class BRBackgroundTask, NSArray, NSDictionary, NSMutableDictionary, NSNumber, NSString, NSTimer;
 
-@interface BRMusicStore : BRSingleton <ATVProgressMonitorConfiguration>
+@interface BRMusicStore : BRSingleton //<ATVProgressMonitorConfiguration>
 {
     int _musicStoreLoadState;
     NSDictionary *_storeFrontsDictionary;

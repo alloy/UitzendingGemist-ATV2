@@ -7,6 +7,7 @@
 #import "BRControl.h"
 
 @class NSDictionary, NSTimer;
+@protocol BRCyclerDataSource, BRCyclerDelegate;
 
 @interface BRCyclerControl : BRControl
 {

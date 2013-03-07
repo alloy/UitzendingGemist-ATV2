@@ -4,8 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "BRResponder.h"
-#import "NSObject.h"
+#import "BRResponder-Protocol.h"
+
 
 @protocol BRTextField <NSObject, BRResponder>
 - (void)setString:(id)arg1;

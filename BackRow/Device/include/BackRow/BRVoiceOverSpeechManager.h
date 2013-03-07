@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
 
-@class NSDictionary, NSMutableArray, NSObject<VSSpeechHiddenProtocol>, NSString, NSThread;
+
+@class NSDictionary, NSMutableArray, NSString, NSThread;
+@protocol VSSpeechHiddenProtocol;
 
 __attribute__((visibility("hidden")))
 @interface BRVoiceOverSpeechManager : NSObject
 {
     NSMutableArray *_speechQueue;
-    NSObject<VSSpeechHiddenProtocol> *_synthesizer;
+    id<VSSpeechHiddenProtocol> _synthesizer;
     NSThread *_runThread;
     NSDictionary *_pronunciationGuide;
     NSString *_systemLanguage;

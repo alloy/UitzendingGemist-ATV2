@@ -7,6 +7,7 @@
 #import "BRControl.h"
 
 @class BRImageControl;
+@protocol BRTumblerDataSource, BRTumblerDelegate;
 
 @interface BRTumblerControl : BRControl
 {

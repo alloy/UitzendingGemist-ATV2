@@ -6,8 +6,8 @@
 
 #import "BRControl.h"
 
-#import "BRTabControlDelegate.h"
-#import "BRTextFieldCharacterInputDelegate.h"
+#import "BRTabControlDelegate-Protocol.h"
+#import "BRTextFieldCharacterInputDelegate-Protocol.h"
 
 @class BRCursorControl, BRDeviceKeyboardMessage, BRInputMethod, BRKeyboard, BRKeyboardControl, BRScrollControl, BRTabControl, BRTextControl, BRTextEntryPlayPauseMessage, BRTextFieldBackgroundLayer, BRTextFieldControl, NSArray, NSAttributedString, NSMutableSet, NSString;
 

@@ -6,6 +6,8 @@
 
 #import "BRSingleton.h"
 
+@protocol BRHomeShareHandler;
+
 @interface BRHomeShareManager : BRSingleton
 {
     Class _homeShareHandlerClass;

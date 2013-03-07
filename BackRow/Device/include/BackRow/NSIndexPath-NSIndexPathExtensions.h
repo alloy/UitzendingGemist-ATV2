@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSIndexPath.h"
-
 @interface NSIndexPath (NSIndexPathExtensions)
 + (id)indexPathForColumn:(unsigned int)arg1 inSection:(unsigned int)arg2;
 + (id)indexPathForRow:(unsigned int)arg1 inSection:(unsigned int)arg2;

@@ -6,7 +6,7 @@
 
 #import "BRMenuController.h"
 
-#import "BRMenuListItemProvider.h"
+#import "BRMenuListItemProvider-Protocol.h"
 
 @class BRController;
 
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 @interface BRParentalControlsPasscodeChangedController : BRMenuController <BRMenuListItemProvider>
 {
     BRController *_guardedController;
-    id *_menuItemNameKeys;
+    id __autoreleasing *_menuItemNameKeys;
     BOOL _passcodeMatched;
 }
 

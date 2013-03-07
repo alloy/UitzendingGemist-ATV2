@@ -6,7 +6,7 @@
 
 #import "BRBaseMediaAsset.h"
 
-#import "BRSecureResource.h"
+#import "BRSecureResource-Protocol.h"
 
 @class NSMutableDictionary;
 

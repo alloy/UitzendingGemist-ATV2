@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
 
-#import "BRMercantile.h"
+
+#import "BRMercantile-Protocol.h"
 
 @class BRMerchant, BRURLDocumentManager, NSDate, NSError, NSMutableData, NSMutableDictionary, NSThread, NSURLConnection, NSURLRequest, NSURLResponse;
 

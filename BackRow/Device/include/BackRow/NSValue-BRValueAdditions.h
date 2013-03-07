@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSValue.h"
-
 @interface NSValue (BRValueAdditions)
 + (id)valueWithCGPoint:(struct CGPoint)arg1;
 + (id)valueWithCGRect:(struct CGRect)arg1;

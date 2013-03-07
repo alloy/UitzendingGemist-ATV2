@@ -4,18 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSManagedObject.h"
-
-@class NSSet, NSString;
-
-__attribute__((visibility("hidden")))
-@interface BRTextEntryHistoryBehavior : NSManagedObject
-{
-}
-
-
-// Remaining properties
-@property(retain, nonatomic) NSString *behaviorIdentifier; // @dynamic behaviorIdentifier;
-@property(retain, nonatomic) NSSet *clients; // @dynamic clients;
-@end
+//@class NSSet, NSString;
+//
+//__attribute__((visibility("hidden")))
+//@interface BRTextEntryHistoryBehavior : NSManagedObject
+//{
+//}
+//
+//
+//// Remaining properties
+//@property(retain, nonatomic) NSString *behaviorIdentifier; // @dynamic behaviorIdentifier;
+//@property(retain, nonatomic) NSSet *clients; // @dynamic clients;
+//@end
 

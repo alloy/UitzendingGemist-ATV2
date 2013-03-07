@@ -30,7 +30,7 @@
     NSString *_spinnerLoadingText;
 }
 
-+ (id)controllerForATVMediaType:(struct __ATVMediaType *)arg1 collection:(struct __ATVMediaCollection *)arg2 dataClient:(struct __ATVDataClient *)arg3 dataClientType:(unsigned long)arg4 playAllItems:(BOOL)arg5;
+//+ (id)controllerForATVMediaType:(struct __ATVMediaType *)arg1 collection:(struct __ATVMediaCollection *)arg2 dataClient:(struct __ATVDataClient *)arg3 dataClientType:(unsigned long)arg4 playAllItems:(BOOL)arg5;
 - (void)_dataClientConnectionHandler:(id)arg1;
 - (void)_dataClientConnectionHandlerWithObject:(id)arg1;
 - (void)_dataClientDataUpdated:(id)arg1;
@@ -44,7 +44,7 @@
 - (void)_executeDataQuery;
 - (void)_executePreDataQuery;
 - (void)_handleDataQueryCompletion;
-- (BOOL)_isDataServerEqual:(struct __ATVDataServer *)arg1;
+//- (BOOL)_isDataServerEqual:(struct __ATVDataServer *)arg1;
 - (void)_mediaItemPropertySetNotification:(id)arg1;
 - (void)_playQueryComplete;
 - (void)_preDataQueryComplete;

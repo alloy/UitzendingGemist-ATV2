@@ -6,7 +6,7 @@
 
 #import "BRPhotoMediaAsset.h"
 
-#import "BRATVMediaItem.h"
+#import "BRATVMediaItem-Protocol.h"
 
 @class BRImageManager;
 
@@ -22,7 +22,7 @@
 + (id)assetWithATVMediaItem:(struct __ATVMediaItem *)arg1 dataClient:(struct __ATVDataClient *)arg2;
 - (struct CGRect)_paddedFaceRectFromFaceRect:(struct CGRect)arg1;
 - (id)artID;
-@property(retain, nonatomic) struct __ATVDataClient *dataClient; // @synthesize dataClient=_dataClient;
+@property(retain, nonatomic) __attribute__((NSObject)) struct __ATVDataClient *dataClient; // @synthesize dataClient=_dataClient;
 - (id)dateTaken;
 - (void)dealloc;
 - (struct CGRect)faceRectForFaceCollectionID:(id)arg1;
@@ -32,8 +32,8 @@
 - (id)initWithATVMediaCollection:(struct __ATVMediaCollection *)arg1 dataClient:(struct __ATVDataClient *)arg2;
 - (id)initWithATVMediaItem:(struct __ATVMediaItem *)arg1 dataClient:(struct __ATVDataClient *)arg2;
 - (BOOL)isLocal;
-@property(retain, nonatomic) struct __ATVMediaCollection *mediaCollection; // @synthesize mediaCollection=_mediaCollection;
-@property(retain, nonatomic) struct __ATVMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
+@property(retain, nonatomic) __attribute__((NSObject)) struct __ATVMediaCollection *mediaCollection; // @synthesize mediaCollection=_mediaCollection;
+@property(retain, nonatomic) __attribute__((NSObject)) struct __ATVMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 - (struct __ATVMediaItem *)mediaItemRef;
 - (id)mediaType;
 - (id)mediaURL;

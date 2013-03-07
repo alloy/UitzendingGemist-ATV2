@@ -6,7 +6,7 @@
 
 #import "BRControl.h"
 
-#import "BRApplianceBrowserProtocol.h"
+#import "BRApplianceBrowserProtocol-Protocol.h"
 
 @class BRApplianceCategoryListProvider, BRApplianceProvider, BRCursorControl, BRImageControl, BRListView, BRScrollControl, BRTopShelfView, NSArray, NSDate, NSMutableDictionary, NSString, NSTimer;
 

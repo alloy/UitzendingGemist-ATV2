@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSDictionary.h"
-
 @interface NSDictionary (BRDictionaryAdditions)
 + (id)dictionaryOfLocalizedRUIData;
 + (id)dictionaryWithContentsOfURL:(id)arg1 withHeaderDictionary:(id)arg2;

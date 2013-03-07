@@ -8,7 +8,7 @@
 {
 }
 
-+ (id)_wirelessInterfaceNameForDeviceClient:(struct __WiFiDeviceClient *)arg1;
+//+ (id)_wirelessInterfaceNameForDeviceClient:(struct __WiFiDeviceClient *)arg1;
 + (BOOL)associateWithNetwork:(id)arg1 password:(id)arg2 error:(id *)arg3;
 + (void)checkAirportPower;
 + (void)collectWirelessNetworks;
@@ -18,7 +18,7 @@
 + (int)currentWirelessChannel;
 + (BOOL)forgetCurrentNetworkWithError:(id *)arg1;
 + (BOOL)forgetNetwork:(id)arg1 error:(id *)arg2;
-+ (BOOL)forgetWiFiNetwork:(struct __WiFiNetwork *)arg1 error:(id *)arg2;
+//+ (BOOL)forgetWiFiNetwork:(struct __WiFiNetwork *)arg1 error:(id *)arg2;
 + (float)getCurrentRawWirelessSignalStrength;
 + (int)getCurrentWirelessSignalStrength;
 + (int)getCurrentWirelessSignalStrengthForMaxBars:(unsigned char)arg1;
