@@ -4,8 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
 @protocol BRFocusContainer <NSObject>
 - (struct CGSize)boundsForFocusCandidate:(id)arg1;
 - (id)debugDescriptionForFocusCandidate:(id)arg1;

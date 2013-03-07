@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import <AppleTV/BRBaseMediaProvider.h>
+#import "BRBaseMediaProvider.h"
 
 @interface BRNetworkMediaProvider : BRBaseMediaProvider
 {

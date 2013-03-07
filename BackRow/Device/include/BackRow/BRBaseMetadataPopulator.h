@@ -4,9 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
-#import "BRMetadataPopulator.h"
+#import "BRMetadataPopulator-Protocol.h"
 
 __attribute__((visibility("hidden")))
 @interface BRBaseMetadataPopulator : NSObject <BRMetadataPopulator>

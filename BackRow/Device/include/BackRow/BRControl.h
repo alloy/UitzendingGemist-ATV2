@@ -4,12 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "BRFocusContainer-Protocol.h"
+#import "BRResponder-Protocol.h"
 
-#import "BRFocusContainer.h"
-#import "BRResponder.h"
-
-@class CALayer, NSArray, NSMutableArray, NSObject<BREventDelegate>;
+@class CALayer, NSArray, NSMutableArray;
+@protocol BREventDelegate;
 
 @interface BRControl : NSObject <BRFocusContainer, BRResponder>
 {
@@ -26,7 +25,7 @@
     BOOL _controlActive;
     BOOL _inhibitsFocusForChildren;
     BOOL _inhibitsScrollFocusForChildren;
-    NSObject<BREventDelegate> *_brEventDelegate;
+    id<BREventDelegate> _brEventDelegate;
     BOOL _focusByDirectionEnabled;
     BOOL _ignoreDirectionalInfoForFocus;
 }

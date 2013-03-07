@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
 //
 
-#import <AppleTV/BRMediaHost.h>
+#import "BRMediaHost.h"
 
 __attribute__((visibility("hidden")))
 @interface BRRemoteMediaHost : BRMediaHost
