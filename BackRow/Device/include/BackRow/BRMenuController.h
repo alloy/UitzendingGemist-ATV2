@@ -35,7 +35,7 @@
 - (void)controlWasActivated;
 - (void)dealloc;
 - (long)defaultIndex;
-- (id)header;
+- (BRHeaderControl *)header;
 - (float)headerWidthFactor;
 - (id)init;
 - (BOOL)isCurrentSelectionValidForModelData:(id)arg1;
@@ -45,7 +45,7 @@
 - (void)itemSelected:(long)arg1;
 - (void)layoutSubcontrols;
 - (void)layoutSubcontrolsUsingCenteredLayout;
-- (id)list;
+- (BRListControl *)list;
 - (id)listIcon;
 - (float)listIconHorizontalOffset;
 - (float)listIconKerningFactor;
