@@ -9,10 +9,6 @@
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
-@interface BRAlertController (UpdatedAPI)
-@property (strong) NSString *footerText;
-@end
-
 // TODO not in actual release!!
 // Only needed for beta testing.
 #ifdef DEBUG
