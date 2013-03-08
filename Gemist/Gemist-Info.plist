@@ -6,6 +6,8 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>Gemist</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.frontrow.appliance.Gemist</string>
 	<key>CFBundleInfoDictionaryVersion</key>

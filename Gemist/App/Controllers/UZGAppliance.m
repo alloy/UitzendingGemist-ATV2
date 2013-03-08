@@ -9,6 +9,39 @@
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
+@interface UZGApplianceInfo : BRApplianceInfo
+@end
+
+@implementation UZGApplianceInfo
+
+- (NSDictionary *)info;
+{
+  return [UZGBundle infoDictionary];
+}
+
+- (NSString *)key;
+{
+  return self.info[(id)kCFBundleIdentifierKey];
+}
+
+- (NSString *)name;
+{
+  return self.info[(id)kCFBundleNameKey];
+}
+
+- (float)preferredOrder;
+{
+  return 0.0;
+}
+
+- (id)localizedStringsFileName;
+{
+  // return @"NitoTVLocalizable";
+  return nil;
+}
+
+@end
+
 // TODO not in actual release!!
 // Only needed for beta testing.
 #ifdef DEBUG
@@ -38,6 +71,9 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 - (id)init;
 {
   if ((self = [super init])) {
+    NSLog(@"[Gemist] Start appliance");
+    self.applianceInfo = [UZGApplianceInfo new];
+
     NSMutableArray *categories = [NSMutableArray array];
     [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
                                                      identifier:kUZGBookmarksCategoryIdentifier
@@ -68,21 +104,6 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 - (id)applianceName { return kUitzendingGemistName; }
 - (id)moduleName { return kUitzendingGemistName; }
 - (id)applianceKey { return kUitzendingGemistName; }
-
-- (id)selectCategoryWithIdentifier:(id)ident {
-  // NSLog(@"[DEBUG] %s (%d): ident = %@", __PRETTY_FUNCTION__, __LINE__, ident);
-  return nil;
-}
-
-- (BOOL)handleObjectSelection:(id)fp8 userInfo:(id)fp12 {
-  // NSLog(@"[ENTRY] %s (%d): selection = %@, info = %@", __PRETTY_FUNCTION__, __LINE__, fp8, fp12);
-  return YES;
-}
-
-- (id) applianceSpecificControllerForIdentifier:(id)arg1 args:(id)arg2 {
-  // NSLog(@"applianceSpecificControllerForIdentifier: %@ args: %@", arg1, arg2);
-  return nil;
-}
 
 - (BRController *)controllerForIdentifier:(id)identifier args:(id)args;
 {
