@@ -9,42 +9,38 @@
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
 
-@interface BRBaseAppliance (UpdatedAPI)
-- (id)initWithApplianceInfo:(id)applianceInfo;
+@interface UZGApplianceInfo : BRApplianceInfo
 @end
 
-@interface BRApplianceManager (UpdatedAPI)
-- (id)applianceInfoForApplianceIdentifier:(id)applianceIdentifier;
+@implementation UZGApplianceInfo
+
+- (NSDictionary *)info;
+{
+  return [UZGBundle infoDictionary];
+}
+
+- (NSString *)key;
+{
+  return self.info[(id)kCFBundleIdentifierKey];
+}
+
+- (NSString *)name;
+{
+  return self.info[(id)kCFBundleNameKey];
+}
+
+- (float)preferredOrder;
+{
+  return 0.0;
+}
+
+- (id)localizedStringsFileName;
+{
+  // return @"NitoTVLocalizable";
+  return nil;
+}
+
 @end
-
-//@interface UZGApplianceInfo : BRApplianceInfo
-
-//- (NSDictionary *)info;
-//{
-  //return [UZGBundle infoDictionary];
-//}
-
-//- (NSString *)key;
-//{
-  //return self.info[kCFBundleIdentifierKey];
-//}
-
-//- (NSString *)name;
-//{
-  //return self.info[kCFBundleNameKey];
-//}
-
-//- (float)preferredOrder;
-//{
-  //return 0.0;
-//}
-
-//- (id)localizedStringsFileName;
-//{
-  //return @"NitoTVLocalizable";
-//}
-
-//@end
 
 // TODO not in actual release!!
 // Only needed for beta testing.
@@ -72,26 +68,12 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
   // TODO disable crash reporter?
 }
 
-- (BRApplianceInfo *)applianceInfo;
+- (id)init;
 {
-  //id original = [super applianceInfo];
-  //id info = [original valueForKey:@"_info"];
-  //NSLog(@"applianceInfo: %@ - %@", original, info);
-  //return original;
+  if ((self = [super init])) {
+    NSLog(@"[Gemist] Start appliance");
+    self.applianceInfo = [UZGApplianceInfo new];
 
-  // BRApplianceInfo *info = [BRApplianceInfo infoForApplianceDescription:UZGBundle];
-  BRApplianceInfo *info = [[BRApplianceManager singleton] applianceInfoForApplianceIdentifier:UZGBundleIdentifier];
-  NSLog(@"%@", info);
-  NSLog(@"%@", info.key);
-  NSLog(@"%@", info.name);
-  NSLog(@"%f", info.preferredOrder);
-  return info;
-}
-
-- (id)initWithApplianceInfo:(id)applianceInfo;
-{
-  NSLog(@"INIT WITH APPLIANCE INFO: %@", applianceInfo);
-  if ((self = [super initWithApplianceInfo:applianceInfo])) {
     NSMutableArray *categories = [NSMutableArray array];
     [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
                                                      identifier:kUZGBookmarksCategoryIdentifier
