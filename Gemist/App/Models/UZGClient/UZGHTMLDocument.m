@@ -171,7 +171,7 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     }
 
     HTMLNode *anchorNode = [descriptionNode findChildWithTagName:@"a" className:@"episode"];
-    episode[@"title"] = anchorNode.contents;
+    episode[@"title"] = [anchorNode getAttributeNamed:@"title"];
     episode[@"path"] = [anchorNode getAttributeNamed:@"href"];
 
     HTMLNode *imageNode = [episodeNode findChildWithTagName:@"img" className:@"thumbnail"];

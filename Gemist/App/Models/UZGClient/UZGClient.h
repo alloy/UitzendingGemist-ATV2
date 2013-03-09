@@ -19,6 +19,11 @@ typedef void (^UZGPaginationDataBlock)(UZGPaginationData *);
                       success:(UZGPaginationDataBlock)success
                       failure:(UZGFailureBlock)failure;
 
+- (void)episodesWithSearchQuery:(NSString *)query
+                           page:(NSUInteger)pageNumber
+                        success:(UZGPaginationDataBlock)success
+                        failure:(UZGFailureBlock)failure;
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGPaginationDataBlock)success

@@ -6,6 +6,18 @@
 
 @implementation UZGEpisodeMediaAsset
 
++ (void)episodesWithSearchQuery:(NSString *)query
+                           page:(NSUInteger)pageNumber
+                        success:(UZGPaginationDataBlock)success
+                        failure:(UZGFailureBlock)failure;
+{
+  UZGClient *client = [UZGClient sharedClient];
+  [client episodesWithSearchQuery:query
+                             page:pageNumber
+                          success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data]); }
+                          failure:failure];
+}
+
 - (void)dealloc;
 {
   _delegate = nil;

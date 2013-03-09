@@ -79,8 +79,11 @@
 {
   NSString *query = self.query;
   if (![query isEmpty]) {
-    NSLog(@"FETCH ASSETS FOR: '%@'", query);
-    //[super fetchAssets];
+    [UZGEpisodeMediaAsset episodesWithSearchQuery:query
+                                             page:self.currentPage
+                                          success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
+                                          failure:^(id _, NSError *error) { [self handleError:error]; }];
+
   }
 }
 

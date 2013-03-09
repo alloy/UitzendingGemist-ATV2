@@ -89,6 +89,18 @@ static dispatch_once_t onceToken = 0;
         failure:failure];
 }
 
+- (void)episodesWithSearchQuery:(NSString *)query
+                           page:(NSUInteger)pageNumber
+                        success:(UZGPaginationDataBlock)success
+                        failure:(UZGFailureBlock)failure;
+{
+  NSString *path = [NSString stringWithFormat:@"/zoek/uitzendingen?q=%@&page=%d", query, pageNumber];
+  [self getPath:path
+     parameters:nil
+        success:^(id operation, UZGHTMLDocument *doc) { success([doc episodesPaginationDataForPage:pageNumber]); }
+        failure:failure];
+}
+
 - (void)episodesOfShowAtPath:(NSString *)showPath
                         page:(NSUInteger)pageNumber
                      success:(UZGPaginationDataBlock)success
