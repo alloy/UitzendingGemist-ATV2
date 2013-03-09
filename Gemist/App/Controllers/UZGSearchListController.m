@@ -69,6 +69,7 @@
   }
 }
 
+// TODO is this called when the iphone remote app hits ‘return’?
 - (void)textDidEndEditing:(BRTextFieldControl *)control;
 {
   NSLog(@"TEXT DID END EDITING: %@", control.stringValue);

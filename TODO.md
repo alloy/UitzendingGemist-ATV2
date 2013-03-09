@@ -20,8 +20,8 @@
 
 ##### Enhancements
 
+* Make sure it works with iphone remote app. E.g. swiping
 * Don't use capitalized name in deb control file / package name.
-* Use rightAction:/leftAction: instead of overriding brEventAction.
 * Finish localization.
 * Silence HockeyApp debug output.
 
