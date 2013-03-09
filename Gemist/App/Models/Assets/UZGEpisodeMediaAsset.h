@@ -13,6 +13,9 @@
 @property (assign) NSUInteger duration;
 @property (strong) NSString *mediaURL;
 
+@property (strong) NSString *showTitle;
+@property (strong) NSString *showPath;
+
 + (void)episodesWithSearchQuery:(NSString *)query
                            page:(NSUInteger)pageNumber
                         success:(UZGPaginationDataBlock)success

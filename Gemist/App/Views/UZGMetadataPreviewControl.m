@@ -1,5 +1,6 @@
 #import "UZGMetadataPreviewControl.h"
 #import "UZGBaseMediaAsset.h"
+#import "UZGEpisodeMediaAsset.h"
 
 @implementation UZGMetadataPreviewControl
 
@@ -22,6 +23,14 @@
   metadataControl.title = asset.title;
   metadataControl.summary = asset.mediaSummary;
   metadataControl.copyright = asset.copyright;
+
+  if ([asset isKindOfClass:[UZGEpisodeMediaAsset class]]) {
+    UZGEpisodeMediaAsset *episode = (UZGEpisodeMediaAsset *)asset;
+    if (episode.showTitle) {
+      [metadataControl setMetadata:@[episode.showTitle]
+                        withLabels:@[UZGLocalizedString(@"Show")]];
+    }
+  }
 }
 
 @end

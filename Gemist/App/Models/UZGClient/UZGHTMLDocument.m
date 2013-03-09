@@ -154,9 +154,6 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
 
 #pragma mark - Episode Data
 
-// TODO
-// * the pageNumber param requirement is ugly
-// * collect  metadata
 - (UZGPaginationData *)episodesPaginationDataForPage:(NSInteger)pageNumber;
 {
   NSMutableArray *episodes = [NSMutableArray new];
@@ -168,6 +165,14 @@ UZGExtractThumbnailURL(HTMLNode *imageNode) {
     NSString *summary = descriptionNode.textContents;
     if (summary) {
       episode[@"mediaSummary"] = [summary stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+
+    // This is only available in search results and recent episodes.
+    HTMLNode *seriesHeadingNode = [descriptionNode findChildWithTagName:@"h3" className:@"series"];
+    if (seriesHeadingNode) {
+      HTMLNode *anchorNode = [seriesHeadingNode findChildTags:@"a"][0];
+      episode[@"showTitle"] = [anchorNode getAttributeNamed:@"title"];
+      episode[@"showPath"] = [anchorNode getAttributeNamed:@"href"];
     }
 
     HTMLNode *anchorNode = [descriptionNode findChildWithTagName:@"a" className:@"episode"];
