@@ -5,7 +5,7 @@
 // Wrap around at top and bottom.
 - (BOOL)brEventAction:(BREvent *)event;
 {
-  if (event.value == 1) {
+  if (self.focusedControl == self.list && event.value == 1) {
     BOOL up = event.remoteAction == BREventUpButtonAction;
     BOOL down = event.remoteAction == BREventDownButtonAction;
     if (up || down) {

@@ -204,7 +204,7 @@
 // Move to previouw/next page with left/right button and wrap around.
 - (BOOL)brEventAction:(BREvent *)event;
 {
-  if (event.value == 1 && self.hasMultiplePages) {
+  if (self.focusedControl == self.list && event.value == 1 && self.hasMultiplePages) {
     if (event.remoteAction == BREventLeftButtonAction) {
       self.currentPage = self.currentPage == 1 ? self.lastPage : self.currentPage-1;
       return YES;
