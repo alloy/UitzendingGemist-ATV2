@@ -14,8 +14,11 @@
 ##### Features
 
 * Add a search list.
+* Add an episode detail view, this is needed so the user can go to a full show from there when she found an episode through search/recent.
 * Add a recently added episodes list.
-* Add a main controller with cover flow type view (BRMediaParadeControl) of recently added episodes. Possibly see: https://github.com/tomcool420/SMFramework.
+* Release 0.9.2
+
+* Add a BRMediaParadeControl / BRMarqueeControl to favorite/paginate items in shows/episodes.
 * Release 1.0.0
 
 ##### Enhancements
