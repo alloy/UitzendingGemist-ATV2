@@ -33,7 +33,6 @@
   frame.size.width = 400;
   frame.origin = CGPointMake(110, 86);
   self.textEntryControl.frame = frame;
-  NSLog(@"entryControlFrame: %@", NSStringFromCGRect(frame));
 }
 
 - (void)showTextEntryControl;
@@ -87,26 +86,20 @@
   }
 }
 
-//- (id)focusedControlForEvent:(id)event focusPoint:(CGPoint *)point {
-	//NSLog(@"%s, %@", __PRETTY_FUNCTION__, event);
-
-	//switch ((int)[event remoteAction]) {
-			
-		//case BREventRightButtonAction:
-		////case kBREventRemoteActionSwipeRight:
-			//// if (editorShowing == YES)
-			//// {
-				//// if (searchState != kNTVQueryStarted)
-					//[self hideTextEntryControl];
-				//// else {
-					//// return nil;
-				//// }
-
-					
-			//// }
-			//break;
-	//}
-  //return [super focusedControlForEvent:event focusPoint:point];
-//}
+- (BOOL)brEventAction:(BREvent *)event;
+{
+  if (event.remoteAction == BREventMenuButtonAction && self.focusedControl == self.list) {
+    [self showTextEntryControl];
+    return YES;
+  }
+  if (event.value == 1 &&
+      self.focusedControl == self.textEntryControl &&
+        event.remoteAction == BREventRightButtonAction &&
+          self.textEntryControl.focusIsAtRightEdge) {
+    [self hideTextEntryControl];
+    return YES;
+  }
+  return [super brEventAction:event];
+}
 
 @end
