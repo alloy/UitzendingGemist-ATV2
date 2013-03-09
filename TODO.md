@@ -20,6 +20,7 @@
 
 ##### Enhancements
 
+* Header subtitle is still not wide enough. Search for ‘wie is’.
 * Make sure it works with iphone remote app. E.g. swiping
 * Don't use capitalized name in deb control file / package name.
 * Finish localization.

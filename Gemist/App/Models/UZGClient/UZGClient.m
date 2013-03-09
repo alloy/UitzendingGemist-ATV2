@@ -82,9 +82,8 @@ static dispatch_once_t onceToken = 0;
     titleInitial = [titleInitial lowercaseString];
   }
 
-  NSString *path = [NSString stringWithFormat:@"/programmas/%@?display_mode=detail&page=%d", titleInitial, pageNumber];
-  [self getPath:path
-     parameters:nil
+  [self getPath:[NSString stringWithFormat:@"/programmas/%@", titleInitial]
+     parameters:@{ @"display_mode":@"detail", @"page":@(pageNumber) }
         success:^(id operation, UZGHTMLDocument *doc) { success([doc showsPaginationDataForPage:pageNumber]); }
         failure:failure];
 }
@@ -94,9 +93,8 @@ static dispatch_once_t onceToken = 0;
                         success:(UZGPaginationDataBlock)success
                         failure:(UZGFailureBlock)failure;
 {
-  NSString *path = [NSString stringWithFormat:@"/zoek/uitzendingen?q=%@&page=%d", query, pageNumber];
-  [self getPath:path
-     parameters:nil
+  [self getPath:@"/zoek/uitzendingen"
+     parameters:@{ @"q":query, @"page":@(pageNumber) }
         success:^(id operation, UZGHTMLDocument *doc) { success([doc episodesPaginationDataForPage:pageNumber]); }
         failure:failure];
 }
@@ -106,9 +104,8 @@ static dispatch_once_t onceToken = 0;
                      success:(UZGPaginationDataBlock)success
                      failure:(UZGFailureBlock)failure;
 {
-  NSString *path = [NSString stringWithFormat:@"%@/afleveringen?page=%d", showPath, pageNumber];
-  [self getPath:path
-     parameters:nil
+  [self getPath:[NSString stringWithFormat:@"%@/afleveringen", showPath]
+     parameters:@{ @"page":@(pageNumber) }
         success:^(id operation, UZGHTMLDocument *doc) { success([doc episodesPaginationDataForPage:pageNumber]); }
         failure:failure];
 }
@@ -143,8 +140,7 @@ static dispatch_once_t onceToken = 0;
                     success:(UZGSuccessBlock)success
                     failure:(UZGFailureBlock)failure;
 {
-  NSString *path = [NSString stringWithFormat:@"/player/%@", ID];
-  [self getPath:path
+  [self getPath:[NSString stringWithFormat:@"/player/%@", ID]
      parameters:nil
         success:^(id operation, UZGHTMLDocument *doc) {
                   success(operation, [doc episodeStreamSourcesWithBaseURLString:kUitzendingGemistAPIBaseURLString]);
