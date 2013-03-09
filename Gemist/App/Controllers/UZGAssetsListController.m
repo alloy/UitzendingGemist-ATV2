@@ -111,11 +111,10 @@
   self.header.title = self.realTitle;
   self.header.subtitle = [NSString stringWithFormat:@"Page %d of %d", self.currentPage, self.lastPage];
   // Always reset the width of the subtitle to ensure it doesn't truncate it.
-  // TODO probably needs more space when localized in Dutch.
-  // TODO does this need to offset the origin.x, it looks ok, but I haven't pixel checked it yet.
-  CALayer *subtitleLayer = [self.header.layer sublayers][1];
+  CALayer *headerLayer = self.header.layer;
+  CALayer *subtitleLayer = headerLayer.sublayers[1];
   CGRect frame = subtitleLayer.frame;
-  frame.size.width = 150;
+  frame.size.width = CGRectGetWidth(headerLayer.frame);
   subtitleLayer.frame = frame;
 
   self.paginationMenuItem.isVisible = self.hasMultiplePages;
