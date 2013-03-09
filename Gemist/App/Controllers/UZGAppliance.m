@@ -1,5 +1,6 @@
 #import "UZGAppliance.h"
 #import "UZGBookmarksListController.h"
+#import "UZGSearchListController.h"
 #import "UZGShowsListController.h"
 #import "UZGClient.h"
 #import "UZGPlistStore.h"
@@ -8,6 +9,7 @@
 
 static NSString * const kUitzendingGemistName = @"Gemist";
 static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
+static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 
 @interface UZGApplianceInfo : BRApplianceInfo
 @end
@@ -78,6 +80,10 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
     [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
                                                      identifier:kUZGBookmarksCategoryIdentifier
                                                  preferredOrder:0]];
+    [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGSearchCategoryIdentifier)
+                                                     identifier:kUZGSearchCategoryIdentifier
+                                                 preferredOrder:1]];
+
     for(char c = 'A'; c <= 'Z'; c++) {
       NSString *name = [NSString stringWithFormat:@"%c", c];
       [categories addObject:[BRApplianceCategory categoryWithName:name
@@ -125,7 +131,9 @@ static NSString * const kUZGBookmarksCategoryIdentifier = @"Favorites";
   //});
 #endif
 
-  if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
+  if ([identifier isEqualToString:kUZGSearchCategoryIdentifier]) {
+    controller = [UZGSearchListController new];
+  } else if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
     controller = [UZGBookmarksListController new];
   } else {
     controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];

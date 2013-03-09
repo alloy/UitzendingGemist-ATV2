@@ -78,6 +78,8 @@
 		51F2F95416DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95216DA89AE00A97FDF /* UZGMetadataPreviewControl.m */; };
 		51F2F95A16DED98700A97FDF /* UZGPagesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95916DED98700A97FDF /* UZGPagesListController.m */; };
 		51F2F95B16DED98700A97FDF /* UZGPagesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F2F95916DED98700A97FDF /* UZGPagesListController.m */; };
+		51FE2EB016EA9AA4000B69E0 /* UZGSearchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FE2EAF16EA9AA4000B69E0 /* UZGSearchListController.m */; };
+		51FE2EB116EA9AA4000B69E0 /* UZGSearchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FE2EAF16EA9AA4000B69E0 /* UZGSearchListController.m */; };
 		A523EB3DA8864FCD85F9137E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 		DAE184609E8045A8A51BD722 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627266CC8844D5FB8D767FE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -163,6 +165,8 @@
 		51F2F95216DA89AE00A97FDF /* UZGMetadataPreviewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGMetadataPreviewControl.m; sourceTree = "<group>"; };
 		51F2F95816DED98700A97FDF /* UZGPagesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGPagesListController.h; sourceTree = "<group>"; };
 		51F2F95916DED98700A97FDF /* UZGPagesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGPagesListController.m; sourceTree = "<group>"; };
+		51FE2EAE16EA9AA4000B69E0 /* UZGSearchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZGSearchListController.h; sourceTree = "<group>"; };
+		51FE2EAF16EA9AA4000B69E0 /* UZGSearchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZGSearchListController.m; sourceTree = "<group>"; };
 		6627266CC8844D5FB8D767FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -344,6 +348,8 @@
 				5199A6FA16AB60870057AA02 /* UZGShowsListController.m */,
 				51F2F95816DED98700A97FDF /* UZGPagesListController.h */,
 				51F2F95916DED98700A97FDF /* UZGPagesListController.m */,
+				51FE2EAE16EA9AA4000B69E0 /* UZGSearchListController.h */,
+				51FE2EAF16EA9AA4000B69E0 /* UZGSearchListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				51F2F95316DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
 				51F2F95A16DED98700A97FDF /* UZGPagesListController.m in Sources */,
 				51E0947516E166F400027E5D /* UZGBaseListController.m in Sources */,
+				51FE2EB016EA9AA4000B69E0 /* UZGSearchListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +634,7 @@
 				51F2F95416DA89AE00A97FDF /* UZGMetadataPreviewControl.m in Sources */,
 				51F2F95B16DED98700A97FDF /* UZGPagesListController.m in Sources */,
 				51E0947616E166F400027E5D /* UZGBaseListController.m in Sources */,
+				51FE2EB116EA9AA4000B69E0 /* UZGSearchListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
