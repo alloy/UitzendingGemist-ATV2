@@ -46,9 +46,9 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 
 // TODO not in actual release!!
 // Only needed for beta testing.
-#ifdef DEBUG
-#define ENABLE_BETA_FEATURES 1
-#endif
+//#ifdef DEBUG
+//#define ENABLE_BETA_FEATURES 1
+//#endif
 
 #ifdef ENABLE_BETA_FEATURES
 #import "HockeySDKConfig.h"
