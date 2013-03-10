@@ -13,17 +13,18 @@
 
 ##### Features
 
-* Add a search list.
-* Add an episode detail view, this is needed so the user can go to a full show from there when she found an episode through search/recent.
-* Add a recently added episodes list.
+* Load more metadata for a detail view (get episode), e.g. kijkwijzer
+* Shows can be favorited when only the title and path is available, this should collect and save the show's metadata when loading episodes.
 * Release 0.9.2
+
+* Add a recently added episodes list.
+* Release 0.9.3
 
 * Add a BRMediaParadeControl / BRMarqueeControl to favorite/paginate items in shows/episodes.
 * Release 1.0.0
 
 ##### Enhancements
 
-* Fetch more metadata about an episode from uitzendinggemist.nl, e.g. kijkwijzer
 * Make sure it works with iphone remote app. E.g. swiping
 * Don't use capitalized name in deb control file / package name.
 * Finish localization.
