@@ -101,7 +101,7 @@
 - (id)delegate;
 - (id)focusedControlForEvent:(id)arg1 focusPoint:(struct CGPoint *)arg2;
 - (id)focusedIndexPath;
-@property(nonatomic) CDStruct_1420b1e7 horizontalGap; // @synthesize horizontalGap=_horizontalGap;
+@property(nonatomic) float horizontalGap; // @synthesize horizontalGap=_horizontalGap;
 - (unsigned int)indexInCellsOfObject:(id)arg1;
 - (id)init;
 - (void)layoutSubcontrols;
