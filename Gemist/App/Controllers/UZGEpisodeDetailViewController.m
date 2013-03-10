@@ -1,4 +1,5 @@
 #import "UZGEpisodeDetailViewController.h"
+#import "UZGEpisodesListController.h"
 
 
 @interface UZGButtonControl : BRButtonControl
@@ -87,19 +88,21 @@
   return self;
 }
 
+// TODO are these button titles localized?
 - (void)createCenterShelf;
 {
   BRMediaShelfView *centerShelf = [BRMediaShelfView new];
+
   self.shelfViewButtons[@(centerShelf.hash)] = @[
     [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] playActionImage]
-                                   subtitle:@"Play" // TODO is this localized?
+                                   subtitle:@"Play"
                                     perform:^{ [self loadEpisode]; }],
-    [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] queueActionImage]
-                                   subtitle:@"Favorites" // TODO is this localized?
-                                    perform:^{ NSLog(@"FAVORITE!"); }],
     [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] moreActionImage]
-                                   subtitle:@"More" // TODO is this localized?
-                                    perform:^{ NSLog(@"Show all episodes"); }]
+                                   subtitle:@"More"
+                                    perform:^{
+      BRController *controller = [[UZGEpisodesListController alloc] initWithShow:self.episode.show];
+      [[self stack] pushController:controller];
+    }]
   ];
 
   _detailView.centerShelf = centerShelf;
@@ -109,8 +112,28 @@
   // Need to tell it this first, which is rather weird as it could just call
   // the data source method...
   centerShelf.columnCount = [self mediaShelf:centerShelf numberOfColumnsInSection:0];
-  // centerShelf.coverflowMargin = 33;
+
+  // TODO I have no idea how to make this work :'(
+  //
+  //centerShelf.horizontalGap = (CDStruct_1420b1e7){ { 10.0 } };
+  //
+  // These are the things SMFramework does.
+  //[centerShelf setReadyToDisplay];
+  //[centerShelf layoutSubcontrols];
+  //[centerShelf loadWithCompletionBlock:nil];
 }
+
+// TODO this has to first load the actual show info if the show has not been loaded yet, so do this later.
+//
+//- (UZGButtonControl *)favoriteActionButton;
+//{
+  //UZGButtonControl *button = [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] queueActionImage]
+                                                            //subtitle:@"Add" // TODO is this localized?
+                                                             //perform:nil],
+  //button.performAction = ^{
+
+  //};
+//}
 
 // TODO
 - (void)handleError:(NSError *)error;

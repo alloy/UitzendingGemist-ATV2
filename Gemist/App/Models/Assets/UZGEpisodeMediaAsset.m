@@ -1,4 +1,5 @@
 #import "UZGEpisodeMediaAsset.h"
+#import "UZGShowMediaAsset.h"
 #import "UZGPlistStore.h"
 
 @interface UZGEpisodeMediaAsset ()
@@ -21,6 +22,16 @@
 - (void)dealloc;
 {
   _delegate = nil;
+}
+
+- (UZGShowMediaAsset *)show;
+{
+  if (_show == nil) {
+    NSParameterAssert(self.showTitle);
+    NSParameterAssert(self.showPath);
+    _show = [[UZGShowMediaAsset alloc] initWithTitle:self.showTitle path:self.showPath];
+  }
+  return _show;
 }
 
 // TODO how do we provide the other streams so the player can be adaptive?

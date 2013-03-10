@@ -1,6 +1,6 @@
 #import "UZGBaseMediaAsset.h"
 
-@class UZGEpisodeMediaAsset;
+@class UZGEpisodeMediaAsset, UZGShowMediaAsset;
 
 @protocol UZGEpisodeMediaAssetDelegate <NSObject>
 - (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
@@ -16,6 +16,7 @@
 
 @property (strong) NSString *showTitle;
 @property (strong) NSString *showPath;
+@property (strong, nonatomic) UZGShowMediaAsset *show;
 
 + (void)episodesWithSearchQuery:(NSString *)query
                            page:(NSUInteger)pageNumber

@@ -10,6 +10,7 @@
                       failure:(UZGFailureBlock)falure;
 
 - (instancetype)initAsBookmarked;
+- (instancetype)initWithTitle:(NSString *)title path:(NSString *)path;
 
 - (void)toggleBookmarked;
 

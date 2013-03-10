@@ -22,6 +22,14 @@
                         failure:failure];
 }
 
+- (instancetype)init;
+{
+  if ((self = [super init])) {
+    _shouldLoadBookmarkedStatus = YES;
+  }
+  return self;
+}
+
 - (instancetype)initAsBookmarked;
 {
   if ((self = [super init])) {
@@ -31,10 +39,11 @@
   return self;
 }
 
-- (instancetype)init;
+- (instancetype)initWithTitle:(NSString *)title path:(NSString *)path;
 {
-  if ((self = [super init])) {
-    _shouldLoadBookmarkedStatus = YES;
+  if ((self = [self init])) {
+    self.title = title;
+    self.path = path;
   }
   return self;
 }
@@ -58,6 +67,7 @@
                           page:pageNumber
                        success:^(UZGPaginationData *data) {
                                  UZGPaginationData *episodes = [UZGEpisodeMediaAsset assetsWithPaginationData:data];
+                                 [episodes.entries setValue:self forKey:@"show"];
                                  [episodes.entries setValue:self.copyright forKey:@"copyright"];
                                  success(episodes);
                                }
