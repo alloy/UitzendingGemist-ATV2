@@ -1,8 +1,8 @@
 #import "BackRow.h"
+#import "UZGEpisodeMediaAsset.h"
 
-@class UZGEpisodeMediaAsset;
 
-@interface UZGEpisodeDetailViewController : BRController
+@interface UZGEpisodeDetailViewController : BRController <UZGEpisodeMediaAssetDelegate>
 
 @property (strong) UZGEpisodeMediaAsset *episode;
 

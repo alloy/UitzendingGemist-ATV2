@@ -1,5 +1,23 @@
 #import "UZGEpisodeDetailViewController.h"
-#import "UZGEpisodeMediaAsset.h"
+
+
+@interface UZGButtonControl : BRButtonControl
+@property (copy) dispatch_block_t performAction;
+@end
+
+@implementation UZGButtonControl
+
+- (BOOL)brEventAction:(BREvent *)event;
+{
+  if (event.value == 1 && event.remoteAction == BREventOKButtonAction) {
+    self.performAction();
+    return YES;
+  }
+  return [super brEventAction:event];
+}
+
+@end
+
 
 // TODO need to import this from class-dump
 @protocol ATVItemDetailView_HiddenInterface
@@ -24,6 +42,7 @@
 
 @interface UZGEpisodeDetailViewController ()
 @property (strong) BRControl<ATVItemDetailView_HiddenInterface> *detailView;
+@property (strong) BRMediaPlayer *player;
 @end
 
 @implementation UZGEpisodeDetailViewController
@@ -62,10 +81,21 @@
   return self;
 }
 
+// TODO
+- (void)handleError:(NSError *)error;
+{
+  NSLog(@"ERROR: %@", error);
+}
+
 - (void)layoutSubcontrols;
 {
   [super layoutSubcontrols];
   self.detailView.frame = self.frame;
+}
+
+- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episode hasBeenPlayed:(BOOL)played;
+{
+  episode.duration = (NSUInteger)roundf(self.player.duration);
 }
 
 #pragma mark BRMediaShelfView delegate / dataSource
@@ -79,9 +109,23 @@
 - (id)mediaShelf:(id)shelfView itemAtIndexPath:(NSIndexPath *)indexPath;
 {
   // NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, shelfView, indexPath);
-  return [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] playActionImage]
-                                       subtitle:@"Play" // TODO is this localized?
-                                          badge:nil];
+  UZGButtonControl *button = [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] playActionImage]
+                                                            subtitle:@"Play" // TODO is this localized?
+                                                               badge:nil];
+  button.performAction = ^{
+    NSLog(@"Play episode");
+    [self.episode withMediaURL:^{
+      self.episode.delegate = self;
+      NSError *error = nil;
+      self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:self.episode error:&error];
+      if (error) {
+        [self handleError:error];
+      } else {
+        [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
+      }
+    } failure:^(id _, NSError *error) { [self handleError:error]; }];
+  };
+  return button;
 }
 
 - (NSString *)mediaShelf:(id)shelfView itemIDForIndexPath:(NSIndexPath *)indexPath;
