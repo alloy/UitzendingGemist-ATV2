@@ -1,4 +1,5 @@
 #import "UZGSearchListController.h"
+#import "UZGEpisodeDetailViewController.h"
 
 
 @interface UZGSearchListController ()
@@ -37,6 +38,7 @@
 
 - (void)showTextEntryControl;
 {
+  [self.textEntryControl.textField setString:@"wi"];
   self.list.displaysSelectionWidget = NO;
   [self clearPreviewController];
   [self addControl:self.textEntryControl];
@@ -73,6 +75,11 @@
 - (void)textDidEndEditing:(BRTextFieldControl *)control;
 {
   NSLog(@"TEXT DID END EDITING: %@", control.stringValue);
+}
+
+- (void)selectedAsset:(UZGEpisodeMediaAsset *)episode;
+{
+  [[self stack] pushController:[[UZGEpisodeDetailViewController alloc] initWithEpisode:episode]];
 }
 
 - (void)fetchAssets;

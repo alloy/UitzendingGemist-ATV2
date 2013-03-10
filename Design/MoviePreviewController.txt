@@ -1,0 +1,87 @@
+Mar  9 15:22:46 Apple-TV AppleTV[44]: 
+	-------- Control Tree --------
+	|-- <BRControl: 0xee2af70>
+	|   |-- <BRControl: 0xee56e00>
+	|   |   |-- <BRControllerStack: 0xee56ef0>
+	|   |   |   |-- <ATVFeedItemDetailController: 0x10a4edc0>  <--- YOU ARE HERE
+	|   |   |   |   |-- <ATVItemDetailView: 0x10a4db70>
+	|   |   |   |   |   |-- <BRCoverArtPreviewControl: 0x10a40a40>
+	|   |   |   |   |   |   |-- <BRReflectedImageControl: 0x10b35c10>
+	|   |   |   |   |   |   |   |-- <BRReflectionControl: 0x10b3aa60>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a47290>
+	|   |   |   |   |   |-- <BRDividerControl: 0x10ab2510>
+	|   |   |   |   |   |-- <BRDividerControl: 0x10a7b9c0>
+	|   |   |   |   |   |-- <BRMetadataTitleControl: 0x10a54120>
+	|   |   |   |   |   |   |-- <BRTextControl: 0x10a484f0>
+	|   |   |   |   |   |   |-- <BRTextControl: 0x10a52b40>
+	|   |   |   |   |   |   |-- <BRImageControl: 0x10b35ba0>
+	|   |   |   |   |   |   |-- <BRImageControl: 0xfcf0620>
+	|   |   |   |   |   |-- <BRTextControl: 0x10a3cb50>
+	|   |   |   |   |   |-- <BRTextControl: 0x10a4eb80>
+	|   |   |   |   |   |-- <BRTableView: 0xfceb9c0>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10a4dc00>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10a57e30>
+	|   |   |   |   |   |   |   |-- <BRTextControl: 0xfcbfd70>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10a55a50>
+	|   |   |   |   |   |   |   |-- <BRTextControl: 0x10a55390>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10a74ad0>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10aebed0>
+	|   |   |   |   |   |   |   |   |-- <ATVMusicStoreOfferControl: 0x10a44910>
+	|   |   |   |   |   |   |   |   |   |-- <BRImageControl: 0x10a73860>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10a9c080>
+	|   |   |   |   |   |   |   |-- <BRTextControl: 0x10a80710>
+	|   |   |   |   |   |   |-- <BRTableRow: 0x10aae460>
+	|   |   |   |   |   |   |   |-- <BRTextControl: 0x10aa7c60>
+	|   |   |   |   |   |-- <BRMediaShelfView: 0x10adf460>
+	|   |   |   |   |   |   |-- <BRButtonControl: 0x10af4320>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10b3edc0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10b511a0>
+	|   |   |   |   |   |   |   |-- <BRTextControl: 0x10b53bb0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10b50200>
+	|   |   |   |   |   |-- <BRMediaShelfView: 0x10af0520>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10ac25b0>Bunk
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a45e70>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a61950>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10ae4170>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10a1ead0>Safety Not Guaranteed
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0xfcd8fe0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a62db0>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10a6fe30>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10ab1540>Home Movies
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a8d8b0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a603b0>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10ae2b10>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10af12d0>Jon Benjamin Has a Van
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10ac7a20>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a5c600>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10a08580>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10a49690>The Sarah Silverman Program
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10ac8960>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a5b030>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10a6e340>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10adb3f0>Louis C.K.: Live at the Beacon Theater
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a625c0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a51d80>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10afa520>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10a05b20>Todd and the Book of Pure Evil
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10ab7820>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a4b430>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10a87670>
+	|   |   |   |   |   |   |-- <BRPosterControl: 0x10a6a3d0>Aziz Ansari: Dangerously Delicious
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a472f0>
+	|   |   |   |   |   |   |   |-- <BRImageControl: 0x10a42160>
+	|   |   |   |   |   |   |   |-- <BRAutoScrollingTextControl: 0x10a8ee70>
+	|   |   |   |   |   |-- <BRControl: 0x10ad5ce0>
+	|   |   |   |   |   |   |-- <BRDividerControl: 0x10ac9fc0>
+	|   |   |   |   |   |-- <BRCursorControl: 0x10a64090>
+	|   |   |   |   |   |   |-- <BRStandardCursorLayer: 0x10acb340>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10a3da50>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10af90b0>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10af18e0>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10abb7f0>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10ad7030>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10a73730>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10a4f060>
+	|   |   |   |   |   |   |   |-- <BRControl: 0x10a66580>
+	------------------------------
+
