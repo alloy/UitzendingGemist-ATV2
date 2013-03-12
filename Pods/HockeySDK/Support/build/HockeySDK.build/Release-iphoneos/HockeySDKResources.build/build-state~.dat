@@ -4,363 +4,363 @@ r1
 cCheck dependencies
 cProcessInfoPlistFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist ../Resources/HockeySDK-Info.plist
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png ../Resources/authorize_denied@2x.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png ../Resources/authorize_request@2x.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png ../Resources/authorize_denied.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png ../Resources/authorize_request@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png ../Resources/authorize_request.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png ../Resources/bg.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png ../Resources/buttonHighlight.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png ../Resources/buttonHighlight@2x.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png ../Resources/feedbackActivity~ipad.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png ../Resources/feedbackActivity@2x~ipad.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png ../Resources/IconGradient@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png ../Resources/feedbackActivity@2x~ipad.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png ../Resources/feedbackActivity~ipad.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png ../Resources/feedbackActiviy.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png ../Resources/feedbackActiviy@2x.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png ../Resources/buttonRoundedDelete@2x.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png ../Resources/buttonRoundedDelete.png
-cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png ../Resources/buttonRoundedRegular@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png ../Resources/buttonRoundedDelete@2x.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png ../Resources/buttonRoundedDeleteHighlighted.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png ../Resources/buttonRoundedDeleteHighlighted@2x.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png ../Resources/buttonRoundedRegular.png
+cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png ../Resources/buttonRoundedRegular@2x.png
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png ../Resources/buttonRoundedRegularHighlighted.png
-cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings ../Resources/de.lproj/HockeySDK.strings
 cCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png ../Resources/buttonRoundedRegularHighlighted@2x.png
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings ../Resources/de.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings ../Resources/es.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings ../Resources/fr.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings ../Resources/it.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings ../Resources/ja.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings ../Resources/pt.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings ../Resources/ru.lproj/HockeySDK.strings
-cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings ../Resources/ja.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings ../Resources/hr.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings ../Resources/pt-PT.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings ../Resources/en.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings ../Resources/zh-Hans.lproj/HockeySDK.strings
-cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings ../Resources/pt-PT.lproj/HockeySDK.strings
-cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings ../Resources/hu.lproj/HockeySDK.strings
 cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings ../Resources/ro.lproj/HockeySDK.strings
+cCopyStringsFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings ../Resources/hu.lproj/HockeySDK.strings
 cTouch /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
 
 N../Resources/HockeySDK-Info.plist
-c0000000051365E8400000000000003D2
-t1362517636
+c00000000513142D300000000000003D2
+t1362182867
 s978
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle
-t1362517636
-s1258
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png
-t1362517636
-s3063
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient@2x.png
-t1362517636
-s4089
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/Info.plist
-t1362517636
-s911
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied.png
-t1362517636
-s2652
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_denied@2x.png
-t1362517636
-s4561
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request.png
-t1362517636
-s2809
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/authorize_request@2x.png
-t1362517636
-s5133
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/bg.png
-t1362517636
-s1253
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight.png
-t1362517636
-s1061
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonHighlight@2x.png
-t1362517636
-s1119
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete.png
-t1362517636
-s3323
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDelete@2x.png
-t1362517636
-s3881
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted.png
-t1362517636
-s3428
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedDeleteHighlighted@2x.png
-t1362517636
-s4404
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular.png
-t1362517636
-s3391
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegular@2x.png
-t1362517636
-s3980
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted.png
-t1362517636
-s3661
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/buttonRoundedRegularHighlighted@2x.png
-t1362517636
-s4838
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/de.lproj/HockeySDK.strings
-t1362517636
-s4488
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/en.lproj/HockeySDK.strings
-t1362517636
-s3562
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/es.lproj/HockeySDK.strings
-t1362517636
-s4496
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity@2x~ipad.png
-t1362517636
-s2346
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActivity~ipad.png
-t1362517636
-s1661
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy.png
-t1362517636
-s1537
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/feedbackActiviy@2x.png
-t1362517636
-s2220
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/fr.lproj/HockeySDK.strings
-t1362517636
-s4787
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hr.lproj/HockeySDK.strings
-t1362517636
-s4436
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/hu.lproj/HockeySDK.strings
-t1362517636
-s4928
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/it.lproj/HockeySDK.strings
-t1362517636
-s4141
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ja.lproj/HockeySDK.strings
-t1362517636
-s3630
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt-PT.lproj/HockeySDK.strings
-t1362517636
-s4668
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/pt.lproj/HockeySDK.strings
-t1362517636
-s4496
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ro.lproj/HockeySDK.strings
-t1362517636
-s4655
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/ru.lproj/HockeySDK.strings
-t1362517636
-s4730
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/zh-Hans.lproj/HockeySDK.strings
-t1362517636
-s3266
+t2
+s0
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient.png
-c0000000051365E840000000000000AE6
-t1362517636
+c00000000513142D30000000000000AE6
+t1362182867
 s2790
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/IconGradient@2x.png
-c0000000051365E840000000000000E2C
-t1362517636
+c00000000513142D30000000000000E2C
+t1362182867
 s3628
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied.png
-c0000000051365E840000000000000924
-t1362517636
+c00000000513142D30000000000000924
+t1362182867
 s2340
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_denied@2x.png
-c0000000051365E840000000000001120
-t1362517636
+c00000000513142D30000000000001120
+t1362182867
 s4384
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request.png
-c0000000051365E840000000000000990
-t1362517636
+c00000000513142D30000000000000990
+t1362182867
 s2448
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/authorize_request@2x.png
-c0000000051365E8400000000000012B9
-t1362517636
+c00000000513142D300000000000012B9
+t1362182867
 s4793
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/bg.png
-c0000000051365E840000000000000628
-t1362517636
+c00000000513142D30000000000000628
+t1362182867
 s1576
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight.png
-c0000000051365E8400000000000003FD
-t1362517636
+c00000000513142D300000000000003FD
+t1362182867
 s1021
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonHighlight@2x.png
-c0000000051365E84000000000000044D
-t1362517636
+c00000000513142D3000000000000044D
+t1362182867
 s1101
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete.png
-c0000000051365E840000000000000D58
-t1362517636
+c00000000513142D30000000000000D58
+t1362182867
 s3416
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDelete@2x.png
-c0000000051365E84000000000000104B
-t1362517636
+c00000000513142D3000000000000104B
+t1362182867
 s4171
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted.png
-c0000000051365E840000000000000DD2
-t1362517636
+c00000000513142D30000000000000DD2
+t1362182867
 s3538
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedDeleteHighlighted@2x.png
-c0000000051365E84000000000000125B
-t1362517636
+c00000000513142D3000000000000125B
+t1362182867
 s4699
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular.png
-c0000000051365E840000000000000D1B
-t1362517636
+c00000000513142D30000000000000D1B
+t1362182867
 s3355
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegular@2x.png
-c0000000051365E84000000000000100C
-t1362517636
+c00000000513142D3000000000000100C
+t1362182867
 s4108
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted.png
-c0000000051365E840000000000000E15
-t1362517636
+c00000000513142D30000000000000E15
+t1362182867
 s3605
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/buttonRoundedRegularHighlighted@2x.png
-c0000000051365E84000000000000126D
-t1362517636
+c00000000513142D3000000000000126D
+t1362182867
 s4717
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/de.lproj/HockeySDK.strings
-c0000000051365E8400000000000017FF
-t1362517636
+c00000000513142D300000000000017FF
+t1362182867
 s6143
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/en.lproj/HockeySDK.strings
-c0000000051365E8400000000000016E4
-t1362517636
+c00000000513142D300000000000016E4
+t1362182867
 s5860
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/es.lproj/HockeySDK.strings
-c0000000051365E8400000000000017BB
-t1362517636
+c00000000513142D300000000000017BB
+t1362182867
 s6075
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity@2x~ipad.png
-c0000000051365E8400000000000009CE
-t1362517636
+c00000000513142D300000000000009CE
+t1362182867
 s2510
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActivity~ipad.png
-c0000000051365E8400000000000006C4
-t1362517636
+c00000000513142D300000000000006C4
+t1362182867
 s1732
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy.png
-c0000000051365E84000000000000064E
-t1362517636
+c00000000513142D3000000000000064E
+t1362182867
 s1614
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/feedbackActiviy@2x.png
-c0000000051365E840000000000000932
-t1362517636
+c00000000513142D30000000000000932
+t1362182867
 s2354
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/fr.lproj/HockeySDK.strings
-c0000000051365E84000000000000180D
-t1362517636
+c00000000513142D3000000000000180D
+t1362182867
 s6157
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hr.lproj/HockeySDK.strings
-c0000000051365E84000000000000174E
-t1362517636
+c00000000513142D3000000000000174E
+t1362182867
 s5966
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/hu.lproj/HockeySDK.strings
-c0000000051365E840000000000001806
-t1362517636
+c00000000513142D30000000000001806
+t1362182867
 s6150
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/it.lproj/HockeySDK.strings
-c0000000051365E8400000000000017B5
-t1362517636
+c00000000513142D300000000000017B5
+t1362182867
 s6069
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ja.lproj/HockeySDK.strings
-c0000000051365E84000000000000192F
-t1362517636
+c00000000513142D3000000000000192F
+t1362182867
 s6447
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt-PT.lproj/HockeySDK.strings
-c0000000051365E8400000000000017BB
-t1362517636
+c00000000513142D300000000000017BB
+t1362182867
 s6075
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/pt.lproj/HockeySDK.strings
-c0000000051365E8400000000000017A5
-t1362517636
+c00000000513142D300000000000017A5
+t1362182867
 s6053
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ro.lproj/HockeySDK.strings
-c0000000051365E840000000000001754
-t1362517636
+c00000000513142D30000000000001754
+t1362182867
 s5972
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/ru.lproj/HockeySDK.strings
-c0000000051365E840000000000001AE1
-t1362517636
+c00000000513142D30000000000001AE1
+t1362182867
 s6881
 
 N/Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/zh-Hans.lproj/HockeySDK.strings
-c0000000051365E8400000000000016FC
-t1362517636
+c00000000513142D300000000000016FC
+t1362182867
 s5884
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesc34720cbc6efb641^73a235cbc6efb641^---0#1#0#--18"Check dependencies36"7FB26AE8-6BA7-4F46-9177-3B95A808FC24-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies1ac49b577ae1b641^a629b6577ae1b641^---0#1#0#--18"Check dependencies36"6CB4B385-BBD5-4608-99AC-4B4AE1C123DC-
 
 CCopyPNGFile /Users/eloy/Code/ATV/UitzendingGemist/UitzendingGemist/Pods/HockeySDK/Support/../Resources/HockeySDKResources.bundle/IconGradient.png ../Resources/IconGradient.png
 s383875671.840589

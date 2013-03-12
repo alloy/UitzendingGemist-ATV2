@@ -6,4 +6,5 @@ pod "HockeySDK"
 
 pod "AFNetworking"
 pod "AFHTTPRequestOperationLogger"
+pod "DCTCoreDataStack", :podspec => "DCTCoreDataStack.podspec"
 pod "Objective-C-HMTL-Parser"
