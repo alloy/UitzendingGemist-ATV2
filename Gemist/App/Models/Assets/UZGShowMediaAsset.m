@@ -8,7 +8,12 @@
 
 @implementation UZGShowMediaAsset
 
-@synthesize bookmarked = _bookmarked;
+@dynamic title;
+@dynamic mediaSummary;
+@dynamic copyright;
+@dynamic previewURLString;
+
+@synthesize bookmarked = _bookmarked, shouldLoadBookmarkedStatus = _shouldLoadBookmarkedStatus;
 
 + (void)showsWithTitleInitial:(NSString *)initial
                          page:(NSUInteger)pageNumber
@@ -74,25 +79,28 @@
                        failure:failure];
 }
 
+// TODO
 - (BOOL)isBookmarked;
 {
-  if (self.shouldLoadBookmarkedStatus) {
-    self.shouldLoadBookmarkedStatus = NO;
-    _bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
-  }
-  return _bookmarked;
+  //if (self.shouldLoadBookmarkedStatus) {
+    //self.shouldLoadBookmarkedStatus = NO;
+    //_bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
+  //}
+  //return _bookmarked;
+  return NO;
 }
 
+// TODO
 - (void)setBookmarked:(BOOL)bookmarked;
 {
-  if (_bookmarked != bookmarked) {
-    _bookmarked = bookmarked;
-    // No need to serialize when we'll be removing from the store.
-    NSDictionary *attributes = bookmarked ? [self serializeAsDictionary] : nil;
-    [[UZGPlistStore sharedStore] setHasBookmarkedShow:bookmarked
-                                              forPath:self.path
-                                           attributes:attributes];
-  }
+  //if (_bookmarked != bookmarked) {
+    //_bookmarked = bookmarked;
+    //// No need to serialize when we'll be removing from the store.
+    //NSDictionary *attributes = bookmarked ? [self serializeAsDictionary] : nil;
+    //[[UZGPlistStore sharedStore] setHasBookmarkedShow:bookmarked
+                                              //forPath:self.path
+                                           //attributes:attributes];
+  //}
 }
 
 - (void)toggleBookmarked;

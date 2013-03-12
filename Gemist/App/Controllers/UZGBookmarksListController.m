@@ -1,5 +1,4 @@
 #import "UZGBookmarksListController.h"
-#import "UZGPlistStore.h"
 #import "UZGEpisodesListController.h"
 #import "UZGClient.h"
 #import "UZGShowMediaAsset.h"
@@ -14,7 +13,9 @@
 - (id)init;
 {
   if ((self = [super init])) {
-    _bookmarks = [[UZGPlistStore sharedStore] allBookmarkedShows];
+    // TODO
+    // _bookmarks = [[UZGPlistStore sharedStore] allBookmarkedShows];
+    _bookmarks = [NSArray new];
     self.header.title = UZGLocalizedString(@"Favorites");
     self.list.datasource = self;
   }

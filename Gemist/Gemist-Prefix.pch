@@ -7,6 +7,8 @@
   #import <QuartzCore/QuartzCore.h>
   #import "BackRow.h"
 
+  #import <CoreData/CoreData.h>
+
   // Not all APIs in UIKit can be used on the Apple TV, but there are some.
   #import <UIKit/UIKit.h>
 

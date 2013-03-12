@@ -14,6 +14,8 @@
 		5100D58916D05E55004E2D5E /* BREvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58816D05E55004E2D5E /* BREvent.m */; };
 		5100D58C16D2DD90004E2D5E /* UZGShowMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58B16D2DD90004E2D5E /* UZGShowMediaAsset.m */; };
 		5100D58D16D2DD90004E2D5E /* UZGShowMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5100D58B16D2DD90004E2D5E /* UZGShowMediaAsset.m */; };
+		5122C73916ED35EE007A69E7 /* Gemist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5122C73716ED35EE007A69E7 /* Gemist.xcdatamodeld */; };
+		5122C73A16ED35EE007A69E7 /* Gemist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5122C73716ED35EE007A69E7 /* Gemist.xcdatamodeld */; };
 		5167275416AB3B7D000C7E17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC316A87F140020589D /* Foundation.framework */; };
 		5167275516AB3B7D000C7E17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5108FBC516A87F140020589D /* CoreGraphics.framework */; };
 		5167275716AB3B7D000C7E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167275616AB3B7D000C7E17 /* QuartzCore.framework */; };
@@ -102,6 +104,7 @@
 		5108FBC516A87F140020589D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		511903ED16AAEC79006E7359 /* BRApplianceCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRApplianceCategory.m; sourceTree = "<group>"; };
 		511903EE16AAEC79006E7359 /* BRBaseAppliance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseAppliance.m; sourceTree = "<group>"; };
+		5122C73816ED35EE007A69E7 /* Gemist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gemist.xcdatamodel; sourceTree = "<group>"; };
 		5167275316AB3B7D000C7E17 /* Gemist.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gemist.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		5167275616AB3B7D000C7E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5167275A16AB3B7D000C7E17 /* Gemist-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gemist-Info.plist"; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				5167275E16AB3B7D000C7E17 /* Gemist-Prefix.pch */,
 				517C3DCD16ACA4D200270F3D /* InfoPlist.strings */,
 				5100D54716CD8F53004E2D5E /* Localizable.strings */,
+				5122C73716ED35EE007A69E7 /* Gemist.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -597,6 +601,7 @@
 				51E0947516E166F400027E5D /* UZGBaseListController.m in Sources */,
 				51FE2EB016EA9AA4000B69E0 /* UZGSearchListController.m in Sources */,
 				51FE2EB416EB8FE3000B69E0 /* UZGEpisodeDetailViewController.m in Sources */,
+				5122C73916ED35EE007A69E7 /* Gemist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +648,7 @@
 				51E0947616E166F400027E5D /* UZGBaseListController.m in Sources */,
 				51FE2EB116EA9AA4000B69E0 /* UZGSearchListController.m in Sources */,
 				51FE2EB516EB8FE3000B69E0 /* UZGEpisodeDetailViewController.m in Sources */,
+				5122C73A16ED35EE007A69E7 /* Gemist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,7 +741,7 @@
 				ARCHS = armv7;
 				ATV_ADDRESS = "apple-tv.local";
 				ATV_APPLIANCE_INSTALL_PATH = /Applications/AppleTV.app/Appliances;
-				ATV_DEPLOY_TO_DEVICE = YES;
+				ATV_DEPLOY_TO_DEVICE = NO;
 				ATV_SSH_USER = root;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
@@ -783,7 +789,7 @@
 				ARCHS = armv7;
 				ATV_ADDRESS = "apple-tv.local";
 				ATV_APPLIANCE_INSTALL_PATH = /Applications/AppleTV.app/Appliances;
-				ATV_DEPLOY_TO_DEVICE = YES;
+				ATV_DEPLOY_TO_DEVICE = NO;
 				ATV_SSH_USER = root;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
@@ -895,6 +901,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5122C73716ED35EE007A69E7 /* Gemist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5122C73816ED35EE007A69E7 /* Gemist.xcdatamodel */,
+			);
+			currentVersion = 5122C73816ED35EE007A69E7 /* Gemist.xcdatamodel */;
+			path = Gemist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5108FBB416A87F140020589D /* Project object */;
 }

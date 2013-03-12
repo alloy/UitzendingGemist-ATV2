@@ -3,6 +3,10 @@
 
 @implementation UZGBaseMediaAsset
 
+@dynamic path;
+
+@synthesize title = _title, mediaSummary = _mediaSummary, copyright = _copyright, previewURLString = _previewURLString;
+
 + (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData;
 {
   NSMutableArray *assets = [[NSMutableArray alloc] initWithCapacity:paginationData.entries.count];
@@ -15,14 +19,26 @@
   return result;
 }
 
-- (NSString *)previewURLString;
++ (instancetype)assetByPath:(NSString *)path
+     inManagedObjectContext:(NSManagedObjectContext *)context;
 {
-  return [self.previewURL absoluteString];
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(self)];
+  request.predicate = [NSPredicate predicateWithFormat:@"path == %@", path];
+  NSError *error = nil;
+  NSArray *result = [context executeFetchRequest:request error:&error];
+  NSAssert(error == nil, @"Fetch request error: %@", error);
+  NSAssert(result.count <= 1, @"More than one asset with the same path found: %@", result);
+  return result[0];
 }
 
-- (void)setPreviewURLString:(NSString *)previewURLString;
+- (NSURL *)previewURL;
 {
-  self.previewURL = [NSURL URLWithString:previewURLString];
+  return [NSURL URLWithString:self.previewURLString];
+}
+
+- (void)setPreviewURL:(NSURL *)previewURL;
+{
+  self.previewURLString = [previewURL absoluteString];
 }
 
 - (id)imageProxy;

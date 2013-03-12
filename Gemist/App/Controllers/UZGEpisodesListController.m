@@ -1,5 +1,4 @@
 #import "UZGEpisodesListController.h"
-#import "UZGPlistStore.h"
 #import "UZGShowMediaAsset.h"
 
 //#import "BRURLImageProxy.h"
@@ -59,16 +58,18 @@
 - (BRMenuItem *)itemForAsset:(UZGEpisodeMediaAsset *)episode;
 {
   BRMenuItem *item = [super itemForAsset:episode];
-  // TODO move to episode instance
-  UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
-  switch (status) {
-    case UZGEpisodeUnplayedStatus:
-       [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
-       break;
-    case UZGEpisodeUnplayedPartialStatus:
-      [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
-      break;
-  }
+
+  // TODO
+  //UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
+  //switch (status) {
+    //case UZGEpisodeUnplayedStatus:
+       //[item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+       //break;
+    //case UZGEpisodeUnplayedPartialStatus:
+      //[item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
+      //break;
+  //}
+
   if (self.loadingEpisode && [self.loadingEpisode.path isEqualToString:episode.path]) {
     [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
   }

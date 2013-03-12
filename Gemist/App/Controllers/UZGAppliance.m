@@ -3,7 +3,11 @@
 #import "UZGSearchListController.h"
 #import "UZGShowsListController.h"
 #import "UZGClient.h"
+
 #import "UZGPlistStore.h"
+#import "DCTCoreDataStack.h"
+#import "UZGShowMediaAsset.h"
+#import "UZGEpisodeMediaAsset.h"
 
 #import "AFHTTPRequestOperationLogger.h"
 
@@ -58,6 +62,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 #else
 @interface UZGAppliance ()
 #endif
+@property (strong) DCTCoreDataStack *coreDataStack;
 @end
 
 @implementation UZGAppliance
@@ -66,7 +71,6 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 {
   NSLog(@"[Gemist] Clean up.");
   [UZGClient cleanUp];
-  [UZGPlistStore cleanUp];
   // TODO disable crash reporter?
 }
 
@@ -75,6 +79,9 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
   if ((self = [super init])) {
     NSLog(@"[Gemist] Start appliance");
     self.applianceInfo = [UZGApplianceInfo new];
+
+    [self setupCoreDataStack];
+
 
     NSMutableArray *categories = [NSMutableArray array];
     [categories addObject:[BRApplianceCategory categoryWithName:UZGLocalizedString(kUZGBookmarksCategoryIdentifier)
@@ -103,6 +110,52 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
     //[NSURLCache setSharedURLCache:URLCache];
   }
   return self;
+}
+
+- (void)setupCoreDataStack;
+{
+  NSString *storePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/nl.superalloy.Gemist/Store.sqlite"];
+
+  NSFileManager *fm = [NSFileManager defaultManager];
+  BOOL migrateFromPlistStore = ![fm fileExistsAtPath:storePath] && [fm fileExistsAtPath:[UZGPlistStore storePath]];
+
+  _coreDataStack = [[DCTCoreDataStack alloc] initWithStoreURL:[NSURL fileURLWithPath:storePath]
+                                                    storeType:NSSQLiteStoreType
+                                                 storeOptions:nil
+                                           modelConfiguration:nil
+                                                     modelURL:[UZGBundle URLForResource:@"Gemist" withExtension:@"momd"]];
+
+  if (migrateFromPlistStore) {
+    NSLog(@"Migrating plist store:");
+    UZGPlistStore *store = [UZGPlistStore new];
+
+    NSLog(@"* Migrating episodes data.");
+    for (NSString *path in store.episodePaths) {
+      UZGEpisodeMediaAsset *episode = [NSEntityDescription insertNewObjectForEntityForName:@"UZGEpisodeMediaAsset"
+                                                                    inManagedObjectContext:_coreDataStack.managedObjectContext];
+      episode.path = path;
+      episode.hasBeenPlayed = YES;
+      episode.duration = [store durationOfEpisodeForPath:path];
+      episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
+      NSLog(@"%@", episode);
+    }
+
+    NSLog(@"* Migrating favorites data.");
+    for (NSString *path in store.shows) {
+      UZGShowMediaAsset *show = [NSEntityDescription insertNewObjectForEntityForName:@"UZGShowMediaAsset"
+                                                              inManagedObjectContext:_coreDataStack.managedObjectContext];
+      show.path = path;
+      [show setValuesForKeysWithDictionary:store.shows[path]];
+      NSLog(@"%@", show);
+    }
+
+    [_coreDataStack.managedObjectContext dct_saveWithCompletionHandler:^(BOOL success, NSError *error) {
+      if (!success) {
+        NSString *message = [_coreDataStack.managedObjectContext dct_detailedDescriptionFromValidationError:error];
+        NSAssert(NO, @"Failed to save migrated plist store data: %@", message ?: error);
+      }
+    }];
+  }
 }
 
 - (id)identifierForContentAlias:(id)contentAlias; { return kUitzendingGemistName; }

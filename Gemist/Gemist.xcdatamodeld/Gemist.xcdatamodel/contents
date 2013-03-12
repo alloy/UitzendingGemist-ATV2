@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="UZGBaseMediaAsset" isAbstract="YES" syncable="YES">
+        <attribute name="path" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UZGEpisodeMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
+        <attribute name="bookmarkTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="hasBeenPlayed" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+    </entity>
+    <entity name="UZGShowMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
+        <attribute name="copyright" attributeType="String" syncable="YES"/>
+        <attribute name="mediaSummary" attributeType="String" syncable="YES"/>
+        <attribute name="previewURLString" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UZGBaseMediaAsset" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="UZGEpisodeMediaAsset" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="UZGShowMediaAsset" positionX="160" positionY="192" width="128" height="105"/>
+    </elements>
+</model>

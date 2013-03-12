@@ -10,8 +10,12 @@
 
 @interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset>
 
-@property (weak) id<UZGEpisodeMediaAssetDelegate> delegate;
+// Managed object properties
 @property (assign) NSUInteger duration;
+@property (assign) NSUInteger bookmarkTimeInSeconds;
+@property (assign) BOOL hasBeenPlayed;
+
+@property (weak) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (strong) NSString *mediaURL;
 
 @property (strong) NSString *showTitle;

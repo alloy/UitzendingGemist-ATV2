@@ -1,11 +1,16 @@
 #import "UZGEpisodeMediaAsset.h"
 #import "UZGShowMediaAsset.h"
-#import "UZGPlistStore.h"
 
-@interface UZGEpisodeMediaAsset ()
+@interface UZGEpisodeMediaAsset (PrimitiveAccessors)
+@property (nonatomic) NSNumber *primitiveDuration;
+@property (nonatomic) NSNumber *primitiveBookmarkTimeInSeconds;
+@property (nonatomic) NSNumber *primitiveHasBeenPlayed;
 @end
 
 @implementation UZGEpisodeMediaAsset
+
+// TODO no idea why I suddenly have to synthesize these since using Core Data...
+@synthesize delegate = _delegate, mediaURL = _mediaURL, show = _show, showPath = _showPath, showTitle = _showTitle;
 
 + (void)episodesWithSearchQuery:(NSString *)query
                            page:(NSUInteger)pageNumber
@@ -47,7 +52,57 @@
                               failure:failure];
 }
 
-#pragma mark - Actually implemented
+#pragma mark - Core Data scalar accessors
+
+- (NSUInteger)duration;
+{
+  [self willAccessValueForKey:@"duration"];
+  NSNumber *duration = self.primitiveDuration;
+  [self didAccessValueForKey:@"duration"];
+  return duration == nil ? 0 : duration.unsignedIntegerValue;
+}
+
+- (void)setDuration:(NSUInteger)duration;
+{
+  NSNumber *tmp = @(duration);
+  [self willChangeValueForKey:@"duration"];
+  self.primitiveDuration = tmp;
+  [self didChangeValueForKey:@"duration"];
+}
+
+- (NSUInteger)bookmarkTimeInSeconds;
+{
+  [self willAccessValueForKey:@"bookmarkTimeInSeconds"];
+  NSNumber *bookmarkTimeInSeconds = self.primitiveBookmarkTimeInSeconds;
+  [self didAccessValueForKey:@"bookmarkTimeInSeconds"];
+  return bookmarkTimeInSeconds == nil ? 0 : bookmarkTimeInSeconds.unsignedIntegerValue;
+}
+
+- (void)setBookmarkTimeInSeconds:(NSUInteger)bookmarkTimeInSeconds;
+{
+  NSNumber *tmp = @(bookmarkTimeInSeconds);
+  [self willChangeValueForKey:@"bookmarkTimeInSeconds"];
+  self.primitiveBookmarkTimeInSeconds = tmp;
+  [self didChangeValueForKey:@"bookmarkTimeInSeconds"];
+}
+
+- (BOOL)hasBeenPlayed;
+{
+  [self willAccessValueForKey:@"hasBeenPlayed"];
+  NSNumber *hasBeenPlayed = self.primitiveHasBeenPlayed;
+  [self didAccessValueForKey:@"hasBeenPlayed"];
+  return [hasBeenPlayed boolValue];
+}
+
+- (void)setHasBeenPlayed:(BOOL)hasBeenPlayed;
+{
+  NSNumber *tmp = @(hasBeenPlayed);
+  [self willChangeValueForKey:@"hasBeenPlayed"];
+  self.primitiveHasBeenPlayed = tmp;
+  [self didChangeValueForKey:@"hasBeenPlayed"];
+}
+
+#pragma mark - BRMediaAsset
 
 // TODO Check if this is really required for an episode to be accepted by the
 // playback manager, because this breaks our custom metadata preview control.
@@ -65,38 +120,38 @@
   //return [highQuality absoluteString];
 //}
 
-- (BOOL)hasBeenPlayed;
-{
-  return [[UZGPlistStore sharedStore] playedEpisodeForPath:self.path];
-}
+//- (BOOL)hasBeenPlayed;
+//{
+  //return [[UZGPlistStore sharedStore] playedEpisodeForPath:self.path];
+//}
 
-- (void)setHasBeenPlayed:(BOOL)played;
-{
-  [[UZGPlistStore sharedStore] setPlayed:played forEpisodePath:self.path];
-  [self.delegate episodeMediaAsset:self hasBeenPlayed:played];
-}
+//- (void)setHasBeenPlayed:(BOOL)played;
+//{
+  //[[UZGPlistStore sharedStore] setPlayed:played forEpisodePath:self.path];
+  //[self.delegate episodeMediaAsset:self hasBeenPlayed:played];
+//}
 
-- (NSUInteger)duration;
-{
-  return [[UZGPlistStore sharedStore] durationOfEpisodeForPath:self.path];
-}
+//- (NSUInteger)duration;
+//{
+  //return [[UZGPlistStore sharedStore] durationOfEpisodeForPath:self.path];
+//}
 
-- (void)setDuration:(NSUInteger)duration;
-{
-  [[UZGPlistStore sharedStore] setDuration:duration forEpisodePath:self.path];
-}
+//- (void)setDuration:(NSUInteger)duration;
+//{
+  //[[UZGPlistStore sharedStore] setDuration:duration forEpisodePath:self.path];
+//}
 
-// Called when paused and when the user stops playback by navigating back.
-- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
-{
-  [[UZGPlistStore sharedStore] setBookmarkTime:seconds forEpisodePath:self.path];
-  [self.delegate episodeMediaAssetDidStopPlayback:self];
-}
+//// Called when paused and when the user stops playback by navigating back.
+//- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
+//{
+  //[[UZGPlistStore sharedStore] setBookmarkTime:seconds forEpisodePath:self.path];
+  //[self.delegate episodeMediaAssetDidStopPlayback:self];
+//}
 
-- (unsigned int)bookmarkTimeInSeconds;
-{
-  return [[UZGPlistStore sharedStore] bookmarkTimeForEpisodePath:self.path];
-}
+//- (unsigned int)bookmarkTimeInSeconds;
+//{
+  //return [[UZGPlistStore sharedStore] bookmarkTimeForEpisodePath:self.path];
+//}
 
 #pragma mark BRMediaPreviewFactoryDelegate
 
@@ -425,5 +480,6 @@
 - (void)loadImage:(id)loader{
   // NSLog(@"%s (%d)", __PRETTY_FUNCTION__, __LINE__);
 }
+
 
 @end
