@@ -39,7 +39,7 @@
 #import <objc/runtime.h>
 #include <sys/xattr.h>
 
-#if TARGET_OS_IPHONE
+#if 0 //TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #endif
 
@@ -56,7 +56,7 @@ NSString *const DCTCoreDataStackExcludeFromBackupStoreOption = @"DCTCoreDataStac
 
 #pragma mark - NSObject
 
-#if TARGET_OS_IPHONE
+#if 0 //TARGET_OS_IPHONE
 
 - (void)dealloc {
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
@@ -95,7 +95,7 @@ NSString *const DCTCoreDataStackExcludeFromBackupStoreOption = @"DCTCoreDataStac
 		return NO;
 	};
 	
-#if TARGET_OS_IPHONE
+#if 0 //TARGET_OS_IPHONE
 	
 	UIApplication *app = [UIApplication sharedApplication];
 	NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
@@ -241,7 +241,7 @@ NSString *const DCTCoreDataStackExcludeFromBackupStoreOption = @"DCTCoreDataStac
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#if TARGET_OS_IPHONE
+#if 0 //TARGET_OS_IPHONE
 
 - (void)_applicationDidEnterBackgroundNotification:(NSNotification *)notification {
 	
