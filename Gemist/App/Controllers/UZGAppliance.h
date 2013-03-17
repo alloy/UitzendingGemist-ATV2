@@ -5,3 +5,4 @@
 @property (nonatomic, strong) NSArray *applianceCategories;
 
 @end
+

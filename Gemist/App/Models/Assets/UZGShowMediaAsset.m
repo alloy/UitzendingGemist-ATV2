@@ -15,6 +15,17 @@
 
 @synthesize bookmarked = _bookmarked, shouldLoadBookmarkedStatus = _shouldLoadBookmarkedStatus;
 
+// All stored shows are favorites.
++ (NSArray *)favoritedShowsInContext:(NSManagedObjectContext *)context;
+{
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"UZGShowMediaAsset"];
+  NSError *error = nil;
+  NSArray *result = [context executeFetchRequest:request error:&error];
+  NSAssert(error == nil, @"Fetch request error: %@", error);
+  return result;
+
+}
+
 + (void)showsWithTitleInitial:(NSString *)initial
                          page:(NSUInteger)pageNumber
                       success:(UZGPaginationDataBlock)success

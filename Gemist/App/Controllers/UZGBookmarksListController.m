@@ -10,12 +10,10 @@
 
 @implementation UZGBookmarksListController
 
-- (id)init;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
 {
-  if ((self = [super init])) {
-    // TODO
-    // _bookmarks = [[UZGPlistStore sharedStore] allBookmarkedShows];
-    _bookmarks = [NSArray new];
+  if ((self = [super initWithContext:context])) {
+    _bookmarks = [UZGShowMediaAsset favoritedShowsInContext:context];
     self.header.title = UZGLocalizedString(@"Favorites");
     self.list.datasource = self;
   }

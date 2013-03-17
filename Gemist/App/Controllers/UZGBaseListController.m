@@ -2,6 +2,14 @@
 
 @implementation UZGBaseListController
 
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+{
+  if ((self = [super init])) {
+    _managedObjectContext = context;
+  }
+  return self;
+}
+
 // Wrap around at top and bottom.
 - (BOOL)brEventAction:(BREvent *)event;
 {

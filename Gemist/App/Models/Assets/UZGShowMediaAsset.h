@@ -4,6 +4,8 @@
 
 @property (nonatomic, assign, getter=isBookmarked) BOOL bookmarked;
 
++ (NSArray *)favoritedShowsInContext:(NSManagedObjectContext *)context;
+
 + (void)showsWithTitleInitial:(NSString *)initial
                          page:(NSUInteger)pageNumber
                       success:(UZGPaginationDataBlock)success

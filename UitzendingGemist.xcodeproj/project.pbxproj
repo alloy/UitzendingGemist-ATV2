@@ -741,7 +741,7 @@
 				ARCHS = armv7;
 				ATV_ADDRESS = "apple-tv.local";
 				ATV_APPLIANCE_INSTALL_PATH = /Applications/AppleTV.app/Appliances;
-				ATV_DEPLOY_TO_DEVICE = NO;
+				ATV_DEPLOY_TO_DEVICE = YES;
 				ATV_SSH_USER = root;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
@@ -789,7 +789,7 @@
 				ARCHS = armv7;
 				ATV_ADDRESS = "apple-tv.local";
 				ATV_APPLIANCE_INSTALL_PATH = /Applications/AppleTV.app/Appliances;
-				ATV_DEPLOY_TO_DEVICE = NO;
+				ATV_DEPLOY_TO_DEVICE = YES;
 				ATV_SSH_USER = root;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
