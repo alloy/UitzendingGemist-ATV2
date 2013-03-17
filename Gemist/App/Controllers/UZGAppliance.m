@@ -50,6 +50,11 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 
 @end
 
+
+#ifdef DEBUG
+#import "PDDebugger.h"
+#endif
+
 // TODO not in actual release!!
 // Only needed for beta testing.
 //#ifdef DEBUG
@@ -64,6 +69,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 #else
 @interface UZGAppliance ()
 #endif
+@property (assign) BOOL firstLaunch;
 @property (strong) TMCoreData *coreDataStack;
 @end
 
@@ -80,6 +86,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 {
   if ((self = [super init])) {
     NSLog(@"[Gemist] Start appliance");
+    _firstLaunch = YES;
     self.applianceInfo = [UZGApplianceInfo new];
 
     // TODO lazy-load, it's not needed when beigelist does its thing
@@ -183,27 +190,40 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 {
   BRController *controller = nil;
 
-  if (self.needsMigration) {
-    controller = [[BRTextWithSpinnerController alloc] initWithTitle:@"Migrating Data"
-                                                               text:@"Please wait until the process finishes."];
-  }
-  // TODO for now here so that it's not called when beigelist tries to
-  // determine what type of appliance this is.
-  [self setupCoreDataStack];
+  if (self.firstLaunch) {
+    self.firstLaunch = NO;
+
+    if (self.needsMigration) {
+      controller = [[BRTextWithSpinnerController alloc] initWithTitle:@"Migrating Data"
+                                                                 text:@"Please wait until the process finishes."];
+    }
+    // TODO for now here so that it's not called when beigelist tries to
+    // determine what type of appliance this is.
+    [self setupCoreDataStack];
+
+#ifdef DEBUG
+    PDDebugger *debugger = [PDDebugger defaultInstance];
+    [debugger enableNetworkTrafficDebugging];
+    [debugger forwardAllNetworkTraffic];
+    [debugger enableCoreDataDebugging];
+    [debugger addManagedObjectContext:self.coreDataStack.mainThreadContext withName:@"Gemist Context"];
+    [debugger autoConnect];
+#endif
 
 // TODO fix!
 //#ifdef ENABLE_BETA_FEATURES
-  //if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
-    //controller = [self betaTestController];
-  //}
-  //// Always start manager before possibly returning controller.
-  //[self startHockeyManager];
+    //if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
+      //controller = [self betaTestController];
+    //}
+    //// Always start manager before possibly returning controller.
+    //[self startHockeyManager];
 
-  //// Test the crash reporter.
-  ////dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-    ////[@"" performSelector:@selector(ohNoes)];
-  ////});
+    //// Test the crash reporter.
+    ////dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+      ////[@"" performSelector:@selector(ohNoes)];
+    ////});
 //#endif
+  }
 
   if (controller == nil) {
     if ([identifier isEqualToString:kUZGSearchCategoryIdentifier]) {

@@ -5,6 +5,9 @@ PODS:
 - AFNetworking (1.1.0)
 - HockeySDK (3.0.0)
 - Objective-C-HMTL-Parser (0.0.1)
+- PonyDebugger (0.2.1beta1):
+  - SocketRocket
+- SocketRocket (0.2.0)
 - TMCoreData (0.0.1)
 
 DEPENDENCIES:
@@ -12,6 +15,7 @@ DEPENDENCIES:
 - AFNetworking
 - HockeySDK
 - Objective-C-HMTL-Parser
+- PonyDebugger
 - TMCoreData (from `/Users/eloy/Code/Objective-C/TMCoreData')
 
 EXTERNAL SOURCES:
@@ -23,6 +27,8 @@ SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   HockeySDK: 35b80d5cc522b0f53beb5583c635e42ecce69743
   Objective-C-HMTL-Parser: 4fca85e186a829cfe8db8e316e9688571ea4dfed
+  PonyDebugger: 6ca8e78566f917a24fc7e45f742de4b2d847afcf
+  SocketRocket: a0529878e3c4c200196fa3a7e2ac1ef34aa33ffe
   TMCoreData: 9dbd588ea9d43edfc92ab7889b1cd10c8f111a49
 
 COCOAPODS: 0.16.4
