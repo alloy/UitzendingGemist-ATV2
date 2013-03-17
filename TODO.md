@@ -25,6 +25,7 @@
 
 ##### Enhancements
 
+* Why do episodes show up in the base entity list, but shows do not? (See PonyDebugger browser.)
 * Make sure it works with iphone remote app. E.g. swiping
 * Don't use capitalized name in deb control file / package name.
 * Finish localization.

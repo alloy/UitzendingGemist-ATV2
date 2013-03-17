@@ -144,35 +144,36 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
   self.coreDataStack = [[TMCoreData alloc] initWithLocalStoreURL:[NSURL fileURLWithPath:storePath]
                                                      objectModel:[NSManagedObjectModel mergedModelFromBundles:@[UZGBundle]]];
 
-  if (migrate) {
-    [self.coreDataStack saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
-      NSLog(@"[Gemist] Migrating plist store:");
-      UZGPlistStore *store = [UZGPlistStore new];
+  if (migrate) [self migrateFromPlistStoreToCoreDataStack];
+}
 
-      NSLog(@"[Gemist] * Migrating episodes data.");
-      for (NSString *path in store.episodePaths) {
-        UZGEpisodeMediaAsset *episode = [NSEntityDescription insertNewObjectForEntityForName:@"UZGEpisodeMediaAsset"
-                                                                      inManagedObjectContext:context];
-        episode.path = path;
-        // TODO
-        episode.hasBeenPlayed = YES;
-        episode.duration = [store durationOfEpisodeForPath:path];
-        episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
-      }
+- (void)migrateFromPlistStoreToCoreDataStack;
+{
+  [self.coreDataStack saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
+    NSLog(@"[Gemist] Migrating plist store:");
+    UZGPlistStore *store = [UZGPlistStore new];
 
-      NSLog(@"[Gemist] * Migrating favorites data.");
-      for (NSString *path in store.shows) {
-        UZGShowMediaAsset *show = [NSEntityDescription insertNewObjectForEntityForName:@"UZGShowMediaAsset"
-                                                                inManagedObjectContext:context];
-        show.path = path;
-        [show setValuesForKeysWithDictionary:store.shows[path]];
-      }
-    } completion:^{
-      BRControllerStack *stack = [[BRApplicationStackManager singleton] stack];
-      [stack popController];
-      [stack pushController:[[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext]];
-    }];
-  }
+    NSLog(@"[Gemist] * Migrating episodes data.");
+    for (NSString *path in store.episodePaths) {
+      UZGEpisodeMediaAsset *episode = [UZGEpisodeMediaAsset createInContext:context];
+      episode.path = path;
+      // TODO
+      episode.hasBeenPlayed = YES;
+      episode.duration = [store durationOfEpisodeForPath:path];
+      episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
+    }
+
+    NSLog(@"[Gemist] * Migrating favorites data.");
+    for (NSString *path in store.shows) {
+      UZGShowMediaAsset *show = [UZGShowMediaAsset createInContext:context];
+      show.path = path;
+      [show setValuesForKeysWithDictionary:store.shows[path]];
+    }
+  } completion:^{
+    BRControllerStack *stack = [[BRApplicationStackManager singleton] stack];
+    [stack popController];
+    [stack pushController:[[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext]];
+  }];
 }
 
 - (id)identifierForContentAlias:(id)contentAlias; { return kUitzendingGemistName; }
