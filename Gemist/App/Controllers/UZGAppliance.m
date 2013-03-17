@@ -6,7 +6,6 @@
 
 // TODO remove
 #import "UZGPlistStore.h"
-#import "TMCoreData.h"
 
 #import "UZGShowMediaAsset.h"
 #import "UZGEpisodeMediaAsset.h"

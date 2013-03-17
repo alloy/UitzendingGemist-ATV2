@@ -16,10 +16,9 @@
 
 @implementation UZGEpisodesListController
 
-
-- (id)initWithShow:(UZGShowMediaAsset *)show;
+- (id)initWithShow:(UZGShowMediaAsset *)show context:(NSManagedObjectContext *)context;
 {
-  if ((self = [super init])) {
+  if ((self = [super initWithContext:context])) {
     self.defaultAsset = show;
 
     self.realTitle = show.title;
@@ -105,6 +104,7 @@
 {
   [super fetchAssets];
   [self.show episodesAtPage:self.currentPage
+                    context:self.managedObjectContext
                     success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
                     failure:^(id _, NSError *error) { [self handleError:error]; }];
 }

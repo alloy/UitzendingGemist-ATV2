@@ -5,6 +5,6 @@
 
 @interface UZGEpisodesListController : UZGAssetsListController <BRMenuListItemProvider, UZGEpisodeMediaAssetDelegate>
 
-- (id)initWithShow:(UZGShowMediaAsset *)show;
+- (id)initWithShow:(UZGShowMediaAsset *)show context:(NSManagedObjectContext *)context;
 
 @end

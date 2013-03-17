@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UZGShowMediaAsset *show;
 
 + (void)episodesWithSearchQuery:(NSString *)query
+                        context:(NSManagedObjectContext *)context
                            page:(NSUInteger)pageNumber
                         success:(UZGPaginationDataBlock)success
                         failure:(UZGFailureBlock)failure;

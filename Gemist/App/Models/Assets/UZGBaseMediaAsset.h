@@ -20,7 +20,8 @@
 @property (nonatomic, strong) NSURL *previewURL;
 
 
-+ (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData;
++ (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData
+                                        context:(NSManagedObjectContext *)context;
 
 + (instancetype)assetByPath:(NSString *)path
      inManagedObjectContext:(NSManagedObjectContext *)context;

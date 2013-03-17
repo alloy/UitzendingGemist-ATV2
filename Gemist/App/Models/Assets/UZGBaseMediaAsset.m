@@ -5,11 +5,13 @@
 
 @dynamic path;
 
-+ (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData;
++ (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData
+                                        context:(NSManagedObjectContext *)context;
 {
   NSMutableArray *assets = [[NSMutableArray alloc] initWithCapacity:paginationData.entries.count];
   for (NSDictionary *assetData in paginationData.entries) {
-    UZGBaseMediaAsset *asset = [self new];
+    // Do *not* insert the episode into the context!
+    UZGBaseMediaAsset *asset = [[self alloc] initWithEntity:[self entityDescriptionInContext:context] insertIntoManagedObjectContext:nil];
     [asset setValuesForKeysWithDictionary:assetData];
     [assets addObject:asset];
   }

@@ -56,7 +56,8 @@
 
 - (void)itemSelected:(long)row;
 {
-  UZGEpisodesListController *controller = [[UZGEpisodesListController alloc] initWithShow:self.bookmarks[row]];
+  UZGEpisodesListController *controller = [[UZGEpisodesListController alloc] initWithShow:self.bookmarks[row]
+                                                                                  context:self.managedObjectContext];
   [[self stack] pushController:controller];
 }
 

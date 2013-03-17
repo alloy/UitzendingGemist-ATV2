@@ -26,13 +26,14 @@
 
 - (void)selectedAsset:(UZGShowMediaAsset *)show;
 {
-  [[self stack] pushController:[[UZGEpisodesListController alloc] initWithShow:show]];
+  [[self stack] pushController:[[UZGEpisodesListController alloc] initWithShow:show context:nil]];
 }
 
 - (void)fetchAssets;
 {
   [super fetchAssets];
   [UZGShowMediaAsset showsWithTitleInitial:self.titleInitial
+                                   context:self.managedObjectContext
                                       page:self.currentPage
                                    success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
                                    failure:^(id _, NSError *error) { [self handleError:error]; }];

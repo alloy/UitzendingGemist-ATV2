@@ -27,6 +27,7 @@
 }
 
 + (void)showsWithTitleInitial:(NSString *)initial
+                      context:(NSManagedObjectContext *)context
                          page:(NSUInteger)pageNumber
                       success:(UZGPaginationDataBlock)success
                       failure:(UZGFailureBlock)failure;
@@ -34,7 +35,7 @@
   UZGClient *client = [UZGClient sharedClient];
   [client showsWithTitleInitial:initial
                            page:pageNumber
-                        success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data]); }
+                        success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data context:context]); }
                         failure:failure];
 }
 
@@ -75,6 +76,7 @@
 }
 
 - (void)episodesAtPage:(NSInteger)pageNumber
+               context:(NSManagedObjectContext *)context
                success:(UZGPaginationDataBlock)success
                failure:(UZGFailureBlock)failure;
 {
@@ -82,7 +84,8 @@
   [client episodesOfShowAtPath:self.path
                           page:pageNumber
                        success:^(UZGPaginationData *data) {
-                                 UZGPaginationData *episodes = [UZGEpisodeMediaAsset assetsWithPaginationData:data];
+                                 UZGPaginationData *episodes = [UZGEpisodeMediaAsset assetsWithPaginationData:data
+                                                                                                      context:context];
                                  [episodes.entries setValue:self forKey:@"show"];
                                  [episodes.entries setValue:self.copyright forKey:@"copyright"];
                                  success(episodes);

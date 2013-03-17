@@ -12,9 +12,9 @@
 
 @implementation UZGAssetsListController
 
-- (id)init;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context;
 {
-  if ((self = [super init])) {
+  if ((self = [super initWithContext:context])) {
     _currentPage = 1;
     _lastPage = 0;
     _assets = [NSArray new];

@@ -100,7 +100,7 @@
     [UZGButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme] moreActionImage]
                                    subtitle:@"More"
                                     perform:^{
-      BRController *controller = [[UZGEpisodesListController alloc] initWithShow:self.episode.show];
+                                      BRController *controller = [[UZGEpisodesListController alloc] initWithShow:self.episode.show context:nil];
       [[self stack] pushController:controller];
     }]
   ];

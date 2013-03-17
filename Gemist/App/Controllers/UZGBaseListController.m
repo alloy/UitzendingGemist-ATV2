@@ -2,6 +2,11 @@
 
 @implementation UZGBaseListController
 
+- (instancetype)init;
+{
+  return [self initWithContext:nil];
+}
+
 - (instancetype)initWithContext:(NSManagedObjectContext *)context;
 {
   if ((self = [super init])) {

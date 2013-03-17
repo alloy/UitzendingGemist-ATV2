@@ -87,6 +87,7 @@
   NSString *query = self.query;
   if (![query isEmpty]) {
     [UZGEpisodeMediaAsset episodesWithSearchQuery:query
+                                          context:self.managedObjectContext
                                              page:self.currentPage
                                           success:^(UZGPaginationData *data) { [self processPaginationData:data]; }
                                           failure:^(id _, NSError *error) { [self handleError:error]; }];

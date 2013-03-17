@@ -12,6 +12,7 @@
 @synthesize title = _title, previewURLString = _previewURLString, mediaSummary = _mediaSummary, copyright = _copyright;
 
 + (void)episodesWithSearchQuery:(NSString *)query
+                        context:(NSManagedObjectContext *)context
                            page:(NSUInteger)pageNumber
                         success:(UZGPaginationDataBlock)success
                         failure:(UZGFailureBlock)failure;
@@ -19,7 +20,7 @@
   UZGClient *client = [UZGClient sharedClient];
   [client episodesWithSearchQuery:query
                              page:pageNumber
-                          success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data]); }
+                          success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data context:context]); }
                           failure:failure];
 }
 
@@ -67,39 +68,6 @@
 //{
   //NSURL *highQuality = self.streamURLs[0];
   //return [highQuality absoluteString];
-//}
-
-//- (BOOL)hasBeenPlayed;
-//{
-  //return [[UZGPlistStore sharedStore] playedEpisodeForPath:self.path];
-//}
-
-//- (void)setHasBeenPlayed:(BOOL)played;
-//{
-  //[[UZGPlistStore sharedStore] setPlayed:played forEpisodePath:self.path];
-  //[self.delegate episodeMediaAsset:self hasBeenPlayed:played];
-//}
-
-//- (NSUInteger)duration;
-//{
-  //return [[UZGPlistStore sharedStore] durationOfEpisodeForPath:self.path];
-//}
-
-//- (void)setDuration:(NSUInteger)duration;
-//{
-  //[[UZGPlistStore sharedStore] setDuration:duration forEpisodePath:self.path];
-//}
-
-//// Called when paused and when the user stops playback by navigating back.
-//- (void)setBookmarkTimeInSeconds:(unsigned int)seconds;
-//{
-  //[[UZGPlistStore sharedStore] setBookmarkTime:seconds forEpisodePath:self.path];
-  //[self.delegate episodeMediaAssetDidStopPlayback:self];
-//}
-
-//- (unsigned int)bookmarkTimeInSeconds;
-//{
-  //return [[UZGPlistStore sharedStore] bookmarkTimeForEpisodePath:self.path];
 //}
 
 #pragma mark BRMediaPreviewFactoryDelegate
