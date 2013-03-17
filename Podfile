@@ -6,5 +6,5 @@ pod "HockeySDK"
 
 pod "AFNetworking"
 pod "AFHTTPRequestOperationLogger"
-pod "DCTCoreDataStack", :podspec => "DCTCoreDataStack.podspec"
+pod "TMCoreData", :git => "git://github.com/alloy/TMCoreData.git"
 pod "Objective-C-HMTL-Parser"

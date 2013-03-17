@@ -3,7 +3,7 @@ FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/HockeySDK/Vendor"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) BITHOCKEY_VERSION="@\"3.0.0\""
 HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS} $(SDKROOT)/usr/include/libxml2
 OTHER_LDFLAGS = -ObjC -lxml2 -framework CoreData -framework CoreGraphics -framework CoreText -framework CrashReporter -framework Foundation -framework MobileCoreServices -framework QuartzCore -framework SystemConfiguration -framework UIKit
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFHTTPRequestOperationLogger" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/DCTCoreDataStack" "${PODS_ROOT}/BuildHeaders/HockeySDK" "${PODS_ROOT}/BuildHeaders/Objective-C-HMTL-Parser"
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFHTTPRequestOperationLogger" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/HockeySDK" "${PODS_ROOT}/BuildHeaders/Objective-C-HMTL-Parser" "${PODS_ROOT}/BuildHeaders/TMCoreData"
 PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFHTTPRequestOperationLogger" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/DCTCoreDataStack" "${PODS_ROOT}/Headers/HockeySDK" "${PODS_ROOT}/Headers/Objective-C-HMTL-Parser"
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFHTTPRequestOperationLogger" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/HockeySDK" "${PODS_ROOT}/Headers/Objective-C-HMTL-Parser" "${PODS_ROOT}/Headers/TMCoreData"
 PODS_ROOT = ${SRCROOT}/Pods

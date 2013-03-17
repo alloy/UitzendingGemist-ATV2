@@ -3,26 +3,26 @@ PODS:
 - AFHTTPRequestOperationLogger (0.10.0):
   - AFNetworking (>= 0.9.0)
 - AFNetworking (1.1.0)
-- DCTCoreDataStack (1.0)
 - HockeySDK (3.0.0)
 - Objective-C-HMTL-Parser (0.0.1)
+- TMCoreData (0.0.1)
 
 DEPENDENCIES:
 - AFHTTPRequestOperationLogger
 - AFNetworking
-- DCTCoreDataStack (from `DCTCoreDataStack.podspec')
 - HockeySDK
 - Objective-C-HMTL-Parser
+- TMCoreData (from `git://github.com/alloy/TMCoreData.git')
 
 EXTERNAL SOURCES:
-  DCTCoreDataStack:
-    :podspec: DCTCoreDataStack.podspec
+  TMCoreData:
+    :git: git://github.com/alloy/TMCoreData.git
 
 SPEC CHECKSUMS:
   AFHTTPRequestOperationLogger: 1d65fa5d905211c8981a11091eae8c98b410eb19
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  DCTCoreDataStack: 9f8c25ab1e6440c5433f5e828255f960e146a897
   HockeySDK: 35b80d5cc522b0f53beb5583c635e42ecce69743
   Objective-C-HMTL-Parser: 4fca85e186a829cfe8db8e316e9688571ea4dfed
+  TMCoreData: 9dbd588ea9d43edfc92ab7889b1cd10c8f111a49
 
 COCOAPODS: 0.16.4
