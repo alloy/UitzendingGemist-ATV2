@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="UZGBaseMediaAsset" isAbstract="YES" syncable="YES">
+    <entity name="UZGBaseMediaAsset" representedClassName="UZGBaseMediaAsset" isAbstract="YES" syncable="YES">
         <attribute name="path" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="UZGEpisodeMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
+    <entity name="UZGEpisodeMediaAsset" representedClassName="UZGEpisodeMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
         <attribute name="bookmarkTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="hasBeenPlayed" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
-    <entity name="UZGShowMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
+    <entity name="UZGShowMediaAsset" representedClassName="UZGShowMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
         <attribute name="copyright" attributeType="String" syncable="YES"/>
         <attribute name="mediaSummary" attributeType="String" syncable="YES"/>
         <attribute name="previewURLString" optional="YES" attributeType="String" syncable="YES"/>

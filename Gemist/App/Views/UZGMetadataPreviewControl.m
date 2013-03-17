@@ -15,7 +15,7 @@
 
 // Don’t call super, which will layout the control based on the `mediaType` of the
 // asset. In the case of an episode this means it doesn’t show the copyright line.
-- (void)setAsset:(UZGBaseMediaAsset *)asset;
+- (void)setAsset:(UZGBaseMediaAsset<UZGMediaAsset> *)asset;
 {
   self.imageProxy = asset.imageProxy;
 

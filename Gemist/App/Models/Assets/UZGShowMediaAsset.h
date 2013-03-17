@@ -1,6 +1,6 @@
 #import "UZGBaseMediaAsset.h"
 
-@interface UZGShowMediaAsset : UZGBaseMediaAsset
+@interface UZGShowMediaAsset : UZGBaseMediaAsset <UZGMediaAsset>
 
 @property (nonatomic, assign, getter=isBookmarked) BOOL bookmarked;
 

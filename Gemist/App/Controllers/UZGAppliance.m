@@ -112,23 +112,33 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
   return self;
 }
 
+- (NSString *)persistentStorePath;
+{
+  return [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/nl.superalloy.Gemist/Store.sqlite"];
+}
+
+- (BOOL)needsMigration;
+{
+  NSFileManager *fm = [NSFileManager defaultManager];
+  return ![fm fileExistsAtPath:self.persistentStorePath] && [fm fileExistsAtPath:[UZGPlistStore storePath]];
+}
+
 - (void)setupCoreDataStack;
 {
-  NSString *storePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Application Support/nl.superalloy.Gemist/Store.sqlite"];
+  BOOL migrate = self.needsMigration;
+  NSString *storePath = self.persistentStorePath;
 
   NSFileManager *fm = [NSFileManager defaultManager];
-  BOOL migrateFromPlistStore = NO;
   if (![fm fileExistsAtPath:storePath]) {
-    migrateFromPlistStore = [fm fileExistsAtPath:[UZGPlistStore storePath]];
     NSLog(@"[Gemist] Create app support dir: %@", [storePath stringByDeletingLastPathComponent]);
     [fm createDirectoryAtPath:[storePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
   }
 
-  _coreDataStack = [[TMCoreData alloc] initWithLocalStoreURL:[NSURL fileURLWithPath:storePath]
-                                                 objectModel:[NSManagedObjectModel mergedModelFromBundles:@[UZGBundle]]];
+  self.coreDataStack = [[TMCoreData alloc] initWithLocalStoreURL:[NSURL fileURLWithPath:storePath]
+                                                     objectModel:[NSManagedObjectModel mergedModelFromBundles:@[UZGBundle]]];
 
-  if (migrateFromPlistStore) {
-    [_coreDataStack saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
+  if (migrate) {
+    [self.coreDataStack saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
       NSLog(@"[Gemist] Migrating plist store:");
       UZGPlistStore *store = [UZGPlistStore new];
 
@@ -153,6 +163,11 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
         NSLog(@"[Gemist] %@", show);
       }
       NSLog(@"SAVING!");
+    } completion:^{
+      NSLog(@"SAVED! QUEUE: %s", dispatch_queue_get_label(dispatch_get_main_queue()));
+      BRControllerStack *stack = [[BRApplicationStackManager singleton] stack];
+      [stack popController];
+      [stack pushController:[[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext]];
     }];
   }
 }
@@ -170,35 +185,42 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 - (BRController *)controllerForIdentifier:(id)identifier
                                      args:(id)args;
 {
+  BRController *controller = nil;
+
+  if (self.needsMigration) {
+    NSLog(@"[Gemist] Needs migration!");
+    controller = [[BRTextWithSpinnerController alloc] initWithTitle:@"Migrating Data"
+                                                               text:@"Please wait until the process finishes."];
+  }
   // TODO for now here so that it's not called when beigelist tries to
   // determine what type of appliance this is.
   [self setupCoreDataStack];
 
-  BRController *controller = nil;
+// TODO fix!
+//#ifdef ENABLE_BETA_FEATURES
+  //if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
+    //controller = [self betaTestController];
+  //}
+  //// Always start manager before possibly returning controller.
+  //[self startHockeyManager];
 
-#ifdef ENABLE_BETA_FEATURES
-  if (![[NSFileManager defaultManager] fileExistsAtPath:[UZGPlistStore storePath]]) {
-    controller = [self betaTestController];
-  }
-  // Always start manager before possibly returning controller.
-  [self startHockeyManager];
-  if (controller) {
-    return controller;
+  //// Test the crash reporter.
+  ////dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    ////[@"" performSelector:@selector(ohNoes)];
+  ////});
+//#endif
+
+  if (controller == nil) {
+    if ([identifier isEqualToString:kUZGSearchCategoryIdentifier]) {
+      controller = [UZGSearchListController new];
+    } else if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
+      controller = [[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext];
+    } else {
+      controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];
+    }
   }
 
-  // Test the crash reporter.
-  //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-    //[@"" performSelector:@selector(ohNoes)];
-  //});
-#endif
-
-  if ([identifier isEqualToString:kUZGSearchCategoryIdentifier]) {
-    controller = [UZGSearchListController new];
-  } else if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
-    controller = [[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext];
-  } else {
-    controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];
-  }
+  // NSLog(@"CONTROLLER: %@", controller);
   return controller;
 }
 

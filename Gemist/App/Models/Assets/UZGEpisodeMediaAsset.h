@@ -8,7 +8,7 @@
 - (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
 @end
 
-@interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset>
+@interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset, UZGMediaAsset>
 
 // Managed object properties
 @property (assign) NSUInteger duration;

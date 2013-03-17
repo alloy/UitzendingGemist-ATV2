@@ -228,7 +228,7 @@
 #pragma mark - Public/subclass methods
 
 
-- (BRMenuItem *)itemForAsset:(UZGBaseMediaAsset *)asset;
+- (BRMenuItem *)itemForAsset:(UZGBaseMediaAsset<UZGMediaAsset> *)asset;
 {
   BRMenuItem *item = [BRMenuItem new];
   item.text = asset.title;

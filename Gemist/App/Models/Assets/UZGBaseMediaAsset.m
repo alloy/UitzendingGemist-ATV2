@@ -5,8 +5,6 @@
 
 @dynamic path;
 
-@synthesize title = _title, mediaSummary = _mediaSummary, copyright = _copyright, previewURLString = _previewURLString;
-
 + (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData;
 {
   NSMutableArray *assets = [[NSMutableArray alloc] initWithCapacity:paginationData.entries.count];
@@ -33,12 +31,12 @@
 
 - (NSURL *)previewURL;
 {
-  return [NSURL URLWithString:self.previewURLString];
+  return [NSURL URLWithString:[(id<UZGMediaAsset>)self previewURLString]];
 }
 
 - (void)setPreviewURL:(NSURL *)previewURL;
 {
-  self.previewURLString = [previewURL absoluteString];
+  [(id<UZGMediaAsset>)self setPreviewURLString:[previewURL absoluteString]];
 }
 
 - (id)imageProxy;
