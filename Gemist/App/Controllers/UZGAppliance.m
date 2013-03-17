@@ -142,16 +142,15 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
       NSLog(@"[Gemist] Migrating plist store:");
       UZGPlistStore *store = [UZGPlistStore new];
 
-      NSLog(@"[Gemist] * Migrating episodes data: %@", store.episodePaths);
+      NSLog(@"[Gemist] * Migrating episodes data.");
       for (NSString *path in store.episodePaths) {
         UZGEpisodeMediaAsset *episode = [NSEntityDescription insertNewObjectForEntityForName:@"UZGEpisodeMediaAsset"
                                                                       inManagedObjectContext:context];
         episode.path = path;
         // TODO
-        // episode.hasBeenPlayed = YES;
-        // episode.duration = [store durationOfEpisodeForPath:path];
-        // episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
-        NSLog(@"[Gemist] %@", episode);
+        episode.hasBeenPlayed = YES;
+        episode.duration = [store durationOfEpisodeForPath:path];
+        episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
       }
 
       NSLog(@"[Gemist] * Migrating favorites data.");
@@ -160,11 +159,8 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
                                                                 inManagedObjectContext:context];
         show.path = path;
         [show setValuesForKeysWithDictionary:store.shows[path]];
-        NSLog(@"[Gemist] %@", show);
       }
-      NSLog(@"SAVING!");
     } completion:^{
-      NSLog(@"SAVED! QUEUE: %s", dispatch_queue_get_label(dispatch_get_main_queue()));
       BRControllerStack *stack = [[BRApplicationStackManager singleton] stack];
       [stack popController];
       [stack pushController:[[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext]];
@@ -188,7 +184,6 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
   BRController *controller = nil;
 
   if (self.needsMigration) {
-    NSLog(@"[Gemist] Needs migration!");
     controller = [[BRTextWithSpinnerController alloc] initWithTitle:@"Migrating Data"
                                                                text:@"Please wait until the process finishes."];
   }

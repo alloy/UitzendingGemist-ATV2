@@ -4,7 +4,7 @@
         <attribute name="path" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="UZGEpisodeMediaAsset" representedClassName="UZGEpisodeMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
-        <attribute name="bookmarkTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="bookmarkTimeInSeconds" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="hasBeenPlayed" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>

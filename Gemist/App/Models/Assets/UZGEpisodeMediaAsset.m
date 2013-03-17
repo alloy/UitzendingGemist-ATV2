@@ -1,16 +1,15 @@
 #import "UZGEpisodeMediaAsset.h"
 #import "UZGShowMediaAsset.h"
 
-@interface UZGEpisodeMediaAsset (PrimitiveAccessors)
-@property (nonatomic) NSNumber *primitiveDuration;
-@property (nonatomic) NSNumber *primitiveBookmarkTimeInSeconds;
-@property (nonatomic) NSNumber *primitiveHasBeenPlayed;
-@end
-
 @implementation UZGEpisodeMediaAsset
+
+@dynamic duration;
+@dynamic bookmarkTimeInSeconds;
+@dynamic hasBeenPlayed;
 
 // TODO no idea why I suddenly have to synthesize these since using Core Data...
 @synthesize delegate = _delegate, mediaURL = _mediaURL, show = _show, showPath = _showPath, showTitle = _showTitle;
+@synthesize title = _title, previewURLString = _previewURLString, mediaSummary = _mediaSummary, copyright = _copyright;
 
 + (void)episodesWithSearchQuery:(NSString *)query
                            page:(NSUInteger)pageNumber
@@ -50,56 +49,6 @@
   [client episodeStreamSourcesForPath:self.path
                               success:^(id _, NSArray *sources) { self.mediaURL = [sources[0] absoluteString]; success(); }
                               failure:failure];
-}
-
-#pragma mark - Core Data scalar accessors
-
-- (NSUInteger)duration;
-{
-  [self willAccessValueForKey:@"duration"];
-  NSNumber *duration = self.primitiveDuration;
-  [self didAccessValueForKey:@"duration"];
-  return duration == nil ? 0 : duration.unsignedIntegerValue;
-}
-
-- (void)setDuration:(NSUInteger)duration;
-{
-  NSNumber *tmp = @(duration);
-  [self willChangeValueForKey:@"duration"];
-  self.primitiveDuration = tmp;
-  [self didChangeValueForKey:@"duration"];
-}
-
-- (NSUInteger)bookmarkTimeInSeconds;
-{
-  [self willAccessValueForKey:@"bookmarkTimeInSeconds"];
-  NSNumber *bookmarkTimeInSeconds = self.primitiveBookmarkTimeInSeconds;
-  [self didAccessValueForKey:@"bookmarkTimeInSeconds"];
-  return bookmarkTimeInSeconds == nil ? 0 : bookmarkTimeInSeconds.unsignedIntegerValue;
-}
-
-- (void)setBookmarkTimeInSeconds:(NSUInteger)bookmarkTimeInSeconds;
-{
-  NSNumber *tmp = @(bookmarkTimeInSeconds);
-  [self willChangeValueForKey:@"bookmarkTimeInSeconds"];
-  self.primitiveBookmarkTimeInSeconds = tmp;
-  [self didChangeValueForKey:@"bookmarkTimeInSeconds"];
-}
-
-- (BOOL)hasBeenPlayed;
-{
-  [self willAccessValueForKey:@"hasBeenPlayed"];
-  NSNumber *hasBeenPlayed = self.primitiveHasBeenPlayed;
-  [self didAccessValueForKey:@"hasBeenPlayed"];
-  return [hasBeenPlayed boolValue];
-}
-
-- (void)setHasBeenPlayed:(BOOL)hasBeenPlayed;
-{
-  NSNumber *tmp = @(hasBeenPlayed);
-  [self willChangeValueForKey:@"hasBeenPlayed"];
-  self.primitiveHasBeenPlayed = tmp;
-  [self didChangeValueForKey:@"hasBeenPlayed"];
 }
 
 #pragma mark - BRMediaAsset
