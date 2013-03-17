@@ -64,7 +64,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
 #else
 @interface UZGAppliance ()
 #endif
-@property (strong) DCTCoreDataStack *coreDataStack;
+@property (strong) TMCoreData *coreDataStack;
 @end
 
 @implementation UZGAppliance
@@ -124,45 +124,35 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
     [fm createDirectoryAtPath:[storePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
   }
 
-  _coreDataStack = [[DCTCoreDataStack alloc] initWithStoreURL:[NSURL fileURLWithPath:storePath]
-                                                    storeType:NSSQLiteStoreType
-                                                 storeOptions:nil
-                                           modelConfiguration:nil
-                                                     modelURL:[UZGBundle URLForResource:@"Gemist" withExtension:@"momd"]];
-  NSLog(@"[Gemist] %@, %@", _coreDataStack, _coreDataStack.managedObjectContext);
+  _coreDataStack = [[TMCoreData alloc] initWithLocalStoreURL:[NSURL fileURLWithPath:storePath]
+                                                 objectModel:[NSManagedObjectModel mergedModelFromBundles:@[UZGBundle]]];
+
   if (migrateFromPlistStore) {
-    [_coreDataStack.managedObjectContext performBlock:^{
+    [_coreDataStack saveInBackgroundWithBlock:^(NSManagedObjectContext *context) {
       NSLog(@"[Gemist] Migrating plist store:");
       UZGPlistStore *store = [UZGPlistStore new];
 
       NSLog(@"[Gemist] * Migrating episodes data: %@", store.episodePaths);
       for (NSString *path in store.episodePaths) {
         UZGEpisodeMediaAsset *episode = [NSEntityDescription insertNewObjectForEntityForName:@"UZGEpisodeMediaAsset"
-                                                                      inManagedObjectContext:_coreDataStack.managedObjectContext];
-        NSLog(@"[Gemist] %@", episode);
+                                                                      inManagedObjectContext:context];
         episode.path = path;
         // TODO
         // episode.hasBeenPlayed = YES;
-        episode.duration = [store durationOfEpisodeForPath:path];
-        episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
+        // episode.duration = [store durationOfEpisodeForPath:path];
+        // episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
         NSLog(@"[Gemist] %@", episode);
       }
 
       NSLog(@"[Gemist] * Migrating favorites data.");
       for (NSString *path in store.shows) {
         UZGShowMediaAsset *show = [NSEntityDescription insertNewObjectForEntityForName:@"UZGShowMediaAsset"
-                                                                inManagedObjectContext:_coreDataStack.managedObjectContext];
+                                                                inManagedObjectContext:context];
         show.path = path;
         [show setValuesForKeysWithDictionary:store.shows[path]];
         NSLog(@"[Gemist] %@", show);
       }
-
-      [_coreDataStack.managedObjectContext dct_saveWithCompletionHandler:^(BOOL success, NSError *error) {
-        if (!success) {
-          NSString *message = [_coreDataStack.managedObjectContext dct_detailedDescriptionFromValidationError:error];
-          NSAssert(NO, @"[Gemist] Failed to save migrated plist store data: %@", message ?: error);
-        }
-      }];
+      NSLog(@"SAVING!");
     }];
   }
 }
@@ -205,7 +195,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
   if ([identifier isEqualToString:kUZGSearchCategoryIdentifier]) {
     controller = [UZGSearchListController new];
   } else if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
-    controller = [[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.managedObjectContext];
+    controller = [[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext];
   } else {
     controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];
   }

@@ -11,7 +11,7 @@
     <entity name="UZGShowMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
         <attribute name="copyright" attributeType="String" syncable="YES"/>
         <attribute name="mediaSummary" attributeType="String" syncable="YES"/>
-        <attribute name="previewURLString" attributeType="String" syncable="YES"/>
+        <attribute name="previewURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
