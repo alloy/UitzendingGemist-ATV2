@@ -10,8 +10,17 @@
 {
   NSMutableArray *assets = [[NSMutableArray alloc] initWithCapacity:paginationData.entries.count];
   for (NSDictionary *assetData in paginationData.entries) {
-    // Do *not* insert the episode into the context!
-    UZGBaseMediaAsset *asset = [[self alloc] initWithEntity:[self entityDescriptionInContext:context] insertIntoManagedObjectContext:nil];
+    // First check if we have stored data for this asset
+    NSAssert(assetData[@"path"] != nil, @"Should have a path!");
+    UZGBaseMediaAsset *asset = [self findFirstWhereProperty:@"path"
+                                                  isEqualTo:assetData[@"path"]
+                                                  inContext:context];
+    if (!asset) {
+      // Otherwise create an instance, but do *not* insert it into the context!
+      asset = [[self alloc] initWithEntity:[self entityDescriptionInContext:context]
+            insertIntoManagedObjectContext:nil];
+    }
+    // Even for an existing asset the data should be the same, so update regardless.
     [asset setValuesForKeysWithDictionary:assetData];
     [assets addObject:asset];
   }
