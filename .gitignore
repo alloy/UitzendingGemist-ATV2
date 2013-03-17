@@ -1,12 +1,15 @@
 .*.sw?
 DerivedData
 xcuserdata
+compile_commands.json
 Pods/Documentation
 .rbenv-version
 
 HockeySDKConfig.h
 Gemist.frappliance.tar.gz
 nl.superalloy.Gemist.plist
+
+3rd-Party
 
 deb/repo.tar.gz
 deb/repo/Packages
