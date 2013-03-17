@@ -12,6 +12,7 @@ begin
     t.add_build_setting('ONLY_ACTIVE_ARCH', 'NO')
     t.add_build_setting('ATV_DEPLOY_TO_DEVICE', 'NO')
     t.formatter = XcodeBuild::Formatters::ProgressFormatter.new
+    t.create_clang_compile_db = true
   end
 
   namespace :deb do
@@ -56,6 +57,7 @@ begin
     rm_rf 'deb/Gemist_*_iphoneos-arm'
     rm_f 'deb/repo.tar.gz'
     rm_f 'deb/repo/Packages.bz2'
+    rm_f 'compile_commands.json'
   end
 
 rescue LoadError

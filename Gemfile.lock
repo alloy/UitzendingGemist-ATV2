@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/lukeredpath/xcodebuild-rb.git
-  revision: 689feb53dc4f7f0132b70b33436dc13495e9fd4c
+  remote: git://github.com/alloy/xcodebuild-rb.git
+  revision: 4658a216c966f90b070b9d2056e1ae088115bf59
+  branch: JSONCompilationDatabase
   specs:
     xcodebuild-rb (0.2.0)
       state_machine (~> 1.1.2)
