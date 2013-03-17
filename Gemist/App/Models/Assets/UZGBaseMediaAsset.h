@@ -10,6 +10,9 @@
 
 @interface UZGBaseMediaAsset : NSManagedObject
 
+// This context should always be present, because it's what is used when the record is not in the store.
+@property (strong) NSManagedObjectContext *insertIntoContext;
+
 // Managed object properties.
 //
 // The URL path, which is used as identifier.

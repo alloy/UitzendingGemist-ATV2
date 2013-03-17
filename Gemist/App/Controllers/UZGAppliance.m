@@ -157,7 +157,6 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
       UZGEpisodeMediaAsset *episode = [UZGEpisodeMediaAsset createInContext:context];
       episode.path = path;
       // TODO
-      episode.hasBeenPlayed = YES;
       episode.duration = [store durationOfEpisodeForPath:path];
       episode.bookmarkTimeInSeconds = [store bookmarkTimeForEpisodePath:path];
     }

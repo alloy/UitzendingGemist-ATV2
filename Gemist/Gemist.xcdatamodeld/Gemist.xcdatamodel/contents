@@ -6,7 +6,7 @@
     <entity name="UZGEpisodeMediaAsset" representedClassName="UZGEpisodeMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
         <attribute name="bookmarkTimeInSeconds" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="hasBeenPlayed" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="hasFinishedPlaying" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
     <entity name="UZGShowMediaAsset" representedClassName="UZGShowMediaAsset" parentEntity="UZGBaseMediaAsset" syncable="YES">
         <attribute name="copyright" attributeType="String" syncable="YES"/>

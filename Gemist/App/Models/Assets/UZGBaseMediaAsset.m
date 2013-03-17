@@ -5,6 +5,8 @@
 
 @dynamic path;
 
+@synthesize insertIntoContext;
+
 + (UZGPaginationData *)assetsWithPaginationData:(UZGPaginationData *)paginationData
                                         context:(NSManagedObjectContext *)context;
 {
@@ -20,6 +22,7 @@
       asset = [[self alloc] initWithEntity:[self entityDescriptionInContext:context]
             insertIntoManagedObjectContext:nil];
     }
+    asset.insertIntoContext = context;
     // Even for an existing asset the data should be the same, so update regardless.
     [asset setValuesForKeysWithDictionary:assetData];
     [assets addObject:asset];
@@ -37,7 +40,9 @@
   NSArray *result = [context executeFetchRequest:request error:&error];
   NSAssert(error == nil, @"Fetch request error: %@", error);
   NSAssert(result.count <= 1, @"More than one asset with the same path found: %@", result);
-  return result[0];
+  UZGBaseMediaAsset *asset = result[0];
+  asset.insertIntoContext = context;
+  return asset;
 }
 
 - (NSURL *)previewURL;

@@ -1,5 +1,6 @@
 #import "UZGSearchListController.h"
 #import "UZGEpisodeDetailViewController.h"
+#import "UZGEpisodeMediaAsset.h"
 
 
 @interface UZGSearchListController ()

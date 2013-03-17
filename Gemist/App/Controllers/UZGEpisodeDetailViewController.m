@@ -1,6 +1,6 @@
 #import "UZGEpisodeDetailViewController.h"
 #import "UZGEpisodesListController.h"
-
+#import "UZGEpisodeMediaAsset.h"
 
 @interface UZGButtonControl : BRButtonControl
 @property (copy) dispatch_block_t performAction;
@@ -55,7 +55,6 @@
 @interface UZGEpisodeDetailViewController ()
 @property (strong) BRControl<ATVItemDetailView_HiddenInterface> *detailView;
 @property (strong) NSMutableDictionary *shelfViewButtons;
-@property (strong) BRMediaPlayer *player;
 @end
 
 @implementation UZGEpisodeDetailViewController
@@ -149,21 +148,8 @@
 
 - (void)loadEpisode;
 {
-  [self.episode withMediaURL:^{
-    self.episode.delegate = self;
-    NSError *error = nil;
-    self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:self.episode error:&error];
-    if (error) {
-      [self handleError:error];
-    } else {
-      [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
-    }
-  } failure:^(id _, NSError *error) { [self handleError:error]; }];
-}
-
-- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episode hasBeenPlayed:(BOOL)played;
-{
-  episode.duration = (NSUInteger)roundf(self.player.duration);
+  [self.episode withMediaURL:^{ [[BRMediaPlayerManager singleton] presentMediaAsset:self.episode options:nil]; }
+                     failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
 
 #pragma mark BRMediaShelfView delegate / dataSource

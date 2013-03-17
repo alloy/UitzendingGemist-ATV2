@@ -1,11 +1,10 @@
 #import "UZGEpisodesListController.h"
 #import "UZGShowMediaAsset.h"
+#import "UZGEpisodeMediaAsset.h"
 
 //#import "BRURLImageProxy.h"
 //#import "BRMediaType.h"
 //#import "BRImageLoader.h"
-
-#import "BRMediaPlayer.h"
 
 @interface UZGEpisodesListController ()
 @property (strong) NSString *path;
@@ -58,16 +57,14 @@
 {
   BRMenuItem *item = [super itemForAsset:episode];
 
-  // TODO
-  //UZGEpisodeProgressStatus status = [[UZGPlistStore sharedStore] playedStatusForEpisodePath:episode.path];
-  //switch (status) {
-    //case UZGEpisodeUnplayedStatus:
-       //[item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
-       //break;
-    //case UZGEpisodeUnplayedPartialStatus:
-      //[item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
-      //break;
-  //}
+  switch (episode.progressStatus) {
+    case UZGEpisodeUnplayedStatus:
+      [item addAccessoryOfType:BRUnplayedMenuItemAccessoryType];
+      break;
+    case UZGEpisodeUnplayedPartialStatus:
+      [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
+      break;
+  }
 
   if (self.loadingEpisode && [self.loadingEpisode.path isEqualToString:episode.path]) {
     [item addAccessoryOfType:BRSpinnerMenuItemAccessoryType];
@@ -113,16 +110,9 @@
 {
   UZGEpisodeMediaAsset *episode = self.loadingEpisode;
   [episode withMediaURL:^{
-    episode.delegate = self;
-
-    NSError *error = nil;
-    self.player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episode error:&error];
-    if (error) {
-      [self handleError:error];
-    } else {
-      [[BRMediaPlayerManager singleton] presentPlayer:self.player options:nil];
-    }
-
+    // [[BRMediaPlayerManager singleton] presentMediaAsset:episode options:nil];
+    BRMediaPlayer *player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episode error:NULL];
+    [[BRMediaPlayerManager singleton] presentPlayer:player options:nil];
     // Reload now so that if the user returns imediately the spinner accessory
     // is no longer shown.
     self.loadingEpisode = nil;
@@ -131,21 +121,18 @@
   } failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
 
-- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episode hasBeenPlayed:(BOOL)played;
-{
-  episode.duration = (NSUInteger)roundf(self.player.duration);
-}
-
+// TODO !!!!!
+//
 // Reload list to reflect any change in the episode’s progress status.
 //
 // TODO Using the -[BRMediaAsset setBookmarkTimeInSeconds:] callback for this
 // delegate callback. There has to be a better way to get notifications from
 // the player, because now we update the list everytime the user stops playback
 // instead of only when the user will return to the list.
-- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episode;
-{
-  [self.list reload];
-}
+//- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episode;
+//{
+  //[self.list reload];
+//}
 
 // TODO toggle progress status
 //

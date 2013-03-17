@@ -1,26 +1,32 @@
 #import "UZGBaseMediaAsset.h"
 
-@class UZGEpisodeMediaAsset, UZGShowMediaAsset;
+typedef NS_ENUM(NSUInteger, UZGEpisodeProgressStatus) {
+  UZGEpisodeUnplayedStatus,
+  UZGEpisodeUnplayedPartialStatus,
+  UZGEpisodePlayedStatus
+};
 
-@protocol UZGEpisodeMediaAssetDelegate <NSObject>
-- (void)episodeMediaAsset:(UZGEpisodeMediaAsset *)episodeMediaAsset hasBeenPlayed:(BOOL)played;
-@optional
-- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episodeMediaAsset;
-@end
+@class UZGShowMediaAsset;
 
 @interface UZGEpisodeMediaAsset : UZGBaseMediaAsset <BRMediaAsset, UZGMediaAsset>
+
+@property (strong) NSString *title;
+@property (strong) NSString *mediaSummary;
+@property (strong) NSString *copyright;
+@property (strong) NSString *previewURLString;
 
 // Managed object properties
 @property (assign, nonatomic) int64_t duration;
 @property (assign, nonatomic) int64_t bookmarkTimeInSeconds;
-@property (assign, nonatomic) BOOL hasBeenPlayed;
+@property (assign, nonatomic) BOOL hasFinishedPlaying;
 
-@property (weak) id<UZGEpisodeMediaAssetDelegate> delegate;
 @property (strong) NSString *mediaURL;
 
 @property (strong) NSString *showTitle;
 @property (strong) NSString *showPath;
 @property (strong, nonatomic) UZGShowMediaAsset *show;
+
+@property (readonly) UZGEpisodeProgressStatus progressStatus;
 
 + (void)episodesWithSearchQuery:(NSString *)query
                         context:(NSManagedObjectContext *)context

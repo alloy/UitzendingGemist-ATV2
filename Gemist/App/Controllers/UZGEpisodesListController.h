@@ -1,9 +1,8 @@
 #import "UZGAssetsListController.h"
-#import "UZGEpisodeMediaAsset.h"
 
 @class UZGShowMediaAsset;
 
-@interface UZGEpisodesListController : UZGAssetsListController <BRMenuListItemProvider, UZGEpisodeMediaAssetDelegate>
+@interface UZGEpisodesListController : UZGAssetsListController <BRMenuListItemProvider>
 
 - (id)initWithShow:(UZGShowMediaAsset *)show context:(NSManagedObjectContext *)context;
 

@@ -1,14 +1,17 @@
 #import "UZGEpisodeMediaAsset.h"
 #import "UZGShowMediaAsset.h"
 
+// Consider it played if within the lst 5 minutes.
+static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
+
 @implementation UZGEpisodeMediaAsset
 
 @dynamic duration;
 @dynamic bookmarkTimeInSeconds;
-@dynamic hasBeenPlayed;
+@dynamic hasFinishedPlaying;
 
 // TODO no idea why I suddenly have to synthesize these since using Core Data...
-@synthesize delegate = _delegate, mediaURL = _mediaURL, show = _show, showPath = _showPath, showTitle = _showTitle;
+@synthesize mediaURL = _mediaURL, show = _show, showPath = _showPath, showTitle = _showTitle;
 @synthesize title = _title, previewURLString = _previewURLString, mediaSummary = _mediaSummary, copyright = _copyright;
 
 + (void)episodesWithSearchQuery:(NSString *)query
@@ -24,11 +27,6 @@
                           failure:failure];
 }
 
-- (void)dealloc;
-{
-  _delegate = nil;
-}
-
 - (UZGShowMediaAsset *)show;
 {
   if (_show == nil) {
@@ -37,6 +35,44 @@
     _show = [[UZGShowMediaAsset alloc] initWithTitle:self.showTitle path:self.showPath];
   }
   return _show;
+}
+
+- (UZGEpisodeProgressStatus)progressStatus;
+{
+  if (self.hasFinishedPlaying) {
+    return UZGEpisodePlayedStatus;
+  }
+  if (self.bookmarkTimeInSeconds > 0) {
+    // TODO return played status when hasBeenPlayed is 
+    if (self.duration > 0 && (self.duration - self.bookmarkTimeInSeconds) < kUZGPlayedThresholdTime) {
+      return UZGEpisodePlayedStatus;
+    } else {
+      return UZGEpisodeUnplayedPartialStatus;
+    }
+  } else {
+    return UZGEpisodeUnplayedStatus;
+  }
+}
+
+- (BOOL)hasBeenPlayed;
+{
+  return NO;
+}
+
+- (void)setHasBeenPlayed:(BOOL)played;
+{
+  NSLog(@"Has been played: %d, %s", (int)played, dispatch_queue_get_label(dispatch_get_main_queue()));
+  if (played && self.duration == 0) {
+    BRMediaPlayer *player = [[BRMediaPlayerManager singleton] activePlayer];
+    NSLog(@"PLAYER: %@", player);
+    self.duration = (int64_t)roundf(player.duration);
+    NSLog(@"DURATION: %d", (int)self.duration);
+    if (self.managedObjectContext == nil) {
+      NSAssert(self.insertIntoContext != nil, @"Should have a context!");
+      NSLog(@"INSERT!");
+      [self.insertIntoContext insertObject:self];
+    }
+  }
 }
 
 // TODO how do we provide the other streams so the player can be adaptive?
@@ -79,7 +115,100 @@
   return YES;
 }
 
+#pragma mark BRMediaObject
+
+- (BOOL)isValid;
+{
+  return YES;
+}
+
+- (id)mediaObjectID;
+{
+  return nil;
+}
+
+- (void)performSelector:(SEL)arg1 target:(id)arg2;
+{
+  NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, NSStringFromSelector(arg1), arg2);
+}
+
+- (void)performSelector:(SEL)arg1 target:(id)arg2 withObject:(id)arg3;
+{
+  NSLog(@"%s - %@, %@, %@", __PRETTY_FUNCTION__, NSStringFromSelector(arg1), arg2, arg3);
+}
+
 #pragma mark BRMediaAsset
+
+// new required methods
+
+- (BOOL)alwaysRequiresAuthorization;
+{
+  return NO;
+}
+
+- (BOOL)forceHDCPProtection;
+{
+  return NO;
+}
+
+- (id)startDate;
+{
+  return nil;
+}
+
+- (void *)createMovieWithProperties:(void *)arg1 count:(long)arg2;
+{
+  // no-op
+  NSLog(@"%s", __PRETTY_FUNCTION__);
+  return NULL;
+}
+
+// TODO interesting?
+- (unsigned int)episode;
+{
+  return 1;
+}
+
+- (id)episodeNumber;
+{
+  return nil;
+}
+
+- (id)mediaFlavor;
+{
+  return nil;
+}
+
+// TODO interesting?
+- (unsigned int)season;
+{
+  return 1;
+}
+
+- (void)setPlaybackMetadataValue:(id)arg1 forKey:(id)arg2;
+{
+  NSLog(@"%s - %@, %@", __PRETTY_FUNCTION__, arg1, arg2);
+}
+
+- (id)trickPlayConfig;
+{
+  return nil;
+}
+
+- (void)willBeginPlayback;
+{
+  // no-op
+}
+
+- (id)merchant;
+{
+  return nil;
+}
+
+// old uncleaned
+//
+// TODO cleanup
+
 - (id)provider {
   return nil;
 }
