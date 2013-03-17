@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/TMCDLog.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/TMCDLog.h

@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/NSString+TMCDAdditions.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/NSString+TMCDAdditions.h

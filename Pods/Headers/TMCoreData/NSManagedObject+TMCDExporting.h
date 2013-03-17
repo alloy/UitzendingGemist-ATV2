@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDExporting.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDExporting.h

@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDFetching.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDFetching.h

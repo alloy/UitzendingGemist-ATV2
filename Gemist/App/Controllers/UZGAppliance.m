@@ -4,8 +4,10 @@
 #import "UZGShowsListController.h"
 #import "UZGClient.h"
 
+// TODO remove
 #import "UZGPlistStore.h"
-#import "DCTCoreDataStack.h"
+#import "TMCoreData.h"
+
 #import "UZGShowMediaAsset.h"
 #import "UZGEpisodeMediaAsset.h"
 

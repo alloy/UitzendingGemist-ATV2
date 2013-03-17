@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDDeleting.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/NSManagedObject/NSManagedObject+TMCDDeleting.h

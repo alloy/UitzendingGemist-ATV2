@@ -12,11 +12,11 @@ DEPENDENCIES:
 - AFNetworking
 - HockeySDK
 - Objective-C-HMTL-Parser
-- TMCoreData (from `git://github.com/alloy/TMCoreData.git')
+- TMCoreData (from `/Users/eloy/Code/Objective-C/TMCoreData')
 
 EXTERNAL SOURCES:
   TMCoreData:
-    :git: git://github.com/alloy/TMCoreData.git
+    :local: /Users/eloy/Code/Objective-C/TMCoreData
 
 SPEC CHECKSUMS:
   AFHTTPRequestOperationLogger: 1d65fa5d905211c8981a11091eae8c98b410eb19

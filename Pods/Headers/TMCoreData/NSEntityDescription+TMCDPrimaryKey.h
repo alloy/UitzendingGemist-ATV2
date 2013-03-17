@@ -1,1 +1,1 @@
-../../TMCoreData/TMCoreData/NSEntityDescription/NSEntityDescription+TMCDPrimaryKey.h
+../../../../../../Objective-C/TMCoreData/TMCoreData/NSEntityDescription/NSEntityDescription+TMCDPrimaryKey.h
