@@ -4,10 +4,13 @@
 // Consider it played if within the lst 5 minutes.
 static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
+@interface UZGEpisodeMediaAsset (PrimitiveAccessors)
+@property (strong) NSNumber *primitiveDuration;
+@property (strong) NSNumber *primitiveBookmarkTimeInSeconds;
+@end
+
 @implementation UZGEpisodeMediaAsset
 
-@dynamic duration;
-@dynamic bookmarkTimeInSeconds;
 @dynamic hasFinishedPlaying;
 
 // TODO no idea why I suddenly have to synthesize these since using Core Data...
@@ -25,6 +28,38 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
                              page:pageNumber
                           success:^(UZGPaginationData *data) { success([self assetsWithPaginationData:data context:context]); }
                           failure:failure];
+}
+
+- (unsigned int)duration;
+{
+  [self willAccessValueForKey:@"duration"];
+  NSNumber *duration = self.primitiveDuration;
+  [self didAccessValueForKey:@"duration"];
+  return duration == nil ? 0 : duration.unsignedIntValue;
+}
+
+- (void)setDuration:(unsigned int)duration;
+{
+  NSNumber *number = @(duration);
+  [self willChangeValueForKey:@"duration"];
+  self.primitiveDuration = number;
+  [self didChangeValueForKey:@"duration"];
+}
+
+- (unsigned int)bookmarkTimeInSeconds;
+{
+  [self willAccessValueForKey:@"bookmarkTimeInSeconds"];
+  NSNumber *bookmarkTimeInSeconds = self.primitiveBookmarkTimeInSeconds;
+  [self didAccessValueForKey:@"bookmarkTimeInSeconds"];
+  return bookmarkTimeInSeconds == nil ? 0 : bookmarkTimeInSeconds.unsignedIntValue;
+}
+
+- (void)setBookmarkTimeInSeconds:(unsigned int)bookmarkTimeInSeconds;
+{
+  NSNumber *number = @(bookmarkTimeInSeconds);
+  [self willChangeValueForKey:@"bookmarkTimeInSeconds"];
+  self.primitiveBookmarkTimeInSeconds = number;
+  [self didChangeValueForKey:@"bookmarkTimeInSeconds"];
 }
 
 - (UZGShowMediaAsset *)show;
@@ -61,7 +96,7 @@ static const NSUInteger kUZGPlayedThresholdTime = 5 * 60;
 
 - (void)setHasBeenPlayed:(BOOL)played;
 {
-  NSLog(@"Has been played: %d, %s", (int)played, dispatch_queue_get_label(dispatch_get_main_queue()));
+  NSLog(@"Has been played: %d, %s", (int)played, dispatch_queue_get_label(dispatch_get_current_queue()));
   if (played && self.duration == 0) {
     BRMediaPlayer *player = [[BRMediaPlayerManager singleton] activePlayer];
     NSLog(@"PLAYER: %@", player);

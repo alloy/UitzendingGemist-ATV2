@@ -16,8 +16,8 @@ typedef NS_ENUM(NSUInteger, UZGEpisodeProgressStatus) {
 @property (strong) NSString *previewURLString;
 
 // Managed object properties
-@property (assign, nonatomic) int64_t duration;
-@property (assign, nonatomic) int64_t bookmarkTimeInSeconds;
+@property (assign, nonatomic) unsigned int duration;
+@property (assign, nonatomic) unsigned int bookmarkTimeInSeconds;
 @property (assign, nonatomic) BOOL hasFinishedPlaying;
 
 @property (strong) NSString *mediaURL;

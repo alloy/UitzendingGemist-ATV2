@@ -64,6 +64,8 @@
     case UZGEpisodeUnplayedPartialStatus:
       [item addAccessoryOfType:BRUnplayedPartialMenuItemAccessoryType];
       break;
+    case UZGEpisodePlayedStatus:
+      break;
   }
 
   if (self.loadingEpisode && [self.loadingEpisode.path isEqualToString:episode.path]) {
@@ -110,29 +112,19 @@
 {
   UZGEpisodeMediaAsset *episode = self.loadingEpisode;
   [episode withMediaURL:^{
-    // [[BRMediaPlayerManager singleton] presentMediaAsset:episode options:nil];
-    BRMediaPlayer *player = [[BRMediaPlayerManager singleton] playerForMediaAsset:episode error:NULL];
-    [[BRMediaPlayerManager singleton] presentPlayer:player options:nil];
-    // Reload now so that if the user returns imediately the spinner accessory
-    // is no longer shown.
-    self.loadingEpisode = nil;
-    [self.list reload];
-
+    [[BRMediaPlayerManager singleton] presentMediaAsset:episode options:nil];
+    BRController *playerController = [[BRMediaPlayerManager singleton] _presentedPlayerController];
+    playerController.wasPoppedBlock = ^{
+      if (self.managedObjectContext.hasChanges) {
+        // TODO this does not work...
+        NSLog(@"THERE ARE CHANGES, SAVE!");
+        [self.managedObjectContext recursiveSave];
+      }
+      self.loadingEpisode = nil;
+      [self.list reload];
+    };
   } failure:^(id _, NSError *error) { [self handleError:error]; }];
 }
-
-// TODO !!!!!
-//
-// Reload list to reflect any change in the episode’s progress status.
-//
-// TODO Using the -[BRMediaAsset setBookmarkTimeInSeconds:] callback for this
-// delegate callback. There has to be a better way to get notifications from
-// the player, because now we update the list everytime the user stops playback
-// instead of only when the user will return to the list.
-//- (void)episodeMediaAssetDidStopPlayback:(UZGEpisodeMediaAsset *)episode;
-//{
-  //[self.list reload];
-//}
 
 // TODO toggle progress status
 //
