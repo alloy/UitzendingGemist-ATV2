@@ -230,7 +230,8 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
     } else if ([identifier isEqualToString:kUZGBookmarksCategoryIdentifier]) {
       controller = [[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext];
     } else {
-      controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier];
+      controller = [[UZGShowsListController alloc] initWithTitleInitial:identifier
+                                                                context:self.coreDataStack.mainThreadContext];
     }
   }
 

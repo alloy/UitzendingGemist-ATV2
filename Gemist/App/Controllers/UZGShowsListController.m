@@ -8,9 +8,10 @@
 
 @implementation UZGShowsListController
 
-- (id)initWithTitleInitial:(NSString *)titleInitial;
+- (id)initWithTitleInitial:(NSString *)titleInitial
+                   context:(NSManagedObjectContext *)context;
 {
-  if ((self = [super init])) {
+  if ((self = [super initWithContext:context])) {
     _titleInitial = titleInitial;
     self.realTitle = [NSString stringWithFormat:@"%@: %@", UZGLocalizedString(@"Shows"), _titleInitial];
   }
@@ -26,7 +27,8 @@
 
 - (void)selectedAsset:(UZGShowMediaAsset *)show;
 {
-  [[self stack] pushController:[[UZGEpisodesListController alloc] initWithShow:show context:nil]];
+  [[self stack] pushController:[[UZGEpisodesListController alloc] initWithShow:show
+                                                                       context:self.managedObjectContext]];
 }
 
 - (void)fetchAssets;

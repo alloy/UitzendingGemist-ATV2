@@ -2,6 +2,7 @@
 
 @interface UZGShowsListController : UZGAssetsListController <BRMenuListItemProvider>
 
-- (id)initWithTitleInitial:(NSString *)titleInitial;
+- (id)initWithTitleInitial:(NSString *)titleInitial
+                   context:(NSManagedObjectContext *)context;
 
 @end
