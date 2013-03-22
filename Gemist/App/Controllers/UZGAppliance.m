@@ -168,6 +168,7 @@ static NSString * const kUZGSearchCategoryIdentifier = @"Search";
       [show setValuesForKeysWithDictionary:store.shows[path]];
     }
   } completion:^{
+    // TODO this doesn't work right
     BRControllerStack *stack = [[BRApplicationStackManager singleton] stack];
     [stack popController];
     [stack pushController:[[UZGBookmarksListController alloc] initWithContext:self.coreDataStack.mainThreadContext]];

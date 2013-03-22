@@ -2,18 +2,12 @@
 #import "UZGEpisodeMediaAsset.h"
 #import "UZGPlistStore.h"
 
-@interface UZGShowMediaAsset ()
-@property (assign) BOOL shouldLoadBookmarkedStatus;
-@end
-
 @implementation UZGShowMediaAsset
 
 @dynamic title;
 @dynamic mediaSummary;
 @dynamic copyright;
 @dynamic previewURLString;
-
-@synthesize bookmarked = _bookmarked, shouldLoadBookmarkedStatus = _shouldLoadBookmarkedStatus;
 
 // All stored shows are favorites.
 + (NSArray *)favoritedShowsInContext:(NSManagedObjectContext *)context;
@@ -39,23 +33,6 @@
                         failure:failure];
 }
 
-- (instancetype)init;
-{
-  if ((self = [super init])) {
-    _shouldLoadBookmarkedStatus = YES;
-  }
-  return self;
-}
-
-- (instancetype)initAsBookmarked;
-{
-  if ((self = [super init])) {
-    _bookmarked = YES;
-    _shouldLoadBookmarkedStatus = NO;
-  }
-  return self;
-}
-
 - (instancetype)initWithTitle:(NSString *)title path:(NSString *)path;
 {
   if ((self = [self init])) {
@@ -65,6 +42,7 @@
   return self;
 }
 
+// TODO is this still needed without plist store
 - (NSDictionary *)serializeAsDictionary;
 {
   NSMutableDictionary *attributes = [NSMutableDictionary new];
@@ -93,28 +71,30 @@
                        failure:failure];
 }
 
-// TODO
 - (BOOL)isBookmarked;
 {
-  //if (self.shouldLoadBookmarkedStatus) {
-    //self.shouldLoadBookmarkedStatus = NO;
-    //_bookmarked = [[UZGPlistStore sharedStore] hasBookmarkedShowForPath:self.path];
-  //}
-  //return _bookmarked;
-  return NO;
+  NSLog(@"%@ - %@", self, self.managedObjectContext);
+  return self.managedObjectContext != nil;
 }
 
-// TODO
+// TODO this should happen in a block, also on the background?
 - (void)setBookmarked:(BOOL)bookmarked;
 {
-  //if (_bookmarked != bookmarked) {
-    //_bookmarked = bookmarked;
-    //// No need to serialize when we'll be removing from the store.
-    //NSDictionary *attributes = bookmarked ? [self serializeAsDictionary] : nil;
-    //[[UZGPlistStore sharedStore] setHasBookmarkedShow:bookmarked
-                                              //forPath:self.path
-                                           //attributes:attributes];
-  //}
+  if (bookmarked) {
+    if (!self.isBookmarked) {
+      NSLog(@"[Gemist] Add to bookmarks!");
+      [self.insertIntoContext insertObject:self];
+    }
+  } else {
+    if (self.isBookmarked) {
+      NSLog(@"[Gemist] Remove from bookmarks!");
+      [self.managedObjectContext deleteObject:self];
+    }
+  }
+  if (self.insertIntoContext.hasChanges) {
+    NSLog(@"[Gemist] Saving bookmark changes!");
+    [self.insertIntoContext recursiveSave];
+  }
 }
 
 - (void)toggleBookmarked;
